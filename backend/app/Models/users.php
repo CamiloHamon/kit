@@ -6,17 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class users extends Model
+class Users extends Model
 {
+    use HasFactory;
 
-    protected $table = "user";
+    protected $table = 'user';
     protected $primaryKey = 'idUser';
     public $timestamps = false;
 
-    public function listStudents()
+    public function getUserByName($username)
     {
         $user = DB::table(('user'))
-            ->where('rol_idRol', '=', 2)
+            ->where('username', $username)
             ->get();
 
         return $user;

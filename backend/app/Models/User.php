@@ -11,8 +11,9 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
-    protected $table = "userlogin";
-    protected $primaryKey = 'idUserLogin';
+    protected $table = "user";
+    protected $primaryKey = 'idUser';
+    public $timestamps = false;
     
     /**
      * The attributes that are mass assignable.
@@ -20,7 +21,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'email',
+        'username',
         'password',
     ];
 
@@ -30,7 +31,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password',
+        'username',
         'remember_token',
     ];
 

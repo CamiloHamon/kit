@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Users;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -24,7 +25,18 @@ class AuthController extends Controller
     public function register()
     {
         $user = new User(request()->all());
+        //Validar si ese username ya existe.
+        $userName = new Users();
+        $valUser = $userName->getUserByName($user->username);
+
+        if (count($valUser) != 0) {
+            return response()->json(['message' => 'El usuario ya existe.'], 200);
+        }
+
+        //si no existe, lo registre en la bd.
         $user->password = bcrypt($user->password);
+        $user->rol_id = 2;
+
         $user->save();
         return response()->json(["data" => $user], 200);
     }
@@ -36,8 +48,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        $credentials = request(["email", "password"]);
-
+        $credentials = request(["username", "password"]);
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -59,7 +70,6 @@ class AuthController extends Controller
     {
         return auth()->user();
     }
-
 
     /**
      * Log the user out (Invalidate the token).
@@ -92,26 +102,14 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
-        
-        $rol = $this->getUserRol(auth()->user());
-        
         return response()->json([
             'token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user(),
-            'rol' => json_encode($rol)
+            'expires_in' => auth()->factory()->getTTL() * 120,
+            'user' => [
+                'idUser' => auth()->user()->idUser,
+                'rol' => auth()->user()->rol_id
+            ]
         ]);
-    }
-
-    protected function getUserRol($user)
-    {
-        $user = auth()->user();
-        $idUser = $user->idUserLogin;
-        $info = new usersCtrl();
-        $info = $info->getInfoUser($idUser);
-        $json = json_decode($info);
-        $rol = $json[0]->rol_idRol;
-        return $rol;
     }
 }
