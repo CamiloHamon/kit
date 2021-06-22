@@ -25,9 +25,12 @@ Route::group([
     Route::post('register', [AuthController::class, 'register']);
 });
 
-//Admin y Student
 Route::group(['middleware' => ['jwt.verify']], function () {
     //Auth
     Route::get('me', [AuthController::class, 'me']);
     Route::post('logout', [AuthController::class, 'logout']);
+
+    //let's talk
+    Route::get('environments', 'App\Http\Controllers\EnvironmentsCtrl@getEnvironments');
+    Route::get('situations', 'App\Http\Controllers\SituationsCtrl@getSituations');
 });

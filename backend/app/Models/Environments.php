@@ -6,20 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Users extends Model
+class Environments extends Model
 {
     use HasFactory;
-
-    protected $table = 'user';
+    protected $table = "e_enviroments";
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-    public function getUserByName($username)
+    public function getEnvironments()
     {
-        $user = DB::table(('user'))
-            ->where('username', $username)
+        $environments = DB::table(('e_enviroments'))
+            ->select('*')
             ->get();
 
-        return $user;
+        return $environments;
     }
 }

@@ -25,15 +25,16 @@ class AuthController extends Controller
     public function register()
     {
         $user = new User(request()->all());
-        //Validar si ese username ya existe.
+        //Validate if that username already exists.
         $userName = new Users();
         $valUser = $userName->getUserByName($user->username);
 
         if (count($valUser) != 0) {
+            //If it exists, don't create it and notify the user that that username already exists.
             return response()->json(['message' => 'El usuario ya existe.'], 200);
         }
 
-        //si no existe, lo registre en la bd.
+        //If it does not exist, register it in the database.
         $user->password = bcrypt($user->password);
         $user->rol_id = 2;
 

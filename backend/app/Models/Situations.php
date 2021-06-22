@@ -6,20 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Users extends Model
+class Situations extends Model
 {
     use HasFactory;
-
-    protected $table = 'user';
+    protected $table = "s_situations";
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-    public function getUserByName($username)
+    public function getSituations()
     {
-        $user = DB::table(('user'))
-            ->where('username', $username)
+        $environments = DB::table(('s_situations'))
+            ->select('*')
             ->get();
 
-        return $user;
+        return $environments;
     }
 }
