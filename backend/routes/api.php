@@ -33,4 +33,6 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     //let's talk
     Route::get('environments', 'App\Http\Controllers\EnvironmentsCtrl@getEnvironments');
     Route::get('situations', 'App\Http\Controllers\SituationsCtrl@getSituations');
+    Route::get('sensations', 'App\Http\Controllers\SensationsCtrl@getSensations');
+    Route::get('emotions', 'App\Http\Controllers\EmotionsCtrl@getEmotions');
 });
