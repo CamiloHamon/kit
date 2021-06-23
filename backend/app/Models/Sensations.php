@@ -13,12 +13,4 @@ class Sensations extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-    public function getSensations()
-    {
-        $sensations = DB::table(('se_sensations'))
-            ->select('*')
-            ->get();
-
-        return $sensations;
-    }
 }

@@ -12,13 +12,4 @@ class Environments extends Model
     protected $table = "e_enviroments";
     protected $primaryKey = 'id';
     public $timestamps = false;
-
-    public function getEnvironments()
-    {
-        $environments = DB::table(('e_enviroments'))
-            ->select('*')
-            ->get();
-
-        return $environments;
-    }
 }

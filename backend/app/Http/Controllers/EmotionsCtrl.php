@@ -12,12 +12,10 @@ class EmotionsCtrl extends Controller
     {
         try {
             $listEmotions = Emotions::getFourEmotions();
-            if (count($listEmotions) > 0) {
-                //If you find the emotions then you send them to the view as json.
-                return response()->json($listEmotions, 200);
+            if (is_null($listEmotions)) {
+                return response()->json(['message' => 'Not Found'], 404);
             }
-
-            return response()->json(['message' => 'Not Found'], 404);
+            return response()->json($listEmotions, 200);
         } catch (Exception $e) {
             return response()->json(['message' => 'Internal Server Error'], 500);
         }
@@ -27,7 +25,7 @@ class EmotionsCtrl extends Controller
     {
         try {
             $emotions = Emotions::find($id);
-            
+
             if (is_null($emotions)) {
                 return response()->json(['message' => 'Not Found'], 404);
             }
