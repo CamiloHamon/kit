@@ -13,12 +13,13 @@ class Situations extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-    public function getSituations()
+    public function getThreeSituations()
     {
         $environments = DB::table(('s_situations'))
             ->select('*')
+            ->inRandomOrder()
+            ->limit(3)
             ->get();
-
         return $environments;
     }
 }
