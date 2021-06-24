@@ -15,6 +15,7 @@ class QuestionsCtrl extends Controller
     private $esSensationEmotion;
     private $esseemQuestion;
 
+
     public function __construct(EnvironmentsSituationsRepository $environmentSituation, ESSensationsEmotionsRepository $esSensationEmotion, ESSEEMQuestionsRepository $esseemQuestion)
     {
         $this->environmentSituation = $environmentSituation;
@@ -34,8 +35,30 @@ class QuestionsCtrl extends Controller
                 $newQuestion->isCorrect = $question->isCorrect;
                 array_push($sendQuestions, $newQuestion);
             }
-            
+
             return response()->json($sendQuestions, 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Internal Server Error'], 500);
+        }
+    }
+
+    public function getQuestionById($id)
+    {
+        try {
+            $infoQuestion = Questions::find($id);
+            if (is_null($infoQuestion)) {
+                return response()->json(['message' => 'Not Found'], 400);
+            }
+            $description = explode(' - ', $infoQuestion->description);
+            $question = [
+                'id' => $infoQuestion->id,
+                'name' => $infoQuestion->name,
+                'information' => [
+                    'title' => $description[0],
+                    'description' => $description[1]
+                ]
+            ];
+            return response()->json($question, 200);
         } catch (Exception $e) {
             return response()->json(['message' => 'Internal Server Error'], 500);
         }
