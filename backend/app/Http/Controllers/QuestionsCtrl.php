@@ -63,4 +63,20 @@ class QuestionsCtrl extends Controller
             return response()->json(['message' => 'Internal Server Error'], 500);
         }
     }
+
+    public function validateQuestion($idEnv, $idSit, $idSensation, $idEmotion, $idQuestion)
+    {
+        try {
+            $idEnvSit = $this->environmentSituation->getIdEnvironmentAndSituation($idEnv, $idSit);
+            $idEnvSitSenEmo = $this->esSensationEmotion->getIdESSensationsEmotions($idEnvSit[0]->id, $idSensation, $idEmotion);
+            $isCorrect = $this->esseemQuestion->getIsCorrectQuestion($idEnvSitSenEmo[0]->id, $idQuestion);
+            if (count($isCorrect) <= 0) {
+                return response()->json(['message' => 'Not Found'], 400);
+            }
+            return response()->json($isCorrect, 200);
+        } catch (Exception $e) {
+            echo $e;
+            return response()->json(['message' => 'Internal Server Error'], 500);
+        }
+    }
 }

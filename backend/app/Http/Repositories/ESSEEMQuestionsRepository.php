@@ -11,7 +11,7 @@ class ESSEEMQuestionsRepository
     {
         $esSensationEmotion = DB::table(('esseemq_esseem_q'))
             ->select('id')
-            ->where('essem_id', $esseemId)
+            ->where('esseem_id', $esseemId)
             ->where('q_question_id', $questionID)
             ->get();
 
@@ -27,5 +27,16 @@ class ESSEEMQuestionsRepository
             ->get();
 
         return $esSensationEmotion;
+    }
+
+    public static function getIsCorrectQuestion($esseemId, $questionID)
+    {
+        $isCorrect = DB::table(('esseemq_esseem_q'))
+            ->select('isCorrect')
+            ->where('esseem_id', $esseemId)
+            ->where('q_question_id', $questionID)
+            ->get();
+
+        return $isCorrect;
     }
 }
