@@ -30,7 +30,6 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('me', [AuthController::class, 'me']);
     Route::post('logout', [AuthController::class, 'logout']);
 
-    //let's talk
     //Environments
     Route::get('environments', 'App\Http\Controllers\EnvironmentsCtrl@getAllEnvironments');
 
@@ -62,4 +61,8 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('resources', 'App\Http\Controllers\ResourcesCtrl@getAllResources');
     Route::get('showResources/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}', 'App\Http\Controllers\ResourcesCtrl@showResources');
     Route::get('isCorrectResource/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}/{idResource}', 'App\Http\Controllers\ResourcesCtrl@validateResource');
+
+    //EffectiveCombinations
+    Route::get('effectiveCombitation/{idEmotion}', 'App\Http\Controllers\EffectiveCombinationsCtrl@buildCombinationByEmotionID');
+
 });
