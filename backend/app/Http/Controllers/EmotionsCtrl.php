@@ -6,6 +6,8 @@ use App\Models\Emotions;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Repositories\EmotionsRepository;
+use App\Http\Repositories\EnvironmentsSituationsRepository;
+use App\Http\Repositories\ESSensationsEmotionsRepository;
 use Illuminate\Support\Str;
 
 use function PHPSTORM_META\type;
@@ -14,22 +16,30 @@ class EmotionsCtrl extends Controller
 {
 
     private $emotionRepository;
+    private $environmentSituationRepository;
+    private $esSensationsEmotionsRepository;
 
-    public function __construct(EmotionsRepository $emotionRepository)
+    public function __construct(EmotionsRepository $emotionRepository, EnvironmentsSituationsRepository $environmentSituationRepository, ESSensationsEmotionsRepository $esSensationsEmotionsRepository)
     {
         $this->emotionRepository = $emotionRepository;
+        $this->environmentSituationRepository = $environmentSituationRepository;
+        $this->esSensationsEmotionsRepository = $esSensationsEmotionsRepository;
     }
 
-
-    public function getEmotions()
+    public function showEmotions($idEnv, $idSit, $idSensation)
     {
         try {
-            $listEmotions = $this->emotionRepository->getFourEmotions();
-            if (is_null($listEmotions)) {
-                return response()->json(['message' => 'Not Found'], 404);
+            $idEnvSit = $this->environmentSituationRepository->getIdEnvironmentAndSituation($idEnv, $idSit);
+            $emotions = $this->esSensationsEmotionsRepository->getIdEmotions($idEnvSit[0]->id, $idSensation);
+            $sendEmotions = array();
+            foreach ($emotions as $emotion) {
+                $newEmotion = Emotions::find($emotion->em_emotion_id);
+                array_push($sendEmotions, $newEmotion);
             }
-            return response()->json($listEmotions, 200);
+            
+            return response()->json($sendEmotions, 200);
         } catch (Exception $e) {
+            echo $e;
             return response()->json(['message' => 'Internal Server Error'], 500);
         }
     }

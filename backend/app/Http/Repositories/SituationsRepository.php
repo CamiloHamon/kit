@@ -9,12 +9,6 @@ class SituationsRepository
 {
     public static function getThreeSituations()
     {
-        $environments = DB::table(('s_situations'))
-            ->select('*')
-            ->inRandomOrder()
-            ->limit(3)
-            ->get();
 
-        return $environments;
     }
 }

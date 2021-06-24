@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Repositories\EnvironmentsSituationsRepository;
 use App\Http\Repositories\SituationsRepository;
 use App\Models\Situations;
 use Exception;
@@ -9,21 +10,25 @@ use Illuminate\Http\Request;
 
 class SituationsCtrl extends Controller
 {
+    private $environmentSituationRepository;
     private $situationsRepository;
 
-    public function __construct(SituationsRepository $situationsRepository)
+    public function __construct(EnvironmentsSituationsRepository $environmentSituationRepository, SituationsRepository $situationsRepository)
     {
+        $this->environmentSituationRepository = $environmentSituationRepository;
         $this->situationsRepository = $situationsRepository;
     }
 
-    public function getSituations()
+    public function showSituations($idEnvironment)
     {
         try {
-            $listSituations = $this->situationsRepository->getThreeSituations();
-            if (is_null($listSituations)) {
-                return response()->json(['message' => 'Not Found'], 404);
+            $situations = $this->environmentSituationRepository->getIdByEnvironmentId($idEnvironment);
+            $sendSituations = array();
+            foreach ($situations as $situation) {
+                $newSituation = Situations::find($situation->s_situation_id);
+                array_push($sendSituations, $newSituation);
             }
-            return response()->json($listSituations, 200);
+            return response()->json($sendSituations, 200);
         } catch (Exception $e) {
             return response()->json(['message' => 'Internal Server Error'], 500);
         }

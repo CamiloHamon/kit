@@ -17,4 +17,15 @@ class EnvironmentsSituationsRepository
 
         return $environmentSituation;
     }
+
+    public static function getIdByEnvironmentId($idEnv)
+    {
+        $environmentSituation = DB::table(('es_e_s'))
+            ->select('s_situation_id')
+            ->where('e_enviroment_id', $idEnv)
+            ->inRandomOrder()
+            ->get();
+
+        return $environmentSituation;
+    }
 }

@@ -9,7 +9,7 @@ use App\Models\Questions;
 use Exception;
 use Illuminate\Http\Request;
 
-class ShowQuestionsCtrl extends Controller
+class QuestionsCtrl extends Controller
 {
     private $environmentSituation;
     private $esSensationEmotion;
@@ -37,7 +37,6 @@ class ShowQuestionsCtrl extends Controller
             
             return response()->json($sendQuestions, 200);
         } catch (Exception $e) {
-            echo $e;
             return response()->json(['message' => 'Internal Server Error'], 500);
         }
     }
