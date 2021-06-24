@@ -36,5 +36,6 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('sensations', 'App\Http\Controllers\SensationsCtrl@getSensations');
     Route::get('emotions', 'App\Http\Controllers\EmotionsCtrl@getEmotions');
     Route::get('emotions/{id}', 'App\Http\Controllers\EmotionsCtrl@getEmotionsById');
+    Route::get('showQuestions/{idEnv}/{idSit}/{idSensation}/{idEmotion}', 'App\Http\Controllers\ShowQuestionsCtrl@showQuestions');
 
 });
