@@ -4,68 +4,83 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\EnvironmentsSituationsRepository;
 use App\Http\Repositories\ESSEEMQDistinctionsRepository;
+use App\Http\Repositories\ESSEEMQDResourcesRepository;
 use App\Http\Repositories\ESSEEMQuestionsRepository;
 use App\Http\Repositories\ESSensationsEmotionsRepository;
-use App\Models\Distinctions;
+use App\Models\Resources;
 use Exception;
 use Illuminate\Http\Request;
 
-class DistinctionsCtrl extends Controller
+class ResourcesCtrl extends Controller
 {
     private $environmentSituation;
     private $esSensationEmotion;
     private $esseemQuestion;
     private $esseemqDistinction;
+    private $esseemqdResources;
 
 
-    public function __construct(EnvironmentsSituationsRepository $environmentSituation, ESSensationsEmotionsRepository $esSensationEmotion, ESSEEMQuestionsRepository $esseemQuestion, ESSEEMQDistinctionsRepository $esseemqDistinction)
+    public function __construct(EnvironmentsSituationsRepository $environmentSituation, ESSensationsEmotionsRepository $esSensationEmotion, ESSEEMQuestionsRepository $esseemQuestion, ESSEEMQDistinctionsRepository $esseemqDistinction, ESSEEMQDResourcesRepository $esseemqdResources)
     {
         $this->environmentSituation = $environmentSituation;
         $this->esSensationEmotion = $esSensationEmotion;
         $this->esseemQuestion = $esseemQuestion;
         $this->esseemqDistinction = $esseemqDistinction;
+        $this->esseemqdResources = $esseemqdResources;
     }
 
-    public function showDistinctions($idEnv, $idSit, $idSensation, $idEmotion, $idQuestion)
+    public function showResources($idEnv, $idSit, $idSensation, $idEmotion, $idQuestion, $idDistinction)
     {
         try {
             $idEnvSit = $this->environmentSituation->getIdEnvironmentAndSituation($idEnv, $idSit);
             $idEnvSitSenEmo = $this->esSensationEmotion->getIdESSensationsEmotions($idEnvSit[0]->id, $idSensation, $idEmotion);
             $idEnvSitSenEmoQues = $this->esseemQuestion->getIdESSEMQuestion($idEnvSitSenEmo[0]->id, $idQuestion);
-            $distinctions = $this->esseemqDistinction->getDistinctions($idEnvSitSenEmoQues[0]->id);
+            $idEnvSitSenEmoQuesDist = $this->esseemqDistinction->getIdESSEEMQD($idEnvSitSenEmoQues[0]->id, $idDistinction);
+            $resources = $this->esseemqdResources->getResources($idEnvSitSenEmoQuesDist[0]->id);
             $sendDistinctions = array();
-            foreach ($distinctions as $distinction) {
-                $newDistinction = Distinctions::find($distinction->d_distinction_id);
-                $newDistinction->isCorrect = $distinction->isCorrect;
-                array_push($sendDistinctions, $newDistinction);
+            foreach ($resources as $resource) {
+                $newResource = Resources::find($resource->r_resource_id);
+                $newResource->isCorrect = $resource->isCorrect;
+                array_push($sendDistinctions, $newResource);
             }
 
             return response()->json($sendDistinctions, 200);
         } catch (Exception $e) {
+            echo $e;
             return response()->json(['message' => 'Internal Server Error'], 500);
         }
     }
 
-    public function getDistinctionById($id)
+    public function getResourceById($id)
     {
         try {
-            $infoQuestion = Distinctions::find($id);
+            $infoQuestion = Resources::find($id);
             if (is_null($infoQuestion)) {
                 return response()->json(['message' => 'Not Found'], 400);
             }
-            return response()->json($infoQuestion, 200);
+            $description = explode('. ', $infoQuestion->description);
+            $question = [
+                'id'=> $infoQuestion->id,
+                'name'=>$infoQuestion->name,
+                'content'=>[
+                    'firstPart'=>$description[0],
+                    'secondPart'=>$description[1]
+                ]
+            ];
+            return response()->json($question, 200);
         } catch (Exception $e) {
             return response()->json(['message' => 'Internal Server Error'], 500);
         }
     }
 
-    public function validateDistinction($idEnv, $idSit, $idSensation, $idEmotion, $idQuestion, $idDistinction)
+    public function validateResource($idEnv, $idSit, $idSensation, $idEmotion, $idQuestion, $idDistinction, $idResource)
     {
         try {
             $idEnvSit = $this->environmentSituation->getIdEnvironmentAndSituation($idEnv, $idSit);
             $idEnvSitSenEmo = $this->esSensationEmotion->getIdESSensationsEmotions($idEnvSit[0]->id, $idSensation, $idEmotion);
             $idEnvSitSenEmoQues = $this->esseemQuestion->getIdESSEMQuestion($idEnvSitSenEmo[0]->id, $idQuestion);
-            $isCorrect = $this->esseemqDistinction->getIsCorrectDistinction($idEnvSitSenEmoQues[0]->id, $idDistinction);
+            $idEnvSitSenEmoQuesDist = $this->esseemqDistinction->getIdESSEEMQD($idEnvSitSenEmoQues[0]->id, $idDistinction);
+            $isCorrect = $this->esseemqdResources->getIsCorrectResource($idEnvSitSenEmoQuesDist[0]->id, $idResource);
             if (count($isCorrect) <= 0) {
                 return response()->json(['message' => 'Not Found'], 400);
             }

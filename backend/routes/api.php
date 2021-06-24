@@ -42,5 +42,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('showDistinctions/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}', 'App\Http\Controllers\DistinctionsCtrl@showDistinctions');
     Route::get('distinction/{id}', 'App\Http\Controllers\DistinctionsCtrl@getDistinctionById');
     Route::get('isCorrectDistinction/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}', 'App\Http\Controllers\DistinctionsCtrl@validateDistinction');
-
+    Route::get('showResources/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}', 'App\Http\Controllers\ResourcesCtrl@showResources');
+    Route::get('resource/{id}', 'App\Http\Controllers\ResourcesCtrl@getResourceById');
+    Route::get('isCorrectResource/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}/{idResource}', 'App\Http\Controllers\ResourcesCtrl@validateResource');
 });

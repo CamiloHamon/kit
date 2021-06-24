@@ -7,15 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class ESSEEMQDistinctionsRepository
 {
-    public static function getIdESSEEMQDistintions($esseemId, $questionID)
+
+    public static function getIdESSEEMQD($esseemqId, $distinctionId)
     {
-        $esSensationEmotion = DB::table(('esseemq_esseem_q'))
+        $idESSEEMQD = DB::table(('esseemqd_esseemq_d'))
             ->select('id')
-            ->where('esseem_id', $esseemId)
-            ->where('q_question_id', $questionID)
+            ->where('esseemq_id', $esseemqId)
+            ->where('d_distinction_id', $distinctionId)
             ->get();
 
-        return $esSensationEmotion;
+        return $idESSEEMQD;
     }
 
     public static function getDistinctions($esseemqId)
