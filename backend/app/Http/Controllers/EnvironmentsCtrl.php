@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class EnvironmentsCtrl extends Controller
 {
-    public function getEnvironments()
+    public function getAllEnvironments()
     {
         try {
             $listEnvmnts = Environments::all();

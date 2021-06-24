@@ -29,6 +29,19 @@ class ResourcesCtrl extends Controller
         $this->esseemqdResources = $esseemqdResources;
     }
 
+    public function getAllResources()
+    {
+        try {
+            $resources = Resources::all();
+            if (is_null($resources)) {
+                return response()->json(['message' => 'Not Found'], 404);
+            }
+            return response()->json($resources, 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Internal Server Error'], 500);
+        }
+    }
+
     public function showResources($idEnv, $idSit, $idSensation, $idEmotion, $idQuestion, $idDistinction)
     {
         try {

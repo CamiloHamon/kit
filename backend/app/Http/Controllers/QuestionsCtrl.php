@@ -23,6 +23,19 @@ class QuestionsCtrl extends Controller
         $this->esseemQuestion = $esseemQuestion;
     }
 
+    public function getAllQuestions()
+    {
+        try {
+            $questions = Questions::all();
+            if (is_null($questions)) {
+                return response()->json(['message' => 'Not Found'], 404);
+            }
+            return response()->json($questions, 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Internal Server Error'], 500);
+        }
+    }
+
     public function showQuestions($idEnv, $idSit, $idSensation, $idEmotion)
     {
         try {

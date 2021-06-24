@@ -26,6 +26,20 @@ class EmotionsCtrl extends Controller
         $this->esSensationsEmotionsRepository = $esSensationsEmotionsRepository;
     }
 
+
+    public function getAllEmotions()
+    {
+        try {
+            $emotions = Emotions::all();
+            if (is_null($emotions)) {
+                return response()->json(['message' => 'Not Found'], 404);
+            }
+            return response()->json($emotions, 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Internal Server Error'], 500);
+        }
+    }
+
     public function showEmotions($idEnv, $idSit, $idSensation)
     {
         try {
@@ -36,7 +50,7 @@ class EmotionsCtrl extends Controller
                 $newEmotion = Emotions::find($emotion->em_emotion_id);
                 array_push($sendEmotions, $newEmotion);
             }
-            
+
             return response()->json($sendEmotions, 200);
         } catch (Exception $e) {
             echo $e;
@@ -57,7 +71,7 @@ class EmotionsCtrl extends Controller
             $generate = $this->organizeValues($separate[0]);
 
             $comunication = $this->organizeValues($separate[1]);
-     
+
             $emotion = [
                 'id' => $emotions->id,
                 'name' => $emotions->name,

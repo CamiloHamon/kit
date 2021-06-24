@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SensationsCtrl extends Controller
 {
-    public function getSensations()
+    public function getAllSensations()
     {
         try {
             $listSensations = Sensations::all();

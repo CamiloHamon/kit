@@ -26,6 +26,19 @@ class DistinctionsCtrl extends Controller
         $this->esseemqDistinction = $esseemqDistinction;
     }
 
+    public function getAllDistinctions()
+    {
+        try {
+            $distinctions = Distinctions::all();
+            if (is_null($distinctions)) {
+                return response()->json(['message' => 'Not Found'], 404);
+            }
+            return response()->json($distinctions, 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Internal Server Error'], 500);
+        }
+    }
+
     public function showDistinctions($idEnv, $idSit, $idSensation, $idEmotion, $idQuestion)
     {
         try {

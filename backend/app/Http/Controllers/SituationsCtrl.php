@@ -19,10 +19,10 @@ class SituationsCtrl extends Controller
         $this->situationsRepository = $situationsRepository;
     }
 
-    public function showSituations($idEnvironment)
+    public function showSituations($idEnv)
     {
         try {
-            $situations = $this->environmentSituationRepository->getIdByEnvironmentId($idEnvironment);
+            $situations = $this->environmentSituationRepository->getIdByEnvironmentId($idEnv);
             $sendSituations = array();
             foreach ($situations as $situation) {
                 $newSituation = Situations::find($situation->s_situation_id);
