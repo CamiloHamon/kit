@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\UserRepository;
 use App\Models\User;
-use App\Models\Users;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -17,17 +17,20 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+
+    private $userRepository;
+
+    public function __construct(UserRepository $userRepository)
     {
         $this->middleware('jwt', ['except' => ['login', 'register']]);
+        $this->userRepository = $userRepository;
     }
 
     public function register()
     {
         $user = new User(request()->all());
         //Validate if that username already exists.
-        $userName = new Users();
-        $valUser = $userName->getUserByName($user->username);
+        $valUser = $this->userRepository->getUserByName($user->username);
 
         if (count($valUser) != 0) {
             //If it exists, don't create it and notify the user that that username already exists.

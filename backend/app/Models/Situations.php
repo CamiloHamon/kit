@@ -10,16 +10,5 @@ class Situations extends Model
 {
     use HasFactory;
     protected $table = "s_situations";
-    protected $primaryKey = 'id';
     public $timestamps = false;
-
-    public static function getThreeSituations()
-    {
-        $environments = DB::table(('s_situations'))
-            ->select('*')
-            ->inRandomOrder()
-            ->limit(3)
-            ->get();
-        return $environments;
-    }
 }

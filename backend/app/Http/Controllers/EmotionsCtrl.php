@@ -5,16 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Emotions;
 use Exception;
 use Illuminate\Http\Request;
+use App\Http\Repositories\EmotionsRepository;
 use Illuminate\Support\Str;
 
 use function PHPSTORM_META\type;
 
 class EmotionsCtrl extends Controller
 {
+
+    private $emotionRepository;
+
+    public function __construct(EmotionsRepository $emotionRepository)
+    {
+        $this->emotionRepository = $emotionRepository;
+    }
+
+
     public function getEmotions()
     {
         try {
-            $listEmotions = Emotions::getFourEmotions();
+            $listEmotions = $this->emotionRepository->getFourEmotions();
             if (is_null($listEmotions)) {
                 return response()->json(['message' => 'Not Found'], 404);
             }

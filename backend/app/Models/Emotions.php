@@ -12,15 +12,4 @@ class Emotions extends Model
     protected $table = "em_emotions";
     protected $primaryKey = 'id';
     public $timestamps = false;
-
-    public static function getFourEmotions()
-    {
-        $emotions = DB::table(('em_emotions'))
-            ->select('*')
-            ->inRandomOrder()
-            ->limit(4)
-            ->get();
-
-        return $emotions;
-    }
 }
