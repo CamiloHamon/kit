@@ -31,38 +31,41 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('logout', [AuthController::class, 'logout']);
 
     //Environments
-    Route::get('environments', 'App\Http\Controllers\EnvironmentsCtrl@getAllEnvironments');
+    Route::get('environments', 'App\Http\Controllers\EnvironmentsController@index');
+    Route::get('environment/{id}', 'App\Http\Controllers\EnvironmentsController@show');
 
     //Situations
-    Route::get('situations/{idEnv}', 'App\Http\Controllers\SituationsCtrl@showSituations');
-    
+    Route::get('situations', 'App\Http\Controllers\SituationsController@index');
+    Route::get('situation/{id}', 'App\Http\Controllers\SituationsController@show');
+    Route::get('situations/{idEnvironment}', 'App\Http\Controllers\SituationsController@getSituationsByEnvironment');
+
     //Sensations
-    Route::get('sensations', 'App\Http\Controllers\SensationsCtrl@getAllSensations');
+    Route::get('sensations', 'App\Http\Controllers\SensationsController@index');
+    Route::get('sensation/{id}', 'App\Http\Controllers\SensationsController@show');
 
     //Emotions
-    Route::get('emotions', 'App\Http\Controllers\EmotionsCtrl@getAllEmotions');
-    Route::get('emotion/{id}', 'App\Http\Controllers\EmotionsCtrl@getEmotionsById');
-    Route::get('emotions/{idEnv}/{idSit}/{idSensation}', 'App\Http\Controllers\EmotionsCtrl@showEmotions');
+    Route::get('emotions', 'App\Http\Controllers\EmotionsController@index');
+    Route::get('emotion/{id}', 'App\Http\Controllers\EmotionsController@show');
+    Route::get('emotions/{idES}/{idSensation}', 'App\Http\Controllers\EmotionsController@getEmotionsByESAndSensation');
 
     //Questions
-    Route::get('questions', 'App\Http\Controllers\QuestionsCtrl@getAllQuestions');
-    Route::get('question/{id}', 'App\Http\Controllers\QuestionsCtrl@getQuestionById');
-    Route::get('showQuestions/{idEnv}/{idSit}/{idSensation}/{idEmotion}', 'App\Http\Controllers\QuestionsCtrl@showQuestions');
-    Route::get('isCorrectQuestion/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}', 'App\Http\Controllers\QuestionsCtrl@validateQuestion');
+    Route::get('questions', 'App\Http\Controllers\QuestionsController@index');
+    Route::get('question/{id}', 'App\Http\Controllers\QuestionsController@show');
+    Route::get('questions/{idESSE}', 'App\Http\Controllers\QuestionsController@getQuestionsByESSE');
+    Route::get('isCorrectQuestion/{idESSE}/{idQuestion}', 'App\Http\Controllers\QuestionsController@validateQuestion');
 
     //Distinctions
-    Route::get('distinctions', 'App\Http\Controllers\DistinctionsCtrl@getAllDistinctions');
-    Route::get('distinction/{id}', 'App\Http\Controllers\DistinctionsCtrl@getDistinctionById');
-    Route::get('showDistinctions/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}', 'App\Http\Controllers\DistinctionsCtrl@showDistinctions');
-    Route::get('isCorrectDistinction/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}', 'App\Http\Controllers\DistinctionsCtrl@validateDistinction');
+    Route::get('distinctions', 'App\Http\Controllers\DistinctionsController@index');
+    Route::get('distinction/{id}', 'App\Http\Controllers\DistinctionsController@show');
+    Route::get('distinctions/{idESSEQ}', 'App\Http\Controllers\DistinctionsController@getDistinctionsByESSEQ');
+    Route::get('isCorrectDistinction/{idESSEQ}/{idDistinction}', 'App\Http\Controllers\DistinctionsController@validateDistinction');
 
     //Resources
-    Route::get('resource/{id}', 'App\Http\Controllers\ResourcesCtrl@getResourceById');
-    Route::get('resources', 'App\Http\Controllers\ResourcesCtrl@getAllResources');
-    Route::get('showResources/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}', 'App\Http\Controllers\ResourcesCtrl@showResources');
-    Route::get('isCorrectResource/{idEnv}/{idSit}/{idSensation}/{idEmotion}/{idQuestion}/{idDistinction}/{idResource}', 'App\Http\Controllers\ResourcesCtrl@validateResource');
+    Route::get('resources', 'App\Http\Controllers\ResourcesController@index');
+    Route::get('resource/{id}', 'App\Http\Controllers\ResourcesController@show');
+    Route::get('resources/{idESSEEQD}', 'App\Http\Controllers\ResourcesController@getResourcesByESSEQD');
+    Route::get('isCorrectResource/{idESSEEQD}/{idResource}', 'App\Http\Controllers\ResourcesController@validateResource');
 
     //EffectiveCombinations
-    Route::get('effectiveCombitation/{idEmotion}', 'App\Http\Controllers\EffectiveCombinationsCtrl@buildCombinationByEmotionID');
-
+    Route::get('effectiveCombitation/{idEmotion}', 'App\Http\Controllers\EffectiveCombinationsController@buildCombinationByEmotionId');
 });

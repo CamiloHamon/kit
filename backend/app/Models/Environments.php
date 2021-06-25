@@ -9,6 +9,6 @@ use Illuminate\Support\Facades\DB;
 class Environments extends Model
 {
     use HasFactory;
-    protected $table = "e_enviroments";
+    protected $table = "e_environments";
     public $timestamps = false;
 }
