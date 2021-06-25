@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class UserRepository
 {
-    public function getUserByName($username)
+    public function getUserByEmail($email)
     {
         $user = DB::table(('user'))
-            ->where('username', $username)
+            ->where('email', $email)
             ->get();
 
         return $user;

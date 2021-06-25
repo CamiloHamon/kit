@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 //Auth
 Route::group([
     'prefix' => 'auth'

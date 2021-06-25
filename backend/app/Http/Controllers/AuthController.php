@@ -30,7 +30,7 @@ class AuthController extends Controller
     {
         $user = new User(request()->all());
         //Validate if that username already exists.
-        $valUser = $this->userRepository->getUserByName($user->username);
+        $valUser = $this->userRepository->getUserByEmail($user->email);
 
         if (count($valUser) != 0) {
             //If it exists, don't create it and notify the user that that username already exists.
@@ -52,7 +52,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        $credentials = request(["username", "password"]);
+        $credentials = request(["email", "password"]);
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -111,7 +111,8 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => [
-                'idUser' => auth()->user()->idUser,
+                'id' => auth()->user()->id,
+                'email' => auth()->user()->email,
                 'rol' => auth()->user()->rol_id
             ]
         ]);
