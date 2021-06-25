@@ -10,7 +10,6 @@ class Sensations extends Model
 {
     use HasFactory;
     protected $table = "se_sensations";
-    protected $primaryKey = 'id';
     public $timestamps = false;
 
 }

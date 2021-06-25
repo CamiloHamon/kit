@@ -9,6 +9,5 @@ class ESSEEMQuestions extends Model
 {
     use HasFactory;
     protected $table = "esseemq_esseem_q";
-    protected $primaryKey = 'id';
     public $timestamps = false;
 }

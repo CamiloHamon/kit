@@ -9,6 +9,5 @@ class Distinctions extends Model
 {
     use HasFactory;
     protected $table = "d_distinctions";
-    protected $primaryKey = 'id';
     public $timestamps = false;
 }

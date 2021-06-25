@@ -9,6 +9,5 @@ class Resources extends Model
 {
     use HasFactory;
     protected $table = "r_resources";
-    protected $primaryKey = 'id';
     public $timestamps = false;
 }

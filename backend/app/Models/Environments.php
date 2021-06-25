@@ -10,6 +10,5 @@ class Environments extends Model
 {
     use HasFactory;
     protected $table = "e_enviroments";
-    protected $primaryKey = 'id';
     public $timestamps = false;
 }

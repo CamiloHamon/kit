@@ -10,6 +10,5 @@ class Emotions extends Model
 {
     use HasFactory;
     protected $table = "em_emotions";
-    protected $primaryKey = 'id';
     public $timestamps = false;
 }

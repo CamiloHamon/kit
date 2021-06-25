@@ -9,6 +9,5 @@ class Questions extends Model
 {
     use HasFactory;
     protected $table = "q_questions";
-    protected $primaryKey = 'id';
     public $timestamps = false;
 }
