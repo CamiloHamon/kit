@@ -28,7 +28,6 @@ class QuestionsRepository
             ->join('q_questions as q', 'q.id', 'esseq.q_question_id')
             ->where('esseq.esseem_id', $idESSE)
             ->where('esseq.q_question_id', $idQuestion)
-            ->inRandomOrder()
             ->get();
 
         return $questions;
