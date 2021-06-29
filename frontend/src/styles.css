@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~material-icons/iconfont/material-icons.css';
+
+.img-header {
+	max-width: 15px;
+}
+
+.bg-primary {
+	background-color: #101320 !important;
+}
+
+.bg-secondary {
+	background-color: #6caaff !important;
+}
+
+.white {
+	color: white !important;
+}
+
+.navbar-spacing-left .navbar-nav .nav-link {
+	padding-left: 2.5rem;
+}
+
+.navbar-spacing-right .navbar-nav .nav-link {
+	padding-right: 2.5rem;
+}
