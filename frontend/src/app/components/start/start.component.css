@@ -1,0 +1,46 @@
+
+.position-start {
+	position: absolute;
+	right: 0;
+}
+
+.bg-img-start {
+	background-image: url('/assets/img/pre-login.png');
+	background-repeat: no-repeat;
+}
+
+.img-start {
+	max-width: 50%;
+}
+
+.h-start {
+	height: 90.3vh;
+}
+
+.text-start {
+	font-size: 3.5rem;
+	color: #fff1cb;
+	line-height: 70px;
+	font-family: 'Pistilli';
+	z-index: 10;
+}
+
+.btn-primary {
+	background-color: #6caaff !important;
+	color: #fff !important;
+}
+
+
+@media (max-height: 760px) {
+	.bg-img-start {
+		background-size: cover;
+	}
+
+	.h-start {
+		height: 85.7vh;
+	}
+
+	.img-start {
+		max-width: 58%;
+	}
+}
