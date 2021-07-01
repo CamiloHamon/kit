@@ -1,20 +1,22 @@
-
-.position-start {
-	position: absolute;
-	right: 0;
-}
-
 .bg-img-start {
 	background-image: url('/assets/img/pre-login.png');
 	background-repeat: no-repeat;
+	background-size: 60%;
+	background-position-x: right;
+	background-position-y: top;
 }
 
-.img-start {
-	max-width: 50%;
+.bg-points {
+	background-image: url('/assets/img/puntos.png');
+	background-repeat: no-repeat;
+	background-position-x: right;
+	background-position-y: center;
+	background-size: 40%;
 }
 
-.h-start {
-	height: 90.3vh;
+.vh-100-custom{
+	height: 100vh;
+	z-index: -1;
 }
 
 .text-start {
@@ -25,21 +27,63 @@
 	z-index: 10;
 }
 
+.text-custom-left {
+	text-align: left !important;
+}
+
 .btn-primary {
 	background-color: #6caaff !important;
 	color: #fff !important;
 }
 
-@media (max-height: 760px) {
-	.bg-img-start {
-		background-size: cover;
+.vh-100 {
+	height: 90.4vh !important;
+}
+
+@media only screen and (max-width: 991px) {
+	.vh-100 {
+		height: 100vh !important;
 	}
 
-	.h-start {
-		height: 85.7vh;
+	.bg-img-start {
+		background-image: url('/assets/img/pre-login.png');
+		background-size: cover;
+		background-position-x: 25%;
+		background-position-y: center;
 	}
 
 	.img-start {
-		max-width: 58%;
+		max-width: 100%;
+	}
+
+	.text-start {
+		font-size: 2.2rem;
+		line-height: 40px;
+	}
+
+	.position-start {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-content: center;
+		align-items: center;
+	}
+
+	.bg-points {
+		background-image: url('/assets/img/puntos.png'), url('/assets/img/logo.png'),
+			url('/assets/img/icono-circulo.png');
+		background-repeat: no-repeat, no-repeat, no-repeat;
+		background-position-x: left, 1rem, 80%;
+		background-position-y: bottom, 1rem, 80%;
+		background-size: auto, 3.5rem, 3rem;
+	}
+
+	.bg-figure {
+		background-image: url('/assets/img/figure-blue-small.png'),
+			url('/assets/img/figure-blue.png');
+		background-repeat: no-repeat, no-repeat;
+		background-position-x: left, center;
+		background-position-y: top, bottom;
+		background-size: 2.5rem, 10rem 0.1rem;
 	}
 }

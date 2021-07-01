@@ -7,6 +7,10 @@
 	font-weight: bold;
 }
 
+body{
+	height: 100vh;
+}
+
 .bg-primary {
 	background-color: #101320 !important;
 }
@@ -31,13 +35,13 @@
 	padding-right: 2.5rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
 	.navbar-spacing-right .navbar-nav .nav-link {
-		padding-right: 0.3rem;
+		padding-right: 0.7rem;
 	}
 
 	.navbar-spacing-left .navbar-nav .nav-link {
-		padding-left: 0.3rem;
+		padding-left: 0.7rem;
 	}
 }
 
