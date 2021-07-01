@@ -19,6 +19,9 @@
 	color: white !important;
 }
 
+.cursor-pointer{
+	cursor: pointer;
+}
 
 .navbar-spacing-left .navbar-nav .nav-link {
 	padding-left: 2.5rem;

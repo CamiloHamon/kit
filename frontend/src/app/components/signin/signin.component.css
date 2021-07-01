@@ -47,6 +47,10 @@
     box-shadow: none;
 }
 
+.h-login {
+	height: 90.3vh;
+}
+
 .form-check-input:checked[type=checkbox] {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
     /* background-color: black; */
@@ -61,6 +65,7 @@
 .btn-primary{
     padding-left: 2rem!important;
     padding-right: 2rem!important;
+    background-color: #6caaff;
 }
 
 .forgot{
@@ -68,4 +73,17 @@
     font-size: 13px;
     color: #fff1cb;
     font-weight: 500;
+}
+
+.position-img-login{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-height: 760px) {
+	.h-login {
+		height: 85.7vh;
+	}
 }

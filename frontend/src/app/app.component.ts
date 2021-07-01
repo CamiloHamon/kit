@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  changeBg = false;
+
+  constructor(private router: Router) {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        if(val.url === '/login') this.changeBg = true;
+        else this.changeBg = false;
+      }
+    })
+
+  }
 }

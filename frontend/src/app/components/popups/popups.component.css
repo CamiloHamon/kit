@@ -1,0 +1,73 @@
+.bg-puntos{
+    background-image: url('/assets/img/puntos.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.text-popups{
+    font-family: 'Pistilli';
+    font-size: 3rem;
+    color: black;
+    line-height: 1.8rem;
+}
+
+.text-popups .small{
+    font-size: 2rem;
+}
+
+.border-custom-popup{
+    border-bottom: 4px solid #fff1cb;
+}
+
+.ul-custom{
+    list-style: none;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.bg-brain{
+    background-image: url('/assets/img/silueta.png');
+    background-position-x: right;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.tap-content-custom{
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-pills .nav-link {
+    color: #fff;
+    background-color: transparent;
+    text-align: start;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #101320;
+    background-color: transparent;
+    text-align: start;
+}
+
+.modal-content {
+    border-radius: 1.5rem;
+}
+
+.btn-close-custom{
+    position: absolute;
+    top: 1.5rem;
+    right:  1.5rem;
+    background-color: #6caaff!important;
+    border-radius: 50%;
+    opacity: 100;
+    background: none;
+    height: 1.5rem;
+    width: 1.5rem;
+}
