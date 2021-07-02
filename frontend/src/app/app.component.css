@@ -1,3 +1,9 @@
 .h-custom{
     height: 9.6vh;
 }
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}

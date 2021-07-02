@@ -7,6 +7,12 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { StartComponent } from './components/start/start.component';
 import { PopupsComponent } from './components/popups/popups.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './guards/auth.guard';
+import { HomeComponent } from './components/home/home.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +20,24 @@ import { PopupsComponent } from './components/popups/popups.component';
     SignupComponent,
     SigninComponent,
     StartComponent,
-    PopupsComponent
+    PopupsComponent,
+    HomeComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

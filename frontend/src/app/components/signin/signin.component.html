@@ -2,14 +2,16 @@
     <div class="col-lg-11 col-xxl-9 row vh-70 justify-content-center justify-content-lg-end align-content-center">
         <div class="col-9 col-sm-7 col-md-5 col-lg-4 col-xxl-3 mt-5">
             <h5 class="text-login text-center mt-5">Iniciar sesión</h5>
-            <form>
+            <form (ngSubmit)="signIn()">
                 <div class="mt-4 mb-3">
                     <label for="user" class="form-label d-none">Usuario</label>
-                    <input type="email" class="form-control" id="user" placeholder="Usuario">
+                    <input type="email" [(ngModel)]='email' class="form-control" name="email" placeholder="Usuario"
+                        required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label d-none">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                    <input type="password" [(ngModel)]='password' class="form-control" name="password"
+                        placeholder="Contraseña">
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="rememberUser">

@@ -7,6 +7,10 @@
 	font-weight: bold;
 }
 
+.currentLink{
+	color: #6caaff!important;
+}
+
 body{
 	height: 100vh;
 }
@@ -19,12 +23,20 @@ body{
 	background-color: #6caaff !important;
 }
 
-.white {
-	color: white !important;
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: white;
 }
 
 .cursor-pointer{
 	cursor: pointer;
+}
+
+.white{
+	color: white!important;
 }
 
 .navbar-spacing-left .navbar-nav .nav-link {
