@@ -1,9 +1,9 @@
 .bg-img-start {
 	background-image: url('/assets/img/pre-login.png');
 	background-repeat: no-repeat;
-	background-size: 60%;
-	background-position-x: right;
-	background-position-y: top;
+	background-size: 50%;
+    background-position-x: 85%;
+    background-position-y: top;
 }
 
 .bg-points {
