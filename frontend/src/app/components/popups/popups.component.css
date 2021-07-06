@@ -12,6 +12,36 @@
     line-height: 1.8rem;
 }
 
+.text-popups .environments{
+    font-size: 5rem;
+    line-height: 1.8rem;
+}
+
+.text-popups .environmentsSmall{
+    font-size: 3rem;
+}
+
+.cover{
+    background-size: cover;
+}
+
+.one-custom{
+    position: absolute;
+    top: 2rem;
+    width: 100px;
+    left: 2rem;
+    color: #fff1cb;
+    font-size: 4rem;
+}
+
+.center-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    z-index: 10;
+}
+
 .text-popups .small{
     font-size: 2rem;
 }

@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row shadow border rounded" style="height: 30vh;">
+        <div class="col-12 px-0" id="content-cards">
+            <div id="rhombus">
+                <div class="content">
+                    <div class="text">3</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1-custom" id="content-cards">
+            <img src="/assets/img/card-environment.png" class="img-fluid" alt="">
+            <div class="text-cards-tree"></div>
+        </div>
+    </div>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-12 text-center">
+            <p>Lee atentamente cada situación y escoge la que quieras consultar.</p>
+            <p class="select-env">Selecciona una carta y haz clic en el botón ELEGIR.</p>
+        </div>
+    </div>
+    <form class="p-0">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-2 ps-0 text-center" *ngFor="let emotion of emotions">
+                <input type="radio" [(ngModel)]='idEmotion' [value]="emotion.id" name="situation"
+                    id="situation-{{emotion.id}}" class="situationInput">
+                <label for="situation-{{emotion.id}}" id="label">
+                    <img src="/assets/img/card-situation.png" class="img-fluid" alt="">
+                    <div class="text-cards">{{emotion.situation}}</div>
+                </label>
+            </div>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-secondary" routerLink="/conversation/environments">VOLVER</button>
+                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

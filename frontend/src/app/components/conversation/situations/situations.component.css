@@ -1,0 +1,101 @@
+.vh-100 {
+	height: 90.4vh !important;
+}
+
+#rhombus {
+	position: absolute;
+	top: -1.5rem;
+	left: 48%;
+}
+#rhombus .content .text {
+	font-family: 'Pistilli';
+	color: white;
+	position: relative;
+	overflow: hidden;
+	top: 47%;
+	-webkit-transform: translateY(-50%) rotate(-45deg);
+	-ms-transform: translateY(-50%) rotate(-45deg);
+	transform: translateY(-50%) rotate(-45deg);
+	font-size: 3rem;
+	text-transform: uppercase;
+}
+
+#rhombus .content {
+	background-color: black;
+	padding: 0;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	display: block;
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
+	transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8);
+}
+
+#content-cards {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.btn{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+input {
+	display: none;
+}
+
+input:checked + label {
+	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
+	border: 5px solid #6caaff;
+	border-radius: 0.9rem;
+}
+
+#label:hover {
+	opacity: 0.8;
+}
+
+#label {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.cards-content {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.text-cards {
+	position: absolute;
+	color: white;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	font-size: 12px;
+	transform: translate(-50%, -50%);
+}
+
+.text-cards-tree {
+	position: absolute;
+	color: white;
+	top: 8.5rem;
+	left: 50%;
+	width: 100%;
+	font-size: 10px;
+	transform: translate(-50%, -50%);
+}
+
+.col-1-custom{
+	flex: 0 0 auto;
+    width: 14.285%;
+}
+
+.select-env{
+    color: #6facfc;
+}
+

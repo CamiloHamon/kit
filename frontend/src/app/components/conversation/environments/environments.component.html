@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 shadow border rounded" id="content-cards" style="height: 30vh;">
+            <div id="rhombus">
+                <div class="content">
+                    <div class="text">1</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-12 text-center">
+            <p>De los siguientes entornos, ¿cuál te gustaría explorar?</p>
+            <p class="select-env">Selecciona una carta y haz clic en el botón ELEGIR.</p>
+        </div>
+    </div>
+    <form (ngSubmit)="continue()" class="p-0">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-2 cards ps-0 text-center" *ngFor="let environment of environments">
+                <input type="radio" [(ngModel)]='environmentId' [value]="environment.id" name="environment"
+                    id="environment-{{environment.id}}" class="environmentInput">
+                <label for="environment-{{environment.id}}" id="label">
+                    <img src="/assets/img/card-environment.png" class="img-fluid" alt="">
+                    <div class="text-cards">{{environment.name}}</div>
+                </label>
+            </div>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-secondary" routerLink="/home">VOLVER</button>
+                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

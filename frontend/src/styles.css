@@ -15,6 +15,11 @@ body{
 	height: 100vh;
 }
 
+.btn-primary {
+	background-color: #6caaff !important;
+	color: #fff !important;
+}
+
 .bg-primary {
 	background-color: #101320 !important;
 }

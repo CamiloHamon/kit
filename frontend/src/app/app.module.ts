@@ -13,6 +13,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ConversationComponent } from './components/conversation/conversation.component';
+import { EnvironmentsComponent } from './components/conversation/environments/environments.component';
+import { StartConversationComponent } from './components/conversation/start-conversation/start-conversation.component';
+import { SituationsComponent } from './components/conversation/situations/situations.component';
+import { SensationsComponent } from './components/conversation/sensations/sensations.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     StartComponent,
     PopupsComponent,
     HomeComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ConversationComponent,
+    EnvironmentsComponent,
+    StartConversationComponent,
+    SituationsComponent,
+    SensationsComponent
   ],
   imports: [
     BrowserModule,
