@@ -11,6 +11,9 @@ import { StartComponent } from './components/start/start.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EmotionsComponent } from './components/conversation/emotions/emotions.component';
 import { QuestionsComponent } from './components/conversation/questions/questions.component';
+import { DistinctionsComponent } from './components/conversation/distinctions/distinctions.component';
+import { ResourcesComponent } from './components/conversation/resources/resources.component';
+import { FeedbackComponent } from './components/conversation/feedback/feedback.component';
 
 const routes: Routes = [
   {
@@ -54,6 +57,18 @@ const routes: Routes = [
       {
         path: 'questions',
         component: QuestionsComponent
+      },
+      {
+        path: 'distinctions',
+        component: DistinctionsComponent
+      },
+      {
+        path: 'resources',
+        component: ResourcesComponent
+      },
+      {
+        path: 'feedback',
+        component: FeedbackComponent
       }
     ]
   }

@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <div class="row shadow border rounded py-5">
+        <div class="col-12 px-0" id="content-cards">
+            <div id="rhombus">
+                <div class="content">
+                    <div class="text">6</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1-custom" id="content-cards">
+            <img src="/assets/img/card-environment.png" class="img-fluid" alt="">
+            <div class="text-cards-tree">{{environment.name}}</div>
+        </div>
+        <div class="col-1-custom" id="content-cards">
+            <img src="/assets/img/card-situation.png" class="img-fluid" alt="">
+            <div class="text-cards-tree-situations" style="top: 50%;">{{environment.name}}</div>
+        </div>
+        <div class="col-1-custom align-self-center" id="content-cards">
+            <img src="/assets/img/emoji-{{sensation.id}}.png" class="img-fluid" alt="">
+        </div>
+        <div class="col-1-custom" id="content-cards">
+            <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
+            <div class="text-cards" style="font-size: 10px;">{{emotion.name}}</div>
+        </div>
+        <div class="col-1-custom" id="content-cards">
+            <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
+            <div class="text-cards" style="font-size: 10px;">{{question.name}}</div>
+        </div>
+        <div class="col-1-custom" id="content-cards">
+            <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
+            <div class="text-cards" style="font-size: 10px;">{{distinction.name}}</div>
+        </div>
+    </div>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-12 text-center">
+            <p>Lee atentamente cada situación y escoge la que quieras consultar.</p>
+            <p class="select-env">Selecciona una carta y haz clic en el botón ELEGIR.</p>
+        </div>
+    </div>
+    <form (ngSubmit)="continue()" class="p-0">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-2 cards ps-0 text-center" *ngFor="let resource of resources">
+                <input type="radio" [(ngModel)]='resourceContent' value="{{resource.id_resource}}-{{resource.id}}"
+                    name="emotion" id="emotion-{{resource.id_resource}}" class="emotionInput">
+                <label for="emotion-{{resource.id_resource}}" id="label">
+                    <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
+                    <div class="text-cards">{{resource.resource}}</div>
+                </label>
+            </div>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-secondary" routerLink="/conversation/questions">VOLVER</button>
+                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

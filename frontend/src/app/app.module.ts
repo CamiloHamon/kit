@@ -20,6 +20,9 @@ import { SituationsComponent } from './components/conversation/situations/situat
 import { SensationsComponent } from './components/conversation/sensations/sensations.component';
 import { EmotionsComponent } from './components/conversation/emotions/emotions.component';
 import { QuestionsComponent } from './components/conversation/questions/questions.component';
+import { DistinctionsComponent } from './components/conversation/distinctions/distinctions.component';
+import { ResourcesComponent } from './components/conversation/resources/resources.component';
+import { FeedbackComponent } from './components/conversation/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { QuestionsComponent } from './components/conversation/questions/question
     SituationsComponent,
     SensationsComponent,
     EmotionsComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    DistinctionsComponent,
+    ResourcesComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,4 +12,10 @@ export class PopupsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  mdlSampleIsOpen: boolean = false;
+  
+  openModal(open: boolean): void {
+    this.mdlSampleIsOpen = open;
+  }
+
 }
