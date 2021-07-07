@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <div class="row shadow border rounded" style="height: 30vh;">
+    <div class="row shadow border rounded py-5">
         <div class="col-12 px-0" id="content-cards">
             <div id="rhombus">
                 <div class="content">
@@ -15,6 +15,9 @@
             <img src="/assets/img/card-situation.png" class="img-fluid" alt="">
             <div class="text-cards-tree-situations">{{environment.name}}</div>
         </div>
+        <div class="col-1-custom align-self-center" id="content-cards">
+            <img src="/assets/img/emoji-{{sensation.id}}.png" class="img-fluid" alt="">
+        </div>
     </div>
     <div class="row mt-5 justify-content-center">
         <div class="col-12 text-center">
@@ -23,22 +26,20 @@
         </div>
     </div>
     <form (ngSubmit)="continue()" class="p-0">
-        <div class="row bg-gray-ligth mt-5 p-3 justify-content-center border border-radius-custom">
-            <div class="row bg-gray w-100 py-4 justify-content-center border border-radius-custom">
-                <div class="col-2 text-center" *ngFor="let sensation of sensations">
-                    <input type="radio" [(ngModel)]='idSensation' [value]="sensation.id" name="situation"
-                        id="situation-{{sensation.id}}" class="situationInput">
-                    <label for="situation-{{sensation.id}}" id="label" class="rounded-circle">
-                        <img src="/assets/img/emoji-{{sensation.id}}.png" class="img-fluid rounded-circle" alt="">
-                        <div class="text-cards">{{sensation.situation}}</div>
-                    </label>
-                </div>
-            </div>
-        </div>
         <div class="row mt-5 justify-content-center">
-            <div class="col-12 text-center">
-                <button class="btn btn-outline-secondary" routerLink="/conversation/situations">VOLVER</button>
-                <button class="btn btn-primary ms-5">ELEGIR</button>
+            <div class="col-2 cards ps-0 text-center" *ngFor="let emotion of emotions">
+                <input type="radio" [(ngModel)]='emotionContent' value="{{emotion.id_emotion}}-{{emotion.id}}"
+                    name="emotion" id="emotion-{{emotion.id_emotion}}" class="emotionInput">
+                <label for="emotion-{{emotion.id_emotion}}" id="label">
+                    <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
+                    <div class="text-cards">{{emotion.emotion}}</div>
+                </label>
+            </div>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-secondary" routerLink="/conversation/sensations">VOLVER</button>
+                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                </div>
             </div>
         </div>
     </form>

@@ -18,6 +18,8 @@ import { EnvironmentsComponent } from './components/conversation/environments/en
 import { StartConversationComponent } from './components/conversation/start-conversation/start-conversation.component';
 import { SituationsComponent } from './components/conversation/situations/situations.component';
 import { SensationsComponent } from './components/conversation/sensations/sensations.component';
+import { EmotionsComponent } from './components/conversation/emotions/emotions.component';
+import { QuestionsComponent } from './components/conversation/questions/questions.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SensationsComponent } from './components/conversation/sensations/sensat
     EnvironmentsComponent,
     StartConversationComponent,
     SituationsComponent,
-    SensationsComponent
+    SensationsComponent,
+    EmotionsComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,

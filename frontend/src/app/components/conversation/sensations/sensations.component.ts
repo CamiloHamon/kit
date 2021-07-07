@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SensationService } from 'src/app/services/sensation.service';
 
 
@@ -8,13 +9,12 @@ import { SensationService } from 'src/app/services/sensation.service';
   styleUrls: ['./sensations.component.css']
 })
 export class SensationsComponent implements OnInit {
-  idEmotion: number = -1;
-  emotions: any = [];
+  idSensation: number = -1;
+  sensations: any = [];
   environment: any = [];
   situation: any = [];
-  situations: any = [];
 
-  constructor(private sensationService:SensationService) {
+  constructor(private sensationService:SensationService, private router:Router) {
     let infoEnvironment: any = localStorage.getItem('environment');
     infoEnvironment = JSON.parse(infoEnvironment);
 
@@ -23,11 +23,30 @@ export class SensationsComponent implements OnInit {
 
     this.environment = infoEnvironment;
     this.situation = infoSituation;
-
     
+    this.sensationService.index().subscribe(
+      res=>{
+        this.sensations = res;
+        console.log(this.sensations)
+      },
+      err =>{
+        console.log(err);
+      }
+    )
   }
 
   ngOnInit(): void {
+  }
+
+  continue(){
+    console.log(this.idSensation);
+    this.sensationService.show(this.idSensation).subscribe(
+      res=>{
+        localStorage.setItem('sensation', `${JSON.stringify(res)}`);
+        this.router.navigate(['/conversation/emotions']);
+      },
+      err => { console.log(err) }
+    )
   }
 
 }

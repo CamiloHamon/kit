@@ -4,7 +4,7 @@
 
 #rhombus {
 	position: absolute;
-	top: -1.5rem;
+	top: -4.5rem;
 	left: 48%;
 }
 #rhombus .content .text {
@@ -72,8 +72,8 @@ input:checked + label {
 
 .text-cards {
 	position: absolute;
-	color: white;
-	top: 50%;
+	color: #a25260;
+	top: 30%;
 	left: 50%;
 	width: 100%;
 	font-size: 12px;

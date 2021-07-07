@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { StartComponent } from './components/start/start.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EmotionsComponent } from './components/conversation/emotions/emotions.component';
+import { QuestionsComponent } from './components/conversation/questions/questions.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,14 @@ const routes: Routes = [
       {
         path: 'sensations',
         component: SensationsComponent
+      },
+      {
+        path: 'emotions',
+        component: EmotionsComponent
+      },
+      {
+        path: 'questions',
+        component: QuestionsComponent
       }
     ]
   }

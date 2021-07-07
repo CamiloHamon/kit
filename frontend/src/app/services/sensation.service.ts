@@ -10,8 +10,8 @@ export class SensationService {
   
   constructor(private http: HttpClient, private router:Router) { }
 
-  index(idSensation: number){
-    return this.http.get<any>(`${this.URL}/sensations/${idSensation}`);
+  index(){
+    return this.http.get<any>(`${this.URL}/sensations`);
   }
 
   show(idSensation:number){
