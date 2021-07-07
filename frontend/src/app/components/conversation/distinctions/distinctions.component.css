@@ -84,10 +84,11 @@ input:checked + label {
 .text-cards-tree {
 	position: absolute;
 	color: white;
-	top: 8.5rem;
+	top: 80%;
 	left: 50%;
-	width: 100%;
+	width: 75%;
 	font-size: 10px;
+	font-weight: bold;
 	transform: translate(-50%, -50%);
 }
 
@@ -96,8 +97,31 @@ input:checked + label {
 	color: white;
 	top: 40%;
 	left: 50%;
-	width: 100%;
+	width: 75%;
 	font-size: 10px;
+	font-weight: bold;
+	transform: translate(-50%, -50%);
+}
+
+.text-cards-tree-emotions {
+	position: absolute;
+	color: #a25260;
+	font-weight: bold;
+	top: 30%;
+	left: 50%;
+	width: 80%;
+	font-size: 12px;
+	transform: translate(-50%, -50%);
+}
+
+.text-cards-tree-questions {
+	position: absolute;
+	color: #4a80b3;
+	font-weight: bold;
+	top: 30%;
+	left: 50%;
+	width: 80%;
+	font-size: 12px;
 	transform: translate(-50%, -50%);
 }
 

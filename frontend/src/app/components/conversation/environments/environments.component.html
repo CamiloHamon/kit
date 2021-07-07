@@ -15,7 +15,7 @@
         </div>
     </div>
     <form (ngSubmit)="continue()" class="p-0">
-        <div class="row mt-5 justify-content-center">
+        <div class="row mt-4 justify-content-center">
             <div class="col-2 cards ps-0 text-center" *ngFor="let environment of environments">
                 <input type="radio" [(ngModel)]='environmentId' [value]="environment.id" name="environment"
                     id="environment-{{environment.id}}" class="environmentInput">
