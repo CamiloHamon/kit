@@ -75,7 +75,7 @@ export class ResourcesComponent implements OnInit {
         if (res[0].isCorrect === 1) {
           this.idESSEQDR = Number(contentResource[1]);
           localStorage.setItem('esseeqdr', `${this.idESSEQDR}`);
-          this.router.navigate(['/conversation/feedback']);
+          this.router.navigate(['/conversation/resources/details']);
         } else {
           alert('Error!!')
         }

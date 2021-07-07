@@ -24,7 +24,6 @@ export class EnvironmentsComponent implements OnInit {
       res => {
         console.log(res)
         localStorage.setItem('environment', `${JSON.stringify(res)}`);
-        this.router.navigate(['/conversation/situations']);
       },
       err => { console.log(err) }
     )

@@ -72,10 +72,11 @@ input:checked + label {
 
 .text-cards {
 	position: absolute;
-	color: #a25260;
+	color: #60b3a2;
+	font-weight: bold;
 	top: 30%;
 	left: 50%;
-	width: 100%;
+	width: 80%;
 	font-size: 12px;
 	transform: translate(-50%, -50%);
 }

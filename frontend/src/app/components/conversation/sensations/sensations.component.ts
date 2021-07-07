@@ -43,7 +43,6 @@ export class SensationsComponent implements OnInit {
     this.sensationService.show(this.idSensation).subscribe(
       res=>{
         localStorage.setItem('sensation', `${JSON.stringify(res)}`);
-        this.router.navigate(['/conversation/emotions']);
       },
       err => { console.log(err) }
     )

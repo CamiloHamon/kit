@@ -15,7 +15,7 @@
     <div class="row mt-5 justify-content-center">
         <div class="col-12 text-center">
             <p>Lee atentamente cada situación y escoge la que quieras consultar.</p>
-            <p class="select-env">Selecciona una carta y haz clic en el botón ELEGIR.</p>
+            <p class="select-env">Haz clic sobre una de las cartas y presiona el botón ELEGIR.</p>
         </div>
     </div>
     <form (ngSubmit)="continue()" class="p-0">
@@ -31,7 +31,8 @@
             <div class="row mt-5 justify-content-center">
                 <div class="col-12 text-center">
                     <button class="btn btn-outline-secondary" routerLink="/conversation/environments">VOLVER</button>
-                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                    <button class="btn btn-primary ms-5" data-bs-toggle="modal"
+                        data-bs-target="#sensations">ELEGIR</button>
                 </div>
             </div>
         </div>

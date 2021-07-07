@@ -70,7 +70,7 @@ export class DistinctionsComponent implements OnInit {
         if (res[0].isCorrect === 1) {
           this.idESSEQD = Number(contentDistinction[1]);
           localStorage.setItem('esseeqd', `${this.idESSEQD}`);
-          this.router.navigate(['/conversation/resources']);
+          this.router.navigate(['/conversation/distinctions/details']);
         } else {
           alert('Error!!')
         }

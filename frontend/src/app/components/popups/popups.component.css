@@ -13,7 +13,7 @@
 }
 
 .text-popups .environments{
-    font-size: 5rem;
+    font-size: 4.5rem;
     line-height: 1.8rem;
 }
 
@@ -100,4 +100,36 @@
     background: none;
     height: 1.5rem;
     width: 1.5rem;
+}
+
+.bg-environments{
+    background-color: #c37688;
+}
+
+.bg-situations{
+    background-color: #5cb1bc;
+}
+
+.bg-sensations{
+    background-color: #ea8200;
+}
+
+.bg-emotions{
+    background-color: #d78056;
+}
+
+.bg-questions{
+    background-color: #357ec0;
+}
+
+.bg-distinctions{
+    background-color: #60b3a2;
+}
+
+.bg-resources{
+    background-color: #c3a4ce;
+}
+
+.rounded-custom{
+    border-radius: 1.5rem;
 }

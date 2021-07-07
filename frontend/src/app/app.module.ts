@@ -23,6 +23,10 @@ import { QuestionsComponent } from './components/conversation/questions/question
 import { DistinctionsComponent } from './components/conversation/distinctions/distinctions.component';
 import { ResourcesComponent } from './components/conversation/resources/resources.component';
 import { FeedbackComponent } from './components/conversation/feedback/feedback.component';
+import { EmotionsDetailsComponent } from './components/conversation/emotions/emotions-details/emotions-details.component';
+import { QuestionsDetailsComponent } from './components/conversation/questions/questions-details/questions-details.component';
+import { DistinctionsDetailsComponent } from './components/conversation/distinctions/distinctions-details/distinctions-details.component';
+import { ResourcesDetailsComponent } from './components/conversation/resources/resources-details/resources-details.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,10 @@ import { FeedbackComponent } from './components/conversation/feedback/feedback.c
     DistinctionsComponent,
     ResourcesComponent,
     FeedbackComponent,
+    EmotionsDetailsComponent,
+    QuestionsDetailsComponent,
+    DistinctionsDetailsComponent,
+    ResourcesDetailsComponent,
   ],
   imports: [
     BrowserModule,

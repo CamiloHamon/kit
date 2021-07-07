@@ -33,7 +33,6 @@ export class SituationsComponent implements OnInit {
     this.situationsService.show(this.idSutiation).subscribe(
       res=>{
         localStorage.setItem('situation', `${JSON.stringify(res)}`);
-        this.router.navigate(['/conversation/sensations']);
       },
       err => { console.log(err) }
     )

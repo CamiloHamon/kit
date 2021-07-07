@@ -65,7 +65,7 @@ export class QuestionsComponent implements OnInit {
     this.questionsService.validateQuestion(this.idESSE, this.idQuestion).subscribe(
       res => {
         if (res[0].isCorrect === 1) {
-          this.router.navigate(['/conversation/distinctions']);
+          this.router.navigate(['/conversation/questions/details']);
         }else{
           alert('Error!!')
         }

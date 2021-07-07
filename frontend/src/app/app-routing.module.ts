@@ -14,6 +14,10 @@ import { QuestionsComponent } from './components/conversation/questions/question
 import { DistinctionsComponent } from './components/conversation/distinctions/distinctions.component';
 import { ResourcesComponent } from './components/conversation/resources/resources.component';
 import { FeedbackComponent } from './components/conversation/feedback/feedback.component';
+import { EmotionsDetailsComponent } from './components/conversation/emotions/emotions-details/emotions-details.component';
+import { QuestionsDetailsComponent } from './components/conversation/questions/questions-details/questions-details.component';
+import { DistinctionsDetailsComponent } from './components/conversation/distinctions/distinctions-details/distinctions-details.component';
+import { ResourcesDetailsComponent } from './components/conversation/resources/resources-details/resources-details.component';
 
 const routes: Routes = [
   {
@@ -52,19 +56,35 @@ const routes: Routes = [
       },
       {
         path: 'emotions',
-        component: EmotionsComponent
+        component: EmotionsComponent,
+      },
+      {
+        path: 'emotions/details',
+        component: EmotionsDetailsComponent,
       },
       {
         path: 'questions',
         component: QuestionsComponent
       },
       {
+        path: 'questions/details',
+        component: QuestionsDetailsComponent
+      },
+      {
         path: 'distinctions',
         component: DistinctionsComponent
       },
       {
+        path: 'distinctions/details',
+        component: DistinctionsDetailsComponent
+      },
+      {
         path: 'resources',
         component: ResourcesComponent
+      },
+      {
+        path: 'resources/details',
+        component: ResourcesDetailsComponent
       },
       {
         path: 'feedback',
