@@ -19,10 +19,14 @@ export class FunctionsService {
     private emotionsService: EmotionsService,
     private questionsService: QuestionsService,
     private distinctionsService: DistinctionsService,
-    private resourcesService: ResourcesService
+    private resourcesService: ResourcesService,
   ) { }
 
-  removeAllItems(){
+  removeAllItems() {
+    sessionStorage.removeItem('esse');
+    sessionStorage.removeItem('esseeq');
+    sessionStorage.removeItem('esseeqd');
+    sessionStorage.removeItem('esseeqdr');
     this.environmentsServices.removeEnvironment();
     this.situationsService.removeSituation();
     this.sensationsService.removeSensation();
@@ -32,7 +36,7 @@ export class FunctionsService {
     this.resourcesService.removeResource();
   }
 
-  removeAllExceptEnv(){
+  removeAllExceptEnv() {
     this.situationsService.removeSituation();
     this.sensationsService.removeSensation();
     this.emotionsService.removeEmotion();
@@ -41,7 +45,7 @@ export class FunctionsService {
     this.resourcesService.removeResource();
   }
 
-  removeAllExceptEnvAndSit(){
+  removeAllExceptEnvAndSit() {
     this.sensationsService.removeSensation();
     this.emotionsService.removeEmotion();
     this.questionsService.removeQuestion();
@@ -49,22 +53,64 @@ export class FunctionsService {
     this.resourcesService.removeResource();
   }
 
-  removeAllExceptEnvSitSensation(){
+  removeAllExceptEnvSitSensation() {
     this.emotionsService.removeEmotion();
     this.questionsService.removeQuestion();
     this.distinctionsService.removeDistinction();
     this.resourcesService.removeResource();
   }
 
-  removeAllExceptEnvSitSenEmotion(){
+  removeAllExceptEnvSitSenEmotion() {
     this.questionsService.removeQuestion();
     this.distinctionsService.removeDistinction();
     this.resourcesService.removeResource();
   }
 
-  removeAllExceptEnvSitSenEmotQuestion(){
+  removeAllExceptEnvSitSenEmotQuestion() {
     this.distinctionsService.removeDistinction();
     this.resourcesService.removeResource();
+  }
+
+  validateEnvSit(): boolean {
+    if (this.environmentsServices.existEnvironment() && this.situationsService.existSituation()) {
+      return true;
+    }
+    return false;
+  }
+
+  validateEnvSitSen(): boolean {
+    if (this.environmentsServices.existEnvironment() && this.situationsService.existSituation() && this.sensationsService.existSensation()) {
+      return true;
+    }
+    return false;
+  }
+
+  validateEnvSitSenEmo(): boolean {
+    if (this.environmentsServices.existEnvironment() && this.situationsService.existSituation() && this.sensationsService.existSensation() && this.emotionsService.existEmotion()) {
+      return true;
+    }
+    return false;
+  }
+
+  validateEnvSitSenEmoQues(): boolean {
+    if (this.environmentsServices.existEnvironment() && this.situationsService.existSituation() && this.sensationsService.existSensation() && this.emotionsService.existEmotion() && this.questionsService.existQuestion()) {
+      return true;
+    }
+    return false;
+  }
+
+  validateEnvSitSenEmoQuesDist(): boolean {
+    if (this.environmentsServices.existEnvironment() && this.situationsService.existSituation() && this.sensationsService.existSensation() && this.emotionsService.existEmotion() && this.questionsService.existQuestion() && this.distinctionsService.existDistinction()) {
+      return true;
+    }
+    return false;
+  }
+
+  validateEnvSitSenEmoQuesDistResource(): boolean {
+    if (this.environmentsServices.existEnvironment() && this.situationsService.existSituation() && this.sensationsService.existSensation() && this.emotionsService.existEmotion() && this.questionsService.existQuestion() && this.distinctionsService.existDistinction() && this.resourcesService.existResource()) {
+      return true;
+    }
+    return false;
   }
 
 }

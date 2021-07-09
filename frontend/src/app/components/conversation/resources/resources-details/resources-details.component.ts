@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ResourcesService } from 'src/app/services/resources.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { ResourcesService } from 'src/app/services/resources.service';
 export class ResourcesDetailsComponent implements OnInit {
 
   resources: any = [];
-  constructor(private resoursesService: ResourcesService) {
-    this.resources = this.resoursesService.getResource();
+  constructor(private resoursesService: ResourcesService, private router: Router) {
+    if (this.resoursesService.existResource()) {
+      this.resources = this.resoursesService.getResource();
+    } else router.navigate(['/conversation/resources']);
   }
 
   ngOnInit(): void {

@@ -12,11 +12,13 @@ export class EnvironmentsComponent implements OnInit {
   environments: any = [];
   environmentId: number = -1;
 
-  constructor(private environmentsServices: EnvironmentsService, private functionsServices:FunctionsService, private router: Router) {
+  constructor(private environmentsServices: EnvironmentsService, private functionsServices: FunctionsService, private router: Router) {
     this.functionsServices.removeAllItems();
-    this.environmentsServices.index().subscribe(res => {
-      this.environments = res;
-    }, err => console.log(err))
+    this.environmentsServices.index().subscribe(
+      res => {
+        this.environments = res;
+      },
+      err => console.log(err))
   }
 
   ngOnInit(): void { }

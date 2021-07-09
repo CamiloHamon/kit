@@ -18,6 +18,13 @@ import { EmotionsDetailsComponent } from './components/conversation/emotions/emo
 import { QuestionsDetailsComponent } from './components/conversation/questions/questions-details/questions-details.component';
 import { DistinctionsDetailsComponent } from './components/conversation/distinctions/distinctions-details/distinctions-details.component';
 import { ResourcesDetailsComponent } from './components/conversation/resources/resources-details/resources-details.component';
+import { SituationsGuard } from './guards/situations.guard';
+import { SensationsGuard } from './guards/sensations.guard';
+import { EmotionsGuard } from './guards/emotions.guard';
+import { QuestionsGuard } from './guards/questions.guard';
+import { DistinctionsGuard } from './guards/distinctions.guard';
+import { ResourcesGuard } from './guards/resources.guard';
+import { FeedbackGuard } from './guards/feedback.guard';
 
 const routes: Routes = [
   {
@@ -48,15 +55,18 @@ const routes: Routes = [
       },
       {
         path: 'situations',
-        component: SituationsComponent
+        component: SituationsComponent,
+        canActivate: [SituationsGuard]
       },
       {
         path: 'sensations',
-        component: SensationsComponent
+        component: SensationsComponent,
+        canActivate: [SensationsGuard]
       },
       {
         path: 'emotions',
         component: EmotionsComponent,
+        canActivate: [EmotionsGuard]
       },
       {
         path: 'emotions/details',
@@ -64,7 +74,8 @@ const routes: Routes = [
       },
       {
         path: 'questions',
-        component: QuestionsComponent
+        component: QuestionsComponent,
+        canActivate: [QuestionsGuard]
       },
       {
         path: 'questions/details',
@@ -72,7 +83,8 @@ const routes: Routes = [
       },
       {
         path: 'distinctions',
-        component: DistinctionsComponent
+        component: DistinctionsComponent,
+        canActivate: [DistinctionsGuard]
       },
       {
         path: 'distinctions/details',
@@ -80,7 +92,8 @@ const routes: Routes = [
       },
       {
         path: 'resources',
-        component: ResourcesComponent
+        component: ResourcesComponent,
+        canActivate: [ResourcesGuard]
       },
       {
         path: 'resources/details',
@@ -88,7 +101,8 @@ const routes: Routes = [
       },
       {
         path: 'feedback',
-        component: FeedbackComponent
+        component: FeedbackComponent,
+        canActivate: [FeedbackGuard]
       }
     ]
   }
