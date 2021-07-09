@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EmotionsService } from 'src/app/services/emotions.service';
 
 @Component({
   selector: 'app-emotions-details',
@@ -8,12 +9,10 @@ import { Router } from '@angular/router';
 })
 export class EmotionsDetailsComponent implements OnInit {
   emotion: any = [];
-  constructor(private router: Router) {
-    let infoEmotion: any = localStorage.getItem('emotion');
-    const content = JSON.parse(infoEmotion);
-    this.emotion = content;
+  constructor(private emotionsService: EmotionsService, private router: Router) {
+    this.emotion = this.emotionsService.getEmotion();
     try {
-      const split = content.description.split('. ');
+      const split = this.emotion.description.split('. ');
       let generate = split[0].split('? ')
       generate = generate[1];
       let comunication = split[1].split('? ');

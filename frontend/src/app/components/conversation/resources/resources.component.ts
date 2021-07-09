@@ -8,51 +8,19 @@ import { ResourcesService } from 'src/app/services/resources.service';
   styleUrls: ['./resources.component.css']
 })
 export class ResourcesComponent implements OnInit {
-
-  environment: any = [];
-  situation: any = [];
-  sensation: any = [];
-  emotion: any = [];
-  question: any = [];
-  distinction: any = [];
-  resourceContent: string = '';
   resources: any = [];
+  resourceContent: string = '';
   idESSEQD: number = -1;
-  idESSEQDR: number = -1;
-  idResource: number = -1;
 
   constructor(private resourcesService: ResourcesService, private router: Router) {
-    let infoEnvironment: any = localStorage.getItem('environment');
-    infoEnvironment = JSON.parse(infoEnvironment);
-
-    let infoSituation: any = localStorage.getItem('situation');
-    infoSituation = JSON.parse(infoSituation);
-
-    let infoSensation: any = localStorage.getItem('sensation');
-    infoSensation = JSON.parse(infoSensation);
-
-    let infoEmotion: any = localStorage.getItem('emotion');
-    infoEmotion = JSON.parse(infoEmotion);
-
-    let infoQuestion: any = localStorage.getItem('question');
-    infoQuestion = JSON.parse(infoQuestion);
-
-    let infoDistinction: any = localStorage.getItem('distinction');
-    infoDistinction = JSON.parse(infoDistinction);
-
-    this.environment = infoEnvironment;
-    this.situation = infoSituation;
-    this.sensation = infoSensation;
-    this.emotion = infoEmotion;
-    this.question = infoQuestion;
-    this.distinction = infoDistinction;
-    this.idESSEQD = Number(localStorage.getItem('esseeqd'));
+    this.resourcesService.removeResource();
+    this.idESSEQD = Number(sessionStorage.getItem('esseeqd'));
     this.resourcesService.getResourcesByESSEQD(this.idESSEQD).subscribe(
-      res =>{
+      res => {
         this.resources = res;
         console.log(res);
       },
-      err =>{
+      err => {
         console.log(err);
       }
     )
@@ -63,18 +31,18 @@ export class ResourcesComponent implements OnInit {
 
   continue() {
     const contentResource = this.resourceContent.split('-');
-    this.idResource = Number(contentResource[0]);
-    this.resourcesService.show(this.idResource).subscribe(
+    const idResource = Number(contentResource[0]);
+    this.resourcesService.show(idResource).subscribe(
       res => {
-        localStorage.setItem('resource', `${JSON.stringify(res)}`);
+        sessionStorage.setItem('resource', `${JSON.stringify(res)}`);
       },
       err => { console.log(err) }
     );
-    this.resourcesService.validateResource(this.idESSEQD, this.idResource).subscribe(
+    this.resourcesService.validateResource(this.idESSEQD, idResource).subscribe(
       res => {
         if (res[0].isCorrect === 1) {
-          this.idESSEQDR = Number(contentResource[1]);
-          localStorage.setItem('esseeqdr', `${this.idESSEQDR}`);
+          const idESSEQDR = Number(contentResource[1]);
+          sessionStorage.setItem('esseeqdr', `${idESSEQDR}`);
           this.router.navigate(['/conversation/resources/details']);
         } else {
           alert('Error!!')
@@ -84,6 +52,11 @@ export class ResourcesComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  goBack(){
+    this.resourcesService.removeResource();
+    this.router.navigate(['/conversation/distinctions']);
   }
 
 }

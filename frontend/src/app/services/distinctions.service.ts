@@ -25,4 +25,18 @@ export class DistinctionsService {
   validateDistinction(idESSEQ:number, idDistinction:number){
     return this.http.get<any>(`${this.URL}/isCorrectDistinction/${idESSEQ}/${idDistinction}`);
   }
+
+  getDistinction() {
+    let infoDistinction: any = sessionStorage.getItem('distinction');
+    infoDistinction = JSON.parse(infoDistinction);
+    return infoDistinction;
+  }
+
+  existDistinction(): boolean {
+    return !!sessionStorage.getItem('distinction');
+  }
+
+  removeDistinction():void{
+    sessionStorage.removeItem('distinction');
+  }
 }

@@ -1,28 +1,5 @@
 <div class="container mt-5">
-    <div class="row shadow border rounded py-5">
-        <div class="col-12 px-0" id="content-cards">
-            <div id="rhombus">
-                <div class="content">
-                    <div class="text">5</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-environment.png" class="img-fluid" alt="">
-            <div class="text-cards-tree">{{environment.name}}</div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-situation.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-situations" style="top: 50%;">{{situation.name}}</div>
-        </div>
-        <div class="col-1-custom align-self-center" id="content-cards">
-            <img src="/assets/img/emoji-{{sensation.id}}.png" class="img-fluid" alt="">
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-emotions" style="font-size: 10px;">{{emotion.name}}</div>
-        </div>
-    </div>
+    <app-cards-section></app-cards-section>
     <div class="row mt-5 justify-content-center">
         <div class="col-5 text-center">
             <p>A partir de la emoción identificada, elige la pregunta que más
@@ -41,7 +18,7 @@
             </div>
             <div class="row mt-5 justify-content-center">
                 <div class="col-12 text-center">
-                    <button class="btn btn-outline-secondary" routerLink="/conversation/emotions">CAMBIAR
+                    <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
                         EMOCIÓN</button>
                     <button class="btn btn-primary ms-5">ELEGIR</button>
                 </div>

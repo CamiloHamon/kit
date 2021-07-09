@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FunctionsService } from 'src/app/services/functions.service';
 import { SensationService } from 'src/app/services/sensation.service';
 
 
@@ -11,41 +12,36 @@ import { SensationService } from 'src/app/services/sensation.service';
 export class SensationsComponent implements OnInit {
   idSensation: number = -1;
   sensations: any = [];
-  environment: any = [];
-  situation: any = [];
 
-  constructor(private sensationService:SensationService, private router:Router) {
-    let infoEnvironment: any = localStorage.getItem('environment');
-    infoEnvironment = JSON.parse(infoEnvironment);
-
-    let infoSituation: any = localStorage.getItem('situation');
-    infoSituation = JSON.parse(infoSituation);
-
-    this.environment = infoEnvironment;
-    this.situation = infoSituation;
-    
+  constructor(private sensationService: SensationService, private functionsServices: FunctionsService, private router: Router) {
+    this.functionsServices.removeAllExceptEnvAndSit();
     this.sensationService.index().subscribe(
-      res=>{
+      res => {
         this.sensations = res;
         console.log(this.sensations)
       },
-      err =>{
+      err => {
         console.log(err);
       }
-    )
+    );
   }
 
   ngOnInit(): void {
   }
 
-  continue(){
+  continue() {
     console.log(this.idSensation);
     this.sensationService.show(this.idSensation).subscribe(
-      res=>{
-        localStorage.setItem('sensation', `${JSON.stringify(res)}`);
+      res => {
+        sessionStorage.setItem('sensation', `${JSON.stringify(res)}`);
       },
       err => { console.log(err) }
     )
+  }
+
+  goBack() {
+    this.functionsServices.removeAllExceptEnvAndSit();
+    this.router.navigate(['/conversation/situations']);
   }
 
 }

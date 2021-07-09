@@ -21,4 +21,18 @@ export class EmotionsService {
   getEmotionsByESAndSensation(idES:number, idSensation:number){
     return this.http.get<any>(`${this.URL}/emotions/${idES}/${idSensation}`);
   }
+
+  getEmotion() {
+    let infoEmotion: any = sessionStorage.getItem('emotion');
+    infoEmotion = JSON.parse(infoEmotion);
+    return infoEmotion;
+  }
+
+  existEmotion(): boolean {
+    return !!sessionStorage.getItem('emotion');
+  }
+
+  removeEmotion():void{
+    sessionStorage.removeItem('emotion');
+  }
 }

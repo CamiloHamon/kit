@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionsService } from 'src/app/services/questions.service';
 
 @Component({
   selector: 'app-questions-details',
@@ -7,15 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsDetailsComponent implements OnInit {
   question:any = [];
-  constructor() {
-    let infoQuestion: any = localStorage.getItem('question');
-    const content = JSON.parse(infoQuestion);
-    this.question = content;
-    console.log(content)
+
+  constructor(private questionsServices:QuestionsService) {
+    this.question = this.questionsServices.getQuestion();
+    console.log(this.question)
     try {
-      const split = content.description.split(' - ');
+      const split = this.question.description.split(' - ');
       this.question.use = split[1];
-      console.log(this.question)
     } catch (e) {
       console.log(e);
     }

@@ -1,33 +1,5 @@
 <div class="container mt-5">
-    <div class="row shadow border rounded py-5">
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-environment.png" class="img-fluid" alt="">
-            <div class="text-cards-tree">{{environment.name}}</div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-situation.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-situations" style="top: 50%;">{{situation.name}}</div>
-        </div>
-        <div class="col-1-custom align-self-center" id="content-cards">
-            <img src="/assets/img/emoji-{{sensation.id}}.png" class="img-fluid" alt="">
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-emotions" style="font-size: 10px;">{{emotion.name}}</div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-question.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-questions" style="font-size: 10px;">{{question.name}}</div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-distinction.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-distinctions" style="font-size: 10px;">{{distinction.name}}</div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-resource.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-resources" style="font-size: 10px;">{{resource.name}}</div>
-        </div>
-    </div>
+    <app-cards-section></app-cards-section>
     <div class="row mt-5 justify-content-center">
         <div class="col-7 text-center">
             <p><b>Has llegado al final de tu recorrido armando una combinación que te servirá
@@ -40,7 +12,8 @@
     <form class="p-0">
         <div class="row mt-5 justify-content-center">
             <div class="col-12 text-center">
-                <button class="btn btn-outline-secondary" routerLink="/conversation/resources">CAMBIAR RECURSO</button>
+                <button type="button" class="btn btn-outline-secondary" routerLink="/conversation/resources">CAMBIAR
+                    RECURSO</button>
                 <button class="btn btn-primary ms-5">VER RECOMENDACIONES</button>
             </div>
         </div>

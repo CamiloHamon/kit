@@ -25,4 +25,18 @@ export class ResourcesService {
   validateResource(idESSEEQD:number, idResource:number){
     return this.http.get<any>(`${this.URL}/isCorrectResource/${idESSEEQD}/${idResource}`);
   }
+
+  getResource() {
+    let infoResource: any = sessionStorage.getItem('resource');
+    infoResource = JSON.parse(infoResource);
+    return infoResource;
+  }
+
+  existResource(): boolean {
+    return !!sessionStorage.getItem('resource');
+  }
+
+  removeResource():void{
+    sessionStorage.removeItem('resource');
+  }
 }

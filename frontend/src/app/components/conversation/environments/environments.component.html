@@ -1,13 +1,5 @@
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-12 shadow border rounded" id="content-cards" style="height: 30vh;">
-            <div id="rhombus">
-                <div class="content">
-                    <div class="text">1</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-cards-section></app-cards-section>
     <div class="row mt-5 justify-content-center">
         <div class="col-12 text-center">
             <p>De los siguientes entornos, ¿cuál te gustaría explorar?</p>
@@ -26,7 +18,7 @@
             </div>
             <div class="row mt-5 justify-content-center">
                 <div class="col-12 text-center">
-                    <button class="btn btn-outline-secondary" routerLink="/home">VOLVER</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="goBack()">VOLVER</button>
                     <button class="btn btn-primary ms-5" data-bs-toggle="modal"
                         data-bs-target="#situations">ELEGIR</button>
                 </div>

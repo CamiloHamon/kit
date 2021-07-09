@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DistinctionsService } from 'src/app/services/distinctions.service';
 
 @Component({
   selector: 'app-distinctions-details',
@@ -8,10 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class DistinctionsDetailsComponent implements OnInit {
 
   distinction:any = [];
-  constructor() {
-    let infoDistinction: any = localStorage.getItem('distinction');
-    const content = JSON.parse(infoDistinction);
-    this.distinction = content;
+  constructor(private distinctionsService:DistinctionsService) {
+    this.distinction = this.distinctionsService.getDistinction();
   }
 
   ngOnInit(): void {

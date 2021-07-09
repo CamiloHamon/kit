@@ -26,4 +26,18 @@ export class QuestionsService {
   validateQuestion(idESSE:number, idQuestion:number){
     return this.http.get<any>(`${this.URL}/isCorrectQuestion/${idESSE}/${idQuestion}`);
   }
+
+  getQuestion() {
+    let infoQuestion: any = sessionStorage.getItem('question');
+    infoQuestion = JSON.parse(infoQuestion);
+    return infoQuestion;
+  }
+
+  existQuestion(): boolean {
+    return !!sessionStorage.getItem('question');
+  }
+
+  removeQuestion():void{
+    sessionStorage.removeItem('question');
+  }
 }

@@ -10,11 +10,25 @@ export class SituationsService {
   
   constructor(private http: HttpClient, private router:Router) { }
 
-  getSituationByEnvironment(idEnvironment: number){
+  index(idEnvironment: number){
     return this.http.get<any>(`${this.URL}/situations/${idEnvironment}`);
   }
 
   show(idSituation:number){
     return this.http.get<any>(`${this.URL}/situation/${idSituation}`);
+  }
+
+  getSituation() {
+    let infoSituation: any = sessionStorage.getItem('situation');
+    infoSituation = JSON.parse(infoSituation);
+    return infoSituation;
+  }
+
+  existSituation(): boolean {
+    return !!sessionStorage.getItem('situation');
+  }
+
+  removeSituation():void{
+    sessionStorage.removeItem('situation');
   }
 }

@@ -17,4 +17,18 @@ export class SensationService {
   show(idSensation:number){
     return this.http.get<any>(`${this.URL}/sensation/${idSensation}`);
   }
+
+  getSensation() {
+    let infoSensation: any = sessionStorage.getItem('sensation');
+    infoSensation = JSON.parse(infoSensation);
+    return infoSensation;
+  }
+
+  existSensation(): boolean {
+    return !!sessionStorage.getItem('sensation');
+  }
+
+  removeSensation():void{
+    sessionStorage.removeItem('sensation');
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResourcesService } from 'src/app/services/resources.service';
 
 @Component({
   selector: 'app-resources-details',
@@ -6,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resources-details.component.css']
 })
 export class ResourcesDetailsComponent implements OnInit {
-  
-  resources:any = [];
-  constructor() {
-    let infoQuestion: any = localStorage.getItem('resource');
-    const content = JSON.parse(infoQuestion);
-    this.resources = content;
-    console.log(this.resources)
+
+  resources: any = [];
+  constructor(private resoursesService: ResourcesService) {
+    this.resources = this.resoursesService.getResource();
   }
 
   ngOnInit(): void {

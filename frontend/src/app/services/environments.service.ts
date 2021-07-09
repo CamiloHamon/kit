@@ -10,13 +10,27 @@ export class EnvironmentsService {
 
   idSelected = new EventEmitter<number>();
 
-  constructor(private http: HttpClient, private router:Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  getAllEnvironments(){
+  index() {
     return this.http.get<any>(`${this.URL}/environments`);
   }
 
-  getEnvironment(id:number){
+  show(id: number) {
     return this.http.get<any>(`${this.URL}/environment/${id}`);
+  }
+
+  getEnvironment() {
+    let infoEnvironment: any = sessionStorage.getItem('environment');
+    infoEnvironment = JSON.parse(infoEnvironment);
+    return infoEnvironment;
+  }
+
+  existEnvironment(): boolean {
+    return !!sessionStorage.getItem('environment');
+  }
+
+  removeEnvironment():void{
+    sessionStorage.removeItem('environment');
   }
 }

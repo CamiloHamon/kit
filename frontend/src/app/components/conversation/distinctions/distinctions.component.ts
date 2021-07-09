@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DistinctionsService } from 'src/app/services/distinctions.service';
+import { FunctionsService } from 'src/app/services/functions.service';
 
 @Component({
   selector: 'app-distinctions',
@@ -8,40 +9,15 @@ import { DistinctionsService } from 'src/app/services/distinctions.service';
   styleUrls: ['./distinctions.component.css']
 })
 export class DistinctionsComponent implements OnInit {
-
-  environment: any = [];
-  situation: any = [];
-  sensation: any = [];
-  emotion: any = [];
-  question: any = [];
   distinctions: any = [];
   distinctionContent: string = '';
   idESSEQ: number = -1;
-  idESSEQD: number = -1;
-  idDistinction: number = -1;
 
-  constructor(private distinctionsService: DistinctionsService, private router: Router) {
-    let infoEnvironment: any = localStorage.getItem('environment');
-    infoEnvironment = JSON.parse(infoEnvironment);
-
-    let infoSituation: any = localStorage.getItem('situation');
-    infoSituation = JSON.parse(infoSituation);
-
-    let infoSensation: any = localStorage.getItem('sensation');
-    infoSensation = JSON.parse(infoSensation);
-
-    let infoEmotion: any = localStorage.getItem('emotion');
-    infoEmotion = JSON.parse(infoEmotion);
-
-    let infoQuestion: any = localStorage.getItem('question');
-    infoQuestion = JSON.parse(infoQuestion);
-
-    this.environment = infoEnvironment;
-    this.situation = infoSituation;
-    this.sensation = infoSensation;
-    this.emotion = infoEmotion;
-    this.question = infoQuestion;
-    this.idESSEQ = Number(localStorage.getItem('esseeq'));
+  constructor(private distinctionsService: DistinctionsService,
+    private functionsService: FunctionsService,
+    private router: Router) {
+    this.functionsService.removeAllExceptEnvSitSenEmotQuestion();
+    this.idESSEQ = Number(sessionStorage.getItem('esseeq'));
     this.distinctionsService.getDistinctionsByESSEQ(this.idESSEQ).subscribe(
       res => {
         this.distinctions = res;
@@ -58,18 +34,18 @@ export class DistinctionsComponent implements OnInit {
 
   continue() {
     const contentDistinction = this.distinctionContent.split('-');
-    this.idDistinction = Number(contentDistinction[0]);
-    this.distinctionsService.show(this.idDistinction).subscribe(
+    const idDistinction = Number(contentDistinction[0]);
+    this.distinctionsService.show(idDistinction).subscribe(
       res => {
-        localStorage.setItem('distinction', `${JSON.stringify(res)}`);
+        sessionStorage.setItem('distinction', `${JSON.stringify(res)}`);
       },
       err => { console.log(err) }
     );
-    this.distinctionsService.validateDistinction(this.idESSEQ, this.idDistinction).subscribe(
+    this.distinctionsService.validateDistinction(this.idESSEQ, idDistinction).subscribe(
       res => {
         if (res[0].isCorrect === 1) {
-          this.idESSEQD = Number(contentDistinction[1]);
-          localStorage.setItem('esseeqd', `${this.idESSEQD}`);
+          const idESSEQD = Number(contentDistinction[1]);
+          sessionStorage.setItem('esseeqd', `${idESSEQD}`);
           this.router.navigate(['/conversation/distinctions/details']);
         } else {
           alert('Error!!')
@@ -79,6 +55,11 @@ export class DistinctionsComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  goBack() {
+    this.functionsService.removeAllExceptEnvSitSenEmotQuestion();
+    this.router.navigate(['/conversation/questions']);
   }
 
 }

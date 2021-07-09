@@ -1,21 +1,5 @@
 <div class="container mt-5">
-    <div class="row shadow border rounded" style="height: 30vh;">
-        <div class="col-12 px-0" id="content-cards">
-            <div id="rhombus">
-                <div class="content">
-                    <div class="text">3</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-environment.png" class="img-fluid" alt="">
-            <div class="text-cards">{{environment.name}}</div>
-        </div>
-        <div class="col-1-custom" id="content-cards">
-            <img src="/assets/img/card-situation.png" class="img-fluid" alt="">
-            <div class="text-cards-tree-situations">{{situation.name}}</div>
-        </div>
-    </div>
+    <app-cards-section></app-cards-section>
     <div class="row mt-4 justify-content-center">
         <div class="col-5 text-center">
             <p>Identifica la expresión que más representa eso que sientes,
@@ -37,7 +21,7 @@
         </div>
         <div class="row mt-5 justify-content-center">
             <div class="col-12 text-center">
-                <button class="btn btn-outline-secondary" routerLink="/conversation/situations">CAMBIAR
+                <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
                     SITUACIÓN</button>
                 <button class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#emotions">ELEGIR</button>
             </div>

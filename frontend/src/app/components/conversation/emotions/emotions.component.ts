@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmotionsService } from 'src/app/services/emotions.service';
+import { FunctionsService } from 'src/app/services/functions.service';
+import { SensationService } from 'src/app/services/sensation.service';
+import { SituationsService } from 'src/app/services/situations.service';
 
 @Component({
   selector: 'app-emotions',
@@ -8,35 +11,23 @@ import { EmotionsService } from 'src/app/services/emotions.service';
   styleUrls: ['./emotions.component.css']
 })
 export class EmotionsComponent implements OnInit {
-
-  environment: any = [];
-  situation: any = [];
-  sensation: any = [];
   emotions: any = [];
   emotionContent: string = '';
-  idESSE: number = -1;
-  idEmotion: number = -1;
 
-  constructor(private emotionsService: EmotionsService, private router:Router) {
-    let infoEnvironment: any = localStorage.getItem('environment');
-    infoEnvironment = JSON.parse(infoEnvironment);
-
-    let infoSituation: any = localStorage.getItem('situation');
-    infoSituation = JSON.parse(infoSituation);
-
-    let infoSensation: any = localStorage.getItem('sensation');
-    infoSensation = JSON.parse(infoSensation);
-
-    this.environment = infoEnvironment;
-    this.situation = infoSituation;
-    this.sensation = infoSensation;
-
-    this.emotionsService.getEmotionsByESAndSensation(this.situation.id, this.sensation.id).subscribe(
-      res=>{
+  constructor(private emotionsService: EmotionsService,
+    private situationsServices: SituationsService,
+    private sensationsServices: SensationService,
+    private functionsServices: FunctionsService,
+    private router: Router) {
+    this.functionsServices.removeAllExceptEnvSitSensation();
+    const situation = this.situationsServices.getSituation();
+    const sensation = this.sensationsServices.getSensation();
+    this.emotionsService.getEmotionsByESAndSensation(situation.id, sensation.id).subscribe(
+      res => {
         console.log(res);
         this.emotions = res;
       },
-      err =>{
+      err => {
         console.log(err)
       }
     )
@@ -47,16 +38,21 @@ export class EmotionsComponent implements OnInit {
 
   continue() {
     const contentEmotion = this.emotionContent.split('-');
-    this.idEmotion = Number(contentEmotion[0]);
-    this.idESSE = Number(contentEmotion[1]);
-    localStorage.setItem('esse', `${this.idESSE}`);
-    this.emotionsService.show(this.idEmotion).subscribe(
-      res=>{
-        localStorage.setItem('emotion', `${JSON.stringify(res)}`);
+    const idEmotion = Number(contentEmotion[0]);
+    const idESSE = Number(contentEmotion[1]);
+    sessionStorage.setItem('esse', `${idESSE}`);
+    this.emotionsService.show(idEmotion).subscribe(
+      res => {
+        sessionStorage.setItem('emotion', `${JSON.stringify(res)}`);
         this.router.navigate(['/conversation/emotions/details']);
       },
       err => { console.log(err) }
     )
+  }
+
+  goBack() {
+    this.functionsServices.removeAllExceptEnvSitSensation();
+    this.router.navigate(['/conversation/sensations']);
   }
 
 }

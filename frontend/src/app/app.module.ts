@@ -27,6 +27,7 @@ import { EmotionsDetailsComponent } from './components/conversation/emotions/emo
 import { QuestionsDetailsComponent } from './components/conversation/questions/questions-details/questions-details.component';
 import { DistinctionsDetailsComponent } from './components/conversation/distinctions/distinctions-details/distinctions-details.component';
 import { ResourcesDetailsComponent } from './components/conversation/resources/resources-details/resources-details.component';
+import { CardsSectionComponent } from './components/conversation/cards-section/cards-section.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ResourcesDetailsComponent } from './components/conversation/resources/r
     QuestionsDetailsComponent,
     DistinctionsDetailsComponent,
     ResourcesDetailsComponent,
+    CardsSectionComponent,
   ],
   imports: [
     BrowserModule,
