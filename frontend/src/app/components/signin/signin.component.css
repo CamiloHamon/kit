@@ -20,6 +20,14 @@
 	border-radius: 0;
 }
 
+.form-control-error{
+	border-bottom: 1px solid #dc3545;
+}
+
+.form-control-success{
+	border-bottom: 1px solid #6caaff;
+}
+
 .form-control:focus {
 	color: #fff1cb;
 	background-color: initial;

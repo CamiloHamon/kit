@@ -24,8 +24,9 @@ export class SigninComponent implements OnInit {
   public ngOnInit() { }
 
   private buildForm() {
+    const pattern = /\S+@\S+\.\S+/
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern(pattern)]],
       password: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
@@ -36,7 +37,7 @@ export class SigninComponent implements OnInit {
     if (control?.dirty || control?.touched) {
       if (control?.errors?.required != null) {
         message = 'Este campo es obligatorio'
-      } else if (control?.errors?.email != null) {
+      } else if (control?.errors?.pattern != null) {
         message = 'Debe ser un correo valido';
       } else if (control?.hasError('minlength')) {
         const minLength = control?.errors?.minlength.requiredLength;
