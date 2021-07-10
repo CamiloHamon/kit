@@ -6,11 +6,11 @@
             <p class="select-env">Selecciona una carta y haz clic en el botón ELEGIR.</p>
         </div>
     </div>
-    <form (ngSubmit)="continue()" class="p-0">
+    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
         <div class="row mt-4 justify-content-center">
             <div class="col-2 cards ps-0 text-center" *ngFor="let environment of environments">
-                <input type="radio" [(ngModel)]='environmentId' [value]="environment.id" name="environment"
-                    id="environment-{{environment.id}}" class="environmentInput">
+                <input type="radio" formControlName="cards" [value]="environment.id" id="environment-{{environment.id}}"
+                    class="environmentInput">
                 <label for="environment-{{environment.id}}" id="label">
                     <img src="/assets/img/card-environment.png" class="img-fluid" alt="">
                     <div class="text-cards">{{environment.name}}</div>
@@ -19,7 +19,7 @@
             <div class="row mt-5 justify-content-center">
                 <div class="col-12 text-center">
                     <button type="button" class="btn btn-outline-secondary" (click)="goBack()">VOLVER</button>
-                    <button class="btn btn-primary ms-5" data-bs-toggle="modal"
+                    <button [disabled]="form.invalid" class="btn btn-primary ms-5" data-bs-toggle="modal"
                         data-bs-target="#situations">ELEGIR</button>
                 </div>
             </div>

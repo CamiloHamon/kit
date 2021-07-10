@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EnvironmentsService } from 'src/app/services/environments.service';
 import { FunctionsService } from 'src/app/services/functions.service';
@@ -10,7 +11,10 @@ import { FunctionsService } from 'src/app/services/functions.service';
 })
 export class EnvironmentsComponent implements OnInit {
   environments: any = [];
-  environmentId: number = -1;
+  idEnvironment: number = -1;
+  form = new FormGroup({
+    cards: new FormControl('', [Validators.required])
+  });
 
   constructor(private environmentsServices: EnvironmentsService, private functionsServices: FunctionsService, private router: Router) {
     this.functionsServices.removeAllItems();
@@ -24,8 +28,8 @@ export class EnvironmentsComponent implements OnInit {
   ngOnInit(): void { }
 
   continue() {
-    console.log(this.environmentId);
-    this.environmentsServices.show(this.environmentId).subscribe(
+    this.idEnvironment = this.form.controls.cards.value;
+    this.environmentsServices.show(this.idEnvironment).subscribe(
       res => {
         console.log(res)
         sessionStorage.setItem('environment', `${JSON.stringify(res)}`);

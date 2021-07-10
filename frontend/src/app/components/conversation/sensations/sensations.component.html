@@ -6,12 +6,12 @@
                 selecciónala y <span class="select-env">haz clic en el botón ELEGIR.</span></p>
         </div>
     </div>
-    <form (ngSubmit)="continue()" class="p-0">
+    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
         <div class="row bg-gray-ligth mt-5 p-3 justify-content-center border border-radius-custom">
             <div class="row bg-gray w-100 py-4 justify-content-center border border-radius-custom">
                 <div class="col-2 text-center" *ngFor="let sensation of sensations">
-                    <input type="radio" [(ngModel)]='idSensation' [value]="sensation.id" name="situation"
-                        id="situation-{{sensation.id}}" class="situationInput">
+                    <input type="radio" formControlName="cards" [value]="sensation.id" id="situation-{{sensation.id}}"
+                        class="situationInput">
                     <label for="situation-{{sensation.id}}" id="label" class="rounded-circle">
                         <img src="/assets/img/emoji-{{sensation.id}}.png" class="img-fluid rounded-circle" alt="">
                         <div class="text-cards">{{sensation.situation}}</div>
@@ -23,7 +23,8 @@
             <div class="col-12 text-center">
                 <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
                     SITUACIÓN</button>
-                <button class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#emotions">ELEGIR</button>
+                <button [disabled]="form.invalid" class="btn btn-primary ms-5" data-bs-toggle="modal"
+                    data-bs-target="#emotions">ELEGIR</button>
             </div>
         </div>
     </form>

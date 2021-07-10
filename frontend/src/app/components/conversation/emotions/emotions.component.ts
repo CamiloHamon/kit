@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmotionsService } from 'src/app/services/emotions.service';
 import { FunctionsService } from 'src/app/services/functions.service';
@@ -13,7 +14,10 @@ import { SituationsService } from 'src/app/services/situations.service';
 export class EmotionsComponent implements OnInit {
   emotions: any = [];
   emotionContent: string = '';
-
+  form = new FormGroup({
+    cards: new FormControl('', [Validators.required])
+  });
+  
   constructor(private emotionsService: EmotionsService,
     private situationsServices: SituationsService,
     private sensationsServices: SensationService,
@@ -24,7 +28,6 @@ export class EmotionsComponent implements OnInit {
     const sensation = this.sensationsServices.getSensation();
     this.emotionsService.getEmotionsByESAndSensation(situation.id, sensation.id).subscribe(
       res => {
-        console.log(res);
         this.emotions = res;
       },
       err => {
@@ -37,7 +40,7 @@ export class EmotionsComponent implements OnInit {
   }
 
   continue() {
-    const contentEmotion = this.emotionContent.split('-');
+    const contentEmotion = this.form.controls.cards.value.split('-');
     const idEmotion = Number(contentEmotion[0]);
     const idESSE = Number(contentEmotion[1]);
     sessionStorage.setItem('esse', `${idESSE}`);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ResourcesService } from 'src/app/services/resources.service';
 
@@ -11,6 +12,9 @@ export class ResourcesComponent implements OnInit {
   resources: any = [];
   resourceContent: string = '';
   idESSEQD: number = -1;
+  form = new FormGroup({
+    cards: new FormControl('', [Validators.required])
+  });
 
   constructor(private resourcesService: ResourcesService, private router: Router) {
     this.resourcesService.removeResource();
@@ -30,7 +34,7 @@ export class ResourcesComponent implements OnInit {
   }
 
   continue() {
-    const contentResource = this.resourceContent.split('-');
+    const contentResource = this.form.controls.cards.value.split('-');
     const idResource = Number(contentResource[0]);
     this.resourcesService.show(idResource).subscribe(
       res => {

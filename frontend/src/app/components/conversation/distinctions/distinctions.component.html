@@ -6,11 +6,10 @@
                 seguir a partir de la pregunta que te hiciste.</p>
         </div>
     </div>
-    <form (ngSubmit)="continue()" class="p-0">
+    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
         <div class="row mt-4 justify-content-center">
             <div class="col-2 cards ps-0 text-center" *ngFor="let distinction of distinctions">
-                <input type="radio" [(ngModel)]='distinctionContent'
-                    value="{{distinction.id_distinction}}-{{distinction.id}}" name="emotion"
+                <input type="radio" formControlName="cards" value="{{distinction.id_distinction}}-{{distinction.id}}"
                     id="emotion-{{distinction.id_distinction}}" class="emotionInput">
                 <label for="emotion-{{distinction.id_distinction}}" id="label">
                     <img src="/assets/img/card-distinction.png" class="img-fluid" alt="">
@@ -21,7 +20,7 @@
                 <div class="col-12 text-center">
                     <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
                         PREGUNTA</button>
-                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                    <button [disabled]="form.invalid" class="btn btn-primary ms-5">ELEGIR</button>
                 </div>
             </div>
         </div>

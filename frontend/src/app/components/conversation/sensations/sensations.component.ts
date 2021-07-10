@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { SensationService } from 'src/app/services/sensation.service';
@@ -12,7 +13,9 @@ import { SensationService } from 'src/app/services/sensation.service';
 export class SensationsComponent implements OnInit {
   idSensation: number = -1;
   sensations: any = [];
-
+  form = new FormGroup({
+    cards: new FormControl('', [Validators.required])
+  });
   constructor(private sensationService: SensationService, private functionsServices: FunctionsService, private router: Router) {
     this.functionsServices.removeAllExceptEnvAndSit();
     this.sensationService.index().subscribe(
@@ -30,7 +33,7 @@ export class SensationsComponent implements OnInit {
   }
 
   continue() {
-    console.log(this.idSensation);
+    this.idSensation = this.form.controls.cards.value;
     this.sensationService.show(this.idSensation).subscribe(
       res => {
         sessionStorage.setItem('sensation', `${JSON.stringify(res)}`);

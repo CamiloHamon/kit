@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DistinctionsService } from 'src/app/services/distinctions.service';
 import { FunctionsService } from 'src/app/services/functions.service';
@@ -12,6 +13,9 @@ export class DistinctionsComponent implements OnInit {
   distinctions: any = [];
   distinctionContent: string = '';
   idESSEQ: number = -1;
+  form = new FormGroup({
+    cards: new FormControl('', [Validators.required])
+  });
 
   constructor(private distinctionsService: DistinctionsService,
     private functionsService: FunctionsService,
@@ -33,7 +37,7 @@ export class DistinctionsComponent implements OnInit {
   }
 
   continue() {
-    const contentDistinction = this.distinctionContent.split('-');
+    const contentDistinction = this.form.controls.cards.value.split('-');
     const idDistinction = Number(contentDistinction[0]);
     this.distinctionsService.show(idDistinction).subscribe(
       res => {

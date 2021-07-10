@@ -6,11 +6,11 @@
                 la situación y <span class="select-env">haz clic en el botón ELEGIR.</span></p>
         </div>
     </div>
-    <form (ngSubmit)="continue()" class="p-0">
+    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
         <div class="row mt-5 justify-content-center">
             <div class="col-2 cards ps-0 text-center" *ngFor="let emotion of emotions">
-                <input type="radio" [(ngModel)]='emotionContent' value="{{emotion.id_emotion}}-{{emotion.id}}"
-                    name="emotion" id="emotion-{{emotion.id_emotion}}" class="emotionInput">
+                <input type="radio" formControlName="cards" value="{{emotion.id_emotion}}-{{emotion.id}}"
+                    id="emotion-{{emotion.id_emotion}}" class="emotionInput">
                 <label for="emotion-{{emotion.id_emotion}}" id="label">
                     <img src="/assets/img/card-emotion.png" class="img-fluid" alt="">
                     <div class="text-cards">{{emotion.emotion}}</div>
@@ -20,7 +20,7 @@
                 <div class="col-12 text-center">
                     <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
                         ÍCONO</button>
-                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                    <button [disabled]="form.invalid" class="btn btn-primary ms-5">ELEGIR</button>
                 </div>
             </div>
         </div>

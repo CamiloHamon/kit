@@ -6,11 +6,11 @@
                 tomar la mejor decisión.</p>
         </div>
     </div>
-    <form (ngSubmit)="continue()" class="p-0">
+    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
         <div class="row mt-4 justify-content-center">
             <div class="col-2 cards ps-0 text-center" *ngFor="let resource of resources">
-                <input type="radio" [(ngModel)]='resourceContent' value="{{resource.id_resource}}-{{resource.id}}"
-                    name="emotion" id="emotion-{{resource.id_resource}}" class="emotionInput">
+                <input type="radio" formControlName="cards" value="{{resource.id_resource}}-{{resource.id}}"
+                    id="emotion-{{resource.id_resource}}" class="emotionInput">
                 <label for="emotion-{{resource.id_resource}}" id="label">
                     <img src="/assets/img/card-resource.png" class="img-fluid" alt="">
                     <div class="text-cards">{{resource.resource}}</div>
@@ -20,7 +20,7 @@
                 <div class="col-12 text-center">
                     <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
                         DISTINCIÓN</button>
-                    <button class="btn btn-primary ms-5">ELEGIR</button>
+                    <button [disabled]="form.invalid" class="btn btn-primary ms-5">ELEGIR</button>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EnvironmentsService } from 'src/app/services/environments.service';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { SituationsService } from 'src/app/services/situations.service';
@@ -12,6 +13,9 @@ import { SituationsService } from 'src/app/services/situations.service';
 export class SituationsComponent implements OnInit {
   situations: any = [];
   idSutiation: number = -1;
+  form = new FormGroup({
+    cards: new FormControl('', [Validators.required])
+  });
 
   constructor(private situationsService: SituationsService,
     private environmentsServices: EnvironmentsService,
@@ -33,7 +37,7 @@ export class SituationsComponent implements OnInit {
   }
 
   continue() {
-    console.log(this.idSutiation);
+    this.idSutiation = this.form.controls.cards.value;
     this.situationsService.show(this.idSutiation).subscribe(
       res => {
         sessionStorage.setItem('situation', `${JSON.stringify(res)}`);

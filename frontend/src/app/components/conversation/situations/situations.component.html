@@ -6,11 +6,11 @@
             <p class="select-env">Haz clic sobre una de las cartas y presiona el botón ELEGIR.</p>
         </div>
     </div>
-    <form (ngSubmit)="continue()" class="p-0">
+    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
         <div class="row mt-5 justify-content-center">
             <div class="col-2 ps-0 text-center" *ngFor="let situation of situations">
-                <input type="radio" [(ngModel)]='idSutiation' [value]="situation.id" name="situation"
-                    id="situation-{{situation.id}}" class="situationInput">
+                <input type="radio" formControlName="cards" [value]="situation.id" id="situation-{{situation.id}}"
+                    class="situationInput">
                 <label for="situation-{{situation.id}}" id="label">
                     <img src="/assets/img/card-situation.png" class="img-fluid" alt="">
                     <div class="text-cards">{{situation.situation}}</div>
@@ -19,7 +19,7 @@
             <div class="row mt-5 justify-content-center">
                 <div class="col-12 text-center">
                     <button type="button" class="btn btn-outline-secondary" (click)="goBack()">VOLVER</button>
-                    <button class="btn btn-primary ms-5" data-bs-toggle="modal"
+                    <button [disabled]="form.invalid" class="btn btn-primary ms-5" data-bs-toggle="modal"
                         data-bs-target="#sensations">ELEGIR</button>
                 </div>
             </div>

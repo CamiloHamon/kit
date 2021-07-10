@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { QuestionsService } from 'src/app/services/questions.service';
@@ -13,7 +14,10 @@ export class QuestionsComponent implements OnInit {
   questions: any = [];
   questionContent: string = '';
   idESSE: number = -1;
-
+  form = new FormGroup({
+    cards: new FormControl('', [Validators.required])
+  });
+  
   constructor(private questionsService: QuestionsService,
     private functionsService: FunctionsService,
     private router: Router) {
@@ -34,7 +38,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   continue() {
-    const contentQuestion = this.questionContent.split('-');
+    const contentQuestion = this.form.controls.cards.value.split('-');
     const idQuestion = Number(contentQuestion[0]);
 
     this.questionsService.show(idQuestion).subscribe(
