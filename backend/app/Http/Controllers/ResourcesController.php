@@ -23,18 +23,8 @@ class ResourcesController extends Controller
 
     public function show($id)
     {
-        $infoQuestion = Resources::find($id);
-
-        $description = explode('. ', $infoQuestion->description);
-        $question = [
-            'id' => $infoQuestion->id,
-            'name' => $infoQuestion->name,
-            'content' => [
-                'firstPart' => $description[0],
-                'secondPart' => $description[1]
-            ]
-        ];
-        return response()->json($question, 200);
+        $resource = Resources::find($id);
+        return response()->json($resource, 200);
     }
 
     public function getResourcesByESSEQD($idESSEQD)

@@ -23,18 +23,7 @@ class QuestionsController extends Controller
 
     public function show($id)
     {
-        $infoQuestion = Questions::find($id);
-
-        $description = explode(' - ', $infoQuestion->description);
-        $question = [
-            'id' => $infoQuestion->id,
-            'name' => $infoQuestion->name,
-            'information' => [
-                'title' => $description[0],
-                'description' => $description[1]
-            ]
-        ];
-        
+        $question = Questions::find($id);        
         return response()->json($question, 200);
     }
 
