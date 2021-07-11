@@ -1,83 +1,79 @@
-<div class="container-fluid vh-100">
-    <div class="row h-content">
-        <div class="col-12 col-lg-4 bg-home-1">
-            <p class="text-home px-4">¡La experiencia inicia aqui!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-4 px-0 bg-home-1">
+            <p class="text-home px-5">¡La experiencia inicia aqui!</p>
         </div>
-        <div class="col-4 bg-home-2">
-            <p class="px-4 white">Esta es una herramienta de
+        <div class="d-none d-lg-block col-lg-4 px-0 bg-home-2">
+            <p class="px-5 text-center white">Esta es una herramienta de
                 combinaciones de cartas con estrategias
                 para practicar, consultar y desarrollar
                 conversaciones inteligentes, a través de
                 los siguientes modos de uso:</p>
         </div>
-        <div class="col-12 col-lg-4 bg-home-3">
-            <p class="px-4 white d-lg-none">Esta es una herramienta de
+        <div class="col-12 col-lg-4 px-0 bg-home-3">
+            <p class="d-lg-none px-5 text-center white">Esta es una herramienta de
                 combinaciones de cartas con estrategias
                 para practicar, consultar y desarrollar
                 conversaciones inteligentes, a través de
                 los siguientes modos de uso:</p>
         </div>
     </div>
-    <div class="row h-corousel d-lg-none">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="d-none d-lg-block">
+        <div class="row h-content align-items-center">
+            <a class="col-4 h-100 px-6 text-center home-items" routerLink="/conversation">
+                <img src="/assets/img/icon-123.png" alt="" class="img-fluid mb-3">
+                <p>Adquiere experiencia a través
+                    de un ambiente simulado.</p>
+            </a>
+            <a class="col-4 h-100 px-6 text-center home-items" routerLink="/">
+                <img src="/assets/img/icon-combinacion.png" alt="" class="img-fluid mb-3">
+                <p>Consulta rápida de estrategias a
+                    partir de emociones.</p>
+            </a>
+            <a class="col-4 h-100 px-6 text-center home-items" routerLink="/">
+                <img src="/assets/img/icon-ponloenpractica.png" alt="" class="img-fluid mb-3">
+                <p>Utiliza tus cartas libremente
+                    de un ambiente simulado.</p>
+            </a>
+        </div>
+    </div>
+    <div class="row pb-5 d-lg-none">
+        <div id="corousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators mb-0">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#corousel" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#corousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#corousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner mt-4">
                 <div class="carousel-item active text-center">
-                    <div class="row justify-content-center align-content-center">
-                        <div class="col-8 rounded border shadow py-4 d-flex-custom">
-                            <img src="/assets/img/icon-123.png" class="img-fluid" alt="...">
-                            <div class="carousel-caption">
-                                <p>Adquiere experiencia atraves de un ambiente simulado.</p>
-                            </div>
-                        </div>
+                    <div class="row h-100 justify-content-center align-content-center">
+                        <a class="col-9 h-100 rounded border shadow py-4 px-4 carousel-custom-items"
+                            routerLink="/conversation">
+                            <img src="/assets/img/icon-123.png" class="img-fluid">
+                            <p class="pt-3">Adquiere experiencia a traves de un ambiente simulado.</p>
+                        </a>
                     </div>
                 </div>
-                <div class="carousel-item text-center">
+                <div class="carousel-item text-center px-3">
                     <div class="row justify-content-center align-content-center">
-                        <div class="col-8 rounded border shadow py-4 d-flex-custom">
-                            <img src="/assets/img/icon-combinacion.png" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-12">
-                            <div class="carousel-caption">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
-                            </div>
-                        </div>
+                        <a class="col-9 h-100 rounded border shadow py-4 px-4 carousel-custom-items"
+                            routerLink="/conversation">
+                            <img src="/assets/img/icon-combinacion.png" class="img-fluid">
+                            <p class="pt-3">Consulta rapida de estrategias a partir de emociones.</p>
+                        </a>
                     </div>
                 </div>
                 <div class="carousel-item text-center align-content-center">
                     <div class="row justify-content-center">
-                        <div class="col-8 rounded border shadow py-4 d-flex-custom">
-                            <img src="/assets/img/icon-ponloenpractica.png" class="img-fluid" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
-                            </div>
-                        </div>
+                        <a class="col-9 h-100 rounded border shadow py-4 px-4 carousel-custom-items"
+                            routerLink="/conversation">
+                            <img src="/assets/img/icon-ponloenpractica.png" class="img-fluid">
+                            <p class="pt-3">Utiliza tus cartas libremente para conversar con otros.</p>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row h-content">
-        <a class="col-4 px-6 text-center bg-home-4" routerLink="/conversation">
-            <p>Adquiere experiencia a través
-                de un ambiente simulado.</p>
-        </a>
-        <a class="col-4 px-6 text-center bg-home-5" routerLink="/">
-            <p>Consulta rápida de estrategias a
-                partir de emociones.</p>
-        </a>
-        <a class="col-4 px-6 text-center bg-home-6" routerLink="/">
-            <p>Utiliza tus cartas libremente
-                de un ambiente simulado.</p>
-        </a>
     </div>
 </div>
