@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalsService } from 'src/app/services/modals/modals.service';
 import { ResourcesService } from 'src/app/services/resources.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { ResourcesService } from 'src/app/services/resources.service';
   styleUrls: ['./resources.component.css']
 })
 export class ResourcesComponent implements OnInit {
+  @ViewChild('content') content: ElementRef | undefined;
   resources: any = [];
   resourceContent: string = '';
   idESSEQD: number = -1;
@@ -16,7 +18,9 @@ export class ResourcesComponent implements OnInit {
     cards: new FormControl('', [Validators.required])
   });
 
-  constructor(private resourcesService: ResourcesService, private router: Router) {
+  constructor(private resourcesService: ResourcesService,
+    private modalsServices: ModalsService,
+    private router: Router) {
     this.resourcesService.removeResource();
     this.idESSEQD = Number(sessionStorage.getItem('esseeqd'));
     this.resourcesService.getResourcesByESSEQD(this.idESSEQD).subscribe(
@@ -49,7 +53,7 @@ export class ResourcesComponent implements OnInit {
           sessionStorage.setItem('esseeqdr', `${idESSEQDR}`);
           this.router.navigate(['/conversation/resources/details']);
         } else {
-          alert('Error!!')
+          this.modalsServices.open(this.content, 'lg');
         }
       },
       err => {
@@ -58,7 +62,7 @@ export class ResourcesComponent implements OnInit {
     )
   }
 
-  goBack(){
+  goBack() {
     this.resourcesService.removeResource();
     this.router.navigate(['/conversation/distinctions']);
   }

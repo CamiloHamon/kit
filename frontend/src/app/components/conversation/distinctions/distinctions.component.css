@@ -70,6 +70,14 @@ input:checked + label {
 	text-align: center;
 }
 
+.align-content-space-evenly{
+	align-content: space-evenly;
+}
+
+.rounded-custom{
+	border-radius: 1.5rem;
+}
+
 .text-cards {
 	position: absolute;
 	color: #60b3a2;
@@ -148,4 +156,8 @@ input:checked + label {
 
 .bg-gray-ligth{
 	background-color: #f9f9f9;
+}
+
+.bg-distinctions{
+	background-color: #60b3a2;
 }

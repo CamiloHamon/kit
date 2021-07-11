@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FunctionsService } from 'src/app/services/functions.service';
+import { ModalsService } from 'src/app/services/modals/modals.service';
 import { QuestionsService } from 'src/app/services/questions.service';
 
 
@@ -11,15 +13,17 @@ import { QuestionsService } from 'src/app/services/questions.service';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
+  @ViewChild('content') content: ElementRef | undefined;
   questions: any = [];
   questionContent: string = '';
   idESSE: number = -1;
   form = new FormGroup({
     cards: new FormControl('', [Validators.required])
   });
-  
+
   constructor(private questionsService: QuestionsService,
     private functionsService: FunctionsService,
+    private modalsService: ModalsService,
     private router: Router) {
     this.functionsService.removeAllExceptEnvSitSenEmotion();
     this.idESSE = Number(sessionStorage.getItem('esse'));
@@ -54,7 +58,7 @@ export class QuestionsComponent implements OnInit {
           sessionStorage.setItem('esseeq', `${idESSEQ}`);
           this.router.navigate(['/conversation/questions/details']);
         } else {
-          alert('Error!!')
+          this.modalsService.open(this.content, 'lg');
         }
       },
       err => {

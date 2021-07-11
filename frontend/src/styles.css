@@ -28,6 +28,10 @@ body{
 	background-color: #6caaff !important;
 }
 
+.align-content-space-evenly{
+	align-content: space-evenly;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: white;
 }

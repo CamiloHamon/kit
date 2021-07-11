@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DistinctionsService } from 'src/app/services/distinctions.service';
 import { FunctionsService } from 'src/app/services/functions.service';
+import { ModalsService } from 'src/app/services/modals/modals.service';
 
 @Component({
   selector: 'app-distinctions',
   templateUrl: './distinctions.component.html',
   styleUrls: ['./distinctions.component.css']
 })
+
 export class DistinctionsComponent implements OnInit {
+  @ViewChild('content') content: ElementRef | undefined;
   distinctions: any = [];
   distinctionContent: string = '';
   idESSEQ: number = -1;
@@ -19,6 +22,7 @@ export class DistinctionsComponent implements OnInit {
 
   constructor(private distinctionsService: DistinctionsService,
     private functionsService: FunctionsService,
+    private modalsService: ModalsService,
     private router: Router) {
     this.functionsService.removeAllExceptEnvSitSenEmotQuestion();
     this.idESSEQ = Number(sessionStorage.getItem('esseeq'));
@@ -52,7 +56,7 @@ export class DistinctionsComponent implements OnInit {
           sessionStorage.setItem('esseeqd', `${idESSEQD}`);
           this.router.navigate(['/conversation/distinctions/details']);
         } else {
-          alert('Error!!')
+          this.modalsService.open(this.content, 'lg');
         }
       },
       err => {

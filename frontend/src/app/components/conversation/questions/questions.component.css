@@ -81,6 +81,14 @@ input:checked + label {
 	transform: translate(-50%, -50%);
 }
 
+.rounded-custom{
+	border-radius: 1.5rem;
+}
+
+.align-content-space-evenly{
+	align-content: space-evenly;
+}
+
 .text-cards-tree {
 	position: absolute;
 	color: white;

@@ -26,3 +26,30 @@
         </div>
     </form>
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-body p-0">
+        <div class="container" style="height: 50vh;">
+            <div class="row justify-content-center align-content-space-evenly h-100">
+                <div class="row justify-content-center align-content-center col-10 text-center bg-secondary rounded-custom p-5"
+                    style="height: 70%;">
+                    <div class="col-9">
+                        <h5 class="white mb-4">
+                            <b>
+                                No hay opciones buenas o malas, pero
+                                sí más efectivas!
+                            </b>
+                        </h5>
+                        <p class="white">
+                            Hay otras preguntas que podrán darle
+                            mayor valor a tu conversación.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary" (click)="d('Cross click')">CAMBIAR PREGUNTA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

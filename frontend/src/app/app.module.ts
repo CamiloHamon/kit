@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,8 @@ import { QuestionsDetailsComponent } from './components/conversation/questions/q
 import { DistinctionsDetailsComponent } from './components/conversation/distinctions/distinctions-details/distinctions-details.component';
 import { ResourcesDetailsComponent } from './components/conversation/resources/resources-details/resources-details.component';
 import { CardsSectionComponent } from './components/conversation/cards-section/cards-section.component';
+import { KnowKitComponent } from './components/modals/know-kit/know-kit.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -53,13 +56,16 @@ import { CardsSectionComponent } from './components/conversation/cards-section/c
     DistinctionsDetailsComponent,
     ResourcesDetailsComponent,
     CardsSectionComponent,
+    KnowKitComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     AuthGuard,

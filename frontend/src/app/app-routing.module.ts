@@ -25,6 +25,7 @@ import { QuestionsGuard } from './guards/questions.guard';
 import { DistinctionsGuard } from './guards/distinctions.guard';
 import { ResourcesGuard } from './guards/resources.guard';
 import { FeedbackGuard } from './guards/feedback.guard';
+import { KnowKitComponent } from './components/modals/know-kit/know-kit.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'modal',
+    component:KnowKitComponent
   },
   {
     path: 'conversation',
