@@ -159,14 +159,34 @@ input:checked + label {
 	border-radius: 10rem;
 }
 
-.img-fluid-custom{
+.img-fluid-custom {
 	max-width: 70%;
 }
 
-.bg-gray{
+.bg-gray {
 	background-color: #f3f3f3;
 }
 
-.bg-gray-ligth{
+.bg-gray-ligth {
 	background-color: #f9f9f9;
+}
+
+.row-custom{
+	height: 30%;
+}
+
+@media only screen and (max-width: 991px) {
+	.row-custom {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-content: center;
+		align-items: center;
+		overflow: auto;
+	}
+
+	.col-1-custom {
+		width: 33.33%;
+		margin-right: 1rem;
+	}
 }

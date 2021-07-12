@@ -34,3 +34,10 @@
 .rounded-custom{
     border-radius: 1.5rem;
 }
+
+@media only screen and (max-width: 991px) {
+	.vh-100 {
+		height: auto !important;
+	}
+	
+}

@@ -1,13 +1,3 @@
-.h-custom {
-	height: 9.6vh;
-}
-
-.sticky-top {
-	position: sticky;
-	top: 0;
-	z-index: 10;
-}
-
 .bg-puntos {
 	background-image: url('/assets/img/puntos.png');
 	background-position: bottom;
@@ -23,7 +13,7 @@
 }
 
 .text-popups .environments {
-	font-size: 4.5rem;
+	font-size: 4rem;
 	line-height: 1.8rem;
 }
 
@@ -82,17 +72,16 @@
 	align-items: center;
 }
 
-.nav-link {
+.nav-pills .nav-link {
 	color: #fff;
 	background-color: transparent;
 	text-align: start;
 	font-weight: 700;
-	text-decoration: none;
-	text-align: end;
-	padding: 0;
+	text-decoration: underline;
 }
 
-.nav-link.active {
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
 	color: #101320;
 	background-color: transparent;
 	text-align: start;
@@ -100,25 +89,6 @@
 
 .modal-content {
 	border-radius: 1.5rem;
-}
-
-::ng-deep .modal-content {
-	border-radius: 1.5rem;
-}
-
-a:focus-visible {
-	outline-offset: -50px;
-}
-
-.form-control {
-	border: 1px solid red;
-	outline: none;
-}
-
-.show-taps {
-	height: 100%;
-	display: flex;
-	align-items: center;
 }
 
 .btn-close-custom {
@@ -165,95 +135,43 @@ a:focus-visible {
 	border-radius: 1.5rem;
 }
 
-.hamburguer {
-	position: absolute;
-	top: 22%;
-	right: 0;
-	z-index: 1020;
-	width: 200px;
-}
-
-.color-items-movil {
-	color: #fff1cb !important;
-}
-
-.h-lg-100 {
+.h-100-modals {
 	height: 100%;
 }
 
-.bg-primary-header {
-	background-color: #101320;
-	height: 100%;
+.h-modals-content {
+	height: 50vh;
 }
 
-.bg-secondary-header {
-	background-color: #6caaff;
-	height: 100%;
+.h-100-modals-brain {
+    height: 100%;
 }
 
 @media only screen and (max-width: 991px) {
-	.h-10vj {
-		height: 10vh;
-	}
-	.pt-movil {
-		padding-top: 6rem;
-	}
-
-	.btn-close-movil {
-		position: absolute;
-		top: 1.5rem;
-		left: 2.8rem;
-		background-color: transparent !important;
-		border-radius: 50%;
-		opacity: 100;
-		background: none;
-		height: 2rem;
-		width: 2rem;
-	}
-
-	.bg-movil {
-		position: fixed;
-		left: 0;
-		top: 0;
-		height: 100%;
-		width: 90%;
-		z-index: 100;
-		background-color: #101320;
-		opacity: 0;
-		display: none;
-	}
-
-	.bg-movil-active {
-		opacity: 0.9;
-		display: block;
-	}
-
-	.nav-link {
-		text-align: start;
-		font-size: x-large;
-		text-decoration: none;
-		font-weight: 400;
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
-	}
-
-	.h-inherit {
-		height: inherit;
-	}
-
-	.h-lg-100 {
+	.h-100-modals {
 		height: auto;
 	}
 
-	.material-icons-outlined {
-		font-size: 2rem;
+    .h-100-modals-brain {
+		height: 28.1rem;
+        display: flex;
 	}
 
-	.bg-primary-header {
-		height: auto;
-	}
+    .h-modals-content {
+        height: 80vh;
+    }
 
-	.bg-secondary-header {
-		background-color: transparent;
-	}
+    .one-custom {
+        left: 1rem;
+    }
+
+    .btn-close-custom{
+        z-index: 10;
+    }
+    .environmentsSmall{
+        font-size: 2.5rem!important;
+    }
+    .environments{
+        font-size: 3.5rem!important;
+    }
 }

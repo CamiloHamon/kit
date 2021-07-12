@@ -116,3 +116,15 @@ input:checked + label {
 .bg-gray-ligth{
 	background-color: #f9f9f9;
 }
+
+.btn {
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+
+@media only screen and (max-width: 991px) {
+	.btn {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}

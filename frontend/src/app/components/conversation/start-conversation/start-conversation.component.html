@@ -1,15 +1,15 @@
-<div class="container-fluid vh-100">
-    <div class="row bg-conversation align-content-center">
-        <div class="col-5 m-5">
-            <p>
+<div class="container-fluid">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-xxl-1"></div>
+        <div class="col-12 col-md-6 col-xxl-4 mt-xxl-5 pb-3 px-md-3 px-lg-5 order-2 order-md-1">
+            <p class="pt-5 py-md-5 pb-xxl-5">
                 Para lograr una conversación efectiva es importante entender el
                 contexto donde se está desarrollando. En esta sección
                 aprenderás a usar las cartas a partir de simulaciones, realizando
                 un recorrido donde deberás definir:
             </p>
-        </div>
-        <div class="col-8 mx-5">
-            <ul>
+
+            <ul class="pb-xxl-5">
                 <li>El entorno</li>
                 <li>La situacion</li>
                 <li>Como te sientes?</li>
@@ -18,16 +18,19 @@
                 <li>Distincion de conceptos</li>
                 <li>Recursos para usar</li>
             </ul>
-        </div>
-        <div class="col-5 m-5">
-            <p>En cada una de ellas deberás hacer una elección que te permitirá
+
+            <p class="pb-xxl-5">En cada una de ellas deberás hacer una elección que te permitirá
                 armar una combinación de cartas y, al finalizar, te daremos
                 algunas recomendaciones para lograr una conversación
                 inteligente, según las decisiones que hayas tomado. </p>
-        </div>
-        <div class="col-8 mx-5">
+
             <button class="btn btn-outline-secondary" routerLink="/home">CAMBIAR DE MODALIDAD </button>
-            <button class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#environments">INICIAR </button>
+            <button class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#environments">INICIAR
+            </button>
+        </div>
+        <div class="col-12 col-md-6 col-xxl-5 order-1 order-md-2 bg-conversation">
+            <img src="/assets/img/img1.png" alt="" class="img-fluid">
         </div>
     </div>
 </div>
+<app-modal-environments></app-modal-environments>

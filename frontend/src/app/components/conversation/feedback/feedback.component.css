@@ -170,3 +170,11 @@ input:checked + label {
 .bg-gray-ligth{
 	background-color: #f9f9f9;
 }
+
+
+@media only screen and (max-width: 991px) {
+	.btn-block {
+		display: block;
+		width: 100%;
+	}
+}

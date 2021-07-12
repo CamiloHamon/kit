@@ -31,6 +31,13 @@ import { ResourcesDetailsComponent } from './components/conversation/resources/r
 import { CardsSectionComponent } from './components/conversation/cards-section/cards-section.component';
 import { KnowKitComponent } from './components/modals/know-kit/know-kit.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ModalEnvironmentsComponent } from './components/modals/modal-environments/modal-environments.component';
+import { ModalSituationsComponent } from './components/modals/modal-situations/modal-situations.component';
+import { ModalSensationsComponent } from './components/modals/modal-sensations/modal-sensations.component';
+import { ModalEmotionsComponent } from './components/modals/modal-emotions/modal-emotions.component';
+import { ModalQuestionsComponent } from './components/modals/modal-questions/modal-questions.component';
+import { ModalDistinctionsComponent } from './components/modals/modal-distinctions/modal-distinctions.component';
+import { ModalResourcesComponent } from './components/modals/modal-resources/modal-resources.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +65,13 @@ import { HeaderComponent } from './components/header/header.component';
     CardsSectionComponent,
     KnowKitComponent,
     HeaderComponent,
+    ModalEnvironmentsComponent,
+    ModalSituationsComponent,
+    ModalSensationsComponent,
+    ModalEmotionsComponent,
+    ModalQuestionsComponent,
+    ModalDistinctionsComponent,
+    ModalResourcesComponent,
   ],
   imports: [
     BrowserModule,

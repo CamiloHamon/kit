@@ -70,29 +70,28 @@ input:checked + label {
 	transform: translate(-50%, -50%);
 }
 
+@media (min-width: 992px) {
+	.cards:last-child {
+		padding-right: 0 !important;
+		padding-left: calc(var(--bs-gutter-x) / 2) !important;
+	}
 
-.cards:last-child {
-	padding-right: 0 !important;
-    padding-left: calc(var(--bs-gutter-x)/ 2)!important;
+	.cards:first-child {
+		padding-left: 0 !important;
+		padding-right: calc(var(--bs-gutter-x) / 2) !important;
+	}
+
+	.cards {
+		padding-left: calc(var(--bs-gutter-x) / 4) !important;
+		padding-right: calc(var(--bs-gutter-x) / 4) !important;
+	}
 }
 
-.cards:first-child {
-	padding-left: 0 !important;
-    padding-right: calc(var(--bs-gutter-x)/ 2)!important;
+.btn {
+	padding-left: 3rem;
+	padding-right: 3rem;
 }
 
-.cards{
-    padding-left: calc(var(--bs-gutter-x)/ 4)!important;
-    padding-right: calc(var(--bs-gutter-x)/ 4)!important;
+.select-env {
+	color: #6facfc;
 }
-
-.btn{
-    padding-left: 3rem;
-    padding-right: 3rem;
-}
-
-
-.select-env{
-    color: #6facfc;
-}
-

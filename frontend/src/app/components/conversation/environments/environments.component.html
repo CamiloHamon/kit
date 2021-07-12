@@ -1,14 +1,14 @@
 <div class="container mt-5">
     <app-cards-section></app-cards-section>
-    <div class="row mt-5 justify-content-center">
+    <div class="row mt-3 mt-lg-5 justify-content-center">
         <div class="col-12 text-center">
             <p>De los siguientes entornos, ¿cuál te gustaría explorar?</p>
             <p class="select-env">Selecciona una carta y haz clic en el botón ELEGIR.</p>
         </div>
     </div>
     <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
-        <div class="row mt-4 justify-content-center">
-            <div class="col-2 cards ps-0 text-center" *ngFor="let environment of environments">
+        <div class="row mt-2 mt-lg-4 justify-content-center">
+            <div class="col-4 col-lg-2 cards ps-lg-0 pt-2 pt-lg-0 text-center" *ngFor="let environment of environments">
                 <input type="radio" formControlName="cards" [value]="environment.id" id="environment-{{environment.id}}"
                     class="environmentInput">
                 <label for="environment-{{environment.id}}" id="label">
@@ -16,13 +16,14 @@
                     <div class="text-cards">{{environment.name}}</div>
                 </label>
             </div>
-            <div class="row mt-5 justify-content-center">
-                <div class="col-12 text-center">
+            <div class="row mt-3 mt-lg-5 justify-content-center">
+                <div class="col-12 pb-3 text-center">
                     <button type="button" class="btn btn-outline-secondary" (click)="goBack()">VOLVER</button>
-                    <button [disabled]="form.invalid" class="btn btn-primary ms-5" data-bs-toggle="modal"
+                    <button [disabled]="form.invalid" class="btn btn-primary ms-3 ms-lg-5" data-bs-toggle="modal"
                         data-bs-target="#situations">ELEGIR</button>
                 </div>
             </div>
         </div>
     </form>
 </div>
+<app-modal-situations></app-modal-situations>

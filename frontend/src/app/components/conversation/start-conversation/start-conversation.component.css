@@ -1,11 +1,18 @@
-.vh-100 {
-	height: 90.4vh !important;
+@media only screen and (max-width: 991px) {
+	.bg-conversation {
+		background-size: contain;
+		background-position-x: right;
+		background-position-y: top;
+	}
 }
 
 .bg-conversation {
-	background-image: url('/assets/img/img1.png');
-	background-repeat: no-repeat;
-	background-size: auto;
-    background-position: right;
-    height: 100%;
+	background: linear-gradient(90deg, white 50%, #101320 50%);
+}
+
+@media (min-width: 992px) {
+	.bg-conversation {
+		padding-right: 6px !important;
+		background: linear-gradient(90deg, white 50%, #101320 50%);
+	}
 }
