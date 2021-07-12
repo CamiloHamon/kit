@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalDismissReasons, NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { ModalsService } from 'src/app/services/modals/modals.service';
 import { QuestionsService } from 'src/app/services/questions.service';
+import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 
 @Component({
@@ -14,6 +14,8 @@ import { QuestionsService } from 'src/app/services/questions.service';
 })
 export class QuestionsComponent implements OnInit {
   @ViewChild('content') content: ElementRef | undefined;
+  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
+  back: string = 'conversation/emotions';
   questions: any = [];
   questionContent: string = '';
   idESSE: number = -1;
@@ -29,12 +31,10 @@ export class QuestionsComponent implements OnInit {
     this.idESSE = Number(sessionStorage.getItem('esse'));
     this.questionsService.getQuestionsByESSE(this.idESSE).subscribe(
       res => {
-        this.questions = res;
-        console.log(this.questions);
+        if (res.length > 0) this.questions = res;
+        else this.modalError.showModalError(this.back, 'lg');
       },
-      err => {
-        console.log(err);
-      }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 
@@ -49,21 +49,21 @@ export class QuestionsComponent implements OnInit {
       res => {
         sessionStorage.setItem('question', `${JSON.stringify(res)}`);
       },
-      err => { console.log(err) }
+      err => this.modalError.showModalError(this.back, 'lg')
     );
     this.questionsService.validateQuestion(this.idESSE, idQuestion).subscribe(
       res => {
-        if (res[0].isCorrect === 1) {
-          const idESSEQ = Number(contentQuestion[1]);
-          sessionStorage.setItem('esseeq', `${idESSEQ}`);
-          this.router.navigate(['/conversation/questions/details']);
-        } else {
-          this.modalsService.open(this.content, 'lg');
-        }
+        if (res.length > 0) {
+          if (res[0].isCorrect === 1) {
+            const idESSEQ = Number(contentQuestion[1]);
+            sessionStorage.setItem('esseeq', `${idESSEQ}`);
+            this.router.navigate(['/conversation/questions/details']);
+          } else {
+            this.modalsService.open(this.content, 'lg');
+          }
+        } else this.modalError.showModalError(this.back, 'lg')
       },
-      err => {
-        console.log(err);
-      }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 

@@ -187,8 +187,12 @@ a:focus-visible {
 }
 
 .bg-secondary-header {
-	background-color: #6caaff;
+	background-color: #6caaff!important;
 	height: 100%;
+}
+
+.cursor-pointer{
+	cursor: pointer;
 }
 
 @media only screen and (max-width: 991px) {

@@ -39,6 +39,14 @@
 	text-align: center;
 }
 
+.rounded-custom{
+	border-radius: 1.5rem;
+}
+
+.border-danger{
+	border: 2px solid #dc3545!important;
+}
+
 .btn{
     padding-left: 3rem;
     padding-right: 3rem;

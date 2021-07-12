@@ -113,4 +113,10 @@ export class FunctionsService {
     return false;
   }
 
+  validateNumberId(id: string) {
+    const idValidate = Number(id);
+    if (!isNaN(idValidate)) return true;
+    return false;
+  }
+
 }

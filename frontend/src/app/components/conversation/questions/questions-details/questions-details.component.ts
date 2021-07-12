@@ -12,17 +12,16 @@ export class QuestionsDetailsComponent implements OnInit {
 
   constructor(private questionsServices: QuestionsService, private router: Router) {
     if (this.questionsServices.existQuestion()) {
-      this.question = this.questionsServices.getQuestion();
       try {
+        this.question = this.questionsServices.getQuestion();
         const split = this.question.description.split(' - ');
         this.question.use = split[1];
       } catch (e) {
-        console.log(e);
+        router.navigate(['/conversation/questions']);
       }
     } else router.navigate(['/conversation/questions']);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

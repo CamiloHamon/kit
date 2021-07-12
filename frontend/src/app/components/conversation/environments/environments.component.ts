@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EnvironmentsService } from 'src/app/services/environments.service';
 import { FunctionsService } from 'src/app/services/functions.service';
+import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 @Component({
   selector: 'app-environments',
@@ -10,6 +11,7 @@ import { FunctionsService } from 'src/app/services/functions.service';
   styleUrls: ['./environments.component.css']
 })
 export class EnvironmentsComponent implements OnInit {
+  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
   environments: any = [];
   idEnvironment: number = -1;
   form = new FormGroup({
@@ -19,10 +21,9 @@ export class EnvironmentsComponent implements OnInit {
   constructor(private environmentsServices: EnvironmentsService, private functionsServices: FunctionsService, private router: Router) {
     this.functionsServices.removeAllItems();
     this.environmentsServices.index().subscribe(
-      res => {
-        this.environments = res;
-      },
-      err => console.log(err))
+      res => this.environments = res,
+      err => this.modalError.showModalError('', 'lg')
+    );
   }
 
   ngOnInit(): void { }
@@ -34,7 +35,7 @@ export class EnvironmentsComponent implements OnInit {
         console.log(res)
         sessionStorage.setItem('environment', `${JSON.stringify(res)}`);
       },
-      err => { console.log(err) }
+      err => this.modalError.showModalError('', 'lg')
     )
   }
 

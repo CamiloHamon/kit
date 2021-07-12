@@ -9,10 +9,11 @@ import { EmotionsService } from 'src/app/services/emotions.service';
 })
 export class EmotionsDetailsComponent implements OnInit {
   emotion: any = [];
+
   constructor(private emotionsService: EmotionsService, private router: Router) {
     if (this.emotionsService.existEmotion()) {
-      this.emotion = this.emotionsService.getEmotion();
       try {
+        this.emotion = this.emotionsService.getEmotion();
         const split = this.emotion.description.split('. ');
         let generate = split[0].split('? ')
         generate = generate[1];
@@ -21,12 +22,11 @@ export class EmotionsDetailsComponent implements OnInit {
         this.emotion.generate = generate;
         this.emotion.comunication = comunication;
       } catch (e) {
-        console.log(e);
+        router.navigate(['/conversation/emotions']);
       }
     } else router.navigate(['/conversation/emotions']);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

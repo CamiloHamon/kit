@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DistinctionsService } from 'src/app/services/distinctions.service';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { ModalsService } from 'src/app/services/modals/modals.service';
+import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 @Component({
   selector: 'app-distinctions',
@@ -13,6 +14,8 @@ import { ModalsService } from 'src/app/services/modals/modals.service';
 
 export class DistinctionsComponent implements OnInit {
   @ViewChild('content') content: ElementRef | undefined;
+  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
+  back: string = 'conversation/questions';
   distinctions: any = [];
   distinctionContent: string = '';
   idESSEQ: number = -1;
@@ -28,17 +31,14 @@ export class DistinctionsComponent implements OnInit {
     this.idESSEQ = Number(sessionStorage.getItem('esseeq'));
     this.distinctionsService.getDistinctionsByESSEQ(this.idESSEQ).subscribe(
       res => {
-        this.distinctions = res;
-        console.log(this.distinctions);
+        if (res.length > 0) this.distinctions = res;
+        else this.modalError.showModalError(this.back, 'lg');
       },
-      err => {
-        console.log(err);
-      }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   continue() {
     const contentDistinction = this.form.controls.cards.value.split('-');
@@ -47,22 +47,22 @@ export class DistinctionsComponent implements OnInit {
       res => {
         sessionStorage.setItem('distinction', `${JSON.stringify(res)}`);
       },
-      err => { console.log(err) }
+      err => this.modalError.showModalError(this.back, 'lg')
     );
     this.distinctionsService.validateDistinction(this.idESSEQ, idDistinction).subscribe(
       res => {
-        if (res[0].isCorrect === 1) {
-          const idESSEQD = Number(contentDistinction[1]);
-          sessionStorage.setItem('esseeqd', `${idESSEQD}`);
-          this.router.navigate(['/conversation/distinctions/details']);
-        } else {
-          this.modalsService.open(this.content, 'lg');
-        }
+        if (res.length > 0) {
+          if (res[0].isCorrect === 1) {
+            const idESSEQD = Number(contentDistinction[1]);
+            sessionStorage.setItem('esseeqd', `${idESSEQD}`);
+            this.router.navigate(['/conversation/distinctions/details']);
+          } else {
+            this.modalsService.open(this.content, 'lg');
+          }
+        } else this.modalError.showModalError(this.back, 'lg');
       },
-      err => {
-        console.log(err);
-      }
-    )
+      err => this.modalError.showModalError(this.back, 'lg')
+    );
   }
 
   goBack() {

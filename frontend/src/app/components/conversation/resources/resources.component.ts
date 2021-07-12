@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalsService } from 'src/app/services/modals/modals.service';
 import { ResourcesService } from 'src/app/services/resources.service';
+import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 @Component({
   selector: 'app-resources',
@@ -11,6 +12,8 @@ import { ResourcesService } from 'src/app/services/resources.service';
 })
 export class ResourcesComponent implements OnInit {
   @ViewChild('content') content: ElementRef | undefined;
+  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
+  back: string = 'conversation/distinctions';
   resources: any = [];
   resourceContent: string = '';
   idESSEQD: number = -1;
@@ -25,17 +28,14 @@ export class ResourcesComponent implements OnInit {
     this.idESSEQD = Number(sessionStorage.getItem('esseeqd'));
     this.resourcesService.getResourcesByESSEQD(this.idESSEQD).subscribe(
       res => {
-        this.resources = res;
-        console.log(res);
+        if (res.length > 0) this.resources = res;
+        else this.modalError.showModalError(this.back, 'lg');
       },
-      err => {
-        console.log(err);
-      }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   continue() {
     const contentResource = this.form.controls.cards.value.split('-');
@@ -44,21 +44,19 @@ export class ResourcesComponent implements OnInit {
       res => {
         sessionStorage.setItem('resource', `${JSON.stringify(res)}`);
       },
-      err => { console.log(err) }
+      err => this.modalError.showModalError(this.back, 'lg')
     );
     this.resourcesService.validateResource(this.idESSEQD, idResource).subscribe(
       res => {
-        if (res[0].isCorrect === 1) {
-          const idESSEQDR = Number(contentResource[1]);
-          sessionStorage.setItem('esseeqdr', `${idESSEQDR}`);
-          this.router.navigate(['/conversation/resources/details']);
-        } else {
-          this.modalsServices.open(this.content, 'lg');
-        }
+        if (res.length > 0) {
+          if (res[0].isCorrect === 1) {
+            const idESSEQDR = Number(contentResource[1]);
+            sessionStorage.setItem('esseeqdr', `${idESSEQDR}`);
+            this.router.navigate(['/conversation/resources/details']);
+          } else this.modalsServices.open(this.content, 'lg');
+        } else this.modalError.showModalError(this.back, 'lg')
       },
-      err => {
-        console.log(err);
-      }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { SensationService } from 'src/app/services/sensation.service';
+import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 
 @Component({
@@ -11,21 +12,22 @@ import { SensationService } from 'src/app/services/sensation.service';
   styleUrls: ['./sensations.component.css']
 })
 export class SensationsComponent implements OnInit {
+  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
+  back: string = 'conversation/situations';
   idSensation: number = -1;
   sensations: any = [];
   form = new FormGroup({
     cards: new FormControl('', [Validators.required])
   });
+
   constructor(private sensationService: SensationService, private functionsServices: FunctionsService, private router: Router) {
     this.functionsServices.removeAllExceptEnvAndSit();
     this.sensationService.index().subscribe(
       res => {
-        this.sensations = res;
-        console.log(this.sensations)
+        if (res.length > 0) this.sensations = res;
+        else this.modalError.showModalError(this.back, 'lg');
       },
-      err => {
-        console.log(err);
-      }
+      err => this.modalError.showModalError(this.back, 'lg')
     );
   }
 
@@ -38,7 +40,7 @@ export class SensationsComponent implements OnInit {
       res => {
         sessionStorage.setItem('sensation', `${JSON.stringify(res)}`);
       },
-      err => { console.log(err) }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 

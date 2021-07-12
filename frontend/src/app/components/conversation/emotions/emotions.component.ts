@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmotionsService } from 'src/app/services/emotions.service';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { SensationService } from 'src/app/services/sensation.service';
 import { SituationsService } from 'src/app/services/situations.service';
+import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 @Component({
   selector: 'app-emotions',
@@ -12,6 +13,8 @@ import { SituationsService } from 'src/app/services/situations.service';
   styleUrls: ['./emotions.component.css']
 })
 export class EmotionsComponent implements OnInit {
+  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
+  back: string = 'conversation/situations';
   emotions: any = [];
   emotionContent: string = '';
   form = new FormGroup({
@@ -28,11 +31,10 @@ export class EmotionsComponent implements OnInit {
     const sensation = this.sensationsServices.getSensation();
     this.emotionsService.getEmotionsByESAndSensation(situation.id, sensation.id).subscribe(
       res => {
-        this.emotions = res;
+        if (res.length > 0) this.emotions = res;
+        else this.modalError.showModalError(this.back, 'lg');
       },
-      err => {
-        console.log(err)
-      }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 
@@ -49,7 +51,7 @@ export class EmotionsComponent implements OnInit {
         sessionStorage.setItem('emotion', `${JSON.stringify(res)}`);
         this.router.navigate(['/conversation/emotions/details']);
       },
-      err => { console.log(err) }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 

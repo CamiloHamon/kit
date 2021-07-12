@@ -38,6 +38,7 @@ import { ModalEmotionsComponent } from './components/modals/modal-emotions/modal
 import { ModalQuestionsComponent } from './components/modals/modal-questions/modal-questions.component';
 import { ModalDistinctionsComponent } from './components/modals/modal-distinctions/modal-distinctions.component';
 import { ModalResourcesComponent } from './components/modals/modal-resources/modal-resources.component';
+import { ModalErrorComponent } from './components/modals/modal-error/modal-error.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { ModalResourcesComponent } from './components/modals/modal-resources/mod
     ModalQuestionsComponent,
     ModalDistinctionsComponent,
     ModalResourcesComponent,
+    ModalErrorComponent,
   ],
   imports: [
     BrowserModule,

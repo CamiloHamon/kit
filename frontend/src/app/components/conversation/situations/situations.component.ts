@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EnvironmentsService } from 'src/app/services/environments.service';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { SituationsService } from 'src/app/services/situations.service';
+import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 @Component({
   selector: 'app-situations',
   templateUrl: './situations.component.html',
   styleUrls: ['./situations.component.css']
 })
+
 export class SituationsComponent implements OnInit {
+  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
+  back: string = 'conversation/environments';
   situations: any = [];
   idSutiation: number = -1;
   form = new FormGroup({
@@ -24,17 +28,17 @@ export class SituationsComponent implements OnInit {
   ) {
     this.functionsServices.removeAllExceptEnv();
     const environment = this.environmentsServices.getEnvironment();
+
     this.situationsService.index(environment.id).subscribe(
       res => {
-        this.situations = res;
-        console.log(this.situations)
+        if (res.length > 0) this.situations = res;
+        else this.modalError.showModalError(this.back, 'lg');
       },
-      err => console.log(err)
+      err => this.modalError.showModalError(this.back, 'lg')
     );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   continue() {
     this.idSutiation = this.form.controls.cards.value;
@@ -42,7 +46,7 @@ export class SituationsComponent implements OnInit {
       res => {
         sessionStorage.setItem('situation', `${JSON.stringify(res)}`);
       },
-      err => { console.log(err) }
+      err => this.modalError.showModalError(this.back, 'lg')
     )
   }
 
