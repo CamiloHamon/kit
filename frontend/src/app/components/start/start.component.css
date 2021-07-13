@@ -2,8 +2,8 @@
 	background-image: url('/assets/img/pre-login.png');
 	background-repeat: no-repeat;
 	background-size: 50%;
-    background-position-x: 85%;
-    background-position-y: top;
+	background-position-x: 85%;
+	background-position-y: top;
 }
 
 .bg-points {
@@ -14,7 +14,7 @@
 	background-size: 40%;
 }
 
-.vh-100-custom{
+.vh-100-custom {
 	height: 100vh;
 	z-index: -1;
 }
@@ -54,6 +54,7 @@
 	.text-start {
 		font-size: 2.2rem;
 		line-height: 40px;
+		z-index: 1;
 	}
 
 	.position-start {

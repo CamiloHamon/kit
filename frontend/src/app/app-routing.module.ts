@@ -26,15 +26,18 @@ import { DistinctionsGuard } from './guards/distinctions.guard';
 import { ResourcesGuard } from './guards/resources.guard';
 import { FeedbackGuard } from './guards/feedback.guard';
 import { KnowKitComponent } from './components/modals/know-kit/know-kit.component';
+import { CheckLoginGuard } from './guards/check-login.guard';
 
 const routes: Routes = [
 	{
 		path: '',
 		component: StartComponent,
+		canActivate: [CheckLoginGuard],
 	},
 	{
 		path: 'login',
 		component: SigninComponent,
+		canActivate: [CheckLoginGuard],
 	},
 	{
 		path: 'home',

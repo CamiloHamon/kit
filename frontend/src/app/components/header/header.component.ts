@@ -3,30 +3,35 @@ import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  changeBg = false;
-  show = false;
+	changeBg = false;
+	showHeaderMovil = true;
+	show = false;
 
-  constructor(private router: Router, public authService: AuthService) {
-    router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        if (val.url !== '/') this.changeBg = true;
-        else this.changeBg = false;
-      }
-    })
-  }
+	constructor(private router: Router, public authService: AuthService) {
+		this.router.events.subscribe((val) => {
+			const routes = ['/', '/login'];
+			if (val instanceof NavigationEnd) {
+				if (val.url !== '/') this.changeBg = true;
+				else this.changeBg = false;
 
-  openMenu() {
-    this.show = true;
-  }
+				if (!routes.includes(val.url)) this.showHeaderMovil = false;
+				else this.showHeaderMovil = true;
+			}
+		});
+	}
 
-  closeMenu() {
-    this.show = false;
-  }
+	openMenu() {
+		this.show = true;
+	}
 
-  ngOnInit() { }
+	closeMenu() {
+		this.show = false;
+	}
+
+	ngOnInit() {}
 }

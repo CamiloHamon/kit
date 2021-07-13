@@ -20,9 +20,7 @@ export class SigninComponent implements OnInit {
 		private authService: AuthService,
 		private router: Router
 	) {
-		if (authService.loggedIn()) {
-			router.navigate(['/home']);
-		} else this.buildForm();
+		this.buildForm();
 	}
 
 	public ngOnInit() {}

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { StartComponent } from './components/start/start.component';
-import { PopupsComponent } from './components/popups/popups.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './guards/auth.guard';
@@ -41,56 +40,55 @@ import { ModalResourcesComponent } from './components/modals/modal-resources/mod
 import { ModalErrorComponent } from './components/modals/modal-error/modal-error.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignupComponent,
-    SigninComponent,
-    StartComponent,
-    PopupsComponent,
-    HomeComponent,
-    SpinnerComponent,
-    ConversationComponent,
-    EnvironmentsComponent,
-    StartConversationComponent,
-    SituationsComponent,
-    SensationsComponent,
-    EmotionsComponent,
-    QuestionsComponent,
-    DistinctionsComponent,
-    ResourcesComponent,
-    FeedbackComponent,
-    EmotionsDetailsComponent,
-    QuestionsDetailsComponent,
-    DistinctionsDetailsComponent,
-    ResourcesDetailsComponent,
-    CardsSectionComponent,
-    KnowKitComponent,
-    HeaderComponent,
-    ModalEnvironmentsComponent,
-    ModalSituationsComponent,
-    ModalSensationsComponent,
-    ModalEmotionsComponent,
-    ModalQuestionsComponent,
-    ModalDistinctionsComponent,
-    ModalResourcesComponent,
-    ModalErrorComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgbModule
-  ],
-  providers: [
-    AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		SignupComponent,
+		SigninComponent,
+		StartComponent,
+		HomeComponent,
+		SpinnerComponent,
+		ConversationComponent,
+		EnvironmentsComponent,
+		StartConversationComponent,
+		SituationsComponent,
+		SensationsComponent,
+		EmotionsComponent,
+		QuestionsComponent,
+		DistinctionsComponent,
+		ResourcesComponent,
+		FeedbackComponent,
+		EmotionsDetailsComponent,
+		QuestionsDetailsComponent,
+		DistinctionsDetailsComponent,
+		ResourcesDetailsComponent,
+		CardsSectionComponent,
+		KnowKitComponent,
+		HeaderComponent,
+		ModalEnvironmentsComponent,
+		ModalSituationsComponent,
+		ModalSensationsComponent,
+		ModalEmotionsComponent,
+		ModalQuestionsComponent,
+		ModalDistinctionsComponent,
+		ModalResourcesComponent,
+		ModalErrorComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		HttpClientModule,
+		ReactiveFormsModule,
+		NgbModule,
+	],
+	providers: [
+		AuthGuard,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptorService,
+			multi: true,
+		},
+	],
+	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

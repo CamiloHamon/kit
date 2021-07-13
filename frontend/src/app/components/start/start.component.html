@@ -1,20 +1,22 @@
-<div class="container-fluid vh-100-custom" style="position: absolute;top: 0;">
-    <div class="row vh-100-custom">
-        <div class="col-6 bg-primary"></div>
-        <div class="col-6 bg-secondary"></div>
-    </div>
+<div class="container-fluid vh-100-custom" style="position: absolute; top: 0">
+	<div class="row vh-100-custom">
+		<div class="col-6 bg-primary"></div>
+		<div class="col-6 bg-secondary"></div>
+	</div>
 </div>
 <div class="container-fluid vh-100 bg-img-start">
-    <div class="row vh-100 justify-content-center align-content-center bg-points">
-        <div class="col-10 col-lg-7 text-start bg-figure pt-3">
-            <p>Kit de</p>
-            <p>Conversaciones</p>
-            <p>Inteligentes</p>
-        </div>
-        <div class="col-10 col-lg-7 mt-5 text-center text-custom-left">
-            <a routerLink="/login">
-                <button *ngIf="!authService.loggedIn()" class="btn btn-primary">INICIAR SESIÓN</button>
-            </a>
-        </div>
-    </div>
+	<div class="row vh-100 justify-content-center align-content-center bg-points">
+		<div class="col-10 col-lg-7 text-start bg-figure pt-3">
+			<p>Kit de</p>
+			<p>Conversaciones</p>
+			<p>Inteligentes</p>
+		</div>
+		<div class="col-10 col-lg-7 mt-5 text-center text-custom-left">
+			<a routerLink="/login">
+				<button *ngIf="!authService.loggedIn()" class="btn btn-primary">
+					INICIAR SESIÓN
+				</button>
+			</a>
+		</div>
+	</div>
 </div>

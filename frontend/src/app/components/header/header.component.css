@@ -187,11 +187,11 @@ a:focus-visible {
 }
 
 .bg-secondary-header {
-	background-color: #6caaff!important;
+	background-color: #6caaff !important;
 	height: 100%;
 }
 
-.cursor-pointer{
+.cursor-pointer {
 	cursor: pointer;
 }
 
@@ -220,15 +220,24 @@ a:focus-visible {
 		left: 0;
 		top: 0;
 		height: 100%;
-		width: 90%;
+		width: 0;
 		z-index: 100;
 		background-color: #101320;
 		opacity: 0;
+		transition: 0.3s;
+	}
+
+	.bg-movil a {
 		display: none;
 	}
 
 	.bg-movil-active {
-		opacity: 0.9;
+		opacity: 0.95;
+		width: 90%;
+		transition: 0.3s;
+	}
+
+	.bg-movil-active a {
 		display: block;
 	}
 
@@ -258,6 +267,6 @@ a:focus-visible {
 	}
 
 	.bg-secondary-header {
-		background-color: transparent;
+		background-color: transparent !important;
 	}
 }
