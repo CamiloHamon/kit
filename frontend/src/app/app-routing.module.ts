@@ -29,6 +29,8 @@ import { QuestionsGuard } from './guards/conversation/questions/questions.guard'
 import { DistinctionsGuard } from './guards/conversation/distinctions/distinctions.guard';
 import { ResourcesGuard } from './guards/conversation/resources/resources.guard';
 import { FeedbackGuard } from './guards/conversation/feedback/feedback.guard';
+import { EffectiveComponent } from './components/effective/effective.component';
+import { StartEffectiveComponent } from './components/effective/start-effective/start-effective.component';
 
 const routes: Routes = [
 	{
@@ -113,6 +115,17 @@ const routes: Routes = [
 				path: 'feedback',
 				component: FeedbackComponent,
 				canActivate: [FeedbackGuard],
+			},
+		],
+	},
+	{
+		path: 'effective-combinations',
+		component: EffectiveComponent,
+		canActivate: [AuthGuard],
+		children: [
+			{
+				path: '',
+				component: StartEffectiveComponent,
 			},
 		],
 	},

@@ -3,11 +3,9 @@
 	[class.d-none]="showHeaderMovil"
 >
 	<div class="row align-content-center h-100">
-		<div class="col-2 text-center d-lg-none">
-			<a routerLink="/">
-				<img src="/assets/img/logoHeader.png" />
-			</a>
-		</div>
+		<a routerLink="/" class="col-2 text-center d-lg-none">
+			<img src="/assets/img/logoHeader.png" />
+		</a>
 		<div class="hamburguer d-lg-none text-end">
 			<button
 				type="button"
@@ -100,7 +98,13 @@
 			>
 				<div class="row align-items-lg-center h-lg-100">
 					<div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">
-						<a class="nav-link text-start" (click)="closeMenu()" href="#">
+						<a
+							class="nav-link text-start"
+							routerLink="/effective-combinations"
+							routerLinkActive="currentLink"
+							(click)="closeMenu()"
+							href="#"
+						>
 							Combinaciones Efectivas
 						</a>
 					</div>

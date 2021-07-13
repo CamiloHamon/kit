@@ -38,8 +38,12 @@ import { ModalResourcesComponent } from './components/modals/modal-resources/mod
 import { ModalErrorComponent } from './components/modals/modal-error/modal-error.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { TokenInterceptorService } from './services/auth/token-interceptor.service';
+import { RouterModule } from '@angular/router';
+import { EffectiveComponent } from './components/effective/effective.component';
+import { StartEffectiveComponent } from './components/effective/start-effective/start-effective.component';
 
 @NgModule({
+	exports: [RouterModule],
 	declarations: [
 		AppComponent,
 		SignupComponent,
@@ -72,6 +76,8 @@ import { TokenInterceptorService } from './services/auth/token-interceptor.servi
 		ModalDistinctionsComponent,
 		ModalResourcesComponent,
 		ModalErrorComponent,
+		EffectiveComponent,
+		StartEffectiveComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -80,6 +86,7 @@ import { TokenInterceptorService } from './services/auth/token-interceptor.servi
 		HttpClientModule,
 		ReactiveFormsModule,
 		NgbModule,
+		RouterModule,
 	],
 	providers: [
 		AuthGuard,

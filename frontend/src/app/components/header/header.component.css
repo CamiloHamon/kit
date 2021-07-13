@@ -195,6 +195,10 @@ a:focus-visible {
 	cursor: pointer;
 }
 
+.btn-close-movil {
+	display: none;
+}
+
 @media only screen and (max-width: 991px) {
 	.h-10vj {
 		height: 10vh;
@@ -203,22 +207,11 @@ a:focus-visible {
 		padding-top: 6rem;
 	}
 
-	.btn-close-movil {
-		position: absolute;
-		top: 1.5rem;
-		left: 2.8rem;
-		background-color: transparent !important;
-		border-radius: 50%;
-		opacity: 100;
-		background: none;
-		height: 2rem;
-		width: 2rem;
-	}
-
 	.bg-movil {
 		position: fixed;
 		left: 0;
 		top: 0;
+		padding: 0;
 		height: 100%;
 		width: 0;
 		z-index: 100;
@@ -241,6 +234,31 @@ a:focus-visible {
 		display: block;
 	}
 
+	.bg-movil-active .h-inherit {
+		display: block;
+	}
+
+	.bg-movil-active .h-lg-100 {
+		display: block;
+	}
+
+	.bg-movil-active .bg-primary-header {
+		display: block;
+	}
+
+	.bg-movil-active .btn-close-movil {
+		position: absolute;
+		top: 1.5rem;
+		left: 2.8rem;
+		background-color: transparent !important;
+		border-radius: 50%;
+		opacity: 100;
+		background: none;
+		height: 2rem;
+		width: 2rem;
+		display: block;
+	}
+
 	.nav-link {
 		text-align: start;
 		font-size: x-large;
@@ -252,6 +270,7 @@ a:focus-visible {
 
 	.h-inherit {
 		height: inherit;
+		display: none;
 	}
 
 	.h-lg-100 {
@@ -264,6 +283,7 @@ a:focus-visible {
 
 	.bg-primary-header {
 		height: auto;
+		display: none;
 	}
 
 	.bg-secondary-header {
