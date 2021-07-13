@@ -28,6 +28,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     //Auth
     Route::get('me', [AuthController::class, 'me']);
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
 
     //Environments
     Route::get('environments', 'App\Http\Controllers\EnvironmentsController@index');
