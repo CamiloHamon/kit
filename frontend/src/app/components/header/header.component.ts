@@ -20,11 +20,11 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  openMenu(){
+  openMenu() {
     this.show = true;
   }
 
-  closeMenu(){
+  closeMenu() {
     this.show = false;
   }
 

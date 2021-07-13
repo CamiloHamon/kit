@@ -28,93 +28,93 @@ import { FeedbackGuard } from './guards/feedback.guard';
 import { KnowKitComponent } from './components/modals/know-kit/know-kit.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: StartComponent
-  },
-  {
-    path: 'login',
-    component: SigninComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path:'modal',
-    component:KnowKitComponent
-  },
-  {
-    path: 'conversation',
-    component: ConversationComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: '',
-        component: StartConversationComponent
-      },
-      {
-        path: 'environments',
-        component: EnvironmentsComponent
-      },
-      {
-        path: 'situations',
-        component: SituationsComponent,
-        canActivate: [SituationsGuard]
-      },
-      {
-        path: 'sensations',
-        component: SensationsComponent,
-        canActivate: [SensationsGuard]
-      },
-      {
-        path: 'emotions',
-        component: EmotionsComponent,
-        canActivate: [EmotionsGuard]
-      },
-      {
-        path: 'emotions/details',
-        component: EmotionsDetailsComponent,
-      },
-      {
-        path: 'questions',
-        component: QuestionsComponent,
-        canActivate: [QuestionsGuard]
-      },
-      {
-        path: 'questions/details',
-        component: QuestionsDetailsComponent
-      },
-      {
-        path: 'distinctions',
-        component: DistinctionsComponent,
-        canActivate: [DistinctionsGuard]
-      },
-      {
-        path: 'distinctions/details',
-        component: DistinctionsDetailsComponent
-      },
-      {
-        path: 'resources',
-        component: ResourcesComponent,
-        canActivate: [ResourcesGuard]
-      },
-      {
-        path: 'resources/details',
-        component: ResourcesDetailsComponent
-      },
-      {
-        path: 'feedback',
-        component: FeedbackComponent,
-        canActivate: [FeedbackGuard]
-      }
-    ]
-  }
+	{
+		path: '',
+		component: StartComponent,
+	},
+	{
+		path: 'login',
+		component: SigninComponent,
+	},
+	{
+		path: 'home',
+		component: HomeComponent,
+		canActivate: [AuthGuard],
+	},
+	{
+		path: 'modal',
+		component: KnowKitComponent,
+	},
+	{
+		path: 'conversation',
+		component: ConversationComponent,
+		canActivate: [AuthGuard],
+		children: [
+			{
+				path: '',
+				component: StartConversationComponent,
+			},
+			{
+				path: 'environments',
+				component: EnvironmentsComponent,
+			},
+			{
+				path: 'situations',
+				component: SituationsComponent,
+				canActivate: [SituationsGuard],
+			},
+			{
+				path: 'sensations',
+				component: SensationsComponent,
+				canActivate: [SensationsGuard],
+			},
+			{
+				path: 'emotions',
+				component: EmotionsComponent,
+				canActivate: [EmotionsGuard],
+			},
+			{
+				path: 'emotions/details',
+				component: EmotionsDetailsComponent,
+			},
+			{
+				path: 'questions',
+				component: QuestionsComponent,
+				canActivate: [QuestionsGuard],
+			},
+			{
+				path: 'questions/details',
+				component: QuestionsDetailsComponent,
+			},
+			{
+				path: 'distinctions',
+				component: DistinctionsComponent,
+				canActivate: [DistinctionsGuard],
+			},
+			{
+				path: 'distinctions/details',
+				component: DistinctionsDetailsComponent,
+			},
+			{
+				path: 'resources',
+				component: ResourcesComponent,
+				canActivate: [ResourcesGuard],
+			},
+			{
+				path: 'resources/details',
+				component: ResourcesDetailsComponent,
+			},
+			{
+				path: 'feedback',
+				component: FeedbackComponent,
+				canActivate: [FeedbackGuard],
+			},
+		],
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

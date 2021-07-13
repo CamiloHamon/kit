@@ -1,77 +1,119 @@
 <div class="container-fluid sticky-top d-lg-block h-custom bg-primary h-10vh">
-    <div class="row align-content-center h-100">
-        <div class="col-2 text-center d-lg-none">
-            <a routerLink="/">
-                <img src="/assets/img/logoHeader.png">
-            </a>
-        </div>
-        <div class="hamburguer d-lg-none text-end">
-            <button type="button" class="btn p-0 color-items-movil" (click)="openMenu()" *ngIf="!show">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
-                    </path>
-                </svg>
-            </button>
-        </div>
-        <div class="row bg-movil px-lg-0 mx-lg-0 h-100 align-content-lg-center" [class.bg-movil-active]="show">
-            <button type="button" class="btn-close btn-close-movil d-lg-none" (click)="closeMenu()">
-                <span class="material-icons-outlined white color-items-movil">
-                    close
-                </span>
-            </button>
-            <div class="col-12 col-lg-6 pt-movil ps-5 px-lg-0 bg-primary-header">
-                <div class="row align-items-lg-center justify-content-xxl-end h-lg-100">
-                    <div class="col-2 px-lg-0 text-center d-none d-lg-block">
-                        <a routerLink="/">
-                            <img src="/assets/img/logoHeader.png">
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-2 col-xxl-auto px-lg-0 px-xxl-4">
-                        <a class="nav-link" routerLink='/home' routerLinkActive="currentLink">
-                            <div class="d-flex bd-highlight3 px-lg-0 px-xxl-4 align-items-lg-center">
-                                <div class="bd-highlight">
-                                    <span class="material-icons-outlined pt-1">home</span>
-                                </div>
-                                <div class="bd-highlight ms-1">Inicio</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
-                        <a class="nav-link cursor-pointer" data-bs-toggle="modal" data-bs-target="#knowKit">Conocer
-                            el
-                            Kit</a>
-                    </div>
-                    <div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">
-                        <a class="nav-link" routerLink='/conversation' routerLinkActive="currentLink"
-                            style="padding-right: 1.5rem;">
-                            1, 2, 3 ¡Conversemos!
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 ps-5 ps-lg-4 ps-xxl-3 h-inherit bg-primary"
-                [ngClass]="changeBg ? 'Class': 'bg-secondary-header'">
-                <div class="row align-items-lg-center h-lg-100">
-                    <div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">
-                        <a class="nav-link text-start" href="#">
-                            Combinaciones Efectivas
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-4 col-xxl-auto px-lg-0 px-xxl-4">
-                        <a class="nav-link text-start" href="#">¡Ponlo en práctica!</a>
-                    </div>
-                    <div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
-                        <ng-container *ngIf="authService.loggedIn()">
-                            <a class="nav-link text-start cursor-pointer" (click)="authService.logout()">
-                                Cerrar sesión
-                            </a>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="row align-content-center h-100">
+		<div class="col-2 text-center d-lg-none">
+			<a routerLink="/">
+				<img src="/assets/img/logoHeader.png" />
+			</a>
+		</div>
+		<div class="hamburguer d-lg-none text-end">
+			<button
+				type="button"
+				class="btn p-0 color-items-movil"
+				(click)="openMenu()"
+				*ngIf="!show"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="36"
+					height="36"
+					fill="currentColor"
+					class="bi bi-list"
+					viewBox="0 0 16 16"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+					></path>
+				</svg>
+			</button>
+		</div>
+		<div
+			class="row bg-movil px-lg-0 mx-lg-0 h-100 align-content-lg-center"
+			[class.bg-movil-active]="show"
+		>
+			<button
+				type="button"
+				class="btn-close btn-close-movil d-lg-none"
+				(click)="closeMenu()"
+			>
+				<span class="material-icons-outlined white color-items-movil">
+					close
+				</span>
+			</button>
+			<div class="col-12 col-lg-6 pt-movil ps-5 px-lg-0 bg-primary-header">
+				<div class="row align-items-lg-center justify-content-xxl-end h-lg-100">
+					<div class="col-2 px-lg-0 text-center d-none d-lg-block">
+						<a routerLink="/">
+							<img src="/assets/img/logoHeader.png" />
+						</a>
+					</div>
+					<div class="col-12 col-lg-2 col-xxl-auto px-lg-0 px-xxl-4">
+						<a
+							class="nav-link"
+							routerLink="/home"
+							routerLinkActive="currentLink"
+						>
+							<div
+								class="
+									d-flex
+									bd-highlight3
+									px-lg-0 px-xxl-4
+									align-items-lg-center
+								"
+							>
+								<div class="bd-highlight">
+									<span class="material-icons-outlined pt-1">home</span>
+								</div>
+								<div class="bd-highlight ms-1">Inicio</div>
+							</div>
+						</a>
+					</div>
+					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
+						<a
+							class="nav-link cursor-pointer"
+							data-bs-toggle="modal"
+							data-bs-target="#knowKit"
+							>Conocer el Kit</a
+						>
+					</div>
+					<div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">
+						<a
+							class="nav-link"
+							routerLink="/conversation"
+							routerLinkActive="currentLink"
+							style="padding-right: 1.5rem"
+						>
+							1, 2, 3 ¡Conversemos!
+						</a>
+					</div>
+				</div>
+			</div>
+			<div
+				class="col-12 col-lg-6 ps-5 ps-lg-4 ps-xxl-3 h-inherit bg-primary"
+				[ngClass]="changeBg ? 'Class' : 'bg-secondary-header'"
+			>
+				<div class="row align-items-lg-center h-lg-100">
+					<div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">
+						<a class="nav-link text-start" href="#">
+							Combinaciones Efectivas
+						</a>
+					</div>
+					<div class="col-12 col-lg-4 col-xxl-auto px-lg-0 px-xxl-4">
+						<a class="nav-link text-start" href="#">¡Ponlo en práctica!</a>
+					</div>
+					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
+						<ng-container *ngIf="authService.loggedIn()">
+							<a
+								class="nav-link text-start cursor-pointer"
+								(click)="authService.logout()"
+							>
+								Cerrar sesión
+							</a>
+						</ng-container>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <app-know-kit></app-know-kit>

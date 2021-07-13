@@ -13,7 +13,7 @@
         </div>
         <div class="col-10 col-lg-7 mt-5 text-center text-custom-left">
             <a routerLink="/login">
-                <button class="btn btn-primary">INICIAR SESIÓN</button>
+                <button *ngIf="!authService.loggedIn()" class="btn btn-primary">INICIAR SESIÓN</button>
             </a>
         </div>
     </div>

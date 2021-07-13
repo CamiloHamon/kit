@@ -7,11 +7,11 @@
 	font-weight: bold;
 }
 
-.currentLink{
-	color: #6caaff!important;
+.currentLink {
+	color: #6caaff !important;
 }
 
-body{
+body {
 	height: 100vh;
 }
 
@@ -28,24 +28,24 @@ body{
 	background-color: #6caaff !important;
 }
 
-.align-content-space-evenly{
+.align-content-space-evenly {
 	align-content: space-evenly;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: white;
+	color: white;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: white;
+	color: white;
 }
 
-.cursor-pointer{
+.cursor-pointer {
 	cursor: pointer;
 }
 
-.white{
-	color: white!important;
+.white {
+	color: white !important;
 }
 
 .navbar-spacing-left .navbar-nav .nav-link {
@@ -65,4 +65,3 @@ body{
 		padding-left: 0.7rem;
 	}
 }
-
