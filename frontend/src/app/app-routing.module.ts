@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { SensationsComponent } from './components/conversation/sensations/sensations.component';
 import { EnvironmentsComponent } from './components/conversation/environments/environments.component';
@@ -8,7 +9,6 @@ import { StartConversationComponent } from './components/conversation/start-conv
 import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { StartComponent } from './components/start/start.component';
-import { AuthGuard } from './guards/auth.guard';
 import { EmotionsComponent } from './components/conversation/emotions/emotions.component';
 import { QuestionsComponent } from './components/conversation/questions/questions.component';
 import { DistinctionsComponent } from './components/conversation/distinctions/distinctions.component';
@@ -18,15 +18,17 @@ import { EmotionsDetailsComponent } from './components/conversation/emotions/emo
 import { QuestionsDetailsComponent } from './components/conversation/questions/questions-details/questions-details.component';
 import { DistinctionsDetailsComponent } from './components/conversation/distinctions/distinctions-details/distinctions-details.component';
 import { ResourcesDetailsComponent } from './components/conversation/resources/resources-details/resources-details.component';
-import { SituationsGuard } from './guards/situations.guard';
-import { SensationsGuard } from './guards/sensations.guard';
-import { EmotionsGuard } from './guards/emotions.guard';
-import { QuestionsGuard } from './guards/questions.guard';
-import { DistinctionsGuard } from './guards/distinctions.guard';
-import { ResourcesGuard } from './guards/resources.guard';
-import { FeedbackGuard } from './guards/feedback.guard';
+
+import { CheckLoginGuard } from './guards/auth/check-login.guard';
+import { AuthGuard } from './guards/auth/auth.guard';
 import { KnowKitComponent } from './components/modals/know-kit/know-kit.component';
-import { CheckLoginGuard } from './guards/check-login.guard';
+import { SituationsGuard } from './guards/conversation/situations/situations.guard';
+import { SensationsGuard } from './guards/conversation/sensations/sensations.guard';
+import { EmotionsGuard } from './guards/conversation/emotions/emotions.guard';
+import { QuestionsGuard } from './guards/conversation/questions/questions.guard';
+import { DistinctionsGuard } from './guards/conversation/distinctions/distinctions.guard';
+import { ResourcesGuard } from './guards/conversation/resources/resources.guard';
+import { FeedbackGuard } from './guards/conversation/feedback/feedback.guard';
 
 const routes: Routes = [
 	{

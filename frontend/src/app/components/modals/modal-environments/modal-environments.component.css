@@ -144,7 +144,7 @@
 }
 
 .h-100-modals-brain {
-    height: 100%;
+	height: 100%;
 }
 
 @media only screen and (max-width: 991px) {
@@ -152,20 +152,20 @@
 		height: auto;
 	}
 
-    .h-100-modals-brain {
+	.h-100-modals-brain {
 		height: 28.1rem;
-        display: flex;
+		display: flex;
 	}
 
-    .h-modals-content {
-        height: 80vh;
-    }
+	.h-modals-content {
+		height: 80vh;
+	}
 
-    .one-custom {
-        left: 1rem;
-    }
+	.one-custom {
+		left: 1rem;
+	}
 
-    .btn-close-custom{
-        z-index: 10;
-    }
+	.btn-close-custom {
+		z-index: 10;
+	}
 }

@@ -165,10 +165,9 @@ input:checked + label {
 	background-color: #c3a4ce;
 }
 
-.rounded-custom{
+.rounded-custom {
 	border-radius: 1.5rem;
 }
-
 
 @media only screen and (max-width: 991px) {
 	.btn {

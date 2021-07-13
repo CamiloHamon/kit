@@ -1,43 +1,42 @@
 .vh-100 {
 	height: 90.4vh !important;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.bg-emotions{
-    background-color: #d77c52;
+.bg-emotions {
+	background-color: #d77c52;
 	background-image: url('/assets/img/silueta-light.png');
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 40vh;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.bg-emotions-wq{
-    background-color: #d77c52;
+.bg-emotions-wq {
+	background-color: #d77c52;
 	height: 40vh;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.title{
+.title {
 	color: #962f27;
 	text-decoration: underline;
 	font-weight: 600;
 }
 
-.rounded-custom{
-    border-radius: 1.5rem;
+.rounded-custom {
+	border-radius: 1.5rem;
 }
 
 @media only screen and (max-width: 991px) {
 	.vh-100 {
 		height: auto !important;
 	}
-	
 }

@@ -1,73 +1,76 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DistinctionsService } from 'src/app/services/distinctions.service';
-import { FunctionsService } from 'src/app/services/functions.service';
+
+import { DistinctionsService } from 'src/app/services/conversation/distinctions/distinctions.service';
+import { HelperService } from 'src/app/services/conversation/helpers/helper.service';
 import { ModalsService } from 'src/app/services/modals/modals.service';
 import { ModalErrorComponent } from '../../modals/modal-error/modal-error.component';
 
 @Component({
-  selector: 'app-distinctions',
-  templateUrl: './distinctions.component.html',
-  styleUrls: ['./distinctions.component.css']
+	selector: 'app-distinctions',
+	templateUrl: './distinctions.component.html',
+	styleUrls: ['./distinctions.component.css'],
 })
-
 export class DistinctionsComponent implements OnInit {
-  @ViewChild('content') content: ElementRef | undefined;
-  @ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
-  back: string = 'conversation/questions';
-  distinctions: any = [];
-  distinctionContent: string = '';
-  idESSEQ: number = -1;
-  form = new FormGroup({
-    cards: new FormControl('', [Validators.required])
-  });
+	@ViewChild('content') content: ElementRef | undefined;
+	@ViewChild(ModalErrorComponent) modalError: ModalErrorComponent;
+	back: string = 'conversation/questions';
+	distinctions: any = [];
+	distinctionContent: string = '';
+	idESSEQ: number = -1;
+	form = new FormGroup({
+		cards: new FormControl('', [Validators.required]),
+	});
 
-  constructor(private distinctionsService: DistinctionsService,
-    private functionsService: FunctionsService,
-    private modalsService: ModalsService,
-    private router: Router) {
-    this.functionsService.removeAllExceptEnvSitSenEmotQuestion();
-    this.idESSEQ = Number(sessionStorage.getItem('esseeq'));
-    this.distinctionsService.getDistinctionsByESSEQ(this.idESSEQ).subscribe(
-      res => {
-        if (res.length > 0) this.distinctions = res;
-        else this.modalError.showModalError(this.back, 'lg');
-      },
-      err => this.modalError.showModalError(this.back, 'lg')
-    )
-  }
+	constructor(
+		private distinctionsService: DistinctionsService,
+		private helperConversation: HelperService,
+		private modalsService: ModalsService,
+		private router: Router
+	) {
+		this.helperConversation.removeAllExceptEnvSitSenEmotQuestion();
+		this.idESSEQ = Number(sessionStorage.getItem('esseeq'));
+		this.distinctionsService.getDistinctionsByESSEQ(this.idESSEQ).subscribe(
+			(res) => {
+				if (res.length > 0) this.distinctions = res;
+				else this.modalError.showModalError(this.back, 'lg');
+			},
+			(err) => this.modalError.showModalError(this.back, 'lg')
+		);
+	}
 
-  ngOnInit(): void { }
+	ngOnInit(): void {}
 
-  continue() {
-    const contentDistinction = this.form.controls.cards.value.split('-');
-    const idDistinction = Number(contentDistinction[0]);
-    this.distinctionsService.show(idDistinction).subscribe(
-      res => {
-        sessionStorage.setItem('distinction', `${JSON.stringify(res)}`);
-      },
-      err => this.modalError.showModalError(this.back, 'lg')
-    );
-    this.distinctionsService.validateDistinction(this.idESSEQ, idDistinction).subscribe(
-      res => {
-        if (res.length > 0) {
-          if (res[0].isCorrect === 1) {
-            const idESSEQD = Number(contentDistinction[1]);
-            sessionStorage.setItem('esseeqd', `${idESSEQD}`);
-            this.router.navigate(['/conversation/distinctions/details']);
-          } else {
-            this.modalsService.open(this.content, 'lg');
-          }
-        } else this.modalError.showModalError(this.back, 'lg');
-      },
-      err => this.modalError.showModalError(this.back, 'lg')
-    );
-  }
+	continue() {
+		const contentDistinction = this.form.controls.cards.value.split('-');
+		const idDistinction = Number(contentDistinction[0]);
+		this.distinctionsService.show(idDistinction).subscribe(
+			(res) => {
+				sessionStorage.setItem('distinction', `${JSON.stringify(res)}`);
+			},
+			(err) => this.modalError.showModalError(this.back, 'lg')
+		);
+		this.distinctionsService
+			.validateDistinction(this.idESSEQ, idDistinction)
+			.subscribe(
+				(res) => {
+					if (res.length > 0) {
+						if (res[0].isCorrect === 1) {
+							const idESSEQD = Number(contentDistinction[1]);
+							sessionStorage.setItem('esseeqd', `${idESSEQD}`);
+							this.router.navigate(['/conversation/distinctions/details']);
+						} else {
+							this.modalsService.open(this.content, 'lg');
+						}
+					} else this.modalError.showModalError(this.back, 'lg');
+				},
+				(err) => this.modalError.showModalError(this.back, 'lg')
+			);
+	}
 
-  goBack() {
-    this.functionsService.removeAllExceptEnvSitSenEmotQuestion();
-    this.router.navigate(['/conversation/questions']);
-  }
-
+	goBack() {
+		this.helperConversation.removeAllExceptEnvSitSenEmotQuestion();
+		this.router.navigate(['/conversation/questions']);
+	}
 }

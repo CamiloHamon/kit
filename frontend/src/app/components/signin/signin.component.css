@@ -20,11 +20,11 @@
 	border-radius: 0;
 }
 
-.form-control-error{
+.form-control-error {
 	border-bottom: 1px solid #dc3545;
 }
 
-.form-control-success{
+.form-control-success {
 	border-bottom: 1px solid #6caaff;
 }
 
@@ -75,18 +75,15 @@
 	height: 90.4vh !important;
 }
 
-.vh-70{
-    height: 70vh!important;
+.vh-70 {
+	height: 70vh !important;
 }
 
-
 .bg-login {
-   
-    background-image: url('/assets/img/puntos.png'),
-        url('/assets/img/figure-blue.png'),
-        url('/assets/img/figure-blue-small.png'), 
-        url('/assets/img/login.png');
-	background-repeat: no-repeat, no-repeat, no-repeat,no-repeat;
+	background-image: url('/assets/img/puntos.png'),
+		url('/assets/img/figure-blue.png'), url('/assets/img/figure-blue-small.png'),
+		url('/assets/img/login.png');
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
 	background-size: 30%, 40%, 5rem 3rem, contain;
 	background-position-y: bottom, bottom, top, bottom;
 	background-position-x: left, right, right, 10%;
@@ -100,9 +97,8 @@
 	.bg-login {
 		background-image: url('/assets/img/puntos.png'),
 			url('/assets/img/figure-blue.png'),
-			url('/assets/img/figure-blue-small.png'), 
-            url('/assets/img/login.png'),
-            url('/assets/img/logo.png');
+			url('/assets/img/figure-blue-small.png'), url('/assets/img/login.png'),
+			url('/assets/img/logo.png');
 		background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 		background-size: 15rem, 5rem 1rem, 4rem, 23rem, auto;
 		background-position-y: bottom, bottom, top, bottom, 2rem;

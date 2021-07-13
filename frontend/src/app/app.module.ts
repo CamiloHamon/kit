@@ -9,9 +9,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { StartComponent } from './components/start/start.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './components/home/home.component';
-import { TokenInterceptorService } from './services/token-interceptor.service';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { EnvironmentsComponent } from './components/conversation/environments/environments.component';
@@ -38,6 +36,8 @@ import { ModalQuestionsComponent } from './components/modals/modal-questions/mod
 import { ModalDistinctionsComponent } from './components/modals/modal-distinctions/modal-distinctions.component';
 import { ModalResourcesComponent } from './components/modals/modal-resources/modal-resources.component';
 import { ModalErrorComponent } from './components/modals/modal-error/modal-error.component';
+import { AuthGuard } from './guards/auth/auth.guard';
+import { TokenInterceptorService } from './services/auth/token-interceptor.service';
 
 @NgModule({
 	declarations: [

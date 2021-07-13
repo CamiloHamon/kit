@@ -164,13 +164,13 @@ a {
 		background-size: cover;
 		background-position: center;
 		height: 50vh;
-		display: flex!important;
+		display: flex !important;
 		align-items: center;
 		justify-content: center;
 		align-content: center;
 	}
 
-	.home-items:hover{
+	.home-items:hover {
 		background-color: #1013201e;
 	}
 }

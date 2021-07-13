@@ -81,11 +81,11 @@ input:checked + label {
 	transform: translate(-50%, -50%);
 }
 
-.rounded-custom{
+.rounded-custom {
 	border-radius: 1.5rem;
 }
 
-.align-content-space-evenly{
+.align-content-space-evenly {
 	align-content: space-evenly;
 }
 
@@ -135,15 +135,15 @@ input:checked + label {
 	border-radius: 10rem;
 }
 
-.img-fluid-custom{
+.img-fluid-custom {
 	max-width: 70%;
 }
 
-.bg-gray{
+.bg-gray {
 	background-color: #f3f3f3;
 }
 
-.bg-gray-ligth{
+.bg-gray-ligth {
 	background-color: #f9f9f9;
 }
 

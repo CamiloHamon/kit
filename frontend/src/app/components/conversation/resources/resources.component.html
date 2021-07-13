@@ -1,57 +1,87 @@
 <div class="container mt-5">
-    <app-cards-section></app-cards-section>
-    <div class="row mt-5 justify-content-center">
-        <div class="col-11 col-lg-5 text-center">
-            <p>Analiza los siguientes recursos y determina cuál te ayudará a
-                tomar la mejor decisión.</p>
-        </div>
-    </div>
-    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
-        <div class="row mt-2 mt-lg-4 justify-content-center">
-            <div class="col-3 col-lg-2 cards ps-lg-0 pt-2 pt-lg-0 text-center" *ngFor="let resource of resources">
-                <input type="radio" formControlName="cards" value="{{resource.id_resource}}-{{resource.id}}"
-                    id="emotion-{{resource.id_resource}}" class="emotionInput">
-                <label for="emotion-{{resource.id_resource}}" id="label">
-                    <img src="/assets/img/card-resource.png" class="img-fluid" alt="">
-                    <div class="text-cards">{{resource.resource}}</div>
-                </label>
-            </div>
-            <div class="row mt-5 justify-content-center">
-                <div class="col-12 text-center">
-                    <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
-                        DISTINCIÓN</button>
-                    <button [disabled]="form.invalid" class="btn btn-primary ms-3 ms-lg-5">ELEGIR</button>
-                </div>
-            </div>
-        </div>
-    </form>
+	<app-cards-section></app-cards-section>
+	<div class="row mt-5 justify-content-center">
+		<div class="col-11 col-lg-5 text-center">
+			<p>
+				Analiza los siguientes recursos y determina cuál te ayudará a tomar la
+				mejor decisión.
+			</p>
+		</div>
+	</div>
+	<form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
+		<div class="row mt-2 mt-lg-4 justify-content-center">
+			<div
+				class="col-3 col-lg-2 cards ps-lg-0 pt-2 pt-lg-0 text-center"
+				*ngFor="let resource of resources"
+			>
+				<input
+					type="radio"
+					formControlName="cards"
+					value="{{ resource.id_resource }}-{{ resource.id }}"
+					id="emotion-{{ resource.id_resource }}"
+					class="emotionInput"
+				/>
+				<label for="emotion-{{ resource.id_resource }}" id="label">
+					<img src="/assets/img/card-resource.png" class="img-fluid" alt="" />
+					<div class="text-cards">{{ resource.resource }}</div>
+				</label>
+			</div>
+			<div class="row mt-5 justify-content-center">
+				<div class="col-12 text-center">
+					<button
+						type="button"
+						class="btn btn-outline-secondary"
+						(click)="goBack()"
+					>
+						CAMBIAR DISTINCIÓN
+					</button>
+					<button
+						[disabled]="form.invalid"
+						class="btn btn-primary ms-3 ms-lg-5"
+					>
+						ELEGIR
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>
 
 <app-modal-error></app-modal-error>
 
 <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-body p-0">
-        <div class="container" style="height: 50vh;">
-            <div class="row justify-content-center align-content-space-evenly h-100">
-                <div class="row justify-content-center align-content-center col-10 text-center bg-resources rounded-custom p-5"
-                    style="height: 70%;">
-                    <div class="col-12 col-lg-9">
-                        <h5 class="white mb-4">
-                            <b>
-                                No hay opciones buenas o malas, pero
-                                sí más efectivas!
-                            </b>
-                        </h5>
-                        <p class="white">
-                            Hay otras distinciones que podrán darle 
-                            mayor valor a tu conversación.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary" (click)="d('Cross click')">CAMBIAR RECURSO</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="modal-body p-0">
+		<div class="container" style="height: 50vh">
+			<div class="row justify-content-center align-content-space-evenly h-100">
+				<div
+					class="
+						row
+						justify-content-center
+						align-content-center
+						col-10
+						text-center
+						bg-resources
+						rounded-custom
+						p-5
+					"
+					style="height: 70%"
+				>
+					<div class="col-12 col-lg-9">
+						<h5 class="white mb-4">
+							<b> No hay opciones buenas o malas, pero sí más efectivas! </b>
+						</h5>
+						<p class="white">
+							Hay otras distinciones que podrán darle  mayor valor
+							a tu conversación.
+						</p>
+					</div>
+				</div>
+				<div class="col-12 text-center">
+					<button class="btn btn-primary" (click)="d('Cross click')">
+						CAMBIAR RECURSO
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </ng-template>

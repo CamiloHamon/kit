@@ -39,17 +39,17 @@
 	text-align: center;
 }
 
-.rounded-custom{
+.rounded-custom {
 	border-radius: 1.5rem;
 }
 
-.border-danger{
-	border: 2px solid #dc3545!important;
+.border-danger {
+	border: 2px solid #dc3545 !important;
 }
 
-.btn{
-    padding-left: 3rem;
-    padding-right: 3rem;
+.btn {
+	padding-left: 3rem;
+	padding-right: 3rem;
 }
 
 input {
@@ -100,12 +100,11 @@ input:checked + label {
 	transform: translate(-50%, -50%);
 }
 
-.col-1-custom{
+.col-1-custom {
 	flex: 0 0 auto;
-    width: 14.285%;
+	width: 14.285%;
 }
 
-.select-env{
-    color: #6facfc;
+.select-env {
+	color: #6facfc;
 }
-

@@ -1,55 +1,85 @@
 <div class="container mt-5">
-    <app-cards-section></app-cards-section>
-    <div class="row mt-5 justify-content-center">
-        <div class="col-11 col-lg-5 text-center">
-            <p>A partir de la emoción identificada, elige la pregunta que más
-                valor podría darte en este momento.</p>
-        </div>
-    </div>
-    <form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
-        <div class="row mt-2 mt-lg-4 justify-content-center">
-            <div class="col-3 col-lg-2 cards ps-lg-0 pt-2 pt-lg-0 text-center" *ngFor="let question of questions">
-                <input type="radio" formControlName="cards" value="{{question.id_question}}-{{question.id}}"
-                    id="emotion-{{question.id_question}}" class="emotionInput">
-                <label for="emotion-{{question.id_question}}" id="label">
-                    <img src="/assets/img/card-question.png" class="img-fluid" alt="">
-                    <div class="text-cards">{{question.question}}</div>
-                </label>
-            </div>
-            <div class="row mt-5 justify-content-center">
-                <div class="col-12 text-center">
-                    <button type="button" class="btn btn-outline-secondary" (click)="goBack()">CAMBIAR
-                        EMOCIÓN</button>
-                    <button [disabled]="form.invalid" class="btn btn-primary ms-3 ms-lg-5">ELEGIR</button>
-                </div>
-            </div>
-        </div>
-    </form>
+	<app-cards-section></app-cards-section>
+	<div class="row mt-5 justify-content-center">
+		<div class="col-11 col-lg-5 text-center">
+			<p>
+				A partir de la emoción identificada, elige la pregunta que más valor
+				podría darte en este momento.
+			</p>
+		</div>
+	</div>
+	<form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
+		<div class="row mt-2 mt-lg-4 justify-content-center">
+			<div
+				class="col-3 col-lg-2 cards ps-lg-0 pt-2 pt-lg-0 text-center"
+				*ngFor="let question of questions"
+			>
+				<input
+					type="radio"
+					formControlName="cards"
+					value="{{ question.id_question }}-{{ question.id }}"
+					id="emotion-{{ question.id_question }}"
+					class="emotionInput"
+				/>
+				<label for="emotion-{{ question.id_question }}" id="label">
+					<img src="/assets/img/card-question.png" class="img-fluid" alt="" />
+					<div class="text-cards">{{ question.question }}</div>
+				</label>
+			</div>
+			<div class="row mt-5 justify-content-center">
+				<div class="col-12 text-center">
+					<button
+						type="button"
+						class="btn btn-outline-secondary"
+						(click)="goBack()"
+					>
+						CAMBIAR EMOCIÓN
+					</button>
+					<button
+						[disabled]="form.invalid"
+						class="btn btn-primary ms-3 ms-lg-5"
+					>
+						ELEGIR
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>
 <app-modal-error></app-modal-error>
 <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-body p-0">
-        <div class="container" style="height: 50vh;">
-            <div class="row justify-content-center align-content-space-evenly h-100">
-                <div class="row justify-content-center align-content-center col-10 text-center bg-secondary rounded-custom p-5"
-                    style="height: 70%;">
-                    <div class="col-12 col-lg-9">
-                        <h5 class="white mb-4">
-                            <b>
-                                No hay opciones buenas o malas, pero
-                                sí más efectivas!
-                            </b>
-                        </h5>
-                        <p class="white">
-                            Hay otras preguntas que podrán darle
-                            mayor valor a tu conversación.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary" (click)="d('Cross click')">CAMBIAR PREGUNTA</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="modal-body p-0">
+		<div class="container" style="height: 50vh">
+			<div class="row justify-content-center align-content-space-evenly h-100">
+				<div
+					class="
+						row
+						justify-content-center
+						align-content-center
+						col-10
+						text-center
+						bg-secondary
+						rounded-custom
+						p-5
+					"
+					style="height: 70%"
+				>
+					<div class="col-12 col-lg-9">
+						<h5 class="white mb-4">
+							<b> No hay opciones buenas o malas, pero sí más efectivas! </b>
+						</h5>
+						<p class="white">
+							Hay otras preguntas que podrán darle mayor valor a tu
+							conversación.
+						</p>
+					</div>
+				</div>
+				<div class="col-12 text-center">
+					<button class="btn btn-primary" (click)="d('Cross click')">
+						CAMBIAR PREGUNTA
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </ng-template>

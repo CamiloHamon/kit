@@ -1,40 +1,40 @@
 .vh-100 {
 	height: 90.4vh !important;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.bg-resources{
-    background-color: #c3a4ce;
+.bg-resources {
+	background-color: #c3a4ce;
 	background-image: url('/assets/img/silueta-light.png');
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 40vh;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.bg-resources-wq{
-    background-color: #c3a4ce;
+.bg-resources-wq {
+	background-color: #c3a4ce;
 	height: 40vh;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.title{
+.title {
 	color: #6f2b5a;
 	font-weight: 600;
 }
 
-.rounded-custom{
-    border-radius: 1.5rem;
+.rounded-custom {
+	border-radius: 1.5rem;
 }
 
-.col-4-custom{
-    width: 30%;
-    margin-left: 3%;
+.col-4-custom {
+	width: 30%;
+	margin-left: 3%;
 }
