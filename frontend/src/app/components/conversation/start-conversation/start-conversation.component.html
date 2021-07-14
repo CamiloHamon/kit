@@ -1,53 +1,110 @@
-<div class="container-fluid">
-	<div class="row justify-content-between align-items-center">
-		<div class="col-xxl-1"></div>
+<div class="container-fluid h-100 bg-conversation">
+	<div class="row justify-content-between align-items-center h-100">
 		<div
 			class="
-				col-12 col-md-6 col-xxl-4
-				mt-xxl-5
-				pb-3
-				px-md-3 px-lg-5
-				order-2 order-md-1
+				row
+				col-12 col-sm-8 col-md-8 col-lg-7 col-xl-6 col-xxl-5
+				pl-custom
+				order-2 order-lg-1t
 			"
 		>
-			<p class="pt-5 py-md-5 pb-xxl-5">
-				Para lograr una conversación efectiva es importante entender el contexto
-				donde se está desarrollando. En esta sección aprenderás a usar las
-				cartas a partir de simulaciones, realizando un recorrido donde deberás
-				definir:
-			</p>
+			<div class="col-12 col-md-12 col-lg-12">
+				<p class="pt-3 pt-lg-5">
+					Para lograr una conversación efectiva es importante entender el
+					contexto donde se está desarrollando. En esta sección aprenderás a
+					usar las cartas a partir de simulaciones, realizando un recorrido
+					donde deberás definir:
+				</p>
 
-			<ul class="pb-xxl-5">
-				<li>El entorno</li>
-				<li>La situacion</li>
-				<li>Como te sientes?</li>
-				<li>Que sientes?</li>
-				<li>Que pregunta te harias?</li>
-				<li>Distincion de conceptos</li>
-				<li>Recursos para usar</li>
-			</ul>
+				<div class="ps-3 mt-4">
+					<div class="border-left py-2">
+						<div class="ps-custom py-3" id="content-cards">
+							<div id="rhombus">
+								<div class="content bg-environments">
+									<div class="text">1</div>
+								</div>
+							</div>
+							El entonrno
+						</div>
+						<div class="ps-custom py-3" id="content-cards">
+							<div id="rhombus">
+								<div class="content bg-situations">
+									<div class="text">2</div>
+								</div>
+							</div>
+							La situación
+						</div>
+						<div class="ps-custom py-3" id="content-cards">
+							<div id="rhombus">
+								<div class="content bg-sensations">
+									<div class="text">3</div>
+								</div>
+							</div>
+							¿Cómo te sientes?
+						</div>
+						<div class="ps-custom py-3" id="content-cards">
+							<div id="rhombus">
+								<div class="content bg-emotions">
+									<div class="text">4</div>
+								</div>
+							</div>
+							¿Qué sientes?
+						</div>
+						<div class="ps-custom py-3" id="content-cards">
+							<div id="rhombus">
+								<div class="content bg-questions">
+									<div class="text">5</div>
+								</div>
+							</div>
+							¿Qué pregunta te harías?
+						</div>
+						<div class="ps-custom py-3" id="content-cards">
+							<div id="rhombus">
+								<div class="content bg-distinctions">
+									<div class="text">6</div>
+								</div>
+							</div>
+							Distinción de concepto
+						</div>
+						<div class="ps-custom py-3" id="content-cards">
+							<div id="rhombus">
+								<div class="content bg-resources">
+									<div class="text">7</div>
+								</div>
+							</div>
+							Recursos para usar
+						</div>
+					</div>
+				</div>
 
-			<p class="pb-xxl-5">
-				En cada una de ellas deberás hacer una elección que te permitirá armar
-				una combinación de cartas y, al finalizar, te daremos algunas
-				recomendaciones para lograr una conversación inteligente, según las
-				decisiones que hayas tomado.
-			</p>
+				<p class="mt-4 mb-4 mb-lg-5">
+					En cada una de ellas deberás hacer una elección que te permitirá armar
+					una combinación de cartas y, al finalizar, te daremos algunas
+					recomendaciones para lograr una conversación inteligente, según las
+					decisiones que hayas tomado.
+				</p>
 
-			<button class="btn btn-outline-secondary" routerLink="/home">
-				CAMBIAR DE MODALIDAD
-			</button>
-			<button
-				class="btn btn-primary ms-5"
-				data-bs-toggle="modal"
-				data-bs-target="#environments"
-			>
-				INICIAR
-			</button>
+				<div class="mb-3 mb-lg-0">
+					<button class="btn btn-outline-secondary px-lg-3" routerLink="/home">
+						CAMBIAR MODALIDAD
+					</button>
+					<button
+						class="btn btn-primary ms-2 ms-lg-3 px-3 px-lg-3"
+						data-bs-toggle="modal"
+						data-bs-target="#environments"
+					>
+						INICIAR
+					</button>
+				</div>
+			</div>
 		</div>
-		<div class="col-12 col-md-6 col-xxl-5 order-1 order-md-2 bg-conversation">
-			<img src="/assets/img/img1.png" alt="" class="img-fluid" />
-		</div>
+		<div
+			class="
+				col-12 col-sm-4 col-md-4 col-lg-5
+				bg-conversation-blue
+				order-1 order-sm-2 order-lg-2
+			"
+		></div>
 	</div>
 </div>
 <app-modal-environments></app-modal-environments>

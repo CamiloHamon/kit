@@ -1,18 +1,154 @@
-@media only screen and (max-width: 991px) {
+#rhombus {
+	position: absolute;
+	left: -0.8rem;
+}
+
+#rhombus .content .text {
+	font-family: 'Pistilli';
+	color: white;
+	position: relative;
+	overflow: hidden;
+	top: 47%;
+	-webkit-transform: translateY(-50%) rotate(-45deg);
+	-ms-transform: translateY(-50%) rotate(-45deg);
+	transform: translateY(-50%) rotate(-45deg);
+	font-size: 1.5rem;
+	text-transform: uppercase;
+}
+
+#rhombus .content {
+	padding: 0;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	display: block;
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
+	transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8);
+}
+
+#content-cards {
+	position: relative;
+}
+
+.ps-custom {
+	padding-left: 2rem;
+}
+
+.border-left {
+	border-left: 2px solid black;
+}
+
+.bg-environments {
+	background-color: #c37688;
+}
+
+.bg-situations {
+	background-color: #5cb1bc;
+}
+
+.bg-sensations {
+	background-color: #ea8200;
+}
+
+.bg-emotions {
+	background-color: #d78056;
+}
+
+.bg-questions {
+	background-color: #4a80b3;
+}
+
+.bg-distinctions {
+	background-color: #60b3a2;
+}
+
+.bg-resources {
+	background-color: #c3a4ce;
+}
+
+.pl-custom {
+	padding-left: 10rem;
+}
+
+@media only screen and (min-width: 1200px) {
+	.bg-conversation-blue {
+		background-position-y: bottom, 90%;
+		background-position-x: left, 40%;
+		background-size: auto, auto, auto;
+	}
+
 	.bg-conversation {
-		background-size: contain;
-		background-position-x: right;
-		background-position-y: top;
+		background-size: 40rem;
+		background-position-y: 40%;
+		background-position-x: 70%;
+	}
+
+	.pl-custom {
+		padding-left: 10rem;
 	}
 }
 
-.bg-conversation {
-	background: linear-gradient(90deg, white 50%, #101320 50%);
+@media (min-width: 992px) and (max-width: 1199px) {
+	.bg-conversation {
+		background-position-y: 40%;
+		background-position-x: 60%;
+		background-size: 25rem;
+	}
+
+	.bg-conversation-blue {
+		background-size: contain, auto, auto;
+	}
+
+	.pl-custom {
+		padding-left: 5rem;
+	}
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) and (max-width: 991px) {
 	.bg-conversation {
-		padding-right: 6px !important;
-		background: linear-gradient(90deg, white 50%, #101320 50%);
+		background-position-y: 40%;
+		background-position-x: 90%;
+		background-size: 20rem;
+	}
+
+	.bg-conversation-blue {
+		background-size: contain, auto, auto;
+	}
+
+	.pl-custom {
+		padding-left: 2rem;
+	}
+}
+
+@media (min-width: 576px) {
+	.bg-conversation {
+		background-image: url('/assets/img/conversation-img-circle.png');
+		background-repeat: no-repeat;
+	}
+
+	.bg-conversation-blue {
+		background-image: url('/assets/img/puntos.png'),
+			url('/assets/img/icono-circulo.png'),
+			url('/assets/img/figure-blue-small.png');
+		background-repeat: no-repeat;
+		background-color: #101320;
+		background-position-y: bottom, 90%, 10%;
+		background-position-x: left, 40%, 90%;
+		height: 100%;
+		z-index: -1;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.bg-conversation-blue {
+		background-image: url('/assets/img/img1.png');
+		background-size: cover;
+		height: 50vh;
+	}
+
+	.pl-custom {
+		padding-left: 1rem;
 	}
 }
