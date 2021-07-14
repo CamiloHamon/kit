@@ -31,6 +31,7 @@ import { ResourcesGuard } from './guards/conversation/resources/resources.guard'
 import { FeedbackGuard } from './guards/conversation/feedback/feedback.guard';
 import { EffectiveComponent } from './components/effective/effective.component';
 import { StartEffectiveComponent } from './components/effective/start-effective/start-effective.component';
+import { EmotionsBankComponent } from './components/effective/emotions-bank/emotions-bank.component';
 
 const routes: Routes = [
 	{
@@ -126,6 +127,10 @@ const routes: Routes = [
 			{
 				path: '',
 				component: StartEffectiveComponent,
+			},
+			{
+				path: 'emotions-bank',
+				component: EmotionsBankComponent,
 			},
 		],
 	},

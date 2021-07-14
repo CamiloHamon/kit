@@ -11,8 +11,13 @@
 	color: #6caaff !important;
 }
 
+html,
 body {
-	height: 100vh;
+	height: calc(100vh - 9.6vh);
+}
+
+.h-complete {
+	height: 100%;
 }
 
 .btn-primary {

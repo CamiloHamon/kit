@@ -1,0 +1,53 @@
+<div class="container pt-5 h-100">
+	<div class="row justify-content-center">
+		<h5 class="text-center">BANCO DE EMOCIONES</h5>
+		<p class="text-center">
+			<b>Seleccion</b> la emoción que deseas consultar y <b>haz clic</b> en el
+			botón ELEGIR.
+		</p>
+		<form [formGroup]="form" class="p-0">
+			<div class="col-12 px-0" id="content-cards">
+				<div id="rhombus">
+					<div class="content">
+						<div class="text">1</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 mt-lg-5 border-custom rounded h-bank shadow">
+				<div class="row mb-3 mt-lg-4 pt-4">
+					<div
+						class="col-1-custom cards ps-lg-0 pt-2 pt-lg-0 text-center mb-3"
+						*ngFor="let emotion of emotions"
+					>
+						<input
+							type="radio"
+							formControlName="cards"
+							value="{{ emotion.id }}-{{ emotion.id }}"
+							id="emotion-{{ emotion.id }}"
+							class="emotionInput"
+						/>
+						<label for="emotion-{{ emotion.id }}" id="label" class="w-100">
+							<img
+								src="/assets/img/card-emotion.png"
+								class="img-fluid"
+								alt=""
+							/>
+							<div class="text-cards">{{ emotion.name }}</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 mt-3 mt-lg-5 text-center">
+				<button class="btn btn-outline-secondary px-lg-3" routerLink="/home">
+					CAMBIAR MODALIDAD
+				</button>
+				<button
+					class="btn btn-primary ms-2 ms-lg-5 px-lg-5"
+					routerLink="/effective-combinations/emotions-bank"
+				>
+					INICIAR
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
