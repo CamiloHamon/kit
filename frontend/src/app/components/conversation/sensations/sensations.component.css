@@ -50,8 +50,9 @@ input {
 
 input:checked + label {
 	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
-	border: 5px solid #6caaff;
-	border-radius: 0.9rem;
+	border: 3px solid #ea8200;
+	border-radius: 0.7rem;
+	filter: brightness(0.8);
 }
 
 #label:hover {

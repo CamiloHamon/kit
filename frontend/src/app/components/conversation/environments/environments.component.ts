@@ -25,7 +25,7 @@ export class EnvironmentsComponent implements OnInit {
 		private helperConversation: HelperService,
 		private router: Router
 	) {
-		this.helperConversation.removeAllItems();
+		sessionStorage.clear();
 		this.environmentsServices.index().subscribe(
 			(res) => (this.environments = res),
 			(err) => this.modalError.showModalError('', 'lg')

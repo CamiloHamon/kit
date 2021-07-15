@@ -24,9 +24,7 @@ export class EmotionsDetailsComponent implements OnInit {
 				comunication = comunication[1];
 				this.emotion.generate = generate;
 				this.emotion.comunication = comunication;
-			} catch (e) {
-				router.navigate(['/conversation/emotions']);
-			}
+			} catch (e) {}
 		} else router.navigate(['/conversation/emotions']);
 	}
 

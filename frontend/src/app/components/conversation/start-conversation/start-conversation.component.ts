@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./start-conversation.component.css'],
 })
 export class StartConversationComponent implements OnInit {
-	constructor() {}
+	constructor() {
+		sessionStorage.clear();
+	}
 
 	ngOnInit(): void {}
 }

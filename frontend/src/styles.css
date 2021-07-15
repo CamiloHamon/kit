@@ -14,6 +14,7 @@
 html,
 body {
 	height: calc(100vh - 9.6vh);
+	/* font-size: 1.125rem; */
 }
 
 .h-complete {

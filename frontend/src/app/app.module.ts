@@ -42,6 +42,9 @@ import { RouterModule } from '@angular/router';
 import { EffectiveComponent } from './components/effective/effective.component';
 import { StartEffectiveComponent } from './components/effective/start-effective/start-effective.component';
 import { EmotionsBankComponent } from './components/effective/emotions-bank/emotions-bank.component';
+import { CombinationsComponent } from './components/effective/combinations/combinations.component';
+import { CardsCombinationsComponent } from './components/effective/cards-combinations/cards-combinations.component';
+import { FeedbackEffectiveComponent } from './components/effective/feedback-effective/feedback-effective.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -80,6 +83,9 @@ import { EmotionsBankComponent } from './components/effective/emotions-bank/emot
 		EffectiveComponent,
 		StartEffectiveComponent,
   EmotionsBankComponent,
+  CombinationsComponent,
+  CardsCombinationsComponent,
+  FeedbackEffectiveComponent,
 	],
 	imports: [
 		BrowserModule,

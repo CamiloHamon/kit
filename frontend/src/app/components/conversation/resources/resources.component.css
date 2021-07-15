@@ -50,12 +50,14 @@ input {
 
 input:checked + label {
 	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
-	border: 5px solid #6caaff;
-	border-radius: 0.9rem;
+	border: 3px solid #9879a3;
+	border-radius: 0.7rem;
+	filter: brightness(0.8);
+	background-color: #c3a4ce;
 }
 
 #label:hover {
-	opacity: 0.8;
+	filter: brightness(0.8);
 }
 
 #label {
@@ -76,7 +78,7 @@ input:checked + label {
 	top: 30%;
 	left: 50%;
 	width: 80%;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold;
 	transform: translate(-50%, -50%);
 }
@@ -171,7 +173,12 @@ input:checked + label {
 
 @media only screen and (max-width: 991px) {
 	.btn {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.content-buttons {
+		display: flex;
+		justify-content: space-between;
 	}
 }

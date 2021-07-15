@@ -16,7 +16,7 @@
 #rhombus {
 	position: absolute;
 	top: 1.9rem;
-	left: 48%;
+	left: calc((50% - 25px));
 	z-index: 1;
 }
 
@@ -152,10 +152,6 @@ input:checked + label {
 		width: 33.33%;
 		padding-right: calc(var(--bs-gutter-x) / 2);
 	}
-
-	#rhombus {
-		left: 48%;
-	}
 }
 
 @media only screen and (max-width: 991px) {
@@ -167,7 +163,6 @@ input:checked + label {
 
 	#rhombus {
 		top: -1.2rem;
-		left: 45.5%;
 	}
 
 	input:checked + label {
@@ -177,5 +172,10 @@ input:checked + label {
 	.h-bank {
 		padding-left: 2rem;
 		padding-right: 2rem;
+	}
+
+	.content-buttons {
+		display: flex;
+		justify-content: space-between;
 	}
 }

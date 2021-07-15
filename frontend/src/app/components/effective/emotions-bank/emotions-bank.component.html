@@ -1,5 +1,5 @@
 <div class="container pt-5 h-100">
-	<div class="row justify-content-center">
+	<div class="row mx-0 justify-content-center">
 		<h5 class="text-center">BANCO DE EMOCIONES</h5>
 		<p class="text-center">
 			<b>Seleccion</b> la emoción que deseas consultar y <b>haz clic</b> en el
@@ -37,13 +37,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 mt-3 mt-lg-5 text-center">
-				<button class="btn btn-outline-secondary px-lg-3" routerLink="/home">
+			<div class="content-buttons mt-3 mt-lg-5 text-center px-0">
+				<button
+					class="btn btn-outline-secondary px-4 px-lg-3"
+					routerLink="/home"
+				>
 					CAMBIAR MODALIDAD
 				</button>
 				<button
-					class="btn btn-primary ms-2 ms-lg-5 px-lg-5"
-					routerLink="/effective-combinations/emotions-bank"
+					[disabled]="form.invalid"
+					class="btn btn-primary ms-lg-5 px-4 px-lg-5"
+					(click)="continue()"
 				>
 					INICIAR
 				</button>

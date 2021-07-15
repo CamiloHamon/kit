@@ -45,12 +45,14 @@
 
 input:checked + label {
 	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
-	border: 5px solid #6caaff;
-	border-radius: 0.9rem;
+	border: 3px solid #a25260;
+	border-radius: 0.7rem;
+	filter: brightness(0.8);
+	background-color: #d78056;
 }
 
 #label:hover {
-	opacity: 0.8;
+	filter: brightness(0.8);
 }
 
 #label {
@@ -65,8 +67,8 @@ input:checked + label {
 	top: 80%;
 	left: 50%;
 	width: 80%;
-	font-size: 12px;
-	font-weight: bold;
+	font-size: 14px;
+	font-weight: 400;
 	transform: translate(-50%, -50%);
 }
 
@@ -84,6 +86,13 @@ input:checked + label {
 	.cards {
 		padding-left: calc(var(--bs-gutter-x) / 4) !important;
 		padding-right: calc(var(--bs-gutter-x) / 4) !important;
+	}
+}
+
+@media (max-width: 991px) {
+	.content-buttons {
+		display: flex;
+		justify-content: space-between;
 	}
 }
 

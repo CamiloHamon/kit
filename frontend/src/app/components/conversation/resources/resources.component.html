@@ -11,7 +11,7 @@
 	<form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
 		<div class="row mt-2 mt-lg-4 justify-content-center">
 			<div
-				class="col-3 col-lg-2 cards ps-lg-0 pt-2 pt-lg-0 text-center"
+				class="col-6 col-lg-2 cards mb-3 ps-lg-0 pt-2 pt-lg-0 text-center"
 				*ngFor="let resource of resources"
 			>
 				<input
@@ -26,8 +26,8 @@
 					<div class="text-cards">{{ resource.resource }}</div>
 				</label>
 			</div>
-			<div class="row mt-5 justify-content-center">
-				<div class="col-12 text-center">
+			<div class="row mt-3 justify-content-center">
+				<div class="content-buttons pb-3 text-center px-0">
 					<button
 						type="button"
 						class="btn btn-outline-secondary"
@@ -35,10 +35,7 @@
 					>
 						CAMBIAR DISTINCIÓN
 					</button>
-					<button
-						[disabled]="form.invalid"
-						class="btn btn-primary ms-3 ms-lg-5"
-					>
+					<button [disabled]="form.invalid" class="btn btn-primary ms-lg-5">
 						ELEGIR
 					</button>
 				</div>

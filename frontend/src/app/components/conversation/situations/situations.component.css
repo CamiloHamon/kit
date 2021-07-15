@@ -58,12 +58,14 @@ input {
 
 input:checked + label {
 	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
-	border: 5px solid #6caaff;
-	border-radius: 0.9rem;
+	border: 3px solid #4a96a0;
+	border-radius: 0.7rem;
+	filter: brightness(0.8);
+	background-color: #5cb1bc;
 }
 
 #label:hover {
-	opacity: 0.8;
+	filter: brightness(0.8);
 }
 
 #label {
@@ -82,10 +84,13 @@ input:checked + label {
 	position: absolute;
 	color: white;
 	top: 50%;
-	left: 50%;
-	width: 75%;
-	font-size: 12px;
-	font-weight: bold;
+	left: calc((50% - 2px));
+	width: 92%;
+	text-align: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	font-size: 14px;
+	font-weight: 400;
 	transform: translate(-50%, -50%);
 }
 

@@ -1,0 +1,372 @@
+<div class="container pt-4 pt-lg-5 h-100">
+	<div class="row mx-0 justify-content-center">
+		<p class="text-center">
+			A continuación, te proponemos dos combinaciones de <b>pregunta,</b>
+			<br class="d-none d-lg-block" />
+			<b>distinción</b> y <b>recurso</b> a partir de la emoción que elegiste.
+		</p>
+		<p class="text-center">Selecciona la opción que deseas:</p>
+		<hr class="col-3 col-lg-1 pt-1" />
+		<ul
+			class="
+				nav nav-tabs
+				justify-content-center justify-content-lg-end
+				border-0
+				px-0
+				mb-lg-4
+			"
+			id="myTab"
+			role="tablist"
+		>
+			<li class="nav-item" role="presentation">
+				<button
+					class="nav-link active"
+					data-bs-toggle="tab"
+					data-bs-target="#home"
+					type="button"
+					role="tab"
+					aria-controls="home"
+					aria-selected="true"
+					(click)="changeOpt(1)"
+				>
+					OPCIÓN 1
+				</button>
+			</li>
+			<li class="nav-item px-0" role="presentation">
+				<button
+					class="nav-link px-lg-0 ms-4"
+					data-bs-toggle="tab"
+					data-bs-target="#home"
+					type="button"
+					role="tab"
+					aria-controls="home"
+					aria-selected="false"
+					(click)="changeOpt(2)"
+				>
+					OPCIÓN 2
+				</button>
+			</li>
+		</ul>
+		<div
+			class="
+				tab-content
+				mt-3
+				h-combinations
+				rounded
+				pt-5
+				pb-4
+				px-lg-5
+				border-custom
+				content-cards
+			"
+			id="myTabContent"
+		>
+			<div id="rhombus">
+				<div class="content">
+					<div class="text">2</div>
+				</div>
+			</div>
+			<div
+				class="tab-pane fade show active h-100"
+				id="home"
+				role="tabpanel"
+				aria-labelledby="home-tab"
+			>
+				<div
+					class="
+						row
+						h-100
+						justify-content-xl-around
+						align-items-center
+						overflow
+						flex-direction-column
+					"
+				>
+					<div
+						class="col-auto col-xl-3 text-center p-relative cursor-pointer"
+						data-bs-toggle="modal"
+						data-bs-target="#emotion-combinations"
+					>
+						<p class="fw-bold fst-italic">EMOCIÓN SELECCIONADA</p>
+						<img
+							src="/assets/img/card-emotion.png"
+							class="img-fluid shadow"
+							alt=""
+						/>
+						<div class="text-cards-tree-emotions">
+							{{ emotion.name }}
+						</div>
+					</div>
+					<div class="col-auto text-center sum">
+						<p class="fs-1">+</p>
+					</div>
+					<div
+						class="
+							col-auto col-lg-auto
+							px-0
+							text-center
+							p-relative
+							cursor-pointer
+						"
+						data-bs-toggle="modal"
+						data-bs-target="#questions-combinations"
+					>
+						<p class="fw-bold fst-italic">PREGUNTA</p>
+						<img
+							src="/assets/img/card-question.png"
+							class="img-fluid shadow"
+							alt=""
+						/>
+						<div class="text-cards-tree-questions">
+							{{ question.name }}
+						</div>
+					</div>
+					<div
+						class="
+							col-auto col-lg-auto
+							px-0
+							ps-2
+							text-center
+							p-relative
+							cursor-pointer
+						"
+						data-bs-toggle="modal"
+						data-bs-target="#distinction-combinations"
+					>
+						<p class="fw-bold fst-italic">DISTINCION</p>
+						<img
+							src="/assets/img/card-distinction.png"
+							class="img-fluid shadow"
+							alt=""
+						/>
+						<div class="text-cards-tree-distinctions">
+							{{ distinction.name }}
+						</div>
+					</div>
+					<div
+						class="
+							col-auto col-lg-auto
+							px-0
+							ps-2
+							text-center
+							p-relative
+							cursor-pointer
+						"
+						data-bs-toggle="modal"
+						data-bs-target="#resource-combinations"
+					>
+						<p class="fw-bold fst-italic">RECURSO</p>
+						<img
+							src="/assets/img/card-resource.png"
+							class="img-fluid shadow"
+							alt=""
+						/>
+						<div class="text-cards-tree-resources">
+							{{ resource.name }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content-buttons mt-3 pb-3 mt-lg-4 text-center px-0">
+			<button
+				class="btn btn-outline-secondary px-2 px-lg-3"
+				routerLink="/effective-combinations/emotions-bank"
+			>
+				CAMBIAR EMOCION
+			</button>
+			<button class="btn btn-primary ms-sm-5 px-2 px-lg-5" (click)="continue()">
+				ELEGIR ESTA OPCIÓN
+			</button>
+		</div>
+	</div>
+</div>
+
+<div
+	class="modal fade"
+	id="emotion-combinations"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-body row justify-content-center">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						align-content-between
+						col-11 col-lg-9
+						bg-emotions
+						rounded-custom
+						my-5
+						py-5
+						px-lg-5
+					"
+				>
+					<div class="text-center">
+						<span class="title border-bottom-custom">¿Qué la genera?</span>
+						<p class="white mt-3">{{ emotion.generate }}.</p>
+					</div>
+					<div class="text-center">
+						<span class="title border-bottom-custom">¿Qué la genera?</span>
+						<p class="white mt-3">{{ emotion.comunication }}.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div
+	class="modal fade"
+	id="questions-combinations"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-body row justify-content-center">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						align-content-center
+						col-11 col-lg-9
+						bg-questions
+						rounded-custom
+						my-5
+						py-5
+						px-lg-3
+					"
+				>
+					<div class="text-center">
+						<span class="title-question border-bottom-question">{{
+							question.name
+						}}</span>
+						<p class="white mt-3">Sirve para</p>
+						<p class="white mt-3">{{ question.description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div
+	class="modal fade"
+	id="distinction-combinations"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-lg modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body row justify-content-center">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						align-content-center
+						col-11 col-lg-9
+						bg-distinctions
+						rounded-custom
+						my-5
+						py-lg-5
+						px-lg-3
+						overflow
+						h-modal-distinction
+					"
+				>
+					<div class="text-center pt-5">
+						<span class="title-question border-bottom-question">
+							{{ distinction.name }}
+						</span>
+						<p class="white mt-3">{{ distinction.description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div
+	class="modal fade"
+	id="resource-combinations"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-body row justify-content-center">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						align-content-center
+						col-11 col-lg-9
+						bg-resources
+						rounded-custom
+						my-5
+						py-5
+						px-lg-3
+					"
+				>
+					<div class="text-center">
+						<span class="title-question border-bottom-question">
+							{{ resource.name }}
+						</span>
+						<p class="white mt-3">{{ resource.description }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

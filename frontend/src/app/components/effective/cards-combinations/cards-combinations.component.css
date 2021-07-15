@@ -1,0 +1,47 @@
+.text-cards-tree-emotions {
+	position: absolute;
+	color: #a25260;
+	font-weight: bold;
+	top: calc((50% - 2.4rem));
+	left: 50%;
+	width: 80%;
+	font-size: 20px;
+	transform: translate(-50%, -50%);
+}
+
+.text-cards-tree-questions {
+	position: absolute;
+	color: #4a80b3;
+	font-weight: bold;
+	top: calc((50% - 1.6rem));
+	left: 50%;
+	width: 60%;
+	font-size: 12px;
+	transform: translate(-50%, -50%);
+}
+
+.text-cards-tree-distinctions {
+	position: absolute;
+	color: #60b3a2;
+	font-weight: bold;
+	top: calc((50% - 1.6rem));
+	left: 50%;
+	width: 60%;
+	font-size: 14px;
+	transform: translate(-50%, -50%);
+}
+
+.text-cards-tree-resources {
+	position: absolute;
+	color: #c3a4ce;
+	font-weight: bold;
+	top: calc((50% - 1.6rem));
+	left: 50%;
+	width: 60%;
+	font-size: 14px;
+	transform: translate(-50%, -50%);
+}
+
+.p-relative {
+	position: relative;
+}

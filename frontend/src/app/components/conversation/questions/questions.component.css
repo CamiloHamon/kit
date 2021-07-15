@@ -50,12 +50,14 @@ input {
 
 input:checked + label {
 	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
-	border: 5px solid #6caaff;
+	background-color: #4a80b3;
+	border: 3px solid #6caaff;
+	filter: brightness(0.8);
 	border-radius: 0.9rem;
 }
 
 #label:hover {
-	opacity: 0.8;
+	filter: brightness(0.8);
 }
 
 #label {
@@ -147,9 +149,14 @@ input:checked + label {
 	background-color: #f9f9f9;
 }
 
-@media only screen and (max-width: 991px) {
+@media (max-width: 991px) {
 	.btn {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.content-buttons {
+		display: flex;
+		justify-content: space-between;
 	}
 }
