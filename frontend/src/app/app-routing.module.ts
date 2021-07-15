@@ -33,6 +33,7 @@ import { EffectiveComponent } from './components/effective/effective.component';
 import { StartEffectiveComponent } from './components/effective/start-effective/start-effective.component';
 import { EmotionsBankComponent } from './components/effective/emotions-bank/emotions-bank.component';
 import { CombinationsComponent } from './components/effective/combinations/combinations.component';
+import { FeedbackEffectiveComponent } from './components/effective/feedback-effective/feedback-effective.component';
 
 const routes: Routes = [
 	{
@@ -136,6 +137,10 @@ const routes: Routes = [
 			{
 				path: 'combinations',
 				component: CombinationsComponent,
+			},
+			{
+				path: 'feedback',
+				component: FeedbackEffectiveComponent,
 			},
 		],
 	},

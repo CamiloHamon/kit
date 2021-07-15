@@ -1,1 +1,73 @@
-<p>feedback-effective works!</p>
+<div class="container pt-3 pt-lg-5 h-100">
+	<div class="row justify-content-center align-content-center h-100">
+		<div class="row shadow border rounded py-5">
+			<div class="row row-custom pb-2">
+				<div class="col-auto col-lg-3" id="content-cards">
+					<h5 class="fst-italic fw-normal mb-3">EMOCIÓN</h5>
+					<img src="/assets/img/card-emotion.png" class="img-fluid" alt="" />
+					<div class="text-cards-tree-emotions">
+						{{ emotion }}
+					</div>
+				</div>
+				<div class="col-auto col-lg-3" id="content-cards">
+					<h5 class="fst-italic fw-normal mb-3">PREGUNTA</h5>
+					<img src="/assets/img/card-question.png" class="img-fluid" alt="" />
+					<div class="text-cards-tree-questions">
+						{{ question }}
+					</div>
+				</div>
+				<div class="col-auto col-lg-3" id="content-cards">
+					<h5 class="fst-italic fw-normal mb-3">DISTINCIÓN</h5>
+					<img
+						src="/assets/img/card-distinction.png"
+						class="img-fluid"
+						alt=""
+					/>
+					<div class="text-cards-tree-distinctions">
+						{{ distinction }}
+					</div>
+				</div>
+				<div class="col-auto col-lg-3" id="content-cards">
+					<h5 class="fst-italic fw-normal mb-3">RECURSO</h5>
+					<img src="/assets/img/card-resource.png" class="img-fluid" alt="" />
+					<div class="text-cards-tree-resources">
+						{{ resource }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4 mt-lg-5 justify-content-center">
+			<div class="col-12 col-lg-7 text-center">
+				<p>
+					<b
+						>Has llegado al final de tu recorrido armando una combinación que te
+						servirá como herramienta para llevar una conversación
+						inteligente.</b
+					>
+				</p>
+				<p>
+					Recuerda que pueden existir más combinaciones, todo dependerá del
+					contexto y las decisiones que tomes. 
+				</p>
+				<p>
+					A continuación, te daremos algunas recomendaciones según las cartas
+					que elegiste.
+				</p>
+			</div>
+		</div>
+		<div class="row mt-3 pb-3 mt-lg-5 justify-content-center">
+			<div class="col-12 text-center">
+				<button
+					type="button"
+					class="btn btn-outline-secondary btn-block mb-2 mb-lg-0"
+					routerLink="/effective-combinations/combinations"
+				>
+					CAMBIAR OPCION
+				</button>
+				<button class="btn btn-primary ms-lg-5 btn-block">
+					VER RECOMENDACIONES
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

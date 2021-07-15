@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class CombinationsComponent implements OnInit {
 	distinction: any = [];
 	resource: any = [];
 
-	constructor() {}
+	constructor(private router: Router) {}
 
 	ngOnInit(): void {
 		this.optionOne();
@@ -90,6 +91,10 @@ export class CombinationsComponent implements OnInit {
 	}
 
 	continue() {
-		alert(this.index);
+		sessionStorage.setItem('emotion', this.emotion.name);
+		sessionStorage.setItem('question', this.question.name);
+		sessionStorage.setItem('distinction', this.distinction.name);
+		sessionStorage.setItem('resource', this.resource.name);
+		this.router.navigate(['/effective-combinations/feedback']);
 	}
 }
