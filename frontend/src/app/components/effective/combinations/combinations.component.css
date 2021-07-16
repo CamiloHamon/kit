@@ -2,7 +2,7 @@
 	font-weight: 500;
 }
 
-nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
 	color: #6caaff !important;
 	background-color: transparent;
@@ -65,6 +65,10 @@ nav-tabs .nav-link:focus,
 	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
 	transform: rotate(45deg);
 	transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8);
+}
+
+#info-movil {
+	display: none;
 }
 
 .content-cards {
@@ -183,7 +187,8 @@ nav-tabs .nav-link:focus,
 }
 
 .content-buttons {
-	text-align: center;
+	display: flex;
+	justify-content: center;
 }
 
 .overflow {
@@ -191,7 +196,202 @@ nav-tabs .nav-link:focus,
 	overflow-x: auto;
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+.intructions {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(74, 74, 74);
+	z-index: 20;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.intructions .describe {
+	background-color: rgb(74, 74, 74);
+	position: fixed;
+	left: 17%;
+	top: 10%;
+	z-index: 20;
+}
+
+.intructions .describe-cards {
+	background-color: rgb(74, 74, 74);
+	position: absolute;
+	left: calc(50% - 10rem);
+	top: 193px;
+	width: 20rem;
+	height: 5.3rem;
+	z-index: 20;
+}
+
+.intructions .border {
+	border: 2px solid #6ca0e4 !important;
+	border-radius: 1rem;
+}
+
+.intructions .rounded-custom {
+	border-radius: 1rem;
+}
+
+.stepOne .cards-instructions {
+	background-color: white;
+	border-radius: 1rem;
+	padding: 0.5rem;
+}
+
+.intructions #btn-instructions {
+	position: fixed;
+	bottom: calc(100% - 98%);
+	right: calc(100% - 98%);
+	z-index: 21;
+}
+
+.intructions #btn-intructions button {
+	border: 2px solid #6ba2ea;
+}
+
+.intructions #btn-intructions .btn-outline-secondary {
+	color: #6ba2ea !important;
+	font-weight: bold;
+}
+
+.intructions #no-instructions button {
+	pointer-events: none;
+	background-color: transparent !important;
+	color: rgba(169, 169, 169, 0.74) !important;
+	border: 1px solid rgba(169, 169, 169, 0.74) !important;
+}
+
+.intructions .cursor-pointer,
+.intructions .cursor-pointer:hover {
+	pointer-events: none;
+}
+
+.stepTwo .stepTwo-white {
+	height: calc(100vh - 43vh);
+	width: calc(100vh - 10vh);
+	position: fixed;
+	top: calc(50% - 23vh);
+	left: calc(50% - 20vh);
+	border-radius: 1rem;
+	background-color: white;
+	z-index: -1;
+}
+
+.intructions .describe-cards-two {
+	position: fixed;
+	top: calc(50% - 5rem);
+	left: calc(50% - 40rem);
+	z-index: 20;
+	width: 25rem;
+	height: 10rem;
+}
+
+.stepTwo .img-filter {
+	filter: brightness(0.5) !important;
+}
+
+.intructions .stepThree-buttoms {
+	position: fixed;
+	bottom: 8%;
+	left: calc(50% - 22rem);
+	z-index: 20;
+}
+
+.stepThree .describe-buttom {
+	width: 20rem;
+}
+
+.stepThree #content-combination {
+	filter: brightness(0.5);
+}
+
+.stepThree .btn-step-tree {
+	background-color: white;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-radius: 0.5rem;
+	margin-left: 1rem;
+	overflow: auto;
+}
+
+@media (min-width: 1200px) {
+	.intructions .describe {
+		left: 25%;
+	}
+
+	.stepThree #myTabContent {
+		height: calc(100vh - 45vh) !important;
+	}
+
+	.stepThree .stepThree-buttoms {
+		bottom: 8% !important;
+	}
+
+	.stepTwo .stepTwo-white {
+		height: 54vh;
+		width: calc(65vw);
+		max-width: 872px;
+		position: absolute;
+		top: 173px;
+		left: calc(50% - 199px);
+	}
+
+	.stepTwo .describe-cards-two {
+		top: calc(50% - 5rem) !important;
+		left: calc(50% - 40rem) !important;
+	}
+
+	.stepOne #no-instructions {
+		opacity: 1 !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.stepTwo .stepTwo-white {
+		height: 54vh;
+		width: calc(50% + 188px);
+		position: absolute;
+		top: 173px;
+		left: calc(50% - 199px);
+	}
+
+	.stepTwo .describe-cards-two {
+		top: 70vh;
+		left: calc(50% - 30rem);
+		background-color: rgb(74, 74, 74);
+	}
+
+	.stepThree img,
+	.stepThree #myTabContent {
+		filter: brightness(0.5);
+	}
+
+	.stepThree #content-combination {
+		filter: brightness(1);
+	}
+
+	.stepThree #myTabContent {
+		height: 20rem;
+	}
+
+	.stepThree .stepThree-buttoms {
+		display: flex !important;
+		bottom: calc(50% - 13rem);
+	}
+
+	.stepThree .describe-buttom {
+		background-color: rgb(74, 74, 74);
+	}
+
+	.stepThree #no-instructions button {
+		color: red;
+	}
+
+	.stepOne #no-instructions {
+		opacity: 0;
+	}
 }
 
 @media (min-width: 0px) and (max-width: 991px) {
@@ -212,18 +412,188 @@ nav-tabs .nav-link:focus,
 	}
 }
 
-@media (max-width: 765px) {
+@media (max-width: 991px) {
 	.h-modal-distinction {
 		height: calc((100vh - 20vh));
 	}
 
 	.content-buttons {
-		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+	}
+	.content-buttons button {
+		width: 70%;
+	}
+
+	.content-buttons .btn-step-tree {
+		margin: 0;
+		margin-top: 1rem;
 	}
 
 	.img-fluid {
 		max-height: 15.5rem;
+	}
+
+	.intructions {
+		position: initial;
+		overflow: auto;
+	}
+
+	.intructions #content-combination {
+		padding: 0 !important;
+		height: auto !important;
+	}
+
+	.intructions #rhombus {
+		z-index: 0;
+	}
+
+	.intructions .describe {
+		z-index: 2;
+		left: 4%;
+	}
+
+	.intructions .describe-cards {
+		top: 75%;
+		z-index: 1;
+	}
+
+	.intructions #btn-instructions {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		right: initial;
+		z-index: 1;
+	}
+
+	.intructions .btn-outline-secondary {
+		background-color: gray;
+		color: white;
+	}
+
+	.intructions .stepTwo-white {
+		z-index: 0;
+		border: 2px solid black;
+		left: 1%;
+		top: calc(0% + 79px);
+		height: calc(50% + 141px);
+		width: calc(98%);
+	}
+
+	.intructions .minimize {
+		height: 0px;
+		display: none;
+	}
+
+	.stepOne .text-initial {
+		display: none;
+	}
+
+	.stepOne #rhombus {
+		filter: brightness(0.5);
+	}
+
+	.stepTwo .text-initial {
+		display: none;
+	}
+
+	.stepTwo .intructions {
+		overflow: hidden;
+	}
+
+	.stepTwo .describe {
+		z-index: 0 !important;
+		filter: brightness(0.5);
+	}
+
+	.stepTwo #emotion {
+		display: none;
+	}
+
+	.stepTwo #myTab {
+		z-index: 2;
+		margin-top: 1rem;
+	}
+
+	.stepTwo .describe-cards-two {
+		top: 65%;
+		left: 1%;
+		z-index: 20;
+		background-color: rgb(74, 74, 74);
+		width: 98%;
+		height: auto;
+		z-index: 1;
+	}
+
+	.stepTwo .flex-direction-column {
+		justify-content: initial;
+	}
+
+	.stepOne #no-instructions {
+		z-index: -1;
+	}
+
+	.stepTwo #no-instructions {
+		z-index: -1;
+	}
+
+	.stepThree .text-initial,
+	.stepThree ul,
+	.stepThree #myTabContent {
+		display: none;
+	}
+
+	.stepThree #content-combination {
+		filter: brightness(1);
+	}
+
+	.popover {
+		top: calc(50% - 108px);
+		left: calc(50% - 131px);
+		z-index: 1;
+		width: 243px;
+	}
+
+	.popover-two {
+		top: calc(50% + 125px) !important;
+	}
+
+	.intructions .info-movil {
+		position: absolute;
+		top: 26%;
+		left: calc(0% + 20px);
+		font-weight: 500;
+		background-color: rgb(74, 74, 74);
+		z-index: 1;
+		width: 125px;
+	}
+
+	.info-movil .d-flex {
+		border-radius: 12px;
+	}
+
+	.d-none-desktop {
+		display: none;
+	}
+
+	.intructions .btn-arrow {
+		display: inline-block;
+		font-weight: 400;
+		line-height: 1.5;
+		color: #212529;
+		text-align: center;
+		text-decoration: none;
+		vertical-align: middle;
+		cursor: pointer;
+		-webkit-user-select: none;
+		user-select: none;
+		background-color: transparent;
+		border: 1px solid transparent;
+		padding: 0.375rem 0.75rem;
+		font-size: 1rem;
+		border-radius: 0.25rem;
+		transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+			border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 	}
 }
 

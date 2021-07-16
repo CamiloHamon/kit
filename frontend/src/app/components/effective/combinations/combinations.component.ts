@@ -9,13 +9,26 @@ import { CombinationsService } from 'src/app/services/effective/combinations/com
 })
 export class CombinationsComponent implements OnInit {
 	@Input() index: number = 1;
+	step: number = 1;
+	instructions: boolean;
+	stepOne: boolean;
+	stepTwo: boolean;
+	stepThree: boolean;
+	finishIntructions: boolean;
+	btnMinimize: any = { state: false, text: 'expand_less' };
 
 	emotion: any = [];
 	question: any = [];
 	distinction: any = [];
 	resource: any = [];
 
-	constructor(private router: Router) {}
+	constructor(private router: Router) {
+		const skipIntructions = localStorage.getItem('instructions');
+		if (!skipIntructions) {
+			this.instructions = true;
+			this.stepOne = true;
+		}
+	}
 
 	ngOnInit(): void {
 		this.optionOne();
@@ -88,6 +101,43 @@ export class CombinationsComponent implements OnInit {
 	splitQuestion() {
 		const split = this.question.description.split(' - ');
 		this.question.description = split[1];
+	}
+
+	nextStep(step: number) {
+		this.close();
+		if (step === 1) {
+			this.step++;
+			this.stepOne = false;
+			this.stepTwo = true;
+		} else if (step === 2) {
+			this.step++;
+			this.stepTwo = false;
+			this.stepThree = true;
+		} else {
+			this.stepThree = false;
+			this.instructions = false;
+			this.skip();
+		}
+	}
+
+	skip() {
+		this.instructions = false;
+		localStorage.setItem('instructions', 'instructions');
+	}
+
+	close() {
+		this.btnMinimize.state = true;
+		this.btnMinimize.text = 'expand_more';
+	}
+
+	open() {
+		this.btnMinimize.state = false;
+		this.btnMinimize.text = 'expand_less';
+	}
+
+	minimize() {
+		if (!this.btnMinimize.state) this.close();
+		else this.open();
 	}
 
 	continue() {
