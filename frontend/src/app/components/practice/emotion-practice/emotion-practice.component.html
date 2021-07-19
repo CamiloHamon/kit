@@ -1,0 +1,46 @@
+<div class="container pt-5 h-100">
+	<div class="row mx-0 justify-content-center">
+		<p class="text-center mb-5">
+			<b>Arrastra</b> al lugar indicado la carta que deseas usar.
+		</p>
+		<form class="p-0 row">
+			<div class="col-9 border-custom rounded h-bank shadow">
+				<div class="row mb-3 mt-lg-4 pt-4">
+					<div
+						class="col-1-custom cards ps-lg-0 pt-2 pt-lg-0 text-center mb-3"
+						*ngFor="let emotion of emotions"
+					>
+						<input
+							type="radio"
+							value="{{ emotion.id }}-{{ emotion.id }}"
+							id="emotion-{{ emotion.id }}"
+							class="emotionInput"
+						/>
+						<label for="emotion-{{ emotion.id }}" id="label" class="w-100">
+							<img
+								src="/assets/img/card-emotion.png"
+								class="img-fluid"
+								alt=""
+							/>
+							<div class="text-cards">{{ emotion.name }}</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="col-3 border-top border-bottom">
+				<div id="container-card">
+					<div class="container-card"></div>
+				</div>
+			</div>
+			<div class="content-buttons mt-3 mt-lg-5 text-center px-0">
+				<button
+					class="btn btn-outline-secondary px-4 px-lg-3"
+					routerLink="/home"
+				>
+					CAMBIAR MODALIDAD
+				</button>
+				<button class="btn btn-primary ms-lg-5 px-4 px-lg-5">INICIAR</button>
+			</div>
+		</form>
+	</div>
+</div>

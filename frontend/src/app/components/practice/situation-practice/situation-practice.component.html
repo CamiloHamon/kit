@@ -1,0 +1,109 @@
+<div class="container h-100">
+	<div class="row align-content-center h-100">
+		<div id="content">
+			<div id="rhombus">
+				<div class="content">
+					<div class="text">1</div>
+				</div>
+			</div>
+			<p class="m-0">
+				Identifica la situación sobre la cual quieres tener una
+				<b>conversación.</b>
+			</p>
+		</div>
+
+		<form [formGroup]="form" (ngSubmit)="continue()">
+			<div class="col-12">
+				<div class="form-floating">
+					<textarea
+						class="form-control text-center"
+						placeholder="Leave a comment here"
+						id="floatingTextarea2"
+						style="height: 80px"
+						formControlName="situation"
+						maxlength="30"
+						[class.is-invalid]="
+							form.get('situation')!.invalid && form.get('situation')!.touched
+						"
+					>
+					</textarea>
+					<label for="floatingTextarea2" class="label-custom"
+						>Escribe aquí la situación.
+					</label>
+					<p
+						class="text-center m-0 maxlength"
+						[class.text-danger]="
+							form.get('situation')!.hasError('maxlength') &&
+							form.get('situation')!.dirty
+						"
+					>
+						<small>{{ length }}/30</small>
+					</p>
+					<p class="text-center m-0">
+						<small
+							*ngIf="
+								form.get('situation')!.hasError('required') &&
+								form.get('situation')!.touched
+							"
+							class="form-text text-danger"
+						>
+							Este campo es obligatorio.</small
+						>
+					</p>
+					<p class="text-center m-0">
+						<small
+							*ngIf="
+								form.get('situation')!.hasError('minlength') &&
+								form.get('situation')!.touched
+							"
+							class="form-text text-danger"
+						>
+							Este campo debe tener minimo
+							{{ form.get('situation')!.errors!.minlength.requiredLength }}
+							caracteres.</small
+						>
+					</p>
+
+					<p class="text-center m-0">
+						<small
+							*ngIf="
+								form.get('situation')!.hasError('maxlength') &&
+								form.get('situation')!.dirty
+							"
+							class="form-text text-danger"
+						>
+							Este campo debe tener máximo
+							{{ form.get('situation')!.errors!.maxlength.requiredLength }}
+							caracteres.</small
+						>
+					</p>
+
+					<p class="text-center">
+						<small
+							*ngIf="
+								form.get('situation')!.hasError('pattern') &&
+								form.get('situation')!.dirty
+							"
+							class="form-text text-danger"
+						>
+							Este campo solo acepta letras.</small
+						>
+					</p>
+				</div>
+			</div>
+
+			<div class="text-center mt-5 pb-3 ps-lg-5">
+				<button class="btn btn-outline-secondary px-lg-5" routerLink="/home">
+					VOLVER
+				</button>
+				<button
+					class="btn btn-primary ms-2 ms-lg-5 px-lg-5"
+					[disabled]="form.invalid"
+				>
+					CONTINUAR
+				</button>
+			</div>
+		</form>
+		<app-advance-practice></app-advance-practice>
+	</div>
+</div>

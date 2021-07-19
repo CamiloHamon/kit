@@ -1,0 +1,72 @@
+#rhombus {
+	position: absolute;
+	top: calc(0% - 25px);
+	left: calc(50% - 25px);
+}
+#rhombus .content .text {
+	font-family: 'Pistilli';
+	color: white;
+	position: relative;
+	overflow: hidden;
+	top: 47%;
+	-webkit-transform: translateY(-50%) rotate(-45deg);
+	-ms-transform: translateY(-50%) rotate(-45deg);
+	transform: translateY(-50%) rotate(-45deg);
+	font-size: 2.5rem;
+	text-transform: uppercase;
+}
+
+#rhombus .content {
+	background-color: #6caaff;
+	padding: 0;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	display: block;
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
+	transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8);
+}
+
+#content {
+	position: relative;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 15vh;
+	width: 100%;
+}
+
+.label-custom {
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+	opacity: 0.65;
+	transform: scale(0.85) translateY(-0.5rem) translateX(7rem);
+}
+
+.is-invalid-form {
+	position: absolute;
+	width: 100%;
+}
+
+.form-floating textarea ~ .maxlength {
+	position: absolute;
+	right: 0;
+}
+
+@media (max-width: 991px) {
+	.form-floating > .form-control:focus ~ label,
+	.form-floating > .form-control:not(:placeholder-shown) ~ label,
+	.form-floating > .form-select ~ label {
+		transform: scale(0.85) translateY(-0.5rem) translateX(1.5rem);
+	}
+}

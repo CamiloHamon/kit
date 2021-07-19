@@ -94,6 +94,11 @@
 		align-content: center;
 		align-items: center;
 		overflow: auto;
+		height: auto;
+	}
+
+	.h-custom {
+		height: initial !important;
 	}
 
 	.btn-block {

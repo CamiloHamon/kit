@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
 	selector: 'app-combinations',
@@ -90,12 +89,16 @@ export class CombinationsComponent implements OnInit {
 
 	splitEmotion() {
 		const split = this.emotion.description.split('. ');
-		let generate = split[0].split('? ');
-		generate = generate[1];
-		let comunication = split[1].split('? ');
-		comunication = comunication[1];
-		this.emotion.generate = generate;
-		this.emotion.comunication = comunication;
+		if (split.length > 0) {
+			let generate = split[0].split('? ');
+			generate = generate[1];
+			this.emotion.generate = generate;
+			if (split.length > 1) {
+				let comunication = split[1].split('? ');
+				comunication = comunication[1];
+				this.emotion.comunication = comunication;
+			}
+		}
 	}
 
 	splitQuestion() {

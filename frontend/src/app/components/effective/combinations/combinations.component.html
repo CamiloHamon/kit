@@ -365,7 +365,6 @@
 				<div
 					class="
 						row
-						align-content-between
 						col-11 col-lg-9
 						bg-emotions
 						rounded-custom
@@ -373,12 +372,17 @@
 						py-5
 						px-lg-5
 					"
+					[ngClass]="
+						!emotion.comunication
+							? 'align-content-center'
+							: 'align-content-around'
+					"
 				>
 					<div class="text-center">
 						<span class="title border-bottom-custom">¿Qué la genera?</span>
 						<p class="white mt-3">{{ emotion.generate }}.</p>
 					</div>
-					<div class="text-center">
+					<div *ngIf="emotion.comunication" class="text-center">
 						<span class="title border-bottom-custom">¿Qué la genera?</span>
 						<p class="white mt-3">{{ emotion.comunication }}.</p>
 					</div>

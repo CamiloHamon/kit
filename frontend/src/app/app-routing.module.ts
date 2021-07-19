@@ -34,6 +34,12 @@ import { StartEffectiveComponent } from './components/effective/start-effective/
 import { EmotionsBankComponent } from './components/effective/emotions-bank/emotions-bank.component';
 import { CombinationsComponent } from './components/effective/combinations/combinations.component';
 import { FeedbackEffectiveComponent } from './components/effective/feedback-effective/feedback-effective.component';
+import { CombinationsGuard } from './guards/effective/combinations.guard';
+import { PracticeComponent } from './components/practice/practice.component';
+import { StartPracticeComponent } from './components/practice/start-practice/start-practice.component';
+import { SituationPracticeComponent } from './components/practice/situation-practice/situation-practice.component';
+import { CardsPracticeComponent } from './components/practice/cards-practice/cards-practice.component';
+import { EmotionPracticeComponent } from './components/practice/emotion-practice/emotion-practice.component';
 
 const routes: Routes = [
 	{
@@ -137,10 +143,34 @@ const routes: Routes = [
 			{
 				path: 'combinations',
 				component: CombinationsComponent,
+				canActivate: [CombinationsGuard],
 			},
 			{
 				path: 'feedback',
 				component: FeedbackEffectiveComponent,
+				canActivate: [CombinationsGuard],
+			},
+		],
+	},
+	{
+		path: 'practice',
+		component: PracticeComponent,
+		children: [
+			{
+				path: '',
+				component: StartPracticeComponent,
+			},
+			{
+				path: 'situation',
+				component: SituationPracticeComponent,
+			},
+			{
+				path: 'card-combination',
+				component: CardsPracticeComponent,
+			},
+			{
+				path: 'emotion',
+				component: EmotionPracticeComponent,
 			},
 		],
 	},

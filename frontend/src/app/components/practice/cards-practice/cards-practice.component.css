@@ -1,0 +1,67 @@
+#rhombus {
+	position: absolute;
+	top: calc(0% - 25px);
+	left: calc(50% - 25px);
+}
+#rhombus .content .text {
+	font-family: 'Pistilli';
+	color: white;
+	position: relative;
+	overflow: hidden;
+	top: 47%;
+	-webkit-transform: translateY(-50%) rotate(-45deg);
+	-ms-transform: translateY(-50%) rotate(-45deg);
+	transform: translateY(-50%) rotate(-45deg);
+	font-size: 2.5rem;
+	text-transform: uppercase;
+}
+
+#rhombus .content {
+	background-color: black;
+	padding: 0;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	display: block;
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
+	transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8);
+}
+
+#content {
+	position: relative;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 15vh;
+	width: 100%;
+}
+
+.img-fluid-custom {
+	max-width: 100%;
+	max-height: 200px;
+}
+
+input {
+	display: none;
+}
+
+input:checked + label {
+	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
+	border: 3px solid #a25260;
+	border-radius: 0.7rem;
+	filter: brightness(0.8);
+	background-color: #d78056;
+}
+
+#label:hover {
+	filter: brightness(0.8);
+}
+
+#label {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}

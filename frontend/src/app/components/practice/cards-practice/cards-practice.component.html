@@ -1,0 +1,98 @@
+<div class="container h-100">
+	<div class="row align-content-center h-100">
+		<div id="content" class="mt-5">
+			<div id="rhombus">
+				<div class="content">
+					<div class="text">2</div>
+				</div>
+			</div>
+			<p class="col-5 m-0 text-center">
+				Ahora que definiste la situación que vas a abordar, selecciona el grupo
+				de cartas que quieres usar para ir armando la combinación.
+			</p>
+		</div>
+		<form
+			[formGroup]="form"
+			(ngSubmit)="continue($event)"
+			class="row align-content-cente"
+		>
+			<div class="col-3 text-center">
+				<input
+					type="radio"
+					formControlName="cards"
+					value="emotion"
+					id="emotion"
+				/>
+				<label for="emotion" id="label">
+					<img
+						src="/assets/img/card-emotion.png"
+						alt=""
+						class="img-fluid-custom"
+					/>
+				</label>
+			</div>
+			<div class="col-3 text-center">
+				<input
+					type="radio"
+					formControlName="cards"
+					value="question"
+					id="question"
+				/>
+				<label for="question" id="label">
+					<img
+						src="/assets/img/card-question.png"
+						alt=""
+						class="img-fluid-custom"
+					/>
+				</label>
+			</div>
+			<div class="col-3 text-center">
+				<input
+					type="radio"
+					formControlName="cards"
+					value="distinction"
+					id="distinction"
+				/>
+				<label for="distinction" id="label">
+					<img
+						src="/assets/img/card-distinction.png"
+						alt=""
+						class="img-fluid-custom"
+					/>
+				</label>
+			</div>
+			<div class="col-3 text-center">
+				<input
+					type="radio"
+					formControlName="cards"
+					value="resource"
+					id="resource"
+				/>
+				<label for="resource" id="label">
+					<img
+						src="/assets/img/card-resource.png"
+						alt=""
+						class="img-fluid-custom"
+					/>
+				</label>
+			</div>
+			<div class="col-12 text-center mt-5">
+				<button
+					type="button"
+					class="btn btn-primary"
+					routerLink="/practice/situation"
+				>
+					CAMBIAR SITUACION
+				</button>
+				<button
+					type="submit"
+					class="btn btn-outline-secondary ms-5"
+					[disabled]="form.invalid"
+				>
+					CONTINUAR
+				</button>
+			</div>
+		</form>
+		<app-advance-practice></app-advance-practice>
+	</div>
+</div>

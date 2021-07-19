@@ -92,7 +92,7 @@ nav-tabs .nav-link:focus,
 	font-weight: bold;
 	top: calc((50% - 1.6rem));
 	left: 50%;
-	width: 60%;
+	width: 70%;
 	font-size: 12px;
 	transform: translate(-50%, -50%);
 }
@@ -134,12 +134,14 @@ nav-tabs .nav-link:focus,
 .bg-emotions {
 	background-color: #d78056;
 	color: rgba(158, 45, 39, 255);
-	height: 50vh;
+	height: auto;
+	min-height: 30rem;
 }
 
 .bg-questions {
 	background-color: #4a80b3;
-	height: 50vh;
+	height: auto;
+	min-height: 30rem;
 }
 
 .bg-distinctions {
@@ -148,7 +150,8 @@ nav-tabs .nav-link:focus,
 
 .bg-resources {
 	background-color: #c3a4ce;
-	height: 50vh;
+	height: auto;
+	min-height: 30rem;
 }
 
 .rounded-custom {

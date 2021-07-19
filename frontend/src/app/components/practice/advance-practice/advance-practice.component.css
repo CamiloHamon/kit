@@ -1,0 +1,28 @@
+.h-advance {
+	height: 30vh;
+	min-height: 350px;
+}
+
+.col-custom {
+	width: 20%;
+	max-height: 100%;
+	text-align: center;
+}
+
+.img-fluid-custom {
+	max-width: 100%;
+	max-height: calc(230px - 0.5rem);
+	min-height: calc(230px - 0.5rem);
+}
+
+.pos-relative {
+	position: relative;
+}
+
+.text-situation {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: auto;
+	transform: translate(-50%, -50%);
+}

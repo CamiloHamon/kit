@@ -45,6 +45,12 @@ import { EmotionsBankComponent } from './components/effective/emotions-bank/emot
 import { CombinationsComponent } from './components/effective/combinations/combinations.component';
 import { CardsCombinationsComponent } from './components/effective/cards-combinations/cards-combinations.component';
 import { FeedbackEffectiveComponent } from './components/effective/feedback-effective/feedback-effective.component';
+import { PracticeComponent } from './components/practice/practice.component';
+import { StartPracticeComponent } from './components/practice/start-practice/start-practice.component';
+import { SituationPracticeComponent } from './components/practice/situation-practice/situation-practice.component';
+import { AdvancePracticeComponent } from './components/practice/advance-practice/advance-practice.component';
+import { CardsPracticeComponent } from './components/practice/cards-practice/cards-practice.component';
+import { EmotionPracticeComponent } from './components/practice/emotion-practice/emotion-practice.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -82,10 +88,16 @@ import { FeedbackEffectiveComponent } from './components/effective/feedback-effe
 		ModalErrorComponent,
 		EffectiveComponent,
 		StartEffectiveComponent,
-  EmotionsBankComponent,
-  CombinationsComponent,
-  CardsCombinationsComponent,
-  FeedbackEffectiveComponent,
+		EmotionsBankComponent,
+		CombinationsComponent,
+		CardsCombinationsComponent,
+		FeedbackEffectiveComponent,
+		PracticeComponent,
+		StartPracticeComponent,
+		SituationPracticeComponent,
+		AdvancePracticeComponent,
+		CardsPracticeComponent,
+		EmotionPracticeComponent,
 	],
 	imports: [
 		BrowserModule,

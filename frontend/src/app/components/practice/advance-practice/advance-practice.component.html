@@ -1,0 +1,57 @@
+<b>AVANCE</b>
+<div class="row rounded border mt-2 pt-2 h-advance shadow align-content-around">
+	<div class="col-custom">
+		<h5>SITUACIÓN</h5>
+		<div *ngIf="situation" class="pos-relative">
+			<img
+				src="/assets/img/card-situation.png"
+				alt=""
+				class="img-fluid-custom"
+			/>
+			<p class="text-situation">{{ situation }}</p>
+		</div>
+	</div>
+	<div class="col-custom">
+		<h5>EMOCIÓN</h5>
+		<div *ngIf="emotion">
+			<img
+				src="/assets/img/card-situation.png"
+				alt=""
+				class="img-fluid-custom"
+			/>
+		</div>
+	</div>
+	<div class="col-custom">
+		<h5>PREGUNTA</h5>
+		<div *ngIf="question">
+			<img
+				src="/assets/img/card-situation.png"
+				alt=""
+				class="img-fluid-custom"
+			/>
+		</div>
+	</div>
+	<div class="col-custom">
+		<h5>DISTINCIÓN</h5>
+		<div *ngIf="distinction">
+			<img
+				src="/assets/img/card-situation.png"
+				alt=""
+				class="img-fluid-custom"
+			/>
+		</div>
+	</div>
+	<div class="col-custom">
+		<h5>RECURSO</h5>
+		<div *ngIf="resource">
+			<img
+				src="/assets/img/card-situation.png"
+				alt=""
+				class="img-fluid-custom"
+			/>
+		</div>
+	</div>
+	<p class="text-center m-0 text-muted">
+		<small>Abre las cartas haciendo clic sobre ellas.</small>
+	</p>
+</div>

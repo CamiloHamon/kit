@@ -24,6 +24,7 @@ export class EmotionsBankComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		sessionStorage.clear();
 		this.emotionsServices.index().subscribe(
 			(res) => {
 				if (res.length > 0) {
