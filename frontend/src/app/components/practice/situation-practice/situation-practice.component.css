@@ -63,6 +63,10 @@
 	right: 0;
 }
 
+.mtop {
+	margin-top: 1vh;
+}
+
 @media (max-width: 991px) {
 	.form-floating > .form-control:focus ~ label,
 	.form-floating > .form-control:not(:placeholder-shown) ~ label,

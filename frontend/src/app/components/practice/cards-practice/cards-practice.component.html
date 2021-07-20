@@ -1,12 +1,12 @@
-<div class="container h-100">
-	<div class="row align-content-center h-100">
-		<div id="content" class="mt-5">
+<div class="container h-complete">
+	<div class="row align-content-center h-complete">
+		<div id="content">
 			<div id="rhombus">
 				<div class="content">
 					<div class="text">2</div>
 				</div>
 			</div>
-			<p class="col-5 m-0 text-center">
+			<p class="col-11 col-lg-5 m-lg-0 text-center mt-text">
 				Ahora que definiste la situación que vas a abordar, selecciona el grupo
 				de cartas que quieres usar para ir armando la combinación.
 			</p>
@@ -14,9 +14,9 @@
 		<form
 			[formGroup]="form"
 			(ngSubmit)="continue($event)"
-			class="row align-content-cente"
+			class="row mx-0 align-content-center mt-3 mt-lg-0"
 		>
-			<div class="col-3 text-center">
+			<div class="col-6 col-lg-3 text-center mb-3 mb-lg-0">
 				<input
 					type="radio"
 					formControlName="cards"
@@ -31,7 +31,7 @@
 					/>
 				</label>
 			</div>
-			<div class="col-3 text-center">
+			<div class="col-6 col-lg-3 text-center mb-3 mb-lg-0">
 				<input
 					type="radio"
 					formControlName="cards"
@@ -46,7 +46,7 @@
 					/>
 				</label>
 			</div>
-			<div class="col-3 text-center">
+			<div class="col-6 col-lg-3 text-center">
 				<input
 					type="radio"
 					formControlName="cards"
@@ -61,7 +61,7 @@
 					/>
 				</label>
 			</div>
-			<div class="col-3 text-center">
+			<div class="col-6 col-lg-3 text-center">
 				<input
 					type="radio"
 					formControlName="cards"
@@ -76,17 +76,27 @@
 					/>
 				</label>
 			</div>
-			<div class="col-12 text-center mt-5">
+			<div
+				class="
+					row
+					mx-0
+					justify-content-around justify-content-lg-center
+					text-center
+					my-5
+					mt-lg-5
+					mb-lg-0
+				"
+			>
 				<button
 					type="button"
-					class="btn btn-primary"
+					class="col-auto btn btn-primary"
 					routerLink="/practice/situation"
 				>
 					CAMBIAR SITUACION
 				</button>
 				<button
 					type="submit"
-					class="btn btn-outline-secondary ms-5"
+					class="col-5 col-lg-auto btn btn-outline-secondary ms-lg-5"
 					[disabled]="form.invalid"
 				>
 					CONTINUAR

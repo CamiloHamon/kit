@@ -1,22 +1,39 @@
-<div class="container pt-5 h-100">
+<div class="container pt-3 pt-lg-5 h-100" id="content">
 	<div class="row mx-0 justify-content-center">
-		<p class="text-center mb-5">
+		<p class="text-center mb-lg-5">
 			<b>Arrastra</b> al lugar indicado la carta que deseas usar.
 		</p>
-		<form class="p-0 row">
-			<div class="col-9 border-custom rounded h-bank shadow">
-				<div class="row mb-3 mt-lg-4 pt-4">
-					<div
-						class="col-1-custom cards ps-lg-0 pt-2 pt-lg-0 text-center mb-3"
-						*ngFor="let emotion of emotions"
-					>
+		<form class="p-0 row justify-content-around">
+			<div
+				class="
+					col-12 col-lg-9
+					border-custom
+					rounded
+					h-bank
+					shadow
+					order-2 order-lg-1
+				"
+			>
+				<div
+					class="row mb-3 mt-lg-4 pt-4"
+					cdkDropList
+					#listCards="cdkDropList"
+					[cdkDropListConnectedTo]="cardSelected"
+				>
+					<div class="col-1-custom cards" *ngFor="let emotion of emotions">
 						<input
 							type="radio"
 							value="{{ emotion.id }}-{{ emotion.id }}"
 							id="emotion-{{ emotion.id }}"
 							class="emotionInput"
 						/>
-						<label for="emotion-{{ emotion.id }}" id="label" class="w-100">
+						<label
+							*ngIf="emotion.id; else elseBlock"
+							for="emotion-{{ emotion.id }}"
+							id="label"
+							class="col cards ps-lg-0 pt-lg-0 text-center"
+							cdkDrag
+						>
 							<img
 								src="/assets/img/card-emotion.png"
 								class="img-fluid"
@@ -24,23 +41,132 @@
 							/>
 							<div class="text-cards">{{ emotion.name }}</div>
 						</label>
+						<ng-template #elseBlock>
+							<div cdkDrag>
+								<img
+									src="/assets/img/card-emotion.png"
+									class="img-fluid"
+									style="opacity: 0"
+								/>
+							</div>
+						</ng-template>
 					</div>
 				</div>
 			</div>
-			<div class="col-3 border-top border-bottom">
-				<div id="container-card">
-					<div class="container-card"></div>
+			<div class="col-12 col-lg-2 border-top border-bottom order-1 order-lg-2">
+				<div id="container-card" class="py-3 my-lg-0">
+					<div
+						class="container-card"
+						cdkDropList
+						#cardSelected="cdkDropList"
+						(cdkDropListDropped)="drop($event)"
+					>
+						<div
+							*ngIf="emotionSelected.id"
+							class="col-12 cards ps-lg-0 text-center"
+							id="div-card"
+							data-bs-toggle="modal"
+							data-bs-target="#emotion-details"
+						>
+							<input
+								type="radio"
+								value="{{ emotionSelected.id }}-{{ emotionSelected.id }}"
+								id="emotion-{{ emotionSelected.id }}"
+								class="emotionInput"
+							/>
+							<label
+								for="emotion-{{ emotionSelected.id }}"
+								id="label-card"
+								class="w-100 cursor-pointer"
+							>
+								<img
+									src="/assets/img/card-emotion.png"
+									class="img-fluid"
+									alt=""
+								/>
+								<div class="text-cards">{{ emotionSelected.name }}</div>
+							</label>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="content-buttons mt-3 mt-lg-5 text-center px-0">
+			<div class="col-12 mt-3 mt-lg-5 text-center px-0 order-3">
 				<button
-					class="btn btn-outline-secondary px-4 px-lg-3"
-					routerLink="/home"
+					class="btn btn-primary px-4 px-lg-3"
+					routerLink="/practice/card-combination"
 				>
-					CAMBIAR MODALIDAD
+					CAMBIAR GRUPO DE CARTAS
 				</button>
-				<button class="btn btn-primary ms-lg-5 px-4 px-lg-5">INICIAR</button>
 			</div>
 		</form>
+	</div>
+</div>
+
+<div
+	class="modal fade"
+	id="emotion-details"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content bg-transparent">
+			<div class="modal-body row justify-content-center bg-white">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						col-11 col-lg-9
+						bg-emotions
+						rounded-custom
+						my-5
+						py-5
+						px-lg-5
+					"
+					[ngClass]="
+						!emotionSelected.comunication
+							? 'align-content-center'
+							: 'align-content-around'
+					"
+				>
+					<div class="text-center">
+						<span class="title border-bottom-custom">¿Qué la genera?</span>
+						<p class="white mt-3">{{ emotionSelected.generate }}.</p>
+					</div>
+					<div *ngIf="emotionSelected.comunication" class="text-center">
+						<span class="title border-bottom-custom">¿Qué me comunica?</span>
+						<p class="white mt-3">{{ emotionSelected.comunication }}.</p>
+					</div>
+				</div>
+				<div class="row justify-content-evenly">
+					<button
+						type="button"
+						class="col-auto btn btn-outline-primary px-4 px-lg-3"
+						data-bs-dismiss="modal"
+						aria-label="Close"
+					>
+						CAMBIAR CARTA</button
+					><button
+						data-bs-dismiss="modal"
+						aria-label="Close"
+						class="col-auto btn btn-primary px-4 px-lg-3"
+						(click)="continue()"
+					>
+						CONTINUAR
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

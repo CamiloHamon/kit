@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdvancePracticeComponent implements OnInit {
 	situation: string;
-	emotion: string;
+	emotion: any = {};
 	question: string;
 	distinction: string;
 	resource: string;
@@ -16,7 +16,7 @@ export class AdvancePracticeComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.situation = sessionStorage.getItem('situation')!;
-		this.emotion = sessionStorage.getItem('emotion')!;
+		this.emotion = JSON.parse(sessionStorage.getItem('emotion')!);
 		this.question = sessionStorage.getItem('question')!;
 		this.distinction = sessionStorage.getItem('distinction')!;
 		this.resource = sessionStorage.getItem('resource')!;
