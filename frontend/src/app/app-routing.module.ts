@@ -40,6 +40,11 @@ import { StartPracticeComponent } from './components/practice/start-practice/sta
 import { SituationPracticeComponent } from './components/practice/situation-practice/situation-practice.component';
 import { CardsPracticeComponent } from './components/practice/cards-practice/cards-practice.component';
 import { EmotionPracticeComponent } from './components/practice/emotion-practice/emotion-practice.component';
+import { QuestionPracticeComponent } from './components/practice/question-practice/question-practice.component';
+import { DistinctionPracticeComponent } from './components/practice/distinction-practice/distinction-practice.component';
+import { ResourcePracticeComponent } from './components/practice/resource-practice/resource-practice.component';
+import { FeedbackPracticeComponent } from './components/practice/feedback-practice/feedback-practice.component';
+import { FeedbackPracticeGuard } from './guards/practice/feedback-practice.guard';
 
 const routes: Routes = [
 	{
@@ -171,6 +176,23 @@ const routes: Routes = [
 			{
 				path: 'emotion',
 				component: EmotionPracticeComponent,
+			},
+			{
+				path: 'question',
+				component: QuestionPracticeComponent,
+			},
+			{
+				path: 'distinction',
+				component: DistinctionPracticeComponent,
+			},
+			{
+				path: 'resource',
+				component: ResourcePracticeComponent,
+			},
+			{
+				path: 'feedback',
+				component: FeedbackPracticeComponent,
+				canActivate: [FeedbackPracticeGuard],
 			},
 		],
 	},

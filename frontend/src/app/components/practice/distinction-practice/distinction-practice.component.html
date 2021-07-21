@@ -1,0 +1,180 @@
+<div class="container pt-3 pt-lg-5 h-100" id="content">
+	<div class="row mx-0 justify-content-center">
+		<p class="text-center mb-lg-5">
+			<b>Arrastra</b> al lugar indicado la carta que deseas usar.
+		</p>
+		<form class="p-0 row justify-content-around">
+			<div
+				class="
+					col-12 col-lg-9
+					border-custom
+					rounded
+					h-bank
+					shadow
+					order-2 order-lg-1
+				"
+			>
+				<div
+					class="row mb-3 mt-lg-4 pt-4"
+					cdkDropList
+					#listCards="cdkDropList"
+					[cdkDropListConnectedTo]="cardSelected"
+				>
+					<div
+						class="col-1-custom cards"
+						*ngFor="let distinction of distinctions"
+					>
+						<input
+							type="radio"
+							value="{{ distinction.id }}-{{ distinction.id }}"
+							id="distinction-{{ distinction.id }}"
+							class="distinctionInput"
+						/>
+						<label
+							*ngIf="distinction.id; else elseBlock"
+							for="distinction-{{ distinction.id }}"
+							id="label"
+							class="col cards ps-lg-0 pt-lg-0 text-center"
+							cdkDrag
+						>
+							<img
+								src="/assets/img/card-distinction.png"
+								class="img-fluid"
+								alt=""
+							/>
+							<div class="text-cards">{{ distinction.name }}</div>
+						</label>
+						<ng-template #elseBlock>
+							<div cdkDrag>
+								<img
+									src="/assets/img/card-distinction.png"
+									class="img-fluid"
+									style="opacity: 0"
+								/>
+							</div>
+						</ng-template>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-2 border-top border-bottom order-1 order-lg-2">
+				<div id="container-card" class="py-3 my-lg-0">
+					<div
+						class="container-card"
+						cdkDropList
+						#cardSelected="cdkDropList"
+						(cdkDropListDropped)="drop($event)"
+					>
+						<div
+							*ngIf="distinctionSelected.id"
+							class="col-12 cards ps-lg-0 text-center"
+							id="div-card"
+							data-bs-toggle="modal"
+							data-bs-target="#distinction-details"
+						>
+							<input
+								type="radio"
+								value="{{ distinctionSelected.id }}-{{
+									distinctionSelected.id
+								}}"
+								id="distinction-{{ distinctionSelected.id }}"
+								class="distinctionInput"
+							/>
+							<label
+								for="distinction-{{ distinctionSelected.id }}"
+								id="label-card"
+								class="w-100 cursor-pointer"
+							>
+								<img
+									src="/assets/img/card-distinction.png"
+									class="img-fluid"
+									alt=""
+								/>
+								<div class="text-cards">{{ distinctionSelected.name }}</div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 mt-3 mt-lg-5 text-center px-0 order-3">
+				<button
+					class="btn btn-primary px-4 px-lg-3"
+					routerLink="/practice/card-combination"
+				>
+					CAMBIAR GRUPO DE CARTAS
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div
+	class="modal fade"
+	id="distinction-details"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div
+		class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+	>
+		<div class="modal-content bg-transparent">
+			<div class="modal-body row justify-content-center bg-white">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						col-11 col-lg-9
+						bg-distinctions
+						rounded-custom
+						my-5
+						py-5
+						px-lg-5
+					"
+					[ngClass]="
+						!distinctionSelected.comunication
+							? 'align-content-center'
+							: 'align-content-around'
+					"
+				>
+					<div class="text-center">
+						<span class="title-distinction">
+							{{ distinctionSelected.name }}
+						</span>
+
+						<p class="white mt-3 text-description">
+							{{ distinctionSelected.description }}
+						</p>
+					</div>
+				</div>
+				<div class="row justify-content-evenly">
+					<button
+						type="button"
+						class="col-auto btn btn-outline-primary px-4 px-lg-3"
+						data-bs-dismiss="modal"
+						aria-label="Close"
+					>
+						CAMBIAR CARTA</button
+					><button
+						data-bs-dismiss="modal"
+						aria-label="Close"
+						class="col-auto btn btn-primary px-4 px-lg-3"
+						(click)="continue()"
+					>
+						CONTINUAR
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

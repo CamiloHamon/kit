@@ -22,10 +22,11 @@
 					formControlName="cards"
 					value="emotion"
 					id="emotion"
+					(change)="change()"
 				/>
 				<label for="emotion" id="label">
 					<img
-						src="/assets/img/card-emotion.png"
+						src="/assets/img/kitcard-emotion.png"
 						alt=""
 						class="img-fluid-custom"
 					/>
@@ -37,10 +38,11 @@
 					formControlName="cards"
 					value="question"
 					id="question"
+					(click)="change()"
 				/>
 				<label for="question" id="label">
 					<img
-						src="/assets/img/card-question.png"
+						src="/assets/img/kitcard-question.png"
 						alt=""
 						class="img-fluid-custom"
 					/>
@@ -52,10 +54,11 @@
 					formControlName="cards"
 					value="distinction"
 					id="distinction"
+					(change)="change()"
 				/>
 				<label for="distinction" id="label">
 					<img
-						src="/assets/img/card-distinction.png"
+						src="/assets/img/kitcard-distinction.png"
 						alt=""
 						class="img-fluid-custom"
 					/>
@@ -67,10 +70,11 @@
 					formControlName="cards"
 					value="resource"
 					id="resource"
+					(change)="change()"
 				/>
 				<label for="resource" id="label">
 					<img
-						src="/assets/img/card-resource.png"
+						src="/assets/img/kitcard-resource.png"
 						alt=""
 						class="img-fluid-custom"
 					/>
@@ -92,15 +96,25 @@
 					class="col-auto btn btn-primary"
 					routerLink="/practice/situation"
 				>
-					CAMBIAR SITUACION
+					CAMBIAR SITUACIÓN
 				</button>
 				<button
+					*ngIf="allCards; else elseBtn"
 					type="submit"
 					class="col-5 col-lg-auto btn btn-outline-secondary ms-lg-5"
 					[disabled]="form.invalid"
 				>
 					CONTINUAR
 				</button>
+				<ng-template #elseBtn>
+					<button
+						type="submit"
+						class="col-5 col-lg-auto btn btn-outline-secondary ms-lg-5"
+						routerLink="/practice/feedback"
+					>
+						FINALIZAR
+					</button>
+				</ng-template>
 			</div>
 		</form>
 		<app-advance-practice></app-advance-practice>

@@ -16,7 +16,6 @@ export class SituationPracticeComponent implements OnInit {
 	form: FormGroup;
 	constructor(private formBuilder: FormBuilder, private router: Router) {
 		this.buildForm();
-		sessionStorage.clear();
 	}
 
 	ngOnInit(): void {}

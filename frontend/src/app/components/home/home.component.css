@@ -19,7 +19,7 @@
 	background-repeat: no-repeat;
 	height: 50vh;
 	background-size: cover;
-	background-position: center;
+	background-position: left;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -41,7 +41,7 @@
 }
 
 .h-content {
-	height: 40vh;
+	height: 39vh;
 }
 
 @media only screen and (max-width: 991px) {
@@ -162,7 +162,7 @@ a {
 		background-image: url('/assets/img/banner-home-2.png');
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: center;
+		background-position: right;
 		height: 50vh;
 		display: flex !important;
 		align-items: center;

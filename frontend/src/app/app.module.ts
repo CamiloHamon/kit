@@ -52,6 +52,14 @@ import { SituationPracticeComponent } from './components/practice/situation-prac
 import { AdvancePracticeComponent } from './components/practice/advance-practice/advance-practice.component';
 import { CardsPracticeComponent } from './components/practice/cards-practice/cards-practice.component';
 import { EmotionPracticeComponent } from './components/practice/emotion-practice/emotion-practice.component';
+import { QuestionPracticeComponent } from './components/practice/question-practice/question-practice.component';
+import { DistinctionPracticeComponent } from './components/practice/distinction-practice/distinction-practice.component';
+import { ResourcePracticeComponent } from './components/practice/resource-practice/resource-practice.component';
+import { FeedbackPracticeComponent } from './components/practice/feedback-practice/feedback-practice.component';
+import { EmotionPracticeModalComponent } from './components/modals/practice/emotion-practice-modal/emotion-practice-modal.component';
+import { QuestionPracticeModalComponent } from './components/modals/practice/question-practice-modal/question-practice-modal.component';
+import { DistinctionPracticeModalComponent } from './components/modals/practice/distinction-practice-modal/distinction-practice-modal.component';
+import { ResourcePracticeModalComponent } from './components/modals/practice/resource-practice-modal/resource-practice-modal.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -99,6 +107,14 @@ import { EmotionPracticeComponent } from './components/practice/emotion-practice
 		AdvancePracticeComponent,
 		CardsPracticeComponent,
 		EmotionPracticeComponent,
+  QuestionPracticeComponent,
+  DistinctionPracticeComponent,
+  ResourcePracticeComponent,
+  FeedbackPracticeComponent,
+  EmotionPracticeModalComponent,
+  QuestionPracticeModalComponent,
+  DistinctionPracticeModalComponent,
+  ResourcePracticeModalComponent,
 	],
 	imports: [
 		BrowserModule,

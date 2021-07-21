@@ -1,8 +1,14 @@
-<div class="container vh-100">
-	<div class="row justify-content-center">
-		<div
-			class="col-11 mt-5 mt-xxl-0 mb-5 mb-xxl-0 col-xxl-4 border rounded-custom"
-		>
+<div class="container h-100">
+	<div
+		class="
+			row
+			align-content-lg-center
+			h-100
+			justify-content-around
+			mt-3 mt-lg-0
+		"
+	>
+		<div class="col-11 mb-4 my-xxl-0 col-lg-4 border rounded-custom">
 			<div
 				class="
 					row
@@ -25,7 +31,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-11 col-xxl-4 border rounded-custom ms-xxl-5">
+		<div class="col-11 col-lg-4 border rounded-custom ms-xxl-5">
 			<div
 				class="
 					row
@@ -39,14 +45,15 @@
 				<div class="col-11 p-5 rounded-custom text-center bg-emotions-wq">
 					<h5 class="title">¿Qué la genera?:</h5>
 					<p class="white">{{ emotion.generate }}</p>
-					<h5 class="title mt-5">¿Qué me comunica?</h5>
-					<p class="white">{{ emotion.comunication }}</p>
+					<div *ngIf="emotion.comunication">
+						<h5 class="title mt-5">¿Qué me comunica?</h5>
+						<p class="white">{{ emotion.comunication }}</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row py-5 justify-content-center">
-		<div class="col-12 text-center">
+
+		<div class="col-12 text-center mt-lg-5 pb-3 pb-lg-0">
 			<button
 				class="btn btn-outline-secondary"
 				routerLink="/conversation/emotions"

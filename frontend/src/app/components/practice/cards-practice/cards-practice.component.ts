@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
 	FormBuilder,
 	FormControl,
@@ -6,6 +6,7 @@ import {
 	Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FunctionsPracticeService } from 'src/app/services/practice/functions.service';
 
 @Component({
 	selector: 'app-cards-practice',
@@ -13,8 +14,14 @@ import { Router } from '@angular/router';
 	styleUrls: ['./cards-practice.component.css'],
 })
 export class CardsPracticeComponent implements OnInit {
+	allCards: boolean = true;
 	form: FormGroup;
-	constructor(private formBuilder: FormBuilder, private router: Router) {
+
+	constructor(
+		private formBuilder: FormBuilder,
+		private functionsPracticeService: FunctionsPracticeService,
+		private router: Router
+	) {
 		this.buildForm();
 	}
 
@@ -24,7 +31,11 @@ export class CardsPracticeComponent implements OnInit {
 		});
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		if (this.functionsPracticeService.validateAllCards()) {
+			this.allCards = false;
+		}
+	}
 
 	continue(event: Event) {
 		event.preventDefault();
@@ -33,5 +44,9 @@ export class CardsPracticeComponent implements OnInit {
 		if (possibleSelected.indexOf(selected) != -1) {
 			this.router.navigate([`/practice/${selected}`]);
 		}
+	}
+
+	change() {
+		this.allCards = true;
 	}
 }

@@ -126,6 +126,7 @@
 	.bg-conversation {
 		background-image: url('/assets/img/conversation-img-circle.png');
 		background-repeat: no-repeat;
+		background-size: calc(100vh - 35vh);
 	}
 
 	.bg-conversation-blue {

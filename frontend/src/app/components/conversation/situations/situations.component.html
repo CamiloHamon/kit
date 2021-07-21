@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div class="container pt-5 h-100">
 	<app-cards-section></app-cards-section>
-	<div class="row mt-4 justify-content-center">
+	<div class="row mt-3 mt-lg-3 justify-content-center">
 		<div class="col-12 text-center">
 			<p>Lee atentamente cada situación y escoge la que quieras consultar.</p>
 			<p class="select-env">
@@ -9,7 +9,7 @@
 		</div>
 	</div>
 	<form [formGroup]="form" (ngSubmit)="continue()" class="p-0">
-		<div class="row mt-2 mt-lg-4 justify-content-center">
+		<div class="row mt-2 mt-lg-3 justify-content-center">
 			<div
 				class="col-6 col-lg-2 cards ps-lg-0 pt-2 pt-lg-0 text-center"
 				*ngFor="let situation of situations"

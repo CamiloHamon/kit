@@ -13,7 +13,7 @@
 
 html,
 body {
-	height: calc(100vh - 9.6vh);
+	height: calc(100vh - 103.6px);
 	/* font-size: 1.125rem; */
 }
 
@@ -69,5 +69,13 @@ body {
 
 	.navbar-spacing-left .navbar-nav .nav-link {
 		padding-left: 0.7rem;
+	}
+}
+
+@media (max-width: 991px) {
+	html,
+	body {
+		height: calc(100vh - 60.6px);
+		/* font-size: 1.125rem; */
 	}
 }

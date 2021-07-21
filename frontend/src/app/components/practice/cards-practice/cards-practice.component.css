@@ -58,11 +58,9 @@ input {
 }
 
 input:checked + label {
-	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
-	border: 3px solid #a25260;
+	box-shadow: 0 0 20px rgb(161 170 166 / 90%);
 	border-radius: 0.7rem;
 	filter: brightness(0.8);
-	background-color: #d78056;
 }
 
 #label:hover {

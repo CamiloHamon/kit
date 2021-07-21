@@ -1,5 +1,5 @@
 .h-custom {
-	height: 9.6vh;
+	height: 103.6px;
 }
 
 .sticky-top {
@@ -200,7 +200,10 @@ a:focus-visible {
 }
 
 @media only screen and (max-width: 991px) {
-	.h-10vj {
+	.h-custom {
+		height: 60.6px;
+	}
+	.h-10vh {
 		height: 10vh;
 	}
 	.pt-movil {

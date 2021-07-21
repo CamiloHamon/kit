@@ -110,7 +110,7 @@ nav-tabs .nav-link:focus,
 
 .text-cards-tree-resources {
 	position: absolute;
-	color: #c3a4ce;
+	color: #733160;
 	font-weight: bold;
 	top: calc((50% - 1.6rem));
 	left: 50%;
@@ -149,7 +149,7 @@ nav-tabs .nav-link:focus,
 }
 
 .bg-resources {
-	background-color: #c3a4ce;
+	background-color: #733160;
 	height: auto;
 	min-height: 30rem;
 }

@@ -1,5 +1,8 @@
 <b>AVANCE</b>
-<div class="row mx-0 mt-2 mb-4 mb-lg-0 pos-relative shadow rounded border">
+<div
+	class="row mx-0 mt-2 mb-4 mb-lg-0 pos-relative shadow rounded border"
+	id="section-cards"
+>
 	<div
 		*ngIf="situation; else start"
 		class="row row-custom overflow-x mx-0 pt-4 h-advance"
@@ -12,48 +15,71 @@
 					alt=""
 					class="img-fluid-custom"
 				/>
-				<p class="text-situation">{{ situation }}</p>
+				<p class="text">{{ situation }}</p>
 			</div>
 		</div>
 		<div class="col-custom">
 			<h5>EMOCIÓN</h5>
-			<div *ngIf="emotion" class="pos-relative">
+			<div
+				*ngIf="emotion"
+				class="pos-relative cursor-pointer"
+				data-bs-toggle="modal"
+				data-bs-target="#emotion-details"
+			>
 				<img
-					src="/assets/img/card-situation.png"
+					src="/assets/img/card-emotion.png"
 					alt=""
 					class="img-fluid-custom"
 				/>
-				<p class="text-situation">{{ emotion.name }}</p>
+				<p class="text text-cards emotion">{{ emotion.name }}</p>
 			</div>
 		</div>
 		<div class="col-custom">
 			<h5>PREGUNTA</h5>
-			<div *ngIf="question">
+			<div
+				*ngIf="question"
+				class="pos-relative cursor-pointer"
+				data-bs-toggle="modal"
+				data-bs-target="#question-details"
+			>
 				<img
-					src="/assets/img/card-situation.png"
+					src="/assets/img/card-question.png"
 					alt=""
 					class="img-fluid-custom"
 				/>
+				<p class="text text-cards question">{{ question.name }}</p>
 			</div>
 		</div>
 		<div class="col-custom">
 			<h5>DISTINCIÓN</h5>
-			<div *ngIf="distinction">
+			<div
+				*ngIf="distinction"
+				class="pos-relative cursor-pointer"
+				data-bs-toggle="modal"
+				data-bs-target="#distinction-details"
+			>
 				<img
-					src="/assets/img/card-situation.png"
+					src="/assets/img/card-distinction.png"
 					alt=""
 					class="img-fluid-custom"
 				/>
+				<p class="text text-cards distinction">{{ distinction.name }}</p>
 			</div>
 		</div>
 		<div class="col-custom">
 			<h5>RECURSO</h5>
-			<div *ngIf="resource">
+			<div
+				*ngIf="resource"
+				class="pos-relative cursor-pointer"
+				data-bs-toggle="modal"
+				data-bs-target="#resource-details"
+			>
 				<img
-					src="/assets/img/card-situation.png"
+					src="/assets/img/card-resource.png"
 					alt=""
 					class="img-fluid-custom"
 				/>
+				<p class="text text-cards resource">{{ resource.name }}</p>
 			</div>
 		</div>
 
@@ -65,3 +91,8 @@
 		<div class="row h-advance-two"></div>
 	</ng-template>
 </div>
+<app-emotion-practice-modal *ngIf="emotion"></app-emotion-practice-modal>
+<app-question-practice-modal *ngIf="question"></app-question-practice-modal>
+<app-distinction-practice-modal *ngIf="distinction">
+</app-distinction-practice-modal>
+<app-resource-practice-modal *ngIf="resource"></app-resource-practice-modal>

@@ -1,0 +1,52 @@
+<div
+	class="modal fade"
+	id="question-details"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content bg-transparent">
+			<div class="modal-body row justify-content-center bg-white">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						col-11 col-lg-9
+						bg-questions
+						rounded-custom
+						my-5
+						py-5
+						px-lg-5
+					"
+					[ngClass]="
+						!question.comunication
+							? 'align-content-center'
+							: 'align-content-around'
+					"
+				>
+					<div class="text-center">
+						<span class="title-question">
+							{{ question.name }}
+						</span>
+						<p class="white mt-3 fst-italic">Sirve para</p>
+						<p class="white mt-3 text-description">
+							{{ question.description }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

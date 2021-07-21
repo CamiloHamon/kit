@@ -7,7 +7,7 @@
 		url('/assets/img/figure-blue-small.png');
 	background-position-y: 95%, 10%;
 	background-position-x: 30%, right;
-	background-size: auto, 3rem 1rem;
+	background-size: calc(100vh - 92vh), 3rem 1rem;
 	background-repeat: no-repeat;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .text-effective {
-	font-size: 3rem;
+	font-size: calc(100vh - 96vh);
 	color: #fff1cb;
 	line-height: 70px;
 	font-weight: bold;

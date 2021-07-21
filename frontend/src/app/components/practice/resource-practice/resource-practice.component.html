@@ -1,0 +1,172 @@
+<div class="container pt-3 pt-lg-5 h-100" id="content">
+	<div class="row mx-0 justify-content-center">
+		<p class="text-center mb-lg-5">
+			<b>Arrastra</b> al lugar indicado la carta que deseas usar.
+		</p>
+		<form class="p-0 row justify-content-around">
+			<div
+				class="
+					col-12 col-lg-9
+					border-custom
+					rounded
+					h-bank
+					shadow
+					order-2 order-lg-1
+				"
+			>
+				<div
+					class="row mb-3 mt-lg-4 pt-4"
+					cdkDropList
+					#listCards="cdkDropList"
+					[cdkDropListConnectedTo]="cardSelected"
+				>
+					<div class="col-1-custom cards" *ngFor="let resource of resources">
+						<input
+							type="radio"
+							value="{{ resource.id }}-{{ resource.id }}"
+							id="resource-{{ resource.id }}"
+							class="resourceInput"
+						/>
+						<label
+							*ngIf="resource.id; else elseBlock"
+							for="resource-{{ resource.id }}"
+							id="label"
+							class="col cards ps-lg-0 pt-lg-0 text-center"
+							cdkDrag
+						>
+							<img
+								src="/assets/img/card-resource.png"
+								class="img-fluid"
+								alt=""
+							/>
+							<div class="text-cards">{{ resource.name }}</div>
+						</label>
+						<ng-template #elseBlock>
+							<div cdkDrag>
+								<img
+									src="/assets/img/card-resource.png"
+									class="img-fluid"
+									style="opacity: 0"
+								/>
+							</div>
+						</ng-template>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-2 border-top border-bottom order-1 order-lg-2">
+				<div id="container-card" class="py-3 my-lg-0">
+					<div
+						class="container-card"
+						cdkDropList
+						#cardSelected="cdkDropList"
+						(cdkDropListDropped)="drop($event)"
+					>
+						<div
+							*ngIf="resourceSelected.id"
+							class="col-12 cards ps-lg-0 text-center"
+							id="div-card"
+							data-bs-toggle="modal"
+							data-bs-target="#resource-details"
+						>
+							<input
+								type="radio"
+								value="{{ resourceSelected.id }}-{{ resourceSelected.id }}"
+								id="resource-{{ resourceSelected.id }}"
+								class="resourceInput"
+							/>
+							<label
+								for="resource-{{ resourceSelected.id }}"
+								id="label-card"
+								class="w-100 cursor-pointer"
+							>
+								<img
+									src="/assets/img/card-resource.png"
+									class="img-fluid"
+									alt=""
+								/>
+								<div class="text-cards">{{ resourceSelected.name }}</div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 mt-3 mt-lg-5 text-center px-0 order-3">
+				<button
+					class="btn btn-primary px-4 px-lg-3"
+					routerLink="/practice/card-combination"
+				>
+					CAMBIAR GRUPO DE CARTAS
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div
+	class="modal fade"
+	id="resource-details"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content bg-transparent">
+			<div class="modal-body row justify-content-center bg-white">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div
+					class="
+						row
+						col-11 col-lg-9
+						bg-resources
+						rounded-custom
+						my-5
+						py-5
+						px-lg-5
+					"
+					[ngClass]="
+						!resourceSelected.comunication
+							? 'align-content-center'
+							: 'align-content-around'
+					"
+				>
+					<div class="text-center">
+						<span class="title-resource">
+							{{ resourceSelected.name }}
+						</span>
+						<p class="mt-3 text-description">
+							{{ resourceSelected.description }}
+						</p>
+					</div>
+				</div>
+				<div class="row justify-content-evenly">
+					<button
+						type="button"
+						class="col-auto btn btn-outline-primary px-4 px-lg-3"
+						data-bs-dismiss="modal"
+						aria-label="Close"
+					>
+						CAMBIAR CARTA</button
+					><button
+						data-bs-dismiss="modal"
+						aria-label="Close"
+						class="col-auto btn btn-primary px-4 px-lg-3"
+						(click)="continue()"
+					>
+						CONTINUAR
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
