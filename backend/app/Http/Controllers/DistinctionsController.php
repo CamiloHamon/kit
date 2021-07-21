@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DistinctionsController extends Controller
 {
     private $distinctionsRepository;
-    
+
     public function __construct(DistinctionsRepository $distinctionsRepository)
     {
         $this->distinctionsRepository  = $distinctionsRepository;
@@ -18,7 +18,7 @@ class DistinctionsController extends Controller
     public function index()
     {
         $distinctions = Distinctions::all();
-        return response()->json($distinctions, 404);
+        return response()->json($distinctions, 200);
     }
 
     public function show($id)
