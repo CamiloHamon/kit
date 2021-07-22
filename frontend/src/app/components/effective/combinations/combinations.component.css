@@ -149,7 +149,7 @@ nav-tabs .nav-link:focus,
 }
 
 .bg-resources {
-	background-color: #733160;
+	background-color: #c3a4ce;
 	height: auto;
 	min-height: 30rem;
 }
@@ -173,8 +173,18 @@ nav-tabs .nav-link:focus,
 	color: #00225f;
 }
 
+.title-resource {
+	font-size: 1.5rem;
+	padding-bottom: 5px;
+	color: #733160;
+}
+
 .border-bottom-question {
 	border-bottom: 2px solid #00225f;
+}
+
+.border-bottom-resource {
+	border-bottom: 2px solid #733160;
 }
 
 .btn-close-custom {

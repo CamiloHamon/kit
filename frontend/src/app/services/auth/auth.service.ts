@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from 'src/app/classes/user.model';
+import { environment } from 'src/environments/environment';
 
 const helper = new JwtHelperService();
 
@@ -11,7 +12,7 @@ const helper = new JwtHelperService();
 	providedIn: 'root',
 })
 export class AuthService {
-	private URL = 'http://localhost:8000/api';
+	private URL = environment.URL;
 
 	constructor(private http: HttpClient, private router: Router) {
 		this.checkToken();

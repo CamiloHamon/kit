@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class DistinctionsService {
-	private URL = 'http://localhost:8000/api';
+	private URL = environment.URL;
 
-	constructor(private http: HttpClient, private router: Router) {}
+	constructor(private http: HttpClient) {}
 
 	index() {
 		return this.http.get<any>(`${this.URL}/distinctions`);
