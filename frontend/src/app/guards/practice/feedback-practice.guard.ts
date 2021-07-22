@@ -20,7 +20,7 @@ export class FeedbackPracticeGuard implements CanActivate {
 
 	canActivate(): boolean {
 		if (this.functionPracticeService.validateAllCards()) return true;
-
+		sessionStorage.clear();
 		this.router.navigate(['/practice/situation']);
 		return false;
 	}

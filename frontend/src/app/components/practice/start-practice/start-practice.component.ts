@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-start-practice',
-  templateUrl: './start-practice.component.html',
-  styleUrls: ['./start-practice.component.css']
+	selector: 'app-start-practice',
+	templateUrl: './start-practice.component.html',
+	styleUrls: ['./start-practice.component.css'],
 })
 export class StartPracticeComponent implements OnInit {
+	constructor() {
+		sessionStorage.clear();
+	}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+	ngOnInit(): void {}
 }
