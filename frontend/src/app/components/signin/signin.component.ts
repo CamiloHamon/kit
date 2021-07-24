@@ -12,10 +12,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 	styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-	public form: FormGroup;
-	public email = '';
-	public password = '';
-	public error = false;
+	form: FormGroup;
+	email = '';
+	password = '';
+	error = false;
 
 	constructor(
 		private formBuilder: FormBuilder,

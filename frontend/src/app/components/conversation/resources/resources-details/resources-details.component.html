@@ -7,34 +7,55 @@
 				objetivo.</span
 			>
 		</div>
-		<div class="col-11 col-xxl-5 mb-5 my-xxl-0 border rounded-custom">
+		<div class="col-11 col-md-7 col-lg-4 my-xxl-0 border rounded-custom shadow">
 			<div
 				class="
 					row
-					my-5
+					mt-5
+					mb-3
 					rounded-custom
 					justify-content-center
 					align-content-center
+					pos-relative
 				"
 			>
+				<div class="img-brain">
+					<img src="/assets/img/brain-purple.png" alt="" class="img-fluid" />
+				</div>
 				<div class="col-11 p-5 rounded-custom text-center bg-resources">
 					<h5 class="title">{{ resources.name }}</h5>
-					<p class="white">{{ resources.description }}</p>
+					<p class="describe">{{ resources.description }}</p>
 				</div>
 			</div>
 		</div>
-		<div class="col-11 mb-5 my-xxl-0 col-xxl-5 border rounded-custom">
+		<div
+			class="
+				col-11 col-md-7 col-lg-4
+				my-xxl-0
+				mt-5 mt-lg-4
+				border
+				rounded-custom
+				shadow
+			"
+		>
 			<div
 				class="
 					row
-					my-5
+					mt-5
+					mb-3
 					rounded-custom
 					justify-content-center
 					align-content-center
+					pos-relative
 				"
 			>
-				<div class="col-11 p-5 rounded-custom text-center bg-resources-wq">
-					<p class="white">
+				<div class="img-brain">
+					<img src="/assets/img/brain-purple.png" alt="" class="img-fluid" />
+				</div>
+				<div
+					class="col-11 p-5 rounded-custom text-center bg-resources bg-describe"
+				>
+					<p class="white describe">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error
 						voluptate libero architecto excepturi quibusdam exercitationem,
 						natus, soluta hic non illo optio minus aspernatur pariatur
@@ -43,15 +64,26 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-12 text-center mt-lg-5 pb-3">
+		<div
+			class="
+				row
+				mx-0
+				justify-content-around justify-content-lg-center
+				py-3
+				pt-lg-5
+			"
+		>
 			<button
-				class="btn btn-outline-secondary"
+				class="col-auto btn btn-outline-secondary"
 				routerLink="/conversation/resources"
 				data-bs-dismiss="modal"
 			>
 				CAMBIAR RECURSO
 			</button>
-			<button class="btn btn-primary ms-5" routerLink="/conversation/feedback">
+			<button
+				class="col-auto btn btn-primary ms-lg-5"
+				routerLink="/conversation/feedback"
+			>
 				CONTINUAR
 			</button>
 		</div>

@@ -19,31 +19,37 @@
 					formControlName="cards"
 					[value]="situation.id"
 					id="situation-{{ situation.id }}"
-					class="situationInput"
 				/>
 				<label for="situation-{{ situation.id }}" id="label">
 					<img src="/assets/img/card-situation.png" class="img-fluid" alt="" />
-					<div class="text-cards">{{ situation.situation }}</div>
+					<div class="text-cards">{{ replace(situation.situation) }}</div>
 				</label>
 			</div>
-			<div class="row mt-4 mt-lg-5 justify-content-center">
-				<div class="col-12 pb-3 text-center">
-					<button
-						type="button"
-						class="btn btn-outline-secondary"
-						(click)="goBack()"
-					>
-						VOLVER
-					</button>
-					<button
-						[disabled]="form.invalid"
-						class="btn btn-primary ms-3 ms-lg-5"
-						data-bs-toggle="modal"
-						data-bs-target="#sensations"
-					>
-						ELEGIR
-					</button>
-				</div>
+			<div
+				class="
+					row
+					mx-0
+					justify-content-around justify-content-lg-center
+					py-3
+					pt-lg-5
+					pb-lg-0
+				"
+			>
+				<button
+					type="button"
+					class="col-auto btn btn-outline-secondary"
+					(click)="goBack()"
+				>
+					VOLVER
+				</button>
+				<button
+					[disabled]="form.invalid"
+					class="col-auto btn btn-primary ms-lg-5"
+					data-bs-toggle="modal"
+					data-bs-target="#sensations"
+				>
+					ELEGIR
+				</button>
 			</div>
 		</div>
 	</form>

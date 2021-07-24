@@ -56,24 +56,30 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mt-5 justify-content-center">
-			<div class="col-12 text-center">
-				<button
-					type="button"
-					class="btn btn-outline-secondary"
-					(click)="goBack()"
-				>
-					CAMBIAR SITUACIÓN
-				</button>
-				<button
-					[disabled]="form.invalid"
-					class="btn btn-primary ms-3 ms-lg-5"
-					data-bs-toggle="modal"
-					data-bs-target="#emotions"
-				>
-					ELEGIR
-				</button>
-			</div>
+		<div
+			class="
+				row
+				mx-0
+				justify-content-around justify-content-lg-center
+				py-3
+				pt-lg-5
+			"
+		>
+			<button
+				type="button"
+				class="col-auto btn btn-outline-secondary px-3 px-lg-5"
+				(click)="goBack()"
+			>
+				CAMBIAR SITUACIÓN
+			</button>
+			<button
+				[disabled]="form.invalid"
+				class="col-auto btn btn-primary ms-lg-5"
+				data-bs-toggle="modal"
+				data-bs-target="#emotions"
+			>
+				ELEGIR
+			</button>
 		</div>
 	</form>
 </div>

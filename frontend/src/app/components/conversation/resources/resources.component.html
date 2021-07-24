@@ -26,19 +26,28 @@
 					<div class="text-cards">{{ resource.resource }}</div>
 				</label>
 			</div>
-			<div class="row mt-3 justify-content-center">
-				<div class="content-buttons pb-3 text-center px-0">
-					<button
-						type="button"
-						class="btn btn-outline-secondary"
-						(click)="goBack()"
-					>
-						CAMBIAR DISTINCIÓN
-					</button>
-					<button [disabled]="form.invalid" class="btn btn-primary ms-lg-5">
-						ELEGIR
-					</button>
-				</div>
+			<div
+				class="
+					row
+					mx-0
+					justify-content-around justify-content-lg-center
+					py-3
+					pt-lg-5
+				"
+			>
+				<button
+					type="button"
+					class="col-auto btn btn-outline-secondary px-3 px-lg-5"
+					(click)="goBack()"
+				>
+					CAMBIAR DISTINCIÓN
+				</button>
+				<button
+					[disabled]="form.invalid"
+					class="col-auto btn btn-primary ms-lg-5"
+				>
+					ELEGIR
+				</button>
 			</div>
 		</div>
 	</form>
@@ -47,23 +56,29 @@
 <app-modal-error></app-modal-error>
 
 <ng-template #content let-c="close" let-d="dismiss">
-	<div class="modal-body p-0">
-		<div class="container" style="height: 50vh">
-			<div class="row justify-content-center align-content-space-evenly h-100">
+	<div class="modal-body rounded-custom p-0 bg-error">
+		<div class="container c-modal">
+			<div class="row justify-content-center h-100">
 				<div
 					class="
 						row
 						justify-content-center
 						align-content-center
-						col-10
+						col-11 col-lg-10
+						bg-error-resource
 						text-center
-						bg-resources
 						rounded-custom
-						p-5
+						p-3 p-lg-5
+						mt-5
 					"
 					style="height: 70%"
 				>
-					<div class="col-12 col-lg-9">
+					<div class="col-12 col-lg-9 text-center">
+						<img
+							src="/assets/img/icon-resource-white.png"
+							alt=""
+							class="mb-lg-3 w-80px"
+						/>
 						<h5 class="white mb-4">
 							<b> No hay opciones buenas o malas, pero sí más efectivas! </b>
 						</h5>

@@ -82,4 +82,8 @@
 		background-position-y: top, bottom;
 		background-size: 2.5rem, 10rem 0.1rem;
 	}
+
+	.h-movil {
+		height: 100vh;
+	}
 }

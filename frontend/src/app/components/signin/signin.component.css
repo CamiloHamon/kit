@@ -71,10 +71,6 @@
 	font-weight: 500;
 }
 
-.vh-100 {
-	height: 90.4vh !important;
-}
-
 .vh-70 {
 	height: 70vh !important;
 }
@@ -84,13 +80,13 @@
 		url('/assets/img/figure-blue.png'), url('/assets/img/figure-blue-small.png'),
 		url('/assets/img/login.png');
 	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-	background-size: 30%, 40%, 5rem 3rem, contain;
-	background-position-y: bottom, bottom, top, bottom;
+	background-size: calc(100vh - 50vh), 40%, 80px 20px, calc(100vw - 48vw);
+	background-position-y: bottom, bottom, top, center;
 	background-position-x: left, right, right, 10%;
 }
 
 @media only screen and (max-width: 991px) {
-	.vh-100 {
+	.h-movil {
 		height: 100vh !important;
 	}
 
@@ -100,7 +96,7 @@
 			url('/assets/img/figure-blue-small.png'), url('/assets/img/login.png'),
 			url('/assets/img/logo.png');
 		background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-		background-size: 15rem, 5rem 1rem, 4rem, 23rem, auto;
+		background-size: 15rem, 5rem 1rem, 4rem, calc(100vh - 61vh), auto;
 		background-position-y: bottom, bottom, top, bottom, 2rem;
 		background-position-x: 15%, right, right, center, center;
 	}

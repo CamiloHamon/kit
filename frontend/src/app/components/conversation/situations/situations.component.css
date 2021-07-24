@@ -1,7 +1,3 @@
-.vh-100 {
-	height: 90.4vh !important;
-}
-
 #rhombus {
 	position: absolute;
 	top: -1.5rem;
@@ -37,14 +33,6 @@
 	position: relative;
 	display: inline-block;
 	text-align: center;
-}
-
-.rounded-custom {
-	border-radius: 1.5rem;
-}
-
-.border-danger {
-	border: 2px solid #dc3545 !important;
 }
 
 .btn {
@@ -85,29 +73,12 @@ input:checked + label {
 	color: white;
 	top: 50%;
 	left: calc((50% - 2px));
-	width: 92%;
+	width: calc(100% - 23px);
 	text-align: center;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	font-size: 14px;
 	font-weight: 400;
 	transform: translate(-50%, -50%);
-}
-
-.text-cards-tree {
-	position: absolute;
-	color: white;
-	top: 63%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
-	transform: translate(-50%, -50%);
-}
-
-.col-1-custom {
-	flex: 0 0 auto;
-	width: 14.285%;
 }
 
 .select-env {

@@ -18,6 +18,7 @@ export class CardsSectionComponent implements OnInit {
 	sensation: any = [];
 	emotion: any = [];
 	question: any = [];
+	questionLength = 0;
 	distinction: any = [];
 	resource: any = [];
 	stepNumber: number = 1;
@@ -31,18 +32,25 @@ export class CardsSectionComponent implements OnInit {
 		public questionsServices: QuestionsService,
 		public distinctionsServices: DistinctionsService,
 		public resourcesServices: ResourcesService
-	) {
-		this.environment = environmentsServices.getEnvironment();
-		this.situation = situationsServices.getSituation();
-		this.sensation = sensationsServices.getSensation();
-		this.emotion = emotionsServices.getEmotion();
-		this.question = questionsServices.getQuestion();
-		this.distinction = distinctionsServices.getDistinction();
-		this.resource = resourcesServices.getResource();
+	) {}
+
+	ngOnInit(): void {
+		this.environment = this.environmentsServices.getEnvironment();
+		this.situation = this.situationsServices.getSituation();
+		this.sensation = this.sensationsServices.getSensation();
+		this.emotion = this.emotionsServices.getEmotion();
+		this.question = this.questionsServices.getQuestion();
+		this.distinction = this.distinctionsServices.getDistinction();
+		this.resource = this.resourcesServices.getResource();
+
+		if (this.question) this.questionLength = this.question.name.length;
+
 		this.getNumberStep();
 	}
 
-	ngOnInit(): void {}
+	replace(text: string) {
+		return text.replace(/\u00a0/g, ' ');
+	}
 
 	getNumberStep() {
 		if (this.environmentsServices.existEnvironment()) {

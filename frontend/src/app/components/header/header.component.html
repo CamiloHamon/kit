@@ -94,7 +94,7 @@
 			</div>
 			<div
 				class="col-12 col-lg-6 ps-5 ps-lg-4 ps-xxl-3 h-inherit bg-primary"
-				[ngClass]="changeBg ? 'Class' : 'bg-secondary-header'"
+				[class.bg-secondary-header]="!changeBg"
 			>
 				<div class="row align-items-lg-center h-lg-100">
 					<div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">

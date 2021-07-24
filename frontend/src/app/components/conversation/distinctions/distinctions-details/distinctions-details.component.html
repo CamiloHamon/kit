@@ -1,38 +1,52 @@
 <div class="container h-100">
-	<div class="row pt-5 justify-content-center align-content-lg-center h-100">
-		<div class="col-12 mb-5 text-center">
+	<div class="row justify-content-center align-content-lg-center h-100">
+		<div class="col-12 pt-5 mb-5 text-center">
 			<h5 class="p-0 m-0"><b>¡Excelente!</b></h5>
 			<span
 				>La distinción que elegiste es una buena opción para lograr el
 				objetivo.</span
 			>
 		</div>
-		<div class="col-11 col-lg-7 border rounded-custom">
+		<div class="col-11 col-lg-5 border rounded-custom shadow">
 			<div
 				class="
 					row
-					my-5
+					mt-5
+					mb-4
 					rounded-custom
 					justify-content-center
 					align-content-center
+					pos-relative
 				"
 			>
-				<div class="col-11 p-5 rounded-custom text-center bg-distinctions">
-					<h5 class="title">{{ distinction.name }}</h5>
+				<div class="img-brain">
+					<img src="/assets/img/brain-green.png" alt="" class="img-fluid" />
+				</div>
+				<div class="col-11 p-5 rounded-custom bg-distinctions">
+					<h5 class="title text-center">{{ distinction.name }}</h5>
 					<p class="white">{{ distinction.description }}</p>
 				</div>
 			</div>
 		</div>
-		<div class="col-12 text-center mt-3 mt-lg-5 pb-3">
+		<div
+			class="
+				row
+				mx-0
+				justify-content-around justify-content-lg-center
+				py-3
+				pt-lg-4
+			"
+			id="row-btn"
+		>
 			<button
-				class="btn btn-outline-secondary"
+				class="col-auto btn btn-outline-secondary"
 				routerLink="/conversation/distinctions"
 				data-bs-dismiss="modal"
 			>
 				CAMBIAR DISTINCIÓN
 			</button>
 			<button
-				class="btn btn-primary ms-5"
+				class="col-auto btn btn-primary ms-lg-5"
 				data-bs-toggle="modal"
 				data-bs-target="#resources"
 				data-bs-dismiss="modal"

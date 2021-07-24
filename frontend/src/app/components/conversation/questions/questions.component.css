@@ -53,7 +53,7 @@ input:checked + label {
 	background-color: #4a80b3;
 	border: 3px solid #6caaff;
 	filter: brightness(0.8);
-	border-radius: 0.9rem;
+	border-radius: 0.7rem;
 }
 
 #label:hover {
@@ -75,78 +75,57 @@ input:checked + label {
 .text-cards {
 	position: absolute;
 	color: #4a80b3;
-	font-weight: bold;
-	top: 30%;
+	font-weight: 500;
+	top: 31%;
 	left: 50%;
-	width: 80%;
-	font-size: 12px;
+	width: calc(100% - 10px);
 	transform: translate(-50%, -50%);
 }
 
+.large-question {
+	font-size: 12.8px;
+}
+
+.max {
+	top: 27.5%;
+	line-height: 17px;
+}
+
+.img-card {
+	max-width: 100%;
+	height: auto;
+}
+
 .rounded-custom {
-	border-radius: 1.5rem;
+	border-radius: 1rem;
 }
 
 .align-content-space-evenly {
 	align-content: space-evenly;
 }
 
-.text-cards-tree {
-	position: absolute;
-	color: white;
-	top: 80%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
-	transform: translate(-50%, -50%);
+.bg-error {
+	background-image: url('/assets/img/bg-silueta-question-error.png');
+	background-size: cover;
+	background-position: right;
 }
 
-.text-cards-tree-situations {
-	position: absolute;
-	color: white;
-	top: 40%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
-	transform: translate(-50%, -50%);
+.bg-error-question {
+	background-image: url('/assets/img/border-top-cards.png'),
+		url('/assets/img/border-bottom-cards.png');
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position-x: calc(0% + 7px), calc(100% - 7px);
+	background-position-y: calc(0% + 7px), calc(100% - 7px);
+	background-color: #4a80b3c4;
 }
 
-.text-cards-tree-emotions {
-	position: absolute;
-	color: #a25260;
-	font-weight: bold;
-	top: 30%;
-	left: 50%;
-	width: 80%;
-	font-size: 12px;
-	transform: translate(-50%, -50%);
+.c-modal {
+	height: 50vh;
 }
 
-.col-1-custom {
-	flex: 0 0 auto;
-	width: 14.285%;
-}
-
-.select-env {
-	color: #6facfc;
-}
-
-.border-radius-custom {
-	border-radius: 10rem;
-}
-
-.img-fluid-custom {
-	max-width: 70%;
-}
-
-.bg-gray {
-	background-color: #f3f3f3;
-}
-
-.bg-gray-ligth {
-	background-color: #f9f9f9;
+.w-80px {
+	width: 80px;
 }
 
 @media (max-width: 991px) {
@@ -158,5 +137,17 @@ input:checked + label {
 	.content-buttons {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.max {
+		line-height: 15px;
+	}
+
+	.c-modal {
+		height: 70vh;
+	}
+
+	.text-cards {
+		width: 100%;
 	}
 }

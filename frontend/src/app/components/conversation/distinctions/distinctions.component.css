@@ -1,12 +1,9 @@
-.vh-100 {
-	height: 90.4vh !important;
-}
-
 #rhombus {
 	position: absolute;
 	top: -4.5rem;
 	left: 48%;
 }
+
 #rhombus .content .text {
 	font-family: 'Pistilli';
 	color: white;
@@ -52,7 +49,7 @@ input:checked + label {
 	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
 	filter: brightness(0.8);
 	border: 3px solid #3d7a6e;
-	border-radius: 0.9rem;
+	border-radius: 0.7rem;
 	background-color: #60b3a2;
 }
 
@@ -76,92 +73,46 @@ input:checked + label {
 	align-content: space-evenly;
 }
 
-.rounded-custom {
-	border-radius: 1.5rem;
-}
-
 .text-cards {
 	position: absolute;
-	color: #60b3a2;
-	font-weight: bold;
-	top: 30%;
+	color: #244d4e;
+	font-weight: 400;
+	top: 31%;
 	left: 50%;
-	width: 80%;
-	font-size: 14px;
+	width: calc(100% - 5px);
+	line-height: 16.5px;
 	transform: translate(-50%, -50%);
-}
-
-.text-cards-tree {
-	position: absolute;
-	color: white;
-	top: 80%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
-	transform: translate(-50%, -50%);
-}
-
-.text-cards-tree-situations {
-	position: absolute;
-	color: white;
-	top: 40%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
-	transform: translate(-50%, -50%);
-}
-
-.text-cards-tree-emotions {
-	position: absolute;
-	color: #a25260;
-	font-weight: bold;
-	top: 30%;
-	left: 50%;
-	width: 80%;
-	font-size: 12px;
-	transform: translate(-50%, -50%);
-}
-
-.text-cards-tree-questions {
-	position: absolute;
-	color: #4a80b3;
-	font-weight: bold;
-	top: 30%;
-	left: 50%;
-	width: 80%;
-	font-size: 12px;
-	transform: translate(-50%, -50%);
-}
-
-.col-1-custom {
-	flex: 0 0 auto;
-	width: 14.285%;
-}
-
-.select-env {
-	color: #6facfc;
-}
-
-.border-radius-custom {
-	border-radius: 10rem;
-}
-
-.img-fluid-custom {
-	max-width: 70%;
-}
-
-.bg-gray {
-	background-color: #f3f3f3;
-}
-
-.bg-gray-ligth {
-	background-color: #f9f9f9;
 }
 
 .bg-distinctions {
 	background-color: #60b3a2;
+}
+
+.c-modal {
+	height: 50vh;
+}
+
+.bg-error {
+	background-image: url('/assets/img/bg-silueta-distinction-error.png');
+	background-size: cover;
+}
+
+.bg-error-distinction {
+	background-image: url('/assets/img/border-top-cards.png'),
+		url('/assets/img/border-bottom-cards.png');
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position-x: calc(0% + 7px), calc(100% - 7px);
+	background-position-y: calc(0% + 7px), calc(100% - 7px);
+	background-color: #60b3a2bf;
+}
+
+.rounded-custom {
+	border-radius: 1rem;
+}
+
+.w-80px {
+	width: 80px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -173,5 +124,9 @@ input:checked + label {
 	.content-buttons {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.c-modal {
+		height: 70vh;
 	}
 }

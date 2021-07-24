@@ -33,14 +33,19 @@ export class SituationsComponent implements OnInit {
 
 		this.situationsService.index(environment.id).subscribe(
 			(res) => {
-				if (res.length > 0) this.situations = res;
-				else this.modalError.showModalError(this.back, 'lg');
+				if (res.length > 0) {
+					this.situations = res;
+				} else this.modalError.showModalError(this.back, 'lg');
 			},
 			(err) => this.modalError.showModalError(this.back, 'lg')
 		);
 	}
 
 	ngOnInit(): void {}
+
+	replace(text: string) {
+		return text.replace(/\u00a0/g, ' ');
+	}
 
 	continue() {
 		this.idSutiation = this.form.controls.cards.value;

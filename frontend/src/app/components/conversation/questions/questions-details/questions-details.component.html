@@ -1,6 +1,6 @@
 <div class="container h-100">
 	<div class="row pt-5 align-content-lg-center justify-content-around h-100">
-		<div class="text-center mb-5">
+		<div class="text-center mb-4 mb-lg-5">
 			<h5 class="p-0 m-0"><b>¡Excelente!</b></h5>
 			<span
 				>La pregunta que elegiste es una buena opción para lograr el
@@ -8,43 +8,57 @@
 			>
 		</div>
 
-		<div class="col-11 col-lg-5 border rounded-custom mb-3 mb-lg-0">
+		<div class="col-11 col-md-7 col-lg-4 border rounded-custom mt-4 mb-lg-0">
 			<div
 				class="
 					row
-					my-5
+					mt-5
+					mb-4
 					rounded-custom
 					justify-content-center
 					align-content-center
+					pos-relative
 				"
 			>
-				<div class="col-11 p-5 rounded-custom text-center bg-questions">
+				<div class="img-brain">
+					<img src="/assets/img/brain-blue.png" alt="" class="img-fluid" />
+				</div>
+				<div class="col-11 p-4 p-lg-5 rounded-custom text-center bg-questions">
 					<h5 class="title">{{ question.name }}</h5>
 					<p class="white">
-						<span class="title" style="letter-spacing: -3px; padding-right: 3px"
-							>---</span
-						>Sirve para<span
-							class="title"
-							style="letter-spacing: -3px; padding-left: 3px"
-							>---</span
-						>
+						<span class="decored">------</span>
+						<span class="white for">Sirve para</span>
+						<span class="decored">------</span>
 					</p>
-					<p class="white">{{ question.use }}</p>
+					<p class="white use">{{ question.use }}</p>
 				</div>
 			</div>
 		</div>
-		<div class="col-11 mt-xxl-0 mb-5 mb-xxl-0 col-lg-5 border rounded-custom">
+		<div class="col-11 col-md-7 col-lg-4 mt-5 mt-lg-4 border rounded-custom">
 			<div
 				class="
 					row
-					my-5
+					mt-5
+					mb-4
 					rounded-custom
 					justify-content-center
 					align-content-center
+					pos-relative
 				"
 			>
-				<div class="col-11 p-5 rounded-custom text-center bg-questions">
-					<p class="white">
+				<div class="img-brain">
+					<img src="/assets/img/brain-blue.png" alt="" class="img-fluid" />
+				</div>
+				<div
+					class="
+						col-11
+						p-4 p-lg-5
+						rounded-custom
+						text-center
+						bg-questions bg-describe
+					"
+				>
+					<p class="white describe">
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
 						sequi doloremque sunt atque laudantium tenetur itaque, voluptates
 						labore minima odit sint. Cupiditate eligendi rem nemo, ut laboriosam
@@ -53,16 +67,24 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-12 text-center mt-lg-5 pb-3 pb-lg-0">
+		<div
+			class="
+				row
+				mx-0
+				justify-content-around justify-content-lg-center
+				py-3
+				pt-lg-5
+			"
+		>
 			<button
-				class="btn btn-outline-secondary"
+				class="col-auto btn btn-outline-secondary"
 				routerLink="/conversation/questions"
 				data-bs-dismiss="modal"
 			>
 				CAMBIAR PREGUNTA
 			</button>
 			<button
-				class="btn btn-primary ms-5"
+				class="col-auto btn btn-primary ms-lg-5"
 				data-bs-toggle="modal"
 				data-bs-target="#distinctions"
 				data-bs-dismiss="modal"

@@ -29,19 +29,27 @@ export class QuestionsComponent implements OnInit {
 		private helperConversation: HelperService,
 		private modalsService: ModalsService,
 		private router: Router
-	) {
+	) {}
+
+	ngOnInit(): void {
 		this.helperConversation.removeAllExceptEnvSitSenEmotion();
 		this.idESSE = Number(sessionStorage.getItem('esse'));
 		this.questionsService.getQuestionsByESSE(this.idESSE).subscribe(
 			(res) => {
-				if (res.length > 0) this.questions = res;
-				else this.modalError.showModalError(this.back, 'lg');
+				if (res.length > 0) {
+					this.questions = res;
+					this.calcLength();
+				} else this.modalError.showModalError(this.back, 'lg');
 			},
 			(err) => this.modalError.showModalError(this.back, 'lg')
 		);
 	}
 
-	ngOnInit(): void {}
+	calcLength() {
+		for (const question of this.questions) {
+			question.questionLength = question.question.length;
+		}
+	}
 
 	continue() {
 		const contentQuestion = this.form.controls.cards.value.split('-');

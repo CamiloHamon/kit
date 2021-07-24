@@ -1,12 +1,9 @@
-.vh-100 {
-	height: 90.4vh !important;
-}
-
 #rhombus {
 	position: absolute;
 	top: -4.5rem;
 	left: 48%;
 }
+
 #rhombus .content .text {
 	font-family: 'Pistilli';
 	color: white;
@@ -74,40 +71,12 @@ input:checked + label {
 
 .text-cards {
 	position: absolute;
+	top: 31%;
+	left: 50%;
 	color: #a25260;
-	top: 30%;
-	left: 50%;
-	width: 100%;
-	font-size: 14px;
-	font-weight: bold;
+	width: auto;
+	font-weight: 500;
 	transform: translate(-50%, -50%);
-}
-
-.text-cards-tree {
-	position: absolute;
-	color: white;
-	top: 80%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
-	transform: translate(-50%, -50%);
-}
-
-.text-cards-tree-situations {
-	position: absolute;
-	color: white;
-	top: 40%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
-	transform: translate(-50%, -50%);
-}
-
-.col-1-custom {
-	flex: 0 0 auto;
-	width: 14.285%;
 }
 
 .select-env {
@@ -116,23 +85,4 @@ input:checked + label {
 
 .border-radius-custom {
 	border-radius: 10rem;
-}
-
-.img-fluid-custom {
-	max-width: 70%;
-}
-
-.bg-gray {
-	background-color: #f3f3f3;
-}
-
-.bg-gray-ligth {
-	background-color: #f9f9f9;
-}
-
-@media (max-width: 991px) {
-	.content-buttons {
-		display: flex;
-		justify-content: space-between;
-	}
 }

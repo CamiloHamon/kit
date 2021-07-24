@@ -26,19 +26,29 @@
 					<div class="text-cards">{{ emotion.emotion }}</div>
 				</label>
 			</div>
-			<div class="row mt-4 justify-content-center">
-				<div class="content-buttons pb-3 text-center px-0">
-					<button
-						type="button"
-						class="btn btn-outline-secondary"
-						(click)="goBack()"
-					>
-						CAMBIAR ÍCONO
-					</button>
-					<button [disabled]="form.invalid" class="btn btn-primary ms-lg-5">
-						ELEGIR
-					</button>
-				</div>
+			<div
+				class="
+					row
+					mx-0
+					justify-content-around justify-content-lg-center
+					py-3
+					pt-lg-5
+					pb-2
+				"
+			>
+				<button
+					type="button"
+					class="col-auto btn btn-outline-secondary"
+					(click)="goBack()"
+				>
+					CAMBIAR ÍCONO
+				</button>
+				<button
+					[disabled]="form.invalid"
+					class="col-auto btn btn-primary ms-lg-5"
+				>
+					ELEGIR
+				</button>
 			</div>
 		</div>
 	</form>

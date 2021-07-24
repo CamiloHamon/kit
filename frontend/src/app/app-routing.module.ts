@@ -63,10 +63,6 @@ const routes: Routes = [
 		canActivate: [AuthGuard],
 	},
 	{
-		path: 'modal',
-		component: KnowKitComponent,
-	},
-	{
 		path: 'conversation',
 		component: ConversationComponent,
 		canActivate: [AuthGuard],
@@ -160,6 +156,7 @@ const routes: Routes = [
 	{
 		path: 'practice',
 		component: PracticeComponent,
+		canActivate: [AuthGuard],
 		children: [
 			{
 				path: '',
@@ -195,6 +192,10 @@ const routes: Routes = [
 				canActivate: [FeedbackPracticeGuard],
 			},
 		],
+	},
+	{
+		path: '**',
+		redirectTo: 'login',
 	},
 ];
 

@@ -2,6 +2,10 @@
 	height: 90.4vh !important;
 }
 
+.h-100-custom {
+	height: 100%;
+}
+
 #rhombus {
 	position: absolute;
 	top: -4.5rem;
@@ -175,5 +179,9 @@ input:checked + label {
 	.btn-block {
 		display: block;
 		width: 100%;
+	}
+
+	.h-100-custom {
+		height: auto;
 	}
 }

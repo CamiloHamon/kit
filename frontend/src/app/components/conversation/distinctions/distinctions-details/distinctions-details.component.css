@@ -1,20 +1,23 @@
-.vh-100 {
-	height: 90.4vh !important;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
 .bg-distinctions {
+	background-image: url('/assets/img/green-top.png'),
+		url('/assets/img/green-bottom.png');
+	background-size: auto;
+	background-position-x: left, right;
+	background-position-y: top, bottom;
+	background-repeat: no-repeat;
 	background-color: #60b3a2;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	height: calc(100vh - 45vh);
+	min-height: 500px;
 }
 
 .title {
 	color: #244d4e;
 	font-weight: 600;
+	font-size: 1.6rem;
+	margin-bottom: 2rem;
 }
 
 .rounded-custom {
@@ -24,4 +27,26 @@
 .col-4-custom {
 	width: 30%;
 	margin-left: 3%;
+}
+
+.pos-relative {
+	position: relative;
+}
+
+.img-brain {
+	position: absolute;
+	top: calc(0% - 80px);
+	left: calc(50% - 30px);
+	width: 60px;
+	padding: 0;
+}
+
+#row-btn {
+	max-height: 70px;
+}
+
+@media (max-width: 991px) {
+	.bg-distinctions {
+		height: auto;
+	}
 }

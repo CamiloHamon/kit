@@ -34,9 +34,8 @@
 }
 
 .text-home {
-	font-size: 2rem;
+	font-size: 3.2rem;
 	color: #101320;
-	line-height: 40px;
 	font-family: 'Pistilli';
 }
 
@@ -44,7 +43,17 @@
 	height: 39vh;
 }
 
+.border-text {
+	border-bottom: 5px solid #6caaff;
+}
+
 @media only screen and (max-width: 991px) {
+	.text-home {
+		font-size: 2rem;
+		color: #101320;
+		font-family: 'Pistilli';
+	}
+
 	.px-6 {
 		padding-right: 2rem !important;
 		padding-left: 2rem !important;
