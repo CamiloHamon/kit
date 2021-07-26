@@ -45,6 +45,7 @@ import { DistinctionPracticeComponent } from './components/practice/distinction-
 import { ResourcePracticeComponent } from './components/practice/resource-practice/resource-practice.component';
 import { FeedbackPracticeComponent } from './components/practice/feedback-practice/feedback-practice.component';
 import { FeedbackPracticeGuard } from './guards/practice/feedback-practice.guard';
+import { RecomendatiosComponent } from './components/recomendatios/recomendatios.component';
 
 const routes: Routes = [
 	{
@@ -192,6 +193,11 @@ const routes: Routes = [
 				canActivate: [FeedbackPracticeGuard],
 			},
 		],
+	},
+	{
+		path: 'recomendations',
+		component: RecomendatiosComponent,
+		canActivate: [AuthGuard, FeedbackGuard],
 	},
 	{
 		path: '**',

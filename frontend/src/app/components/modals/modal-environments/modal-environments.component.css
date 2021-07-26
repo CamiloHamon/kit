@@ -1,8 +1,10 @@
 .bg-puntos {
-	background-image: url('/assets/img/puntos.png');
-	background-position: bottom;
+	background-image: url('/assets/img/puntos.png'),
+		url('/assets/img/figure-yellow.png');
+	background-position-x: left, right;
+	background-position-y: bottom, 20%;
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 100%, 35px 11px;
 }
 
 .text-popups {
@@ -17,8 +19,23 @@
 	line-height: 1.8rem;
 }
 
+.environments:after {
+	content: '';
+	background: #fff0cb;
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	height: 5px;
+	width: 100%;
+	max-width: 160px;
+}
+
 .text-popups .environmentsSmall {
 	font-size: 3rem;
+}
+
+.pos-relative {
+	position: relative;
 }
 
 .cover {
@@ -57,11 +74,12 @@
 }
 
 .bg-brain {
-	background-image: url('/assets/img/silueta.png');
-	background-position-x: right;
-	background-position-y: center;
+	background-image: url('/assets/img/silueta-light.png'),
+		url('/assets/img/figure-yellow.png');
+	background-position-x: right, left;
+	background-position-y: center, 20%;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: contain, 35px 11px;
 }
 
 .tap-content-custom {
@@ -103,32 +121,8 @@
 	width: 1.5rem;
 }
 
-.bg-environments {
-	background-color: #c37688;
-}
-
-.bg-situations {
-	background-color: #5cb1bc;
-}
-
-.bg-sensations {
-	background-color: #ea8200;
-}
-
-.bg-emotions {
-	background-color: #d78056;
-}
-
-.bg-questions {
-	background-color: #357ec0;
-}
-
-.bg-distinctions {
-	background-color: #60b3a2;
-}
-
-.bg-resources {
-	background-color: #c3a4ce;
+.bg {
+	background-color: #6caaff;
 }
 
 .rounded-custom {
@@ -153,7 +147,7 @@
 	}
 
 	.h-100-modals-brain {
-		height: 28.1rem;
+		height: 50vh;
 		display: flex;
 	}
 
@@ -167,5 +161,27 @@
 
 	.btn-close-custom {
 		z-index: 10;
+	}
+
+	.text-popups .environments {
+		font-size: 4rem;
+	}
+
+	.text-popups .environmentsSmall {
+		font-size: 2.5rem;
+	}
+
+	.h-popup-header {
+		height: 30vh;
+	}
+
+	.bg-brain {
+		background-position-x: right, center;
+		background-position-y: center, top;
+	}
+
+	.bg-puntos {
+		background-position-x: left, center;
+		background-position-y: bottom, bottom;
 	}
 }

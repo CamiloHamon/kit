@@ -60,6 +60,7 @@ import { EmotionPracticeModalComponent } from './components/modals/practice/emot
 import { QuestionPracticeModalComponent } from './components/modals/practice/question-practice-modal/question-practice-modal.component';
 import { DistinctionPracticeModalComponent } from './components/modals/practice/distinction-practice-modal/distinction-practice-modal.component';
 import { ResourcePracticeModalComponent } from './components/modals/practice/resource-practice-modal/resource-practice-modal.component';
+import { RecomendatiosComponent } from './components/recomendatios/recomendatios.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -115,6 +116,7 @@ import { ResourcePracticeModalComponent } from './components/modals/practice/res
 		QuestionPracticeModalComponent,
 		DistinctionPracticeModalComponent,
 		ResourcePracticeModalComponent,
+  RecomendatiosComponent,
 	],
 	imports: [
 		BrowserModule,

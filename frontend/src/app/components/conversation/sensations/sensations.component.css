@@ -62,10 +62,6 @@ input:checked + label {
 	text-align: center;
 }
 
-.select-env {
-	color: #6facfc;
-}
-
 .border-radius-custom {
 	border-radius: 10rem;
 }
@@ -85,4 +81,24 @@ input:checked + label {
 .btn {
 	padding-left: 3rem;
 	padding-right: 3rem;
+}
+
+.select-env {
+	font-style: italic;
+	color: #6facfc;
+}
+
+.pos-relative {
+	position: relative;
+}
+
+.pos-relative:after {
+	content: '';
+	background: #52709a;
+	position: absolute;
+	bottom: 0px;
+	left: calc(50% - 80px);
+	height: 3px;
+	width: 100%;
+	max-width: 160px;
 }
