@@ -75,48 +75,58 @@ nav-tabs .nav-link:focus,
 	position: relative;
 }
 
-.text-cards-tree-emotions {
+.text-cards {
 	position: absolute;
+	top: 31%;
+	left: calc(50%);
+	width: calc(100% - 10px);
+	font-size: 1rem;
+	font-weight: 400;
+	color: white;
+	transform: translate(-50%, -50%);
+}
+
+.emotion,
+.question,
+.distinction,
+.resource {
+	font-weight: 500;
+}
+
+.distinction,
+.resource {
+	line-height: 16.5px;
+}
+
+.emotion {
 	color: #a25260;
-	font-weight: bold;
-	top: calc((50% - 2.4rem));
-	left: 50%;
-	width: 80%;
-	font-size: 20px;
-	transform: translate(-50%, -50%);
+	font-size: 1.2rem;
 }
 
-.text-cards-tree-questions {
-	position: absolute;
+.question {
 	color: #4a80b3;
-	font-weight: bold;
-	top: calc((50% - 1.6rem));
-	left: 50%;
-	width: 70%;
-	font-size: 12px;
-	transform: translate(-50%, -50%);
+	line-height: 14px;
 }
 
-.text-cards-tree-distinctions {
-	position: absolute;
+.large-question {
+	font-size: 14px;
+}
+
+.distinction {
 	color: #60b3a2;
-	font-weight: bold;
-	top: calc((50% - 1.6rem));
-	left: 50%;
-	width: 60%;
-	font-size: 14px;
-	transform: translate(-50%, -50%);
 }
 
-.text-cards-tree-resources {
-	position: absolute;
+.resource {
 	color: #733160;
-	font-weight: bold;
-	top: calc((50% - 1.6rem));
-	left: 50%;
-	width: 60%;
-	font-size: 14px;
-	transform: translate(-50%, -50%);
+}
+
+.max {
+	top: 28%;
+	line-height: 14.5px;
+}
+
+.cards-instructions {
+	position: relative;
 }
 
 .p-relative {
@@ -329,6 +339,10 @@ nav-tabs .nav-link:focus,
 	overflow: auto;
 }
 
+.hr {
+	color: #52709a !important;
+	opacity: 1;
+}
 @media (min-width: 1200px) {
 	.intructions .describe {
 		left: 25%;

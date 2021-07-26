@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
 	selector: 'app-combinations',
@@ -18,10 +19,14 @@ export class CombinationsComponent implements OnInit {
 
 	emotion: any = [];
 	question: any = [];
+	questionLength: number = 0;
 	distinction: any = [];
 	resource: any = [];
 
-	constructor(private router: Router) {
+	constructor(
+		private router: Router,
+		private effectiveCombinationService: CombinationsService
+	) {
 		const skipIntructions = localStorage.getItem('instructions');
 		if (!skipIntructions) {
 			this.instructions = true;
@@ -31,6 +36,7 @@ export class CombinationsComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.optionOne();
+		this.questionLength = this.question.name.length;
 	}
 
 	optionOne() {
@@ -85,6 +91,7 @@ export class CombinationsComponent implements OnInit {
 			this.optionTwo();
 			this.index = 2;
 		}
+		this.questionLength = this.question.name.length;
 	}
 
 	splitEmotion() {
@@ -121,6 +128,10 @@ export class CombinationsComponent implements OnInit {
 			this.instructions = false;
 			this.skip();
 		}
+	}
+
+	sendCardEmitter(cardInfo: any) {
+		this.effectiveCombinationService.cards.emit(cardInfo);
 	}
 
 	skip() {

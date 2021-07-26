@@ -1,43 +1,71 @@
 <div class="container pt-3 pt-lg-5 h-100">
-	<div class="row justify-content-center align-content-center h-100 h-custom">
-		<div class="row shadow border rounded py-3 py-lg-5">
-			<div class="row row-custom pb-2">
-				<div class="col-auto col-lg-3" id="content-cards">
+	<div class="row mx-0 justify-content-center align-content-lg-center h-100">
+		<div class="row mx-0 shadow border rounded py-3 py-lg-5">
+			<div
+				class="row row-custom pb-2 align-items-center justify-content-xl-around"
+			>
+				<div class="col-auto" id="content-cards">
 					<h5 class="fst-italic fw-normal mb-3">EMOCIÓN</h5>
 					<img src="/assets/img/card-emotion.png" class="img-fluid" alt="" />
-					<div class="text-cards-tree-emotions">
+					<div class="text-cards emotion">
 						{{ emotion }}
 					</div>
 				</div>
-				<div class="col-auto col-lg-3" id="content-cards">
+				<div class="col-auto text-center">
+					<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
+				</div>
+				<div class="col-auto" id="content-cards">
 					<h5 class="fst-italic fw-normal mb-3">PREGUNTA</h5>
-					<img src="/assets/img/card-question.png" class="img-fluid" alt="" />
-					<div class="text-cards-tree-questions">
+					<img
+						*ngIf="questionLength < 57; else imgLarge"
+						src="/assets/img/card-question.png"
+						class="img-fluid"
+						alt=""
+					/>
+
+					<ng-template #imgLarge>
+						<img
+							src="/assets/img/prueba-question.png"
+							class="img-fluid"
+							alt=""
+						/>
+					</ng-template>
+					<div
+						class="text-cards question"
+						[class.large-question]="questionLength > 21"
+						[class.max]="questionLength > 56"
+					>
 						{{ question }}
 					</div>
 				</div>
-				<div class="col-auto col-lg-3" id="content-cards">
+				<div class="col-auto text-center">
+					<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
+				</div>
+				<div class="col-auto" id="content-cards">
 					<h5 class="fst-italic fw-normal mb-3">DISTINCIÓN</h5>
 					<img
 						src="/assets/img/card-distinction.png"
 						class="img-fluid"
 						alt=""
 					/>
-					<div class="text-cards-tree-distinctions">
+					<div class="text-cards distinction">
 						{{ distinction }}
 					</div>
 				</div>
-				<div class="col-auto col-lg-3" id="content-cards">
+				<div class="col-auto text-center">
+					<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
+				</div>
+				<div class="col-auto" id="content-cards">
 					<h5 class="fst-italic fw-normal mb-3">RECURSO</h5>
 					<img src="/assets/img/card-resource.png" class="img-fluid" alt="" />
-					<div class="text-cards-tree-resources">
+					<div class="text-cards resource">
 						{{ resource }}
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row mt-4 mt-lg-5 justify-content-center">
-			<div class="col-12 col-lg-7 text-center">
+			<div class="col-12 col-lg-7 text-center pos-relative">
 				<p>
 					<b
 						>Esta combinación te servirá como herramienta para llevar una
@@ -63,7 +91,10 @@
 				>
 					CAMBIAR OPCION
 				</button>
-				<button class="btn btn-primary ms-lg-5 btn-block">
+				<button
+					class="btn btn-primary ms-lg-5 btn-block"
+					routerLink="/effective-combinations/recomendatios"
+				>
 					VER RECOMENDACIONES
 				</button>
 			</div>

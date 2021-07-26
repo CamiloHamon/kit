@@ -133,7 +133,7 @@
 				<b>distinción</b> y <b>recurso</b> a partir de la emoción que elegiste.
 			</p>
 			<p class="text-center text-initial">Selecciona la opción que deseas:</p>
-			<hr class="col-3 col-lg-1 pt-1 text-initial" />
+			<hr class="col-3 col-lg-1 pt-1 hr" />
 			<ul
 				class="
 					nav nav-tabs
@@ -212,18 +212,13 @@
 						"
 					>
 						<div
-							class="
-								col-auto
-								px-4 px-lg-0
-								text-center
-								p-relative
-								cursor-pointer
-							"
+							class="col-auto px-0 ps-2 text-center p-relative cursor-pointer"
 							[attr.data-bs-toggle]="!instructions ? 'modal' : null"
 							[attr.data-bs-target]="
 								!instructions ? '#emotion-combinations' : null
 							"
 							id="emotion"
+							(click)="sendCardEmitter(emotion)"
 						>
 							<p class="fw-bold fst-italic">EMOCIÓN SELECCIONADA</p>
 							<div class="cards-instructions">
@@ -232,13 +227,13 @@
 									class="img-fluid shadow img-filter"
 									alt=""
 								/>
-								<div class="text-cards-tree-emotions">
+								<div class="text-cards emotion">
 									{{ emotion.name }}
 								</div>
 							</div>
 						</div>
-						<div class="col-auto d-none d-xl-block text-center sum">
-							<p class="fs-1">+</p>
+						<div class="col-auto text-center sum">
+							<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
 						</div>
 						<div
 							class="col-auto text-center px-0 ps-2 p-relative cursor-pointer"
@@ -246,15 +241,29 @@
 							[attr.data-bs-target]="
 								!instructions ? '#questions-combinations' : null
 							"
+							(click)="sendCardEmitter(question)"
 						>
 							<p class="fw-bold fst-italic">PREGUNTA</p>
 							<div class="cards-instructions">
 								<img
+									*ngIf="questionLength < 57; else imgLarge"
 									src="/assets/img/card-question.png"
-									class="img-fluid shadow margin-instructions"
+									class="img-fluid"
 									alt=""
 								/>
-								<div class="text-cards-tree-questions">
+
+								<ng-template #imgLarge>
+									<img
+										src="/assets/img/prueba-question.png"
+										class="img-fluid"
+										alt=""
+									/>
+								</ng-template>
+								<div
+									class="text-cards question"
+									[class.large-question]="questionLength > 21"
+									[class.max]="questionLength > 56"
+								>
 									{{ question.name }}
 								</div>
 							</div>
@@ -272,6 +281,7 @@
 							[attr.data-bs-target]="
 								!instructions ? '#distinction-combinations' : null
 							"
+							(click)="sendCardEmitter(distinction)"
 						>
 							<p class="fw-bold fst-italic">DISTINCION</p>
 							<div class="cards-instructions">
@@ -280,7 +290,7 @@
 									class="img-fluid shadow margin-instructions"
 									alt=""
 								/>
-								<div class="text-cards-tree-distinctions">
+								<div class="text-cards distinction">
 									{{ distinction.name }}
 								</div>
 							</div>
@@ -298,6 +308,7 @@
 							[attr.data-bs-target]="
 								!instructions ? '#resource-combinations' : null
 							"
+							(click)="sendCardEmitter(resource)"
 						>
 							<p class="fw-bold fst-italic">RECURSO</p>
 							<div class="cards-instructions">
@@ -306,7 +317,7 @@
 									class="img-fluid shadow margin-instructions"
 									alt=""
 								/>
-								<div class="text-cards-tree-resources">
+								<div class="text-cards resource">
 									{{ resource.name }}
 								</div>
 							</div>
@@ -315,21 +326,30 @@
 				</div>
 			</div>
 			<div
-				class="content-buttons mt-3 pb-3 mt-lg-4 text-center px-0"
+				class="
+					row
+					mx-0
+					mt-3
+					pb-3
+					mt-lg-4
+					text-center
+					px-0
+					justify-content-center
+				"
 				id="no-instructions"
 			>
-				<div class="col-10 col-lg-auto btn-step-tree">
+				<div class="col-12 col-md-auto btn-step-tree px-0 mb-3 mb-md-0">
 					<button
-						class="btn btn-outline-secondary mx-3 px-2 px-lg-3"
+						class="col-12 col-md-auto btn btn-outline-secondary"
 						routerLink="/effective-combinations/emotions-bank"
 						[disabled]="instructions"
 					>
-						CAMBIAR EMOCION
+						CAMBIAR EMOCIÓN
 					</button>
 				</div>
-				<div class="col-10 col-lg-auto btn-step-tree">
+				<div class="col-12 col-md-auto btn-step-tree px-0 ms-md-5">
 					<button
-						class="btn btn-primary mx-3 px-2 px-lg-5"
+						class="col-12 col-md-auto btn btn-primary"
 						(click)="continue()"
 						[disabled]="instructions"
 					>
@@ -340,195 +360,7 @@
 		</div>
 	</div>
 </div>
-<div
-	class="modal fade"
-	id="emotion-combinations"
-	tabindex="-1"
-	aria-labelledby="exampleModalLabel"
-	aria-hidden="true"
-	data-bs-backdrop="static"
-	data-bs-keyboard="false"
->
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-body row justify-content-center">
-				<button
-					type="button"
-					class="btn-close btn-close-custom"
-					data-bs-dismiss="modal"
-					aria-label="Close"
-				>
-					<span class="material-icons-outlined white" style="font-weight: bold">
-						close
-					</span>
-				</button>
-				<div
-					class="
-						row
-						col-11 col-lg-9
-						bg-emotions
-						rounded-custom
-						my-5
-						py-5
-						px-lg-5
-					"
-					[ngClass]="
-						!emotion.comunication
-							? 'align-content-center'
-							: 'align-content-around'
-					"
-				>
-					<div class="text-center">
-						<span class="title border-bottom-custom">¿Qué la genera?</span>
-						<p class="white mt-3">{{ emotion.generate }}.</p>
-					</div>
-					<div *ngIf="emotion.comunication" class="text-center">
-						<span class="title border-bottom-custom">¿Qué me comunica?</span>
-						<p class="white mt-3">{{ emotion.comunication }}.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div
-	class="modal fade"
-	id="questions-combinations"
-	tabindex="-1"
-	aria-labelledby="exampleModalLabel"
-	aria-hidden="true"
-	data-bs-backdrop="static"
-	data-bs-keyboard="false"
->
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-body row justify-content-center">
-				<button
-					type="button"
-					class="btn-close btn-close-custom"
-					data-bs-dismiss="modal"
-					aria-label="Close"
-				>
-					<span class="material-icons-outlined white" style="font-weight: bold">
-						close
-					</span>
-				</button>
-				<div
-					class="
-						row
-						align-content-center
-						col-11 col-lg-9
-						bg-questions
-						rounded-custom
-						my-5
-						py-5
-						px-lg-3
-					"
-				>
-					<div class="text-center">
-						<span class="title-question border-bottom-question">{{
-							question.name
-						}}</span>
-						<p class="white mt-3">Sirve para</p>
-						<p class="white mt-3">{{ question.description }}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div
-	class="modal fade"
-	id="distinction-combinations"
-	tabindex="-1"
-	aria-labelledby="exampleModalLabel"
-	aria-hidden="true"
-	data-bs-backdrop="static"
-	data-bs-keyboard="false"
->
-	<div class="modal-dialog modal-lg modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-body row justify-content-center">
-				<button
-					type="button"
-					class="btn-close btn-close-custom"
-					data-bs-dismiss="modal"
-					aria-label="Close"
-				>
-					<span class="material-icons-outlined white" style="font-weight: bold">
-						close
-					</span>
-				</button>
-				<div
-					class="
-						row
-						align-content-center
-						col-11 col-lg-9
-						bg-distinctions
-						rounded-custom
-						my-5
-						py-lg-5
-						px-lg-3
-						overflow
-						h-modal-distinction
-					"
-				>
-					<div class="text-center pt-5">
-						<span class="title-question border-bottom-question">
-							{{ distinction.name }}
-						</span>
-						<p class="white mt-3">{{ distinction.description }}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div
-	class="modal fade"
-	id="resource-combinations"
-	tabindex="-1"
-	aria-labelledby="exampleModalLabel"
-	aria-hidden="true"
-	data-bs-backdrop="static"
-	data-bs-keyboard="false"
->
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content">
-			<div class="modal-body row justify-content-center">
-				<button
-					type="button"
-					class="btn-close btn-close-custom"
-					data-bs-dismiss="modal"
-					aria-label="Close"
-				>
-					<span class="material-icons-outlined white" style="font-weight: bold">
-						close
-					</span>
-				</button>
-				<div
-					class="
-						row
-						align-content-center
-						col-11 col-lg-9
-						bg-resources
-						rounded-custom
-						my-5
-						py-5
-						px-lg-3
-					"
-				>
-					<div class="text-center">
-						<span class="title-resource border-bottom-resource">
-							{{ resource.name }}
-						</span>
-						<p class="white mt-3">{{ resource.description }}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<app-emotion-modal-effective></app-emotion-modal-effective>
+<app-question-modal-effective></app-question-modal-effective>
+<app-distinction-modal-effective></app-distinction-modal-effective>
+<app-resource-modal-effective></app-resource-modal-effective>

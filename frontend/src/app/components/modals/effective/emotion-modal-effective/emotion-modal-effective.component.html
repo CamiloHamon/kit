@@ -1,0 +1,54 @@
+<div
+	class="modal fade"
+	id="emotion-combinations"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-body row justify-content-center">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div class="text-center mt-lg-4 mb-2 mb-lg-3">
+					<img src="/assets/img/icon-emotion.png" alt="" class="img-fluid" />
+				</div>
+				<div
+					class="
+						row
+						col-11 col-lg-10
+						bg-emotions
+						rounded-custom
+						mb-3
+						py-5
+						px-lg-5
+					"
+					[ngClass]="
+						!emotion.comunication
+							? 'align-content-center'
+							: 'align-content-around'
+					"
+				>
+					<div class="text-center">
+						<span class="title border-bottom-custom">¿Qué la genera?</span>
+						<p class="white mt-3 text">{{ emotion.generate }}.</p>
+					</div>
+					<div *ngIf="emotion.comunication" class="text-center">
+						<span class="title border-bottom-custom">¿Qué me comunica?</span>
+						<p class="white mt-3 text">{{ emotion.comunication }}.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

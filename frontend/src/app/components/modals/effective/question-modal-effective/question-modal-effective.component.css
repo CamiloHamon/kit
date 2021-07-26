@@ -1,0 +1,71 @@
+.bg-questions {
+	background-color: #4a80b3;
+	height: auto;
+	min-height: 30rem;
+	background-image: url('/assets/img/bg-azul-modal-error-vertical.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-color: rgb(72, 137, 202);
+}
+
+.rounded-custom {
+	border-radius: 1.5rem;
+}
+
+.title {
+	font-size: 1.5rem;
+	padding-bottom: 5px;
+}
+
+.border-bottom-custom {
+	border-bottom: 2px solid rgba(158, 45, 39, 255);
+}
+
+.title-question {
+	font-size: calc(1.3rem + 0.5vw);
+	padding-bottom: 5px;
+	color: #00225f;
+}
+
+.text {
+	font-size: 1.2rem;
+}
+
+.btn-close-custom {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	background-color: #6caaff !important;
+	border-radius: 50%;
+	opacity: 100;
+	background: none;
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+.decored {
+	letter-spacing: -3px;
+	padding-right: 3px;
+	color: #082e6b;
+}
+
+.decored:first-child {
+	margin-right: 0.4rem;
+}
+
+.decored:last-child {
+	margin-left: 0.4rem;
+}
+
+.for {
+	font-size: large;
+	font-style: italic;
+}
+
+.content-text {
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+}

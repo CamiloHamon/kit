@@ -1,0 +1,44 @@
+.bg-emotions {
+	background-color: #d78056;
+	color: rgba(158, 45, 39, 255);
+	height: auto;
+	min-height: 30rem;
+	background-image: url('/assets/img/orange-top.png'),
+		url('/assets/img/orange-bottom.png');
+	background-repeat: no-repeat;
+	background-position-x: calc(0% - 10px), calc(100% + 10px);
+	background-position-y: top, calc(100% - 10px);
+	background-size: auto;
+}
+
+.rounded-custom {
+	border-radius: 1.5rem;
+}
+
+.border-bottom-custom {
+	border-bottom: 2px solid rgba(158, 45, 39, 255);
+}
+
+.btn-close-custom {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	background-color: #6caaff !important;
+	border-radius: 50%;
+	opacity: 100;
+	background: none;
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+.pos-relative {
+	position: relative;
+}
+
+.title {
+	font-size: calc(1.3rem + 0.5vw);
+}
+
+.text {
+	font-size: 1.2rem;
+}

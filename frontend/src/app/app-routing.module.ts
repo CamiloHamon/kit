@@ -46,6 +46,7 @@ import { ResourcePracticeComponent } from './components/practice/resource-practi
 import { FeedbackPracticeComponent } from './components/practice/feedback-practice/feedback-practice.component';
 import { FeedbackPracticeGuard } from './guards/practice/feedback-practice.guard';
 import { RecomendatiosComponent } from './components/recomendatios/recomendatios.component';
+import { RecomendationsEffectiveComponent } from './components/effective/recomendations-effective/recomendations-effective.component';
 
 const routes: Routes = [
 	{
@@ -150,6 +151,11 @@ const routes: Routes = [
 			{
 				path: 'feedback',
 				component: FeedbackEffectiveComponent,
+				canActivate: [CombinationsGuard],
+			},
+			{
+				path: 'recomendatios',
+				component: RecomendationsEffectiveComponent,
 				canActivate: [CombinationsGuard],
 			},
 		],

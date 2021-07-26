@@ -42,13 +42,18 @@ export class EmotionsBankComponent implements OnInit {
 			.subscribe(
 				(res) => {
 					if (res.length > 0) {
-						console.log(res[0]);
 						sessionStorage.setItem('combination-one', JSON.stringify(res[0]));
 						sessionStorage.setItem('combination-two', JSON.stringify(res[1]));
 						this.router.navigate(['/effective-combinations/combinations']);
-					} else alert('error');
+					} else {
+						console.log('error');
+						this.router.navigate(['/effective-combinations/emotions-bank']);
+					}
 				},
-				(err) => console.log(err)
+				(err) => {
+					console.log(err);
+					this.router.navigate(['/effective-combinations/emotions-bank']);
+				}
 			);
 	}
 }

@@ -1,0 +1,52 @@
+<div
+	class="modal fade"
+	id="distinction-combinations"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+>
+	<div class="modal-dialog modal-lg modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-body row justify-content-center">
+				<button
+					type="button"
+					class="btn-close btn-close-custom"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+					<span class="material-icons-outlined white" style="font-weight: bold">
+						close
+					</span>
+				</button>
+				<div class="text-center mt-lg-4 mb-2 mb-lg-3">
+					<img src="/assets/img/brain-green.png" alt="" class="img-fluid" />
+				</div>
+				<div
+					class="
+						row
+						align-content-center
+						col-11
+						bg-distinctions
+						rounded-custom
+						mb-3
+						py-5
+						px-lg-5
+						overflow
+						h-modal-distinction
+					"
+				>
+					<div class="text-center">
+						<span class="title">
+							{{ distinction.name }}
+						</span>
+						<p class="white mt-3 text">
+							{{ distinction.description }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -61,6 +61,11 @@ import { QuestionPracticeModalComponent } from './components/modals/practice/que
 import { DistinctionPracticeModalComponent } from './components/modals/practice/distinction-practice-modal/distinction-practice-modal.component';
 import { ResourcePracticeModalComponent } from './components/modals/practice/resource-practice-modal/resource-practice-modal.component';
 import { RecomendatiosComponent } from './components/recomendatios/recomendatios.component';
+import { EmotionModalEffectiveComponent } from './components/modals/effective/emotion-modal-effective/emotion-modal-effective.component';
+import { QuestionModalEffectiveComponent } from './components/modals/effective/question-modal-effective/question-modal-effective.component';
+import { DistinctionModalEffectiveComponent } from './components/modals/effective/distinction-modal-effective/distinction-modal-effective.component';
+import { ResourceModalEffectiveComponent } from './components/modals/effective/resource-modal-effective/resource-modal-effective.component';
+import { RecomendationsEffectiveComponent } from './components/effective/recomendations-effective/recomendations-effective.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -116,7 +121,12 @@ import { RecomendatiosComponent } from './components/recomendatios/recomendatios
 		QuestionPracticeModalComponent,
 		DistinctionPracticeModalComponent,
 		ResourcePracticeModalComponent,
-  RecomendatiosComponent,
+		RecomendatiosComponent,
+		EmotionModalEffectiveComponent,
+		QuestionModalEffectiveComponent,
+		DistinctionModalEffectiveComponent,
+		ResourceModalEffectiveComponent,
+  RecomendationsEffectiveComponent,
 	],
 	imports: [
 		BrowserModule,

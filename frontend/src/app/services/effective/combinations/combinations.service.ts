@@ -5,6 +5,6 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class CombinationsService {
 	changeOpt = new EventEmitter<number>();
-
+	cards = new EventEmitter<any>();
 	constructor() {}
 }

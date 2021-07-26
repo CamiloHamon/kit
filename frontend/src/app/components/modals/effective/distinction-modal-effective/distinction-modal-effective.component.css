@@ -1,0 +1,39 @@
+.bg-distinctions {
+	background-color: #60b3a2;
+	background-image: url('/assets/img/green-top.png'),
+		url('/assets/img/green-bottom.png');
+	background-size: auto;
+	background-position-x: calc(0% - 10px), calc(100% + 10px);
+	background-position-y: calc(0% - 10px), bottom;
+	background-repeat: no-repeat;
+	background-color: #60b3a2;
+}
+
+.rounded-custom {
+	border-radius: 1.5rem;
+}
+
+.title {
+	font-size: calc(1.3rem + 0.5vw);
+	padding-bottom: 5px;
+}
+
+.text {
+	font-size: 1.2rem;
+}
+
+.btn-close-custom {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	background-color: #6caaff !important;
+	border-radius: 50%;
+	opacity: 100;
+	background: none;
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+.overflow {
+	overflow: auto;
+}
