@@ -169,9 +169,10 @@ input:checked + label {
 
 	.text-cards {
 		width: 100%;
+		font-size: 13px;
 	}
 
 	.large-question {
-		font-size: 12.2px;
+		font-size: 11px;
 	}
 }

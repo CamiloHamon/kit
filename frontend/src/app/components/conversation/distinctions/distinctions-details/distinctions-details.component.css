@@ -41,10 +41,6 @@
 	padding: 0;
 }
 
-#row-btn {
-	max-height: 70px;
-}
-
 @media (max-width: 991px) {
 	.bg-distinctions {
 		height: auto;

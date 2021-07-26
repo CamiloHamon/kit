@@ -95,6 +95,7 @@ input:checked + label {
 .bg-error {
 	background-image: url('/assets/img/bg-silueta-distinction-error.png');
 	background-size: cover;
+	background-position: right;
 }
 
 .bg-error-distinction {
