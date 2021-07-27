@@ -27,6 +27,7 @@ nav-tabs .nav-link:focus,
 
 .h-combinations {
 	height: calc(100vh - 45vh);
+	min-height: 367px;
 }
 
 .border-custom {

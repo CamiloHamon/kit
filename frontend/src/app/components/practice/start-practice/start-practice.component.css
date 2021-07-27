@@ -99,6 +99,10 @@
 		max-width: 100%;
 		height: auto !important;
 	}
+
+	.ps-custom {
+		padding-left: 1rem !important;
+	}
 }
 
 @media only screen and (max-width: 1199px) {

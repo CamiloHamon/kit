@@ -127,4 +127,8 @@
 	.btn-block {
 		width: 100%;
 	}
+
+	#content {
+		height: auto !important;
+	}
 }

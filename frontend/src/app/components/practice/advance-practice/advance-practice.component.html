@@ -1,4 +1,3 @@
-<b>AVANCE</b>
 <div
 	class="row mx-0 mt-2 mb-4 mb-lg-0 pos-relative shadow rounded border"
 	id="section-cards"
@@ -14,6 +13,7 @@
 			align-items-center
 			justify-content-xxl-center
 		"
+		ngClass=""
 	>
 		<div class="col-auto text-center">
 			<h5>SITUACIÓN</h5>
@@ -29,7 +29,7 @@
 		<div class="col-auto" *ngIf="emotion">
 			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
 		</div>
-		<div class="col-auto text-center">
+		<div class="col-auto h-cards">
 			<h5>EMOCIÓN</h5>
 			<div
 				*ngIf="emotion"
@@ -49,7 +49,7 @@
 		<div class="col-auto" *ngIf="question">
 			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
 		</div>
-		<div class="col-auto text-center">
+		<div class="col-auto text-center h-cards">
 			<h5>PREGUNTA</h5>
 			<div
 				*ngIf="question"
@@ -80,7 +80,7 @@
 		<div class="col-auto" *ngIf="distinction">
 			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
 		</div>
-		<div class="col-auto text-center">
+		<div class="col-auto text-center h-cards">
 			<h5>DISTINCIÓN</h5>
 			<div
 				*ngIf="distinction"
@@ -100,7 +100,7 @@
 		<div class="col-auto" *ngIf="resource">
 			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
 		</div>
-		<div class="col-auto text-center">
+		<div class="col-auto text-center h-cards">
 			<h5>RECURSO</h5>
 			<div
 				*ngIf="resource"

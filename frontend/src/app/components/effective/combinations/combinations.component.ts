@@ -136,6 +136,7 @@ export class CombinationsComponent implements OnInit {
 
 	skip() {
 		this.instructions = false;
+		this.stepOne = false;
 		localStorage.setItem('instructions', 'instructions');
 	}
 

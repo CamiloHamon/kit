@@ -15,7 +15,7 @@
 
 #rhombus {
 	position: absolute;
-	top: 1.9rem;
+	top: calc(0% - 19px);
 	left: calc((50% - 25px));
 	z-index: 1;
 }
@@ -161,10 +161,6 @@ input:checked + label {
 		padding-right: calc(var(--bs-gutter-x) / 2);
 	}
 
-	#rhombus {
-		top: -1.2rem;
-	}
-
 	input:checked + label {
 		width: auto !important;
 	}
@@ -177,5 +173,9 @@ input:checked + label {
 	.content-buttons {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	#content {
+		height: auto !important;
 	}
 }

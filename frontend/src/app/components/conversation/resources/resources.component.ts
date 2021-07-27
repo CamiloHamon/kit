@@ -41,27 +41,37 @@ export class ResourcesComponent implements OnInit {
 
 	ngOnInit(): void {}
 
-	continue() {
+	async continue() {
 		const contentResource = this.form.controls.cards.value.split('-');
 		const idResource = Number(contentResource[0]);
-		this.resourcesService.show(idResource).subscribe(
-			(res) => {
-				sessionStorage.setItem('resource', `${JSON.stringify(res)}`);
-			},
-			(err) => this.modalError.showModalError(this.back, 'lg')
-		);
-		this.resourcesService.validateResource(this.idESSEQD, idResource).subscribe(
-			(res) => {
-				if (res.length > 0) {
-					if (res[0].isCorrect === 1) {
-						const idESSEQDR = Number(contentResource[1]);
-						sessionStorage.setItem('esseeqdr', `${idESSEQDR}`);
-						this.router.navigate(['/conversation/resources/details']);
-					} else this.modalsServices.open(this.content, 'lg');
-				} else this.modalError.showModalError(this.back, 'lg');
-			},
-			(err) => this.modalError.showModalError(this.back, 'lg')
-		);
+		const isValid = await this.getIsValid(idResource, contentResource);
+		if (isValid) {
+			this.resourcesService.show(idResource).subscribe(
+				(res) => {
+					sessionStorage.setItem('resource', `${JSON.stringify(res)}`);
+					this.router.navigate(['/conversation/resources/details']);
+				},
+				(err) => this.modalError.showModalError(this.back, 'lg')
+			);
+		} else this.modalsServices.open(this.content, 'lg');
+	}
+
+	async getIsValid(idResource: number, contentResource: any): Promise<boolean> {
+		try {
+			const res = await this.resourcesService
+				.validateResource(this.idESSEQD, idResource)
+				.toPromise();
+
+			if (res[0].isCorrect === 1) {
+				const idESSEQDR = Number(contentResource[1]);
+				sessionStorage.setItem('esseeqdr', `${idESSEQDR}`);
+				return true;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+
+		return false;
 	}
 
 	goBack() {

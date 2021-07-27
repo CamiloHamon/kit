@@ -1,7 +1,7 @@
-<div class="container pt-5 h-100">
-	<div class="row mx-0 justify-content-center">
+<div class="container pt-3 pt-lg-5 h-100">
+	<div class="row mx-0 justify-content-center align-content-around h-100">
 		<h5 class="text-center">BANCO DE EMOCIONES</h5>
-		<p class="text-center">
+		<p class="text-center fst-italic">
 			<b>Selecciona</b> la emoción que deseas consultar y <b>haz clic</b> en el
 			botón ELEGIR.
 		</p>
@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-12 mt-lg-5 border-custom rounded h-bank shadow">
+			<div class="col-12 border-custom rounded h-bank shadow">
 				<div class="row mb-3 mt-lg-4 pt-4">
 					<div
 						class="col-1-custom cards ps-lg-0 pt-2 pt-lg-0 text-center mb-3"
@@ -37,16 +37,23 @@
 					</div>
 				</div>
 			</div>
-			<div class="content-buttons mt-3 mt-lg-4 text-center px-0">
-				<button
-					class="btn btn-outline-secondary px-2 px-lg-3"
-					routerLink="/home"
-				>
+			<div
+				class="
+					row
+					mx-0
+					mt-3 mt-lg-4
+					pb-2 pb-lg-0
+					text-center
+					px-0
+					justify-content-between justify-content-lg-center
+				"
+			>
+				<button class="col-auto btn btn-outline-secondary" routerLink="/home">
 					CAMBIAR MODALIDAD
 				</button>
 				<button
 					[disabled]="form.invalid"
-					class="btn btn-primary ms-lg-5 px-3 px-lg-5"
+					class="col-auto btn btn-primary ms-lg-5"
 					(click)="continue()"
 				>
 					ELEGIR

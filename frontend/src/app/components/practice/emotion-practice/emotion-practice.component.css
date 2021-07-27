@@ -256,6 +256,23 @@ label {
 	pointer-events: none;
 }
 
+.pos-relative {
+	position: relative;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.pos-relative:after {
+	content: '';
+	background: #52709a;
+	position: absolute;
+	bottom: -20px;
+	left: calc(50% - 80px);
+	height: 3px;
+	width: 100%;
+	max-width: 160px;
+}
+
 @media only screen and (max-width: 991px) {
 	.col-1-custom {
 		flex: 0 0 auto;
@@ -307,5 +324,9 @@ label {
 
 	.text-help {
 		font-size: x-small;
+	}
+
+	#content {
+		height: auto !important;
 	}
 }

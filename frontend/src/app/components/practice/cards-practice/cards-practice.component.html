@@ -6,15 +6,15 @@
 					<div class="text">2</div>
 				</div>
 			</div>
-			<p class="col-11 col-lg-5 m-lg-0 text-center mt-text">
+			<h5 class="col-11 col-lg-6 m-lg-0 text-center mt-text pos-relative">
 				Ahora que definiste la situación que vas a abordar, selecciona el grupo
 				de cartas que quieres usar para ir armando la combinación.
-			</p>
+			</h5>
 		</div>
 		<form
 			[formGroup]="form"
 			(ngSubmit)="continue($event)"
-			class="row mx-0 align-content-center mt-3 mt-lg-0"
+			class="row mx-0 align-content-center mt-5 mt-lg-2"
 		>
 			<div class="col-6 col-lg-3 text-center mb-3 mb-lg-0">
 				<input
@@ -86,7 +86,8 @@
 					mx-0
 					justify-content-around justify-content-lg-center
 					text-center
-					my-5
+					mt-4
+					mb-5
 					mt-lg-5
 					mb-lg-0
 				"
@@ -117,6 +118,7 @@
 				</ng-template>
 			</div>
 		</form>
+		<b>AVANCE</b>
 		<app-advance-practice></app-advance-practice>
 	</div>
 </div>

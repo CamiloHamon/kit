@@ -42,31 +42,40 @@ export class DistinctionsComponent implements OnInit {
 
 	ngOnInit(): void {}
 
-	continue() {
+	async continue() {
 		const contentDistinction = this.form.controls.cards.value.split('-');
 		const idDistinction = Number(contentDistinction[0]);
-		this.distinctionsService.show(idDistinction).subscribe(
-			(res) => {
-				sessionStorage.setItem('distinction', `${JSON.stringify(res)}`);
-			},
-			(err) => this.modalError.showModalError(this.back, 'lg')
-		);
-		this.distinctionsService
-			.validateDistinction(this.idESSEQ, idDistinction)
-			.subscribe(
+		const isValid = await this.getIsValid(idDistinction, contentDistinction);
+		if (isValid) {
+			this.distinctionsService.show(idDistinction).subscribe(
 				(res) => {
-					if (res.length > 0) {
-						if (res[0].isCorrect === 1) {
-							const idESSEQD = Number(contentDistinction[1]);
-							sessionStorage.setItem('esseeqd', `${idESSEQD}`);
-							this.router.navigate(['/conversation/distinctions/details']);
-						} else {
-							this.modalsService.open(this.content, 'lg');
-						}
-					} else this.modalError.showModalError(this.back, 'lg');
+					sessionStorage.setItem('distinction', `${JSON.stringify(res)}`);
+					this.router.navigate(['/conversation/distinctions/details']);
 				},
 				(err) => this.modalError.showModalError(this.back, 'lg')
 			);
+		} else this.modalsService.open(this.content, 'lg');
+	}
+
+	async getIsValid(
+		idDistinction: number,
+		contentDistinction: any
+	): Promise<boolean> {
+		try {
+			const res = await this.distinctionsService
+				.validateDistinction(this.idESSEQ, idDistinction)
+				.toPromise();
+
+			if (res[0].isCorrect === 1) {
+				const idESSEQD = Number(contentDistinction[1]);
+				sessionStorage.setItem('esseeqd', `${idESSEQD}`);
+				return true;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+
+		return false;
 	}
 
 	goBack() {

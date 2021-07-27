@@ -9,6 +9,8 @@
 	background-position-x: calc(0% - 10px), calc(100% + 10px);
 	background-position-y: top, calc(100% - 10px);
 	background-size: auto;
+	display: flex;
+	align-content: space-around;
 }
 
 .rounded-custom {

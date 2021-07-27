@@ -20,6 +20,7 @@ export class QuestionsComponent implements OnInit {
 	questions: any = [];
 	questionContent: string = '';
 	idESSE: number = -1;
+
 	form = new FormGroup({
 		cards: new FormControl('', [Validators.required]),
 	});
@@ -51,30 +52,37 @@ export class QuestionsComponent implements OnInit {
 		}
 	}
 
-	continue() {
+	async continue() {
 		const contentQuestion = this.form.controls.cards.value.split('-');
 		const idQuestion = Number(contentQuestion[0]);
+		const isValid = await this.getIsValid(idQuestion, contentQuestion);
+		if (isValid) {
+			this.questionsService.show(idQuestion).subscribe(
+				(res) => {
+					sessionStorage.setItem('question', `${JSON.stringify(res)}`);
+					this.router.navigate(['/conversation/questions/details']);
+				},
+				(err) => this.modalError.showModalError(this.back, 'lg')
+			);
+		} else this.modalsService.open(this.content, 'lg');
+	}
 
-		this.questionsService.show(idQuestion).subscribe(
-			(res) => {
-				sessionStorage.setItem('question', `${JSON.stringify(res)}`);
-			},
-			(err) => this.modalError.showModalError(this.back, 'lg')
-		);
-		this.questionsService.validateQuestion(this.idESSE, idQuestion).subscribe(
-			(res) => {
-				if (res.length > 0) {
-					if (res[0].isCorrect === 1) {
-						const idESSEQ = Number(contentQuestion[1]);
-						sessionStorage.setItem('esseeq', `${idESSEQ}`);
-						this.router.navigate(['/conversation/questions/details']);
-					} else {
-						this.modalsService.open(this.content, 'lg');
-					}
-				} else this.modalError.showModalError(this.back, 'lg');
-			},
-			(err) => this.modalError.showModalError(this.back, 'lg')
-		);
+	async getIsValid(idQuestion: number, contentQuestion: any): Promise<boolean> {
+		try {
+			const res = await this.questionsService
+				.validateQuestion(this.idESSE, idQuestion)
+				.toPromise();
+
+			if (res[0].isCorrect === 1) {
+				const idESSEQ = Number(contentQuestion[1]);
+				sessionStorage.setItem('esseeq', `${idESSEQ}`);
+				return true;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+
+		return false;
 	}
 
 	goBack() {

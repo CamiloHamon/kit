@@ -39,6 +39,7 @@
 	transform: translate(-50%, -50%);
 	font-size: 1rem;
 	font-weight: 400;
+	text-align: center;
 }
 
 .center {
@@ -93,6 +94,12 @@
 
 .img-fluid {
 	max-height: 222px;
+}
+
+.h-cards {
+	min-height: 254px;
+	min-width: 191px;
+	text-align: center;
 }
 
 @media (max-width: 1399px) {
