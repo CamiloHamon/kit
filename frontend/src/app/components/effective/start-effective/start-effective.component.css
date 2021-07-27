@@ -142,4 +142,8 @@
 		background-position: top;
 		background-size: cover;
 	}
+
+	.h-a {
+		height: auto !important;
+	}
 }

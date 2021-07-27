@@ -82,27 +82,32 @@ input {
 .text-cards {
 	position: absolute;
 	top: 30%;
-	left: 50%;
-	color: #4a80b3;
+	left: calc(50%);
 	width: 100%;
-	font-size: 12px;
-	font-weight: 500;
-	transform: translate(-50%, -50%);
-}
-
-.text-description {
-	font-size: 19px;
-}
-
-.text-cards-tree-situations {
-	position: absolute;
+	font-size: 14px;
+	font-weight: 400;
 	color: white;
-	top: 40%;
-	left: 50%;
-	width: 75%;
-	font-size: 10px;
-	font-weight: bold;
 	transform: translate(-50%, -50%);
+}
+
+.question {
+	color: #4a80b3;
+	font-weight: 500;
+	line-height: 14px;
+}
+
+.large-question {
+	font-size: 12.2px;
+}
+
+.max {
+	top: 27%;
+	line-height: 14.5px;
+}
+
+.opacity-0 {
+	opacity: 0;
+	pointer-events: none;
 }
 
 .col-1-custom {
@@ -158,10 +163,6 @@ input {
 	border-radius: 1rem;
 }
 
-.cdk-drop-list {
-	cursor: move !important;
-}
-
 .cdk-drag-preview {
 	box-sizing: border-box;
 	border-radius: 4px;
@@ -183,6 +184,10 @@ input {
 .cdk-drop-list-dragging #div-card:hover {
 	transition: 0.5s;
 	opacity: 0.3;
+}
+
+label {
+	position: relative;
 }
 
 #label {
@@ -235,18 +240,68 @@ input {
 	justify-content: space-evenly;
 }
 
+.example-handle {
+	position: absolute;
+	cursor: move;
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+}
+
+.text-help {
+	font-size: smaller;
+	padding-right: 4px;
+	text-decoration: underline;
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+	.col-1-custom {
+		flex: 0 0 auto;
+		margin: 0.5rem;
+		max-width: 140px;
+		width: auto;
+	}
+
+	.question {
+		font-size: 12px;
+	}
+
+	.large-question {
+		font-size: 10.2px;
+	}
+}
+
 @media only screen and (max-width: 991px) {
 	.col-1-custom {
 		flex: 0 0 auto;
-		width: calc(33.33% - 1rem);
 		margin: 0.5rem;
+		max-width: 179px;
+		width: auto;
+	}
+	.example-handle {
+		color: #f9fafb;
+		height: 22%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		align-content: center;
+	}
+
+	.max-card-drag .example-handle {
+		height: 12%;
+	}
+
+	.max-card-drag svg {
+		height: 17px;
+		width: 17px;
 	}
 }
 
 @media only screen and (max-width: 767px) {
 	.col-1-custom {
 		flex: 0 0 auto;
-		width: calc(50% - 1rem);
+		width: auto;
+		max-width: 125px;
 		margin: 0.5rem;
 	}
 
@@ -273,5 +328,21 @@ input {
 
 	.h-bank {
 		height: calc(100vh - 54vh);
+	}
+
+	.text-help {
+		font-size: x-small;
+	}
+
+	.question {
+		font-size: 10px;
+	}
+
+	.large-question {
+		font-size: 9.2px;
+	}
+
+	.max {
+		line-height: 12.6px;
 	}
 }

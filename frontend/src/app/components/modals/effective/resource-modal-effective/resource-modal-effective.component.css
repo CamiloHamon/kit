@@ -33,3 +33,19 @@
 	height: 1.5rem;
 	width: 1.5rem;
 }
+
+.bg-transparent {
+	background-color: transparent;
+	border: 0;
+}
+
+.bg-white-practice {
+	background-color: white;
+	border-radius: 1.5rem;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.bg-dark-modal {
+	background-color: rgba(0, 0, 0, 0.644);
+}

@@ -1,4 +1,4 @@
-<div class="container pt-3 pt-lg-5 h-100" id="content">
+<div class="blur container pt-3 pt-lg-5 h-100" id="content">
 	<div class="row mx-0 justify-content-center">
 		<p class="text-center mb-lg-5">
 			<b>Arrastra</b> al lugar indicado la carta que deseas usar.
@@ -15,7 +15,7 @@
 				"
 			>
 				<div
-					class="row mb-3 mt-lg-4 pt-4"
+					class="row mb-3 mt-lg-4 pt-4 justify-content-center"
 					cdkDropList
 					#listCards="cdkDropList"
 					[cdkDropListConnectedTo]="cardSelected"
@@ -28,28 +28,48 @@
 							class="questionInput"
 						/>
 						<label
-							*ngIf="question.id; else elseBlock"
+							[class.opacity-0]="!question.id"
+							[class.max-card-drag]="question.questionLength > 56"
 							for="question-{{ question.id }}"
 							id="label"
 							class="col cards ps-lg-0 pt-lg-0 text-center"
 							cdkDrag
 						>
+							<div class="example-handle" cdkDragHandle>
+								<span class="text-help d-lg-none">Arrastra desde aquí</span>
+								<svg
+									width="24px"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+									class="d-lg-none"
+								>
+									<path
+										d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+									></path>
+									<path d="M0 0h24v24H0z" fill="none"></path>
+								</svg>
+							</div>
 							<img
+								*ngIf="question.questionLength < 57; else imgLarge"
 								src="/assets/img/card-question.png"
 								class="img-fluid"
 								alt=""
 							/>
-							<div class="text-cards">{{ question.name }}</div>
-						</label>
-						<ng-template #elseBlock>
-							<div cdkDrag>
+							<ng-template #imgLarge>
 								<img
-									src="/assets/img/card-question.png"
+									src="/assets/img/prueba-question.png"
 									class="img-fluid"
-									style="opacity: 0"
+									alt=""
 								/>
+							</ng-template>
+							<div
+								class="text-cards question"
+								[class.large-question]="question.questionLength > 21"
+								[class.max]="question.questionLength > 56"
+							>
+								{{ question.name }}
 							</div>
-						</ng-template>
+						</label>
 					</div>
 				</div>
 			</div>
@@ -66,7 +86,8 @@
 							class="col-12 cards ps-lg-0 text-center"
 							id="div-card"
 							data-bs-toggle="modal"
-							data-bs-target="#question-details"
+							data-bs-target="#questions-combinations"
+							(click)="sendCardEmitter(questionSelected)"
 						>
 							<input
 								type="radio"
@@ -80,11 +101,25 @@
 								class="w-100 cursor-pointer"
 							>
 								<img
+									*ngIf="questionSelected.questionLength < 57; else imgLarge"
 									src="/assets/img/card-question.png"
 									class="img-fluid"
 									alt=""
 								/>
-								<div class="text-cards">{{ questionSelected.name }}</div>
+								<ng-template #imgLarge>
+									<img
+										src="/assets/img/prueba-question.png"
+										class="img-fluid"
+										alt=""
+									/>
+								</ng-template>
+								<div
+									class="text-cards question"
+									[class.large-question]="questionSelected.questionLength > 21"
+									[class.max]="questionSelected.questionLength > 56"
+								>
+									{{ questionSelected.name }}
+								</div>
 							</label>
 						</div>
 					</div>
@@ -101,73 +136,4 @@
 		</form>
 	</div>
 </div>
-
-<div
-	class="modal fade"
-	id="question-details"
-	tabindex="-1"
-	aria-labelledby="exampleModalLabel"
-	aria-hidden="true"
-	data-bs-backdrop="static"
-	data-bs-keyboard="false"
->
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-		<div class="modal-content bg-transparent">
-			<div class="modal-body row justify-content-center bg-white">
-				<button
-					type="button"
-					class="btn-close btn-close-custom"
-					data-bs-dismiss="modal"
-					aria-label="Close"
-				>
-					<span class="material-icons-outlined white" style="font-weight: bold">
-						close
-					</span>
-				</button>
-				<div
-					class="
-						row
-						col-11 col-lg-9
-						bg-questions
-						rounded-custom
-						my-5
-						py-5
-						px-lg-5
-					"
-					[ngClass]="
-						!questionSelected.comunication
-							? 'align-content-center'
-							: 'align-content-around'
-					"
-				>
-					<div class="text-center">
-						<span class="title-question">
-							{{ questionSelected.name }}
-						</span>
-						<p class="white mt-3 fst-italic">Sirve para</p>
-						<p class="white mt-3 text-description">
-							{{ questionSelected.description }}
-						</p>
-					</div>
-				</div>
-				<div class="row justify-content-evenly">
-					<button
-						type="button"
-						class="col-auto btn btn-outline-primary px-4 px-lg-3"
-						data-bs-dismiss="modal"
-						aria-label="Close"
-					>
-						CAMBIAR CARTA</button
-					><button
-						data-bs-dismiss="modal"
-						aria-label="Close"
-						class="col-auto btn btn-primary px-4 px-lg-3"
-						(click)="continue()"
-					>
-						CONTINUAR
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<app-question-modal-effective></app-question-modal-effective>

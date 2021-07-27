@@ -9,6 +9,7 @@ import {
 } from '@angular/cdk/drag-drop';
 
 import { ResourcesService } from 'src/app/services/conversation/resources/resources.service';
+import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
 	selector: 'app-resource-practice',
@@ -22,6 +23,7 @@ export class ResourcePracticeComponent implements OnInit {
 
 	constructor(
 		private resourcesService: ResourcesService,
+		private effectiveCombinationService: CombinationsService,
 		private router: Router
 	) {}
 
@@ -42,6 +44,11 @@ export class ResourcePracticeComponent implements OnInit {
 			this.idresourceSelected = indexOf;
 			this.resources[indexOf] = {};
 		}
+	}
+
+	sendCardEmitter(cardInfo: any) {
+		this.effectiveCombinationService.cards.emit(cardInfo);
+		this.effectiveCombinationService.practice.emit(true);
 	}
 
 	continue() {

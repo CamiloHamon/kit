@@ -8,6 +8,7 @@ import {
 	transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
 	selector: 'app-emotion-practice',
@@ -21,6 +22,7 @@ export class EmotionPracticeComponent implements OnInit {
 
 	constructor(
 		private emotionsService: EmotionsService,
+		private effectiveCombinationService: CombinationsService,
 		private router: Router
 	) {}
 
@@ -58,8 +60,8 @@ export class EmotionPracticeComponent implements OnInit {
 		}
 	}
 
-	continue() {
-		sessionStorage.setItem('emotion', JSON.stringify(this.emotionSelected));
-		this.router.navigate(['/practice/card-combination']);
+	sendCardEmitter(cardInfo: any) {
+		this.effectiveCombinationService.cards.emit(cardInfo);
+		this.effectiveCombinationService.practice.emit(true);
 	}
 }

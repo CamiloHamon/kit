@@ -26,20 +26,35 @@
 
 .pos-relative {
 	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
-.text {
+.text-cards {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: auto;
-	max-width: 143px;
+	width: calc(100% - 5px);
 	transform: translate(-50%, -50%);
-	font-weight: bold;
+	font-size: 1rem;
+	font-weight: 400;
 }
 
-.text.text-cards {
+.center {
 	top: 31%;
+}
+
+.emotion,
+.question,
+.distinction,
+.resource {
+	font-weight: 500;
+}
+
+.distinction,
+.resource {
+	line-height: 16.5px;
 }
 
 .emotion {
@@ -48,15 +63,24 @@
 
 .question {
 	color: #4a80b3;
+	line-height: 14px;
+}
+
+.large-question {
+	font-size: 12.5px;
 }
 
 .distinction {
-	color: #244d4e;
-	font-size: 14px;
+	color: #60b3a2;
 }
 
 .resource {
 	color: #733160;
+}
+
+.max {
+	top: 27%;
+	line-height: 14.5px;
 }
 
 .overflow-x {
@@ -67,7 +91,11 @@
 	height: 30vh;
 }
 
-@media (max-width: 991px) {
+.img-fluid {
+	max-height: 222px;
+}
+
+@media (max-width: 1399px) {
 	.col-custom {
 		width: 60%;
 	}

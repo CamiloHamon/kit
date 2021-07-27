@@ -6,10 +6,14 @@
 	aria-hidden="true"
 	data-bs-backdrop="static"
 	data-bs-keyboard="false"
+	[class.bg-dark-modal]="practice"
 >
 	<div class="modal-dialog modal-lg modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-body row justify-content-center">
+		<div class="modal-content" [class.bg-transparent]="practice">
+			<div
+				class="modal-body row justify-content-center"
+				[class.bg-white-practice]="practice"
+			>
 				<button
 					type="button"
 					class="btn-close btn-close-custom"
@@ -45,6 +49,26 @@
 							{{ distinction.description }}
 						</p>
 					</div>
+				</div>
+			</div>
+			<div *ngIf="practice" class="row justify-content-around pt-4">
+				<div class="col-auto">
+					<button
+						type="button"
+						class="btn btn-outline-secondary px-4 px-lg-3"
+						data-bs-dismiss="modal"
+					>
+						CAMBIAR CARTA
+					</button>
+				</div>
+				<div class="col-auto">
+					<button
+						class="btn btn-primary px-4 px-lg-3"
+						data-bs-dismiss="modal"
+						(click)="continue()"
+					>
+						CONTINUAR
+					</button>
 				</div>
 			</div>
 		</div>

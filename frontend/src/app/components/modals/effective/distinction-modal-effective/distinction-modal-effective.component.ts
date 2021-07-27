@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
@@ -8,11 +9,24 @@ import { CombinationsService } from 'src/app/services/effective/combinations/com
 })
 export class DistinctionModalEffectiveComponent implements OnInit {
 	distinction: any = {};
-	constructor(private effectiveCombinationService: CombinationsService) {}
+	practice: boolean;
+
+	constructor(
+		private effectiveCombinationService: CombinationsService,
+		private router: Router
+	) {}
 
 	ngOnInit(): void {
 		this.effectiveCombinationService.cards.subscribe(
 			(cardInformation: any) => (this.distinction = cardInformation)
 		);
+		this.effectiveCombinationService.practice.subscribe(
+			(practice: boolean) => (this.practice = practice)
+		);
+	}
+
+	continue() {
+		sessionStorage.setItem('distinction', JSON.stringify(this.distinction));
+		this.router.navigate(['/practice/card-combination']);
 	}
 }

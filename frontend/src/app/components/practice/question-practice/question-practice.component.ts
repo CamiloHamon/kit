@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { QuestionsService } from 'src/app/services/conversation/questions/questions.service';
+import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
 	selector: 'app-question-practice',
@@ -22,12 +23,16 @@ export class QuestionPracticeComponent implements OnInit {
 
 	constructor(
 		private questionService: QuestionsService,
+		private effectiveCombinationService: CombinationsService,
 		private router: Router
 	) {}
 
 	ngOnInit(): void {
 		this.questionService.index().subscribe(
-			(res) => (this.questions = res),
+			(res) => {
+				this.questions = res;
+				this.calcLength();
+			},
 			(err) => console.log(err)
 		);
 	}
@@ -47,6 +52,17 @@ export class QuestionPracticeComponent implements OnInit {
 			this.idQuestionSelected = indexOf;
 			this.questions[indexOf] = {};
 			this.splitQuestion();
+		}
+	}
+
+	sendCardEmitter(cardInfo: any) {
+		this.effectiveCombinationService.cards.emit(cardInfo);
+		this.effectiveCombinationService.practice.emit(true);
+	}
+
+	calcLength() {
+		for (const question of this.questions) {
+			question.questionLength = question.name.length;
 		}
 	}
 

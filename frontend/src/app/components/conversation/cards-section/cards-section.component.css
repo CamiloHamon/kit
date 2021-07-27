@@ -171,4 +171,8 @@
 	.col-1-custom.col-environment {
 		width: 52%;
 	}
+
+	.environment {
+		width: auto;
+	}
 }

@@ -5,9 +5,17 @@
 >
 	<div
 		*ngIf="situation; else start"
-		class="row row-custom overflow-x mx-0 pt-4 h-advance"
+		class="
+			row row-custom
+			overflow-x
+			mx-0
+			pt-4
+			h-advance
+			align-items-center
+			justify-content-xxl-center
+		"
 	>
-		<div class="col-custom">
+		<div class="col-auto text-center">
 			<h5>SITUACIÓN</h5>
 			<div *ngIf="situation" class="pos-relative">
 				<img
@@ -15,71 +23,98 @@
 					alt=""
 					class="img-fluid-custom"
 				/>
-				<p class="text">{{ situation }}</p>
+				<p class="text-cards">{{ situation }}</p>
 			</div>
 		</div>
-		<div class="col-custom">
+		<div class="col-auto" *ngIf="emotion">
+			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
+		</div>
+		<div class="col-auto text-center">
 			<h5>EMOCIÓN</h5>
 			<div
 				*ngIf="emotion"
 				class="pos-relative cursor-pointer"
 				data-bs-toggle="modal"
-				data-bs-target="#emotion-details"
+				data-bs-target="#emotion-combinations"
+				(click)="sendCardEmitter(emotion)"
 			>
 				<img
 					src="/assets/img/card-emotion.png"
 					alt=""
 					class="img-fluid-custom"
 				/>
-				<p class="text text-cards emotion">{{ emotion.name }}</p>
+				<p class="text-cards center emotion">{{ emotion.name }}</p>
 			</div>
 		</div>
-		<div class="col-custom">
+		<div class="col-auto" *ngIf="question">
+			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
+		</div>
+		<div class="col-auto text-center">
 			<h5>PREGUNTA</h5>
 			<div
 				*ngIf="question"
 				class="pos-relative cursor-pointer"
 				data-bs-toggle="modal"
-				data-bs-target="#question-details"
+				data-bs-target="#questions-combinations"
+				(click)="sendCardEmitter(question)"
 			>
 				<img
+					*ngIf="questionLength < 57; else imgLarge"
 					src="/assets/img/card-question.png"
+					class="img-fluid"
 					alt=""
-					class="img-fluid-custom"
 				/>
-				<p class="text text-cards question">{{ question.name }}</p>
+
+				<ng-template #imgLarge>
+					<img src="/assets/img/prueba-question.png" class="img-fluid" alt="" />
+				</ng-template>
+				<div
+					class="text-cards center question"
+					[class.large-question]="questionLength > 21"
+					[class.max]="questionLength > 56"
+				>
+					{{ question.name }}
+				</div>
 			</div>
 		</div>
-		<div class="col-custom">
+		<div class="col-auto" *ngIf="distinction">
+			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
+		</div>
+		<div class="col-auto text-center">
 			<h5>DISTINCIÓN</h5>
 			<div
 				*ngIf="distinction"
 				class="pos-relative cursor-pointer"
 				data-bs-toggle="modal"
-				data-bs-target="#distinction-details"
+				data-bs-target="#distinction-combinations"
+				(click)="sendCardEmitter(distinction)"
 			>
 				<img
 					src="/assets/img/card-distinction.png"
 					alt=""
 					class="img-fluid-custom"
 				/>
-				<p class="text text-cards distinction">{{ distinction.name }}</p>
+				<p class="text-cards center distinction">{{ distinction.name }}</p>
 			</div>
 		</div>
-		<div class="col-custom">
+		<div class="col-auto" *ngIf="resource">
+			<img src="/assets/img/icono-plus.png" class="img-plus" alt="" />
+		</div>
+		<div class="col-auto text-center">
 			<h5>RECURSO</h5>
 			<div
 				*ngIf="resource"
 				class="pos-relative cursor-pointer"
 				data-bs-toggle="modal"
-				data-bs-target="#resource-details"
+				data-bs-target="#resource-combinations"
+				(click)="sendCardEmitter(resource)"
 			>
 				<img
 					src="/assets/img/card-resource.png"
 					alt=""
 					class="img-fluid-custom"
 				/>
-				<p class="text text-cards resource">{{ resource.name }}</p>
+				<p class="text-cards center resource">{{ resource.name }}</p>
 			</div>
 		</div>
 
@@ -91,8 +126,8 @@
 		<div class="row h-advance-two"></div>
 	</ng-template>
 </div>
-<app-emotion-practice-modal *ngIf="emotion"></app-emotion-practice-modal>
-<app-question-practice-modal *ngIf="question"></app-question-practice-modal>
-<app-distinction-practice-modal *ngIf="distinction">
-</app-distinction-practice-modal>
-<app-resource-practice-modal *ngIf="resource"></app-resource-practice-modal>
+<app-emotion-modal-effective *ngIf="emotion"></app-emotion-modal-effective>
+<app-question-modal-effective *ngIf="question"></app-question-modal-effective>
+<app-distinction-modal-effective *ngIf="distinction">
+</app-distinction-modal-effective>
+<app-resource-modal-effective *ngIf="resource"></app-resource-modal-effective>

@@ -93,7 +93,7 @@
 			>
 				<button
 					type="button"
-					class="col-auto btn btn-primary"
+					class="col-auto col-md-auto btn btn-primary"
 					routerLink="/practice/situation"
 				>
 					CAMBIAR SITUACIÓN
@@ -101,7 +101,7 @@
 				<button
 					*ngIf="allCards; else elseBtn"
 					type="submit"
-					class="col-5 col-lg-auto btn btn-outline-secondary ms-lg-5"
+					class="col-auto col-md-auto btn btn-outline-secondary ms-lg-5"
 					[disabled]="form.invalid"
 				>
 					CONTINUAR
@@ -109,7 +109,7 @@
 				<ng-template #elseBtn>
 					<button
 						type="submit"
-						class="col-5 col-lg-auto btn btn-outline-secondary ms-lg-5"
+						class="col-auto col-md-auto btn btn-outline-secondary ms-lg-5"
 						routerLink="/practice/feedback"
 					>
 						FINALIZAR

@@ -68,7 +68,7 @@ input:checked + label {
 	border-radius: 1rem;
 	filter: brightness(0.8);
 	background-color: #d78056;
-	width: 95% !important;
+	width: auto !important;
 }
 
 #label:hover {
@@ -166,7 +166,7 @@ input:checked + label {
 	}
 
 	input:checked + label {
-		width: 98% !important;
+		width: auto !important;
 	}
 
 	.h-bank {

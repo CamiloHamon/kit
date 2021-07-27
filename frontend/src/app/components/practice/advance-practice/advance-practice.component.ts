@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
 	selector: 'app-advance-practice',
@@ -12,7 +13,9 @@ export class AdvancePracticeComponent implements OnInit {
 	distinction: any = {};
 	resource: any = {};
 
-	constructor() {}
+	questionLength: number = 0;
+
+	constructor(private effectiveCombinationService: CombinationsService) {}
 
 	ngOnInit(): void {
 		this.situation = sessionStorage.getItem('situation')!;
@@ -20,5 +23,10 @@ export class AdvancePracticeComponent implements OnInit {
 		this.question = JSON.parse(sessionStorage.getItem('question')!);
 		this.distinction = JSON.parse(sessionStorage.getItem('distinction')!);
 		this.resource = JSON.parse(sessionStorage.getItem('resource')!);
+		if (this.question) this.questionLength = this.question.name.length;
+	}
+
+	sendCardEmitter(cardInfo: any) {
+		this.effectiveCombinationService.cards.emit(cardInfo);
 	}
 }

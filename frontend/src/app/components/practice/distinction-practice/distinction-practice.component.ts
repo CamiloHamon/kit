@@ -9,6 +9,7 @@ import {
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DistinctionsService } from 'src/app/services/conversation/distinctions/distinctions.service';
+import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
 	selector: 'app-distinction-practice',
@@ -22,6 +23,7 @@ export class DistinctionPracticeComponent implements OnInit {
 
 	constructor(
 		private distinctionsService: DistinctionsService,
+		private effectiveCombinationService: CombinationsService,
 		private router: Router
 	) {}
 
@@ -43,6 +45,11 @@ export class DistinctionPracticeComponent implements OnInit {
 			this.idDistinctionSelected = indexOf;
 			this.distinctions[indexOf] = {};
 		}
+	}
+
+	sendCardEmitter(cardInfo: any) {
+		this.effectiveCombinationService.cards.emit(cardInfo);
+		this.effectiveCombinationService.practice.emit(true);
 	}
 
 	continue() {
