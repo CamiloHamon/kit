@@ -66,6 +66,10 @@ import { QuestionModalEffectiveComponent } from './components/modals/effective/q
 import { DistinctionModalEffectiveComponent } from './components/modals/effective/distinction-modal-effective/distinction-modal-effective.component';
 import { ResourceModalEffectiveComponent } from './components/modals/effective/resource-modal-effective/resource-modal-effective.component';
 import { RecomendationsEffectiveComponent } from './components/effective/recomendations-effective/recomendations-effective.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { CreateUserComponent } from './components/admin/create-user/create-user.component';
+import { EditUserComponent } from './components/admin/edit-user/edit-user.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -127,6 +131,10 @@ import { RecomendationsEffectiveComponent } from './components/effective/recomen
 		DistinctionModalEffectiveComponent,
 		ResourceModalEffectiveComponent,
   RecomendationsEffectiveComponent,
+  AdminComponent,
+  DashboardComponent,
+  CreateUserComponent,
+  EditUserComponent,
 	],
 	imports: [
 		BrowserModule,

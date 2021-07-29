@@ -60,11 +60,12 @@ export class SigninComponent implements OnInit {
 				const user = res.user;
 				localStorage.setItem('user', user.email);
 				localStorage.setItem('token', res.token);
+				localStorage.setItem('name', user.name);
+				if (user.rol === 1) localStorage.setItem('_U_R_A', user.rol_encrypt);
+
 				this.router.navigate(['/home']);
 			},
-			(err) => {
-				this.error = true;
-			}
+			(err) => (this.error = true)
 		);
 	}
 }

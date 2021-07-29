@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
@@ -25,13 +26,29 @@ export class CombinationsComponent implements OnInit {
 
 	constructor(
 		private router: Router,
-		private effectiveCombinationService: CombinationsService
+		private effectiveCombinationService: CombinationsService,
+		private authService: AuthService
 	) {
-		const skipIntructions = localStorage.getItem('instructions');
+		const skipIntructions = this.searchUserInstructions();
 		if (!skipIntructions) {
 			this.instructions = true;
 			this.stepOne = true;
 		}
+		this.searchUserInstructions();
+	}
+
+	searchUserInstructions(): boolean {
+		try {
+			const objInstructions = JSON.parse(localStorage.getItem('instructions')!);
+			if (objInstructions) {
+				const index = objInstructions.indexOf(this.authService.getUser());
+				if (index !== -1) return true;
+			}
+		} catch (error) {
+			localStorage.removeItem('instructions');
+		}
+
+		return false;
 	}
 
 	ngOnInit(): void {
@@ -134,10 +151,24 @@ export class CombinationsComponent implements OnInit {
 		this.effectiveCombinationService.cards.emit(cardInfo);
 	}
 
+	getInstructions() {
+		return localStorage.getItem('instructions');
+	}
+
 	skip() {
 		this.instructions = false;
 		this.stepOne = false;
-		localStorage.setItem('instructions', 'instructions');
+		let objInstructions = JSON.parse(this.getInstructions()!);
+		try {
+			if (objInstructions) {
+				objInstructions.push(this.authService.getUser());
+			} else {
+				objInstructions = [this.authService.getUser()];
+			}
+			localStorage.setItem('instructions', JSON.stringify(objInstructions));
+		} catch (error) {
+			localStorage.removeItem('instructions');
+		}
 	}
 
 	close() {

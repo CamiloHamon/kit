@@ -1,0 +1,68 @@
+<div class="col-12 text-end mb-2 px-0">
+	<a routerLink="/admin/create-user" class="btn btn-primary"> Crear usuario </a>
+</div>
+<h5 class="text-center">USUARIOS</h5>
+<div
+	*ngIf="alerts.length > 0 && users.length > 0"
+	class="position-fixed bottom-0 end-0 p-3"
+	style="z-index: 11"
+>
+	<div
+		id="liveToast"
+		class="alert toast show fade"
+		role="alert"
+		aria-live="assertive"
+		aria-atomic="true"
+		*ngFor="let alert of alerts"
+		[class.opacity-0]="!alert.show"
+		[class.opacity-1]="alert.show"
+		[class.d-none]="!alert.display"
+	>
+		<div class="toast-header">
+			<strong class="me-auto">Usuario {{ alert.message }}</strong>
+			<button
+				type="button"
+				class="btn-close"
+				data-bs-dismiss="alert"
+				aria-label="Close"
+			></button>
+		</div>
+		<div class="toast-body">
+			Usuario <b>{{ alert.user }}</b> {{ alert.message }} correctamente.
+		</div>
+	</div>
+</div>
+
+<div *ngIf="users.length > 0" class="row h-table mx-0 overflow">
+	<table class="table table-hover border-top table-responsive table-custom">
+		<thead>
+			<tr>
+				<th scope="col" class="col-3">Nombre</th>
+				<th scope="col" class="col-3">Apellido</th>
+				<th scope="col" class="col-3">Correo</th>
+				<th scope="col" class="col-2 text-center">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of users" class="fade show">
+				<td>{{ user.name }}</td>
+				<td>{{ user.last_name }}</td>
+				<td>{{ user.email }}</td>
+				<td class="text-center">
+					<a
+						class="btn btn-success btn-sm"
+						routerLink="/admin/edit-user/{{ user.id }}"
+					>
+						Editar
+					</a>
+					<button
+						class="btn btn-danger btn-sm ms-3"
+						(click)="delete(user.id, user.email)"
+					>
+						Eliminar
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

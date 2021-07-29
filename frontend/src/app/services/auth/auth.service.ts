@@ -30,6 +30,10 @@ export class AuthService {
 		return localStorage.getItem('token');
 	}
 
+	getUser() {
+		return localStorage.getItem('user');
+	}
+
 	refreshToken() {
 		return this.http.get<any>(this.URL + '/refresh');
 	}
@@ -42,6 +46,8 @@ export class AuthService {
 	logout() {
 		localStorage.removeItem('token');
 		localStorage.removeItem('user');
+		localStorage.removeItem('name');
+		localStorage.removeItem('_U_R_A');
 		sessionStorage.clear();
 		return this.router.navigate(['/']);
 	}

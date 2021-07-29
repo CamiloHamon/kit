@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+	<div class="col-12 col-md-8 col-lg-6 pb-3">
+		<h5 *ngIf="user" class="text-center mb-2 mb-md-5">
+			Editar usuario <b>{{ user.email }}</b>
+		</h5>
+		<form
+			*ngIf="user"
+			class="border rounded px-3 px-lg-5 py-4"
+			[formGroup]="form"
+			(ngSubmit)="create($event)"
+		>
+			<div class="mb-3">
+				<label for="name" class="form-label">Nombre</label>
+				<input
+					type="text"
+					class="form-control"
+					id="name"
+					formControlName="name"
+					aria-describedby="name"
+					[class.is-invalid]="
+						form.get('name')!.invalid && form.get('name')!.touched
+					"
+					[class.is-valid]="
+						form.get('name')!.valid && form.get('name')!.touched
+					"
+				/>
+				<p *ngIf="form.get('name')!.errors && form.get('name')!.touched">
+					<small *ngIf="form.get('name')!.hasError('required')"
+						>Este campo es requerido</small
+					>
+					<small *ngIf="form.get('name')!.hasError('pattern')"
+						>Este campo solo acepta letras.</small
+					>
+					<small *ngIf="form.get('name')!.hasError('minlength')"
+						>Este campo debe tener al menos 3 caracteres.</small
+					>
+				</p>
+			</div>
+			<div class="mb-3">
+				<label for="last" class="form-label">Apellido</label>
+				<input
+					type="text"
+					class="form-control"
+					id="last"
+					aria-describedby="last"
+					formControlName="last_name"
+					[class.is-invalid]="
+						form.get('last_name')!.invalid && form.get('last_name')!.touched
+					"
+					[class.is-valid]="
+						form.get('last_name')!.valid && form.get('last_name')!.touched
+					"
+				/>
+				<p
+					*ngIf="
+						form.get('last_name')!.errors && form.get('last_name')!.touched
+					"
+				>
+					<small *ngIf="form.get('last_name')!.hasError('required')"
+						>Este campo es requerido</small
+					>
+					<small *ngIf="form.get('last_name')!.hasError('pattern')"
+						>Este campo solo acepta letras.</small
+					>
+					<small *ngIf="form.get('last_name')!.hasError('minlength')"
+						>Este campo debe tener al menos 3 caracteres.</small
+					>
+				</p>
+			</div>
+			<div class="mb-3">
+				<label for="validationCustomUsername" class="form-label"
+					>Correo electrónico</label
+				>
+				<div class="input-group">
+					<span class="input-group-text" id="inputGroupPrepend">@</span>
+					<input
+						type="email"
+						class="form-control"
+						value="{{ user.email }}"
+						disabled
+					/>
+				</div>
+			</div>
+
+			<div class="col-md-5 mb-3">
+				<label for="validationCustom04" class="form-label">Rol</label>
+				<select
+					class="form-select"
+					id="validationCustom04"
+					formControlName="rol_id"
+					required
+					[class.is-invalid]="
+						form.get('rol_id')!.invalid && form.get('rol_id')!.touched
+					"
+					[class.is-valid]="
+						form.get('rol_id')!.valid && form.get('rol_id')!.touched
+					"
+				>
+					<option value="1">Administrador</option>
+					<option value="2">Usuario</option>
+				</select>
+				<p *ngIf="form.get('rol_id')!.errors && form.get('rol_id')!.touched">
+					<small *ngIf="form.get('rol_id')!.hasError('required')"
+						>Este campo es requerido</small
+					>
+					<small *ngIf="form.get('rol_id')!.hasError('pattern')"
+						>Debe ser un correo válido</small
+					>
+				</p>
+			</div>
+
+			<button type="submit" class="btn btn-primary w-100">
+				EDITAR USUARIO
+			</button>
+		</form>
+	</div>
+</div>

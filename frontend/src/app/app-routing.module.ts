@@ -47,6 +47,10 @@ import { FeedbackPracticeComponent } from './components/practice/feedback-practi
 import { FeedbackPracticeGuard } from './guards/practice/feedback-practice.guard';
 import { RecomendatiosComponent } from './components/recomendatios/recomendatios.component';
 import { RecomendationsEffectiveComponent } from './components/effective/recomendations-effective/recomendations-effective.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { CreateUserComponent } from './components/admin/create-user/create-user.component';
+import { EditUserComponent } from './components/admin/edit-user/edit-user.component';
 
 const routes: Routes = [
 	{
@@ -204,6 +208,25 @@ const routes: Routes = [
 		path: 'recomendations',
 		component: RecomendatiosComponent,
 		canActivate: [AuthGuard, FeedbackGuard],
+	},
+	{
+		path: 'admin',
+		component: AdminComponent,
+		canActivate: [AuthGuard],
+		children: [
+			{
+				path: '',
+				component: DashboardComponent,
+			},
+			{
+				path: 'create-user',
+				component: CreateUserComponent,
+			},
+			{
+				path: 'edit-user/:id',
+				component: EditUserComponent,
+			},
+		],
 	},
 	{
 		path: '**',
