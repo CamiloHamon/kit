@@ -3,10 +3,9 @@
 }
 
 .h-table {
-	height: 65vh;
+	max-height: 65vh;
 	align-items: flex-start;
 	overflow: auto;
-	min-height: 500px;
 }
 
 .alert-custom {

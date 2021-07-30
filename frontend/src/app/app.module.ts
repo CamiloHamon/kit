@@ -73,6 +73,7 @@ import { EditUserComponent } from './components/admin/edit-user/edit-user.compon
 import { ChangePassComponent } from './components/change-pass/change-pass.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { HowFeedbackComponent } from './components/modals/how-feedback/how-feedback.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -141,6 +142,7 @@ import { ResetPassComponent } from './components/reset-pass/reset-pass.component
   ChangePassComponent,
   ForgotPassComponent,
   ResetPassComponent,
+  HowFeedbackComponent,
 	],
 	imports: [
 		BrowserModule,

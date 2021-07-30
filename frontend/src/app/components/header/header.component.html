@@ -43,7 +43,7 @@
 			</button>
 			<div class="col-12 col-lg-6 pt-movil ps-5 px-lg-0 bg-primary-header">
 				<div class="row align-items-lg-center justify-content-xxl-end h-lg-100">
-					<div class="col-2 px-lg-0 text-center d-none d-lg-block">
+					<div class="col-2 px-lg-0 text-lg-center d-none d-lg-block">
 						<a routerLink="/">
 							<img src="/assets/img/logoHeader.png" />
 						</a>
@@ -70,22 +70,31 @@
 							</div>
 						</a>
 					</div>
-					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
+					<div class="col-12 col-lg-2 col-xxl-auto px-lg-0 px-xxl-4">
 						<a
-							class="nav-link cursor-pointer"
+							class="nav-link cursor-pointer text-lg-center"
 							data-bs-toggle="modal"
 							data-bs-target="#knowKit"
 							(click)="closeMenu()"
 							>Conocer el Kit</a
 						>
 					</div>
-					<div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">
+					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
 						<a
-							class="nav-link"
+							class="nav-link text-lg-center cursor-pointer"
+							data-bs-toggle="modal"
+							data-bs-target="#howFeedback"
+							(click)="closeMenu()"
+						>
+							Cómo dar un Feedback
+						</a>
+					</div>
+					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
+						<a
+							class="nav-link text-lg-center"
 							routerLink="/conversation"
 							routerLinkActive="currentLink"
 							(click)="closeMenu()"
-							style="padding-right: 1.5rem"
 						>
 							1, 2, 3 ¡Conversemos!
 						</a>
@@ -97,9 +106,9 @@
 				[class.bg-secondary-header]="!changeBg"
 			>
 				<div class="row align-items-lg-center h-lg-100">
-					<div class="col-12 col-lg-5 col-xxl-auto px-lg-0 px-xxl-4">
+					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
 						<a
-							class="nav-link text-start"
+							class="nav-link text-lg-center"
 							routerLink="/effective-combinations"
 							routerLinkActive="currentLink"
 							(click)="closeMenu()"
@@ -108,9 +117,9 @@
 							Combinaciones Efectivas
 						</a>
 					</div>
-					<div class="col-12 col-lg-4 col-xxl-auto px-lg-0 px-xxl-4">
+					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
 						<a
-							class="nav-link text-start"
+							class="nav-link text-lg-center"
 							routerLink="/practice"
 							routerLinkActive="currentLink"
 							(click)="closeMenu()"
@@ -118,10 +127,22 @@
 							>¡Ponlo en práctica!</a
 						>
 					</div>
+					<div
+						*ngIf="adminService.isAdmin()"
+						class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4"
+					>
+						<a
+							class="nav-link text-lg-center text-lg-center"
+							routerLink="/admin"
+							routerLinkActive="currentLink"
+							(click)="closeMenu()"
+							>Admin</a
+						>
+					</div>
 					<div class="col-12 col-lg-3 col-xxl-auto px-lg-0 px-xxl-4">
 						<ng-container *ngIf="authService.loggedIn()">
 							<a
-								class="nav-link text-start cursor-pointer"
+								class="nav-link text-lg-center cursor-pointer"
 								(click)="authService.logout()"
 							>
 								Cerrar sesión
@@ -134,3 +155,4 @@
 	</div>
 </div>
 <app-know-kit></app-know-kit>
+<app-how-feedback></app-how-feedback>

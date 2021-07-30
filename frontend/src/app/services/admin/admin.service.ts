@@ -12,6 +12,10 @@ export class AdminService {
 
 	constructor(private http: HttpClient, private router: Router) {}
 
+	isAdmin() {
+		return !!localStorage.getItem('_U_R_A');
+	}
+
 	getUsers() {
 		return this.http.get<any>(this.URL + 'users');
 	}

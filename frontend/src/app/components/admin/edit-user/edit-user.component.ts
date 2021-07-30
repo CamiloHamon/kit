@@ -69,9 +69,11 @@ export class EditUserComponent implements OnInit {
 			const user = this.form.value;
 			user.email = this.user.email;
 			user.user_id = this.idUser;
-			this.adminService.alert.emit(this.createAlert(user.email, 'editado'));
-			this.adminService.updateUser(user).subscribe();
-			this.router.navigate(['/admin']);
+
+			this.adminService.updateUser(user).subscribe((res) => {
+				this.adminService.alert.emit(this.createAlert(user.email, 'editado'));
+				this.router.navigate(['/admin']);
+			});
 		}
 		this.form.markAllAsTouched();
 	}

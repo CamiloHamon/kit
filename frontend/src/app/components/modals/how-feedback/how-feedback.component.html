@@ -1,0 +1,276 @@
+<!-- Modal Know Kit -->
+<div
+	class="modal fade"
+	id="howFeedback"
+	data-bs-backdrop="static"
+	data-bs-keyboard="false"
+	tabindex="-1"
+	aria-labelledby="howFeedbackLabel"
+	aria-hidden="true"
+>
+	<div
+		class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+	>
+		<div class="modal-content">
+			<div class="modal-body p-0">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-5 col-xxl-4 bg-secondary bg-puntos p-5">
+							<div class="col-12 text-popups border-custom-popup">
+								<p class="text-popups small">Cómo dar un</p>
+								<p class="text-popups">feedback</p>
+							</div>
+							<div class="col-12 pt-3">
+								<span class="white"
+									>El feedback o retroalimentación es una parte esencial del
+									coaching, y para que este sea efectivo debe reunir las
+									siguientes características, según el modelo
+									P.S.E.G.A.R.:</span
+								>
+								<div
+									class="
+										nav
+										align-content-center
+										flex-column
+										nav-pills
+										me-3
+										mb-3
+										mt-2
+									"
+									id="feedback-pills-tap"
+									role="tablist"
+									aria-orientation="vertical"
+								>
+									<button
+										class="nav-link p-1 col-9 mb-1"
+										id="q-question-tap"
+										data-bs-toggle="pill"
+										data-bs-target="#q-pills-taps"
+										type="button"
+										role="tab"
+										aria-controls="q-pills-taps"
+										aria-selected="false"
+									>
+										P - Preguntar
+									</button>
+									<button
+										class="nav-link p-1 col-9 mb-1"
+										id="s-solicite"
+										data-bs-toggle="pill"
+										data-bs-target="#s-solicite-tap"
+										type="button"
+										role="tab"
+										aria-controls="s-solicite-tap mb-1"
+										aria-selected="false"
+									>
+										S - Solicitar permiso
+									</button>
+									<button
+										class="nav-link p-1 col-9"
+										id="s-specific"
+										data-bs-toggle="pill"
+										data-bs-target="#s-specific-tap"
+										type="button"
+										role="tab"
+										aria-controls="s-specific-tap"
+										aria-selected="false"
+									>
+										E - Específico
+									</button>
+									<button
+										class="nav-link p-1 col-9"
+										id="g-generous"
+										data-bs-toggle="pill"
+										data-bs-target="#g-generous-tap"
+										type="button"
+										role="tab"
+										aria-controls="g-generous-tap"
+										aria-selected="false"
+									>
+										G - Generoso
+									</button>
+									<button
+										class="nav-link p-1 col-9"
+										id="a-auth"
+										data-bs-toggle="pill"
+										data-bs-target="#a-auth-tap"
+										type="button"
+										role="tab"
+										aria-controls="a-auth-tap"
+										aria-selected="false"
+									>
+										A - Auténtico
+									</button>
+									<button
+										class="nav-link p-1 col-9"
+										id="r-recog"
+										data-bs-toggle="pill"
+										data-bs-target="#r-recog-tap"
+										type="button"
+										role="tab"
+										aria-controls="r-recog-tap"
+										aria-selected="false"
+									>
+										R - Reconocimiento
+									</button>
+								</div>
+								<span class="white"
+									><b>Haz clic</b> en cada uno para conocerlos.</span
+								>
+							</div>
+						</div>
+						<div class="col ms-auto bg-brain">
+							<button
+								type="button"
+								class="btn-close btn-close-custom"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							>
+								<span
+									class="material-icons-outlined white"
+									style="font-weight: bold"
+								>
+									close
+								</span>
+							</button>
+							<div
+								class="tab-content tap-content-custom"
+								id="feedback-pills-tapContent"
+							>
+								<div
+									class="tab-pane show fade active"
+									role="tabpanel"
+									aria-labelledby="q-question-tap"
+								></div>
+								<div
+									class="tab-pane fade"
+									id="q-pills-taps"
+									role="tabpanel"
+									aria-labelledby="q-question-tap"
+								>
+									<div class="row justify-content-center">
+										<div class="col-12 text-center mt-3">
+											<div class="col-12 rounded shadow" id="content-cards">
+												<div id="rhombus">
+													<div class="content">
+														<div class="text">P</div>
+													</div>
+												</div>
+												<h5 class="text-center d-block mb-3">PREGUNTAR</h5>
+												Empezar con preguntas, antes de emitir una opinión.
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="s-solicite-tap"
+									role="tabpanel"
+									aria-labelledby="s-solicite"
+								>
+									<div class="row justify-content-center">
+										<div class="col-12 text-center mt-3">
+											<div class="col-12 rounded shadow" id="content-cards">
+												<div id="rhombus">
+													<div class="content">
+														<div class="text">S</div>
+													</div>
+												</div>
+												<h5 class="text-center d-block mb-3">
+													SOLICITAR PERMISO
+												</h5>
+												Antes de ofrecer información.
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="s-specific-tap"
+									role="tabpanel"
+									aria-labelledby="s-specific"
+								>
+									<div class="row justify-content-center">
+										<div class="col-12 text-center mt-3">
+											<div class="col-12 rounded shadow" id="content-cards">
+												<div id="rhombus">
+													<div class="content">
+														<div class="text">E</div>
+													</div>
+												</div>
+												<h5 class="text-center d-block pb-3">ESPECÍFICO</h5>
+												No genérico o indiscriminado. Que resalte aquello que
+												ofrece valor a la acción o proyecto, lo importante.
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="g-generous-tap"
+									role="tabpanel"
+									aria-labelledby="g-generous"
+								>
+									<div class="row justify-content-center">
+										<div class="col-12 text-center mt-3">
+											<div class="col-12 rounded shadow" id="content-cards">
+												<div id="rhombus">
+													<div class="content">
+														<div class="text">G</div>
+													</div>
+												</div>
+												<h5 class="text-center d-block pb-3">GENEROSO</h5>
+												Resaltar todo lo positivo de cada trabajo o acción.
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="a-auth-tap"
+									role="tabpanel"
+									aria-labelledby="a-auth"
+								>
+									<div class="row justify-content-center">
+										<div class="col-12 text-center mt-3">
+											<div class="col-12 rounded shadow" id="content-cards">
+												<div id="rhombus">
+													<div class="content">
+														<div class="text">A</div>
+													</div>
+												</div>
+												<h5 class="text-center d-block pb-3">AUTÉNTICO</h5>
+												Sentir realmente lo que se dice no agradar el oído.
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="r-recog-tap"
+									role="tabpanel"
+									aria-labelledby="r-recog"
+								>
+									<div class="row justify-content-center">
+										<div class="col-12 text-center mt-3">
+											<div class="col-12 rounded shadow" id="content-cards">
+												<div id="rhombus">
+													<div class="content">
+														<div class="text">R</div>
+													</div>
+												</div>
+												<h5 class="text-center d-block pb-3">RECONOCIMIENTO</h5>
+												Valorar o agradecer el esfuerzo o algún aspecto de
+												valor.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

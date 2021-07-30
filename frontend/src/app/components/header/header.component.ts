@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin/admin.service';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -13,7 +14,11 @@ export class HeaderComponent implements OnInit {
 	showHeaderMovil = true;
 	show = false;
 
-	constructor(private router: Router, public authService: AuthService) {
+	constructor(
+		private router: Router,
+		public authService: AuthService,
+		public adminService: AdminService
+	) {
 		this.router.events.subscribe((val) => {
 			const routes = ['/', '/login'];
 			if (val instanceof NavigationEnd) {
