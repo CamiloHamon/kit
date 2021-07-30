@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 let auxAlerts: any;
 
 @Component({
@@ -13,7 +14,7 @@ export class DashboardComponent implements OnInit {
 	users: any = [];
 	alerts: any = [];
 
-	constructor(private adminService: AdminService) {
+	constructor(private adminService: AdminService, private router: Router) {
 		this.adminService.alert.subscribe((alert) => (auxAlerts = alert));
 		if (auxAlerts) this.alerts.push(auxAlerts);
 	}
@@ -23,9 +24,11 @@ export class DashboardComponent implements OnInit {
 		this.adminService.getUsers().subscribe(
 			(res) => {
 				this.users = res;
+				console.log(res);
 			},
 			(err) => {
-				console.log(err);
+				localStorage.removeItem('_U_R_A');
+				this.router.navigate(['/home']);
 			}
 		);
 	}

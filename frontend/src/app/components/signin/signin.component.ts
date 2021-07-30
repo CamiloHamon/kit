@@ -5,6 +5,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { User } from 'src/app/classes/user.model';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'app-signin',
@@ -61,6 +62,10 @@ export class SigninComponent implements OnInit {
 				localStorage.setItem('user', user.email);
 				localStorage.setItem('token', res.token);
 				localStorage.setItem('name', user.name);
+
+				if (user.change_pass === 1) {
+					localStorage.setItem('_F_C_P', user.change_pass);
+				}
 				if (user.rol === 1) localStorage.setItem('_U_R_A', user.rol_encrypt);
 
 				this.router.navigate(['/home']);

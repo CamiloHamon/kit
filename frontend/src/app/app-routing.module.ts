@@ -51,6 +51,12 @@ import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { CreateUserComponent } from './components/admin/create-user/create-user.component';
 import { EditUserComponent } from './components/admin/edit-user/edit-user.component';
+import { ChangePassComponent } from './components/change-pass/change-pass.component';
+import { ChangePassGuard } from './guards/auth/change-pass.guard';
+import { NoChangePassGuard } from './guards/auth/no-change-pass.guard';
+import { AdminGuard } from './guards/admin/admin.guard';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 
 const routes: Routes = [
 	{
@@ -66,12 +72,12 @@ const routes: Routes = [
 	{
 		path: 'home',
 		component: HomeComponent,
-		canActivate: [AuthGuard],
+		canActivate: [AuthGuard, ChangePassGuard],
 	},
 	{
 		path: 'conversation',
 		component: ConversationComponent,
-		canActivate: [AuthGuard],
+		canActivate: [AuthGuard, ChangePassGuard],
 		children: [
 			{
 				path: '',
@@ -137,7 +143,7 @@ const routes: Routes = [
 	{
 		path: 'effective-combinations',
 		component: EffectiveComponent,
-		canActivate: [AuthGuard],
+		canActivate: [AuthGuard, ChangePassGuard],
 		children: [
 			{
 				path: '',
@@ -167,7 +173,7 @@ const routes: Routes = [
 	{
 		path: 'practice',
 		component: PracticeComponent,
-		canActivate: [AuthGuard],
+		canActivate: [AuthGuard, ChangePassGuard],
 		children: [
 			{
 				path: '',
@@ -207,12 +213,12 @@ const routes: Routes = [
 	{
 		path: 'recomendations',
 		component: RecomendatiosComponent,
-		canActivate: [AuthGuard, FeedbackGuard],
+		canActivate: [AuthGuard, ChangePassGuard, FeedbackGuard],
 	},
 	{
 		path: 'admin',
 		component: AdminComponent,
-		canActivate: [AuthGuard],
+		canActivate: [AuthGuard, AdminGuard, ChangePassGuard],
 		children: [
 			{
 				path: '',
@@ -227,6 +233,21 @@ const routes: Routes = [
 				component: EditUserComponent,
 			},
 		],
+	},
+	{
+		path: 'change-pass',
+		component: ChangePassComponent,
+		canActivate: [AuthGuard, NoChangePassGuard],
+	},
+	{
+		path: 'forgot-pass',
+		component: ForgotPassComponent,
+		canActivate: [CheckLoginGuard],
+	},
+	{
+		path: 'response-password-reset',
+		component: ResetPassComponent,
+		canActivate: [CheckLoginGuard],
 	},
 	{
 		path: '**',

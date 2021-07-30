@@ -1,0 +1,54 @@
+<div class="container h-100">
+	<div class="row h-100 justify-content-center align-content-center">
+		<div class="col-12 col-lg-6 border rounded shadow p-5">
+			<h3 class="text-center mb-5">¿Olvidaste tu contraseña?</h3>
+			<div
+				*ngIf="alert.class"
+				class="alert alert-{{ alert.class }}"
+				role="alert"
+			>
+				<span *ngIf="alert.status; else notFound">
+					Correo de recuperación de contraseña enviado al correo
+					<b> {{ alert.message }}</b>
+				</span>
+				<ng-template #notFound>
+					<span class="d-block fw-bold">No hay resultados de búsqueda</span>
+					<span>{{ alert.message }} Intenta con otros datos.</span>
+				</ng-template>
+			</div>
+			<div class="alert alert-info" role="alert">
+				Ingresa el <b>correo electrónico</b> que se registró y buscaremos tu
+				cuenta.
+			</div>
+
+			<form [formGroup]="form" (ngSubmit)="sendEmail($event)">
+				<div class="mb-3">
+					<label for="pass" class="form-label">Correo electrónico</label>
+					<input
+						type="email"
+						class="form-control"
+						id="pass"
+						aria-describedby="emailHelp"
+						formControlName="email"
+						[class.is-invalid]="
+							form.get('email')!.invalid && form.get('email')!.touched
+						"
+						[class.is-valid]="
+							form.get('email')!.valid && form.get('email')!.dirty
+						"
+					/>
+					<p *ngIf="form.get('email')!.errors && form.get('email')!.touched">
+						<small *ngIf="form.get('email')!.hasError('required')"
+							>Este campo es requerido</small
+						>
+						<small *ngIf="form.get('email')!.hasError('pattern')"
+							>Debe ser un correo válido</small
+						>
+					</p>
+				</div>
+
+				<button type="submit" class="btn btn-primary w-100">BUSCAR</button>
+			</form>
+		</div>
+	</div>
+</div>

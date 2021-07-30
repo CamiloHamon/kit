@@ -1,0 +1,104 @@
+<div class="container h-100">
+	<div class="row h-100 justify-content-center align-content-center">
+		<h3 class="text-center mb-5">
+			Hola <b>{{ userName }}</b
+			>, para continuar, debes cambiar tu contraseña.
+		</h3>
+		<div class="col-12 col-lg-6">
+			<div class="alert alert-info" role="alert">
+				La contraseña debe tener al entre 5 y 16 caracteres,<b>
+					al menos un dígito</b
+				>, <b>al menos una minúscula y al menos una mayúscula</b>. Puede tener
+				otros símbolos.
+			</div>
+
+			<form [formGroup]="form" (ngSubmit)="change($event)">
+				<div class="mb-3">
+					<label for="pass" class="form-label">Contraseña nueva</label>
+					<input
+						type="password"
+						class="form-control"
+						id="pass"
+						aria-describedby="emailHelp"
+						formControlName="pass"
+						[class.is-invalid]="
+							form.get('pass')!.invalid && form.get('pass')!.touched
+						"
+						[class.is-valid]="
+							form.get('pass')!.valid && form.get('pass')!.dirty
+						"
+					/>
+					<p *ngIf="form.get('pass')!.errors && form.get('pass')!.touched">
+						<small *ngIf="form.get('pass')!.hasError('required')"
+							>Este campo es requerido</small
+						>
+						<small *ngIf="form.get('pass')!.hasError('pattern')"
+							>Al menos un dígito, al menos una minúscula y al menos una
+							mayúscula.</small
+						>
+						<small *ngIf="form.get('pass')!.hasError('minlength')"
+							>Este campo debe tener al menos 5 caracteres.</small
+						>
+						<small *ngIf="form.get('pass')!.hasError('maxlength')"
+							>Este campo debe tener hasta 16 caracteres.</small
+						>
+					</p>
+				</div>
+				<div class="mb-3">
+					<label for="pass2" class="form-label">Confirma tu contraseña</label>
+
+					<input
+						type="password"
+						formControlName="confirmPassword"
+						class="form-control"
+						id="pass2"
+						[class.is-invalid]="
+							form.get('confirmPassword')!.invalid &&
+							form.get('confirmPassword')!.touched
+						"
+						[class.is-valid]="
+							form.get('confirmPassword')!.valid &&
+							form.get('confirmPassword')!.dirty
+						"
+					/>
+					<p
+						*ngIf="
+							form.get('confirmPassword')!.errors &&
+							form.get('confirmPassword')!.touched
+						"
+					>
+						<small *ngIf="form.get('confirmPassword')!.hasError('required')"
+							>Este campo es requerido</small
+						>
+						<small *ngIf="form.get('confirmPassword')!.hasError('pattern')"
+							>Al menos un dígito, al menos una minúscula y al menos una
+							mayúscula.</small
+						>
+						<small *ngIf="form.get('confirmPassword')!.hasError('minlength')"
+							>Este campo debe tener al menos 5 caracteres.</small
+						>
+						<small *ngIf="form.get('confirmPassword')!.hasError('maxlength')"
+							>Este campo debe tener hasta 16 caracteres.</small
+						>
+					</p>
+					<p class="pt-1">
+						<small
+							*ngIf="
+								form.get('confirmPassword')!.invalid &&
+								form.get('confirmPassword')!.dirty
+							"
+						>
+							Las contransenas no coinciden
+						</small>
+					</p>
+				</div>
+				<div id="emailHelp" class="form-text mb-3">
+					Una contraseña con números y caracteres especilaes, es más segura.
+				</div>
+				<button type="submit" class="btn btn-primary w-100">
+					CAMBIAR CONTRASEÑA
+				</button>
+			</form>
+		</div>
+	</div>
+</div>

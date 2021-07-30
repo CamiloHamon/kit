@@ -70,6 +70,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { CreateUserComponent } from './components/admin/create-user/create-user.component';
 import { EditUserComponent } from './components/admin/edit-user/edit-user.component';
+import { ChangePassComponent } from './components/change-pass/change-pass.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -135,6 +138,9 @@ import { EditUserComponent } from './components/admin/edit-user/edit-user.compon
   DashboardComponent,
   CreateUserComponent,
   EditUserComponent,
+  ChangePassComponent,
+  ForgotPassComponent,
+  ResetPassComponent,
 	],
 	imports: [
 		BrowserModule,

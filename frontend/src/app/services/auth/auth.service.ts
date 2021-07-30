@@ -14,9 +14,7 @@ const helper = new JwtHelperService();
 export class AuthService {
 	private URL = environment.URL;
 
-	constructor(private http: HttpClient, private router: Router) {
-		this.checkToken();
-	}
+	constructor(private http: HttpClient, private router: Router) {}
 
 	signIn(user: User) {
 		return this.http.post<any>(this.URL + '/auth/login', user);
