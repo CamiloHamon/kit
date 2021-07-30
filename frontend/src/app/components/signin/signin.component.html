@@ -10,7 +10,7 @@
 	>
 		<div class="col-9 col-sm-7 col-md-5 col-lg-4 col-xl-3 mt-5">
 			<h5 class="text-login text-center mt-5">Iniciar sesión</h5>
-			<form [formGroup]="form" (ngSubmit)="signIn()">
+			<form [formGroup]="form" (ngSubmit)="signIn($event)">
 				<div class="mt-4 mb-3">
 					<label for="email" class="form-label d-none">Usuario</label>
 					<input
@@ -60,9 +60,11 @@
 					>
 						ENTRAR
 					</button>
-					<a class="forgot mt-3" routerLink="/forgot-pass"
-						>¿Olvidó su usuario o contraseña?</a
-					>
+				</div>
+				<div class="text-center pt-3">
+					<a class="forgot col-auto" routerLink="/forgot-pass"
+						>¿Olvidaste tu contraseña?
+					</a>
 				</div>
 			</form>
 		</div>

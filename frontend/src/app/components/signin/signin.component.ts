@@ -52,25 +52,30 @@ export class SigninComponent implements OnInit {
 		return message;
 	}
 
-	public signIn() {
-		this.email = this.form.get('email')?.value;
-		this.password = this.form.get('password')?.value;
-		const user = new User(this.email, this.password);
-		this.authService.signIn(user).subscribe(
-			(res) => {
-				const user = res.user;
-				localStorage.setItem('user', user.email);
-				localStorage.setItem('token', res.token);
-				localStorage.setItem('name', user.name);
+	public signIn(event: Event) {
+		event.preventDefault();
+		if (this.form.valid) {
+			this.email = this.form.get('email')?.value;
+			this.password = this.form.get('password')?.value;
+			const user = new User(this.email, this.password);
+			this.authService.signIn(user).subscribe(
+				(res) => {
+					const user = res.user;
+					localStorage.setItem('user', user.email);
+					localStorage.setItem('token', res.token);
+					localStorage.setItem('name', user.name);
 
-				if (user.change_pass === 1) {
-					localStorage.setItem('_F_C_P', user.change_pass);
-				}
-				if (user.rol === 1) localStorage.setItem('_U_R_A', user.rol_encrypt);
+					if (user.change_pass === 1) {
+						localStorage.setItem('_F_C_P', user.change_pass);
+					}
+					if (user.rol === 1) localStorage.setItem('_U_R_A', user.rol_encrypt);
 
-				this.router.navigate(['/home']);
-			},
-			(err) => (this.error = true)
-		);
+					this.router.navigate(['/home']);
+				},
+				(err) => (this.error = true)
+			);
+		} else {
+			this.form.markAllAsTouched();
+		}
 	}
 }
