@@ -22,6 +22,10 @@ Route::group([
 ], function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);
+    Route::post('sendPasswordResetLink', 'App\Http\Controllers\PasswordResetRequestController@sendEmail');
+    Route::post('resetPassword', 'App\Http\Controllers\ChangePasswordController@passwordResetProcess');
+    Route::post('validURL', 'App\Http\Controllers\ChangePasswordController@validURL');
+    // Route::post('restore', [AuthController::class, 'restore']);
 });
 
 Route::group(['middleware' => ['jwt.verify']], function () {
@@ -68,4 +72,16 @@ Route::group(['middleware' => ['jwt.verify']], function () {
 
     //EffectiveCombinations
     Route::get('effectiveCombitation/{idEmotion}', 'App\Http\Controllers\EffectiveCombinationsController@buildCombinationByEmotionId');
+
+    //User
+    Route::put('change', 'App\Http\Controllers\UserController@changePass');
+});
+
+Route::group(['middleware' => ['jwt.verify', 'admin'],  'prefix' => 'admin'], function () {
+    //Admin
+    Route::get('users', 'App\Http\Controllers\UserController@getUserExcludinAdministrator');
+    Route::get('show/{id}', 'App\Http\Controllers\UserController@show');
+    Route::post('save-user', 'App\Http\Controllers\UserController@save');
+    Route::post('update-user', 'App\Http\Controllers\UserController@update');
+    Route::delete('delete-user/{id}', 'App\Http\Controllers\UserController@delete');
 });

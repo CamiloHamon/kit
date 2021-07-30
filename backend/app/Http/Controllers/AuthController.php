@@ -22,7 +22,7 @@ class AuthController extends Controller
 
     public function __construct(UserRepository $userRepository)
     {
-        $this->middleware('jwt', ['except' => ['login', 'register']]);
+        $this->middleware('jwt', ['except' => ['login', 'register', 'restore']]);
         $this->userRepository = $userRepository;
     }
 
@@ -53,6 +53,7 @@ class AuthController extends Controller
     public function login()
     {
         $credentials = request(["email", "password"]);
+
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
@@ -116,7 +117,10 @@ class AuthController extends Controller
             'user' => [
                 'id' => auth()->user()->id,
                 'email' => auth()->user()->email,
-                'rol' => auth()->user()->rol_id
+                'rol_encrypt' => bcrypt(auth()->user()->rol_id),
+                'rol' => auth()->user()->rol_id,
+                'name' => auth()->user()->name,
+                'change_pass' => auth()->user()->change_pass,
             ]
         ]);
     }
