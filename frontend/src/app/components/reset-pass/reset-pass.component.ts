@@ -42,7 +42,8 @@ export class ResetPassComponent implements OnInit {
 	}
 
 	private buildForm() {
-		const patter = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+		const patter =
+			/^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])?(?=.*[A-Z])(?=.*[a-z])\S{5,16}$/;
 		this.form = this.formBuilder.group(
 			{
 				pass: [

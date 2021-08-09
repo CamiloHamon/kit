@@ -51,6 +51,11 @@ export class CreateUserComponent implements OnInit {
 		event.preventDefault();
 		if (this.form.valid) {
 			const user = this.form.value;
+
+			user.rol_id !== '1' && user.rol_id !== '2'
+				? (user.rol_id = '2')
+				: (user.rol_id = user.rol_id);
+
 			this.adminService.saveUser(user).subscribe(
 				(res) => {
 					if (res.success) {

@@ -199,6 +199,28 @@ a:focus-visible {
 	display: none;
 }
 
+.btn-outline-primary {
+	color: #ffffff;
+	border-color: #6caaff;
+}
+
+.btn-outline-primary:hover {
+	color: #fff;
+	background-color: #6caaff;
+	border-color: #6caaff;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+	color: #1e2125;
+	background-color: #6caaff;
+}
+
+.currentDrop {
+	color: #1e2125;
+	background-color: #6caaff;
+}
+
 @media only screen and (max-width: 991px) {
 	.h-custom {
 		height: 60.6px;

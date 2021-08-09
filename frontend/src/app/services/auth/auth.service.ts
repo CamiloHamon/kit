@@ -46,6 +46,7 @@ export class AuthService {
 		localStorage.removeItem('user');
 		localStorage.removeItem('name');
 		localStorage.removeItem('_U_R_A');
+		localStorage.removeItem('_F_C_P');
 		sessionStorage.clear();
 		return this.router.navigate(['/']);
 	}
