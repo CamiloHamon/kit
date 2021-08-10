@@ -75,7 +75,7 @@
 					<span class="input-group-text" id="inputGroupPrepend">@</span>
 					<input
 						type="email"
-						class="form-control"
+						class="form-control email"
 						value="{{ user.email }}"
 						disabled
 					/>
@@ -96,7 +96,7 @@
 						form.get('rol_id')!.valid && form.get('rol_id')!.touched
 					"
 				>
-					<option value="1">Administrador</option>
+					<option *ngIf="isSuperAdmin" value="1">Administrador</option>
 					<option value="2">Usuario</option>
 				</select>
 				<p *ngIf="form.get('rol_id')!.errors && form.get('rol_id')!.touched">

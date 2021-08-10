@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 export class CreateUserComponent implements OnInit {
 	form: FormGroup;
 	exist: string;
+	isSuperAdmin: boolean = false;
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -20,7 +21,9 @@ export class CreateUserComponent implements OnInit {
 		this.buildForm();
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.isSuperAdmin = this.adminService.isSuperAdmin();
+	}
 
 	private buildForm() {
 		const patternEmail = /\S+@\S+\.\S+/;
@@ -51,6 +54,9 @@ export class CreateUserComponent implements OnInit {
 		event.preventDefault();
 		if (this.form.valid) {
 			const user = this.form.value;
+			user.name = user.name.toLowerCase();
+			user.last_name = user.last_name.toLowerCase();
+			user.email = user.email.toLowerCase();
 
 			user.rol_id !== '1' && user.rol_id !== '2'
 				? (user.rol_id = '2')

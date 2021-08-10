@@ -33,6 +33,10 @@ export class ModalsService {
 			);
 	}
 
+	close() {
+		this.modal.dismissAll();
+	}
+
 	private getDismissReason(reason: any): string {
 		if (reason === ModalDismissReasons.ESC) {
 			return 'by pressing ESC';

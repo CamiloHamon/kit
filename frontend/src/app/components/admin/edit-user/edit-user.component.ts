@@ -12,6 +12,7 @@ export class EditUserComponent implements OnInit {
 	form: FormGroup;
 	user: any;
 	idUser: number;
+	isSuperAdmin: boolean = false;
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -23,6 +24,7 @@ export class EditUserComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.isSuperAdmin = this.adminService.isSuperAdmin();
 		this.activateRoute.params.subscribe((params) => {
 			this.idUser = params['id'];
 		});
@@ -67,7 +69,9 @@ export class EditUserComponent implements OnInit {
 		event.preventDefault();
 		if (this.form.valid) {
 			const user = this.form.value;
-			user.email = this.user.email;
+			user.name = user.name.toLowerCase();
+			user.last_name = user.last_name.toLowerCase();
+			user.email = this.user.email.toLowerCase();
 			user.user_id = this.idUser;
 
 			this.adminService.updateUser(user).subscribe((res) => {

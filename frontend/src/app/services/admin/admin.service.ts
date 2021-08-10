@@ -16,6 +16,10 @@ export class AdminService {
 		return !!localStorage.getItem('_U_R_A');
 	}
 
+	isSuperAdmin() {
+		return !!localStorage.getItem('_U_R_SA');
+	}
+
 	getUsers() {
 		return this.http.get<any>(this.URL + 'users');
 	}

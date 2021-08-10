@@ -1,0 +1,394 @@
+<div class="container">
+	<div class="row justify-content-center mt-5">
+		<div *ngIf="user" class="col-12 col-md-8 col-lg-6 pb-3">
+			<h3 class="text-center mb-2 mb-md-5">Mis datos</h3>
+			<p class="text-center">
+				En esta sección podrás cambiar tu <b>nombre</b>, <b>apellido</b> y
+				<b>cambiar la contraseña</b>.
+			</p>
+			<div *ngIf="updateInfo" class="alert alert-success" role="alert">
+				¡Información actualizada!
+			</div>
+			<div *ngIf="password" class="alert alert-success" role="alert">
+				Contraseña cambiada exitosamente
+			</div>
+			<div>
+				<button
+					class="btn btn-primary mb-3 btn-confirm"
+					type="button"
+					(click)="modalsService.open(confirmUserModal, 'lg')"
+					*ngIf="!confirmUser"
+				>
+					Confirmar usuario
+				</button>
+				<form
+					*ngIf="user"
+					class="border rounded px-3 px-lg-5 py-4"
+					[class.confirmUser]="!confirmUser"
+					[formGroup]="form"
+					(ngSubmit)="update($event)"
+				>
+					<div class="mb-3">
+						<label for="name" class="form-label">Nombre</label>
+						<input
+							type="text"
+							class="form-control"
+							id="name"
+							formControlName="name"
+							aria-describedby="name"
+							[class.is-invalid]="
+								form.get('name')!.invalid && form.get('name')!.touched
+							"
+							[class.is-valid]="
+								form.get('name')!.valid && form.get('name')!.touched
+							"
+						/>
+						<p *ngIf="form.get('name')!.errors && form.get('name')!.touched">
+							<small *ngIf="form.get('name')!.hasError('required')"
+								>Este campo es requerido</small
+							>
+							<small *ngIf="form.get('name')!.hasError('pattern')"
+								>Este campo solo acepta letras.</small
+							>
+							<small *ngIf="form.get('name')!.hasError('minlength')"
+								>Este campo debe tener al menos 3 caracteres.</small
+							>
+						</p>
+					</div>
+					<div class="mb-3">
+						<label for="last" class="form-label">Apellido</label>
+						<input
+							type="text"
+							class="form-control"
+							id="last"
+							aria-describedby="last"
+							formControlName="last_name"
+							[class.is-invalid]="
+								form.get('last_name')!.invalid && form.get('last_name')!.touched
+							"
+							[class.is-valid]="
+								form.get('last_name')!.valid && form.get('last_name')!.touched
+							"
+						/>
+						<p
+							*ngIf="
+								form.get('last_name')!.errors && form.get('last_name')!.touched
+							"
+						>
+							<small *ngIf="form.get('last_name')!.hasError('required')"
+								>Este campo es requerido</small
+							>
+							<small *ngIf="form.get('last_name')!.hasError('pattern')"
+								>Este campo solo acepta letras.</small
+							>
+							<small *ngIf="form.get('last_name')!.hasError('minlength')"
+								>Este campo debe tener al menos 3 caracteres.</small
+							>
+						</p>
+					</div>
+					<div class="mb-3">
+						<label for="validationCustomUsername" class="form-label"
+							>Correo electrónico</label
+						>
+						<div class="input-group">
+							<span class="input-group-text" id="inputGroupPrepend">@</span>
+							<input
+								type="email"
+								class="form-control"
+								value="{{ user.email }}"
+								disabled
+							/>
+							<button
+								class="btn btn-primary input-group-text mt-3 mt-md-0"
+								id="inputGroupPrepend"
+								type="button"
+								(click)="modalsService.open(modalChangeEmail, 'lg')"
+							>
+								Cambiar correo
+							</button>
+						</div>
+					</div>
+
+					<button
+						class="btn btn-secondary mb-3 pass"
+						type="button"
+						(click)="modalsService.open(changePass, 'lg')"
+						[disabled]="!confirmUser"
+					>
+						Cambiar contraseña
+					</button>
+
+					<button
+						type="submit"
+						class="btn btn-primary w-100"
+						[disabled]="!confirmUser"
+					>
+						ACTUALIZAR MI INFORMACIÓN
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal Change Pass-->
+<ng-template #changePass let-modal>
+	<div class="modal-header border-0">
+		<button
+			type="button"
+			class="btn-close"
+			(click)="modal.close('Save click')"
+		></button>
+	</div>
+	<div class="modal-body">
+		<h5 class="text-center">Cambiar la contraseña</h5>
+		<div class="row justify-content-center align-content-center pb-lg-5">
+			<div class="col-12 col-lg-7">
+				<div class="alert alert-info" role="alert">
+					La contraseña debe tener al entre 5 y 16 caracteres,<b>
+						al menos un dígito</b
+					>, <b>al menos una minúscula y al menos una mayúscula</b>. Puede tener
+					otros símbolos.
+				</div>
+
+				<form [formGroup]="formPassword" (ngSubmit)="change($event)">
+					<div class="mb-3">
+						<label for="pass" class="form-label">Contraseña nueva</label>
+						<input
+							type="password"
+							class="form-control"
+							id="pass"
+							aria-describedby="emailHelp"
+							formControlName="pass"
+							[class.is-invalid]="
+								formPassword.get('pass')!.invalid &&
+								formPassword.get('pass')!.touched
+							"
+							[class.is-valid]="
+								formPassword.get('pass')!.valid &&
+								formPassword.get('pass')!.dirty
+							"
+						/>
+						<p
+							*ngIf="
+								formPassword.get('pass')!.errors &&
+								formPassword.get('pass')!.touched
+							"
+						>
+							<small *ngIf="formPassword.get('pass')!.hasError('required')"
+								>Este campo es requerido</small
+							>
+							<small *ngIf="formPassword.get('pass')!.hasError('pattern')"
+								>Al menos un dígito, al menos una minúscula y al menos una
+								mayúscula.</small
+							>
+							<small *ngIf="formPassword.get('pass')!.hasError('minlength')"
+								>Este campo debe tener al menos 5 caracteres.</small
+							>
+							<small *ngIf="formPassword.get('pass')!.hasError('maxlength')"
+								>Este campo debe tener hasta 16 caracteres.</small
+							>
+						</p>
+					</div>
+					<div class="mb-3">
+						<label for="pass2" class="form-label">Confirmar contraseña</label>
+
+						<input
+							type="password"
+							formControlName="confirmPassword"
+							class="form-control"
+							id="pass2"
+							[class.is-invalid]="
+								formPassword.get('confirmPassword')!.invalid &&
+								formPassword.get('confirmPassword')!.touched
+							"
+							[class.is-valid]="
+								formPassword.get('confirmPassword')!.valid &&
+								formPassword.get('confirmPassword')!.dirty
+							"
+						/>
+						<p
+							*ngIf="
+								formPassword.get('confirmPassword')!.errors &&
+								formPassword.get('confirmPassword')!.touched
+							"
+						>
+							<small
+								*ngIf="
+									formPassword.get('confirmPassword')!.hasError('required')
+								"
+								>Este campo es requerido</small
+							>
+							<small
+								*ngIf="formPassword.get('confirmPassword')!.hasError('pattern')"
+								>Al menos un dígito, al menos una minúscula y al menos una
+								mayúscula.</small
+							>
+							<small
+								*ngIf="
+									formPassword.get('confirmPassword')!.hasError('minlength')
+								"
+								>Este campo debe tener al menos 5 caracteres.</small
+							>
+							<small
+								*ngIf="
+									formPassword.get('confirmPassword')!.hasError('maxlength')
+								"
+								>Este campo debe tener hasta 16 caracteres.</small
+							>
+						</p>
+						<p class="pt-1">
+							<small
+								*ngIf="
+									formPassword.get('confirmPassword')!.invalid &&
+									formPassword.get('confirmPassword')!.dirty
+								"
+							>
+								Las contransenas no coinciden
+							</small>
+						</p>
+					</div>
+					<div id="emailHelp" class="form-text mb-3">
+						Una contraseña con números y caracteres especiales, es más segura.
+					</div>
+					<button type="submit" class="btn btn-primary w-100">
+						CAMBIAR CONTRASEÑA
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #confirmUserModal let-modal>
+	<div class="modal-header border-0">
+		<button
+			type="button"
+			class="btn-close"
+			(click)="modal.close('Save click')"
+		></button>
+	</div>
+	<div class="modal-body">
+		<h5 class="text-center">Escribe tu contraseña para continuar</h5>
+		<div class="row justify-content-center align-content-center pb-lg-5">
+			<div class="col-12 col-lg-7">
+				<div
+					*ngIf="alertUserConfirm"
+					class="alert alert-danger mt-3"
+					role="alert"
+				>
+					No coinciden las credenciales.
+				</div>
+				<form [formGroup]="formConfirmUser" (ngSubmit)="confirm($event)">
+					<div class="mb-3">
+						<label for="pass" class="form-label">Contraseña</label>
+						<input
+							type="password"
+							class="form-control"
+							id="pass"
+							aria-describedby="emailHelp"
+							formControlName="pass"
+							[class.is-invalid]="
+								formConfirmUser.get('pass')!.invalid &&
+								formConfirmUser.get('pass')!.touched
+							"
+							[class.is-valid]="
+								formConfirmUser.get('pass')!.valid &&
+								formConfirmUser.get('pass')!.dirty
+							"
+						/>
+						<p
+							*ngIf="
+								formConfirmUser.get('pass')!.errors &&
+								formConfirmUser.get('pass')!.touched
+							"
+						>
+							<small *ngIf="formConfirmUser.get('pass')!.hasError('required')"
+								>Este campo es requerido</small
+							>
+						</p>
+					</div>
+					<button type="submit" class="btn btn-primary w-100">
+						CONFIRMAR USUARIO
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</ng-template>
+<!-- Modal Change Email -->
+<ng-template #modalChangeEmail let-modal>
+	<div class="modal-header border-0">
+		<button
+			type="button"
+			class="btn-close"
+			(click)="modal.close('Save click')"
+			*ngIf="!changeEmail.status"
+		></button>
+	</div>
+	<div class="modal-body">
+		<h5 class="text-center">Cambiar correo electrónico</h5>
+		<div class="row justify-content-center align-content-center pb-lg-5">
+			<div class="col-12 col-lg-7">
+				<div
+					*ngIf="changeEmail.status"
+					class="alert alert-success mt-3 text-center alert-login"
+					role="alert"
+				>
+					Correo electrónico actualizado.
+					<button class="btn btn-success mt-3" type="button" (click)="login()">
+						Iniciar sesión
+					</button>
+				</div>
+				<div
+					*ngIf="changeEmail.message"
+					class="alert alert-warning mt-3"
+					role="alert"
+				>
+					<b>{{ changeEmail.message }}</b>
+				</div>
+
+				<form
+					*ngIf="!changeEmail.status"
+					[formGroup]="formEmail"
+					(ngSubmit)="emailChange($event)"
+				>
+					<div class="mb-3">
+						<label for="pass" class="form-label"
+							>Correo electrónico nuevo</label
+						>
+						<input
+							type="email"
+							class="form-control"
+							formControlName="email"
+							required
+							[class.is-invalid]="
+								formEmail.get('email')!.invalid &&
+								formEmail.get('email')!.touched
+							"
+							[class.is-valid]="
+								formEmail.get('email')!.valid && formEmail.get('email')!.dirty
+							"
+						/>
+						<p
+							*ngIf="
+								formEmail.get('email')!.errors &&
+								formEmail.get('email')!.touched
+							"
+							class="col-12"
+						>
+							<small *ngIf="formEmail.get('email')!.hasError('required')"
+								>Este campo es requerido</small
+							>
+							<small *ngIf="formEmail.get('email')!.hasError('pattern')"
+								>Debe ser un correo válido</small
+							>
+						</p>
+					</div>
+					<button type="submit" class="btn btn-primary w-100">
+						CAMBIAR CORREO ELECTRÓNICO
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</ng-template>

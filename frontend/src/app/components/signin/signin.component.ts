@@ -68,7 +68,9 @@ export class SigninComponent implements OnInit {
 					if (user.change_pass === 1) {
 						localStorage.setItem('_F_C_P', user.change_pass);
 					}
+
 					if (user.rol === 1) localStorage.setItem('_U_R_A', user.rol_encrypt);
+					if (user.rol === 3) localStorage.setItem('_U_R_SA', user.rol_encrypt);
 
 					this.router.navigate(['/home']);
 				},

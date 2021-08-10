@@ -114,7 +114,7 @@
 					"
 				>
 					<option [selected]="true" value="">-- Seleccione el rol --</option>
-					<option value="1">Administrador</option>
+					<option *ngIf="isSuperAdmin" value="1">Administrador</option>
 					<option value="2">Usuario</option>
 				</select>
 				<p *ngIf="form.get('rol_id')!.errors && form.get('rol_id')!.touched">

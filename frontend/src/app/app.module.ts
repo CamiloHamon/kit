@@ -74,6 +74,7 @@ import { ChangePassComponent } from './components/change-pass/change-pass.compon
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 import { HowFeedbackComponent } from './components/modals/how-feedback/how-feedback.component';
+import { MyInfoComponent } from './components/my-info/my-info.component';
 
 @NgModule({
 	exports: [RouterModule],
@@ -143,6 +144,7 @@ import { HowFeedbackComponent } from './components/modals/how-feedback/how-feedb
   ForgotPassComponent,
   ResetPassComponent,
   HowFeedbackComponent,
+  MyInfoComponent,
 	],
 	imports: [
 		BrowserModule,

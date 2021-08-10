@@ -129,7 +129,7 @@
 					</div>
 					<div class="col-12 col-lg-auto px-lg-0 px-xxl-4">
 						<ng-container *ngIf="authService.loggedIn()">
-							<div class="row">
+							<div class="row mt-3 mt-lg-0">
 								<div class="col">
 									<div ngbDropdown class="d-inline-block">
 										<button
@@ -137,19 +137,39 @@
 											id="dropdownBasic1"
 											ngbDropdownToggle
 										>
-											{{ adminService.getNameUser() }}
+											<span class="text-capitalize">{{
+												adminService.getNameUser()
+											}}</span>
 										</button>
-										<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-											<button ngbDropdownItem>Mis datos</button>
+										<div
+											ngbDropdownMenu
+											aria-labelledby="dropdownBasic1"
+											class="p-0"
+										>
 											<button
 												ngbDropdownItem
+												class="py-2"
+												routerLink="/account"
+												routerLinkActive="currentDrop"
+											>
+												Mis datos
+											</button>
+											<button
+												*ngIf="
+													adminService.isAdmin() || adminService.isSuperAdmin()
+												"
+												class="py-2 border border-end-0 border-start-0"
+												ngbDropdownItem
 												routerLink="/admin"
-												*ngIf="adminService.isAdmin()"
 												routerLinkActive="currentDrop"
 											>
 												Administrador
 											</button>
-											<button ngbDropdownItem (click)="authService.logout()">
+											<button
+												class="py-2"
+												ngbDropdownItem
+												(click)="authService.logout()"
+											>
 												Cerrar sesión
 											</button>
 										</div>

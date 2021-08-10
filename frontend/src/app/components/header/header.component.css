@@ -211,13 +211,9 @@ a:focus-visible {
 }
 
 .dropdown-item:focus,
-.dropdown-item:hover {
-	color: #1e2125;
-	background-color: #6caaff;
-}
-
+.dropdown-item:hover,
 .currentDrop {
-	color: #1e2125;
+	color: #fff;
 	background-color: #6caaff;
 }
 

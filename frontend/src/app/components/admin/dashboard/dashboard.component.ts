@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
 		this.adminService.getUsers().subscribe(
 			(res) => {
 				this.users = res;
+				console.log(res);
 			},
 			(err) => {
 				localStorage.removeItem('_U_R_A');

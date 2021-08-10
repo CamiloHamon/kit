@@ -40,6 +40,7 @@
 				<th scope="col" class="col-3">Nombre</th>
 				<th scope="col" class="col-3">Apellido</th>
 				<th scope="col" class="col-3">Correo</th>
+				<th scope="col" class="col-3">Rol</th>
 				<th scope="col" class="col-2 text-center">Acciones</th>
 			</tr>
 		</thead>
@@ -47,7 +48,8 @@
 			<tr *ngFor="let user of users" class="fade show">
 				<td>{{ user.name }}</td>
 				<td>{{ user.last_name }}</td>
-				<td>{{ user.email }}</td>
+				<td class="email">{{ user.email }}</td>
+				<td>{{ user.rol }}</td>
 				<td class="text-center">
 					<a
 						class="btn btn-success btn-sm"

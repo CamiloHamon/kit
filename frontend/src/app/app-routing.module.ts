@@ -57,6 +57,7 @@ import { NoChangePassGuard } from './guards/auth/no-change-pass.guard';
 import { AdminGuard } from './guards/admin/admin.guard';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { MyInfoComponent } from './components/my-info/my-info.component';
 
 const routes: Routes = [
 	{
@@ -248,6 +249,11 @@ const routes: Routes = [
 		path: 'response-password-reset',
 		component: ResetPassComponent,
 		canActivate: [CheckLoginGuard],
+	},
+	{
+		path: 'account',
+		component: MyInfoComponent,
+		canActivate: [AuthGuard],
 	},
 	{
 		path: '**',

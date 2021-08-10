@@ -1,0 +1,60 @@
+small {
+	color: #dc3545;
+	display: block;
+}
+
+.confirmUser {
+	background-color: gray;
+	filter: brightness(0.2);
+	user-select: none;
+}
+
+.confirmUser label {
+	color: rgb(181 172 172 / 52%);
+}
+
+.confirmUser input,
+.confirmUse span {
+	pointer-events: none;
+	background-color: gray;
+}
+
+.confirmUser button {
+	pointer-events: none;
+}
+
+form {
+	position: relative;
+}
+
+.btn-confirm {
+	position: absolute;
+	left: calc(50% - 80px);
+	top: calc(50% - 30px);
+	z-index: 10;
+}
+
+input {
+	text-transform: capitalize;
+}
+
+input[type='email'] {
+	text-transform: lowercase;
+}
+
+.alert-login {
+	display: flex;
+	flex-direction: column;
+}
+
+@media (max-width: 572px) {
+	.input-group > .form-control,
+	.input-group > .form-select {
+		width: 86%;
+	}
+
+	button.input-group-text,
+	button.pass {
+		width: 100%;
+	}
+}

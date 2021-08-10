@@ -95,3 +95,11 @@ td:last-child {
 .overflow::-webkit-scrollbar-track {
 	border-radius: 10px;
 }
+
+td {
+	text-transform: capitalize;
+}
+
+.email {
+	text-transform: lowercase;
+}
