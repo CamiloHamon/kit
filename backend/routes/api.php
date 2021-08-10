@@ -74,7 +74,10 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('effectiveCombitation/{idEmotion}', 'App\Http\Controllers\EffectiveCombinationsController@buildCombinationByEmotionId');
 
     //User
+    Route::put('update-info', 'App\Http\Controllers\UserController@update');
     Route::put('change', 'App\Http\Controllers\UserController@changePass');
+    Route::put('change-email', 'App\Http\Controllers\UserController@changeEmail');
+    Route::post('confirm-user', 'App\Http\Controllers\UserController@confirmUser');
 });
 
 Route::group(['middleware' => ['jwt.verify', 'admin'],  'prefix' => 'admin'], function () {

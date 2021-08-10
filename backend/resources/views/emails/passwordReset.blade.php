@@ -76,6 +76,10 @@
         .w-100 {
             width: 100%;
         }
+
+        .text-capitalize {
+            text-transform: capitalize;
+        }
     </style>
 </head>
 
@@ -83,7 +87,7 @@
     <div class="row">
         <div class="col-12 border rounded shadow p-3">
             <h3>Restaurar contraseña</h3>
-            <p class="mt-3">Hola <b>{{$name}},</b></p>
+            <p class="mt-3">Hola <b class="text-capitalize">{{$name}},</b></p>
             <p>¿Olvidaste tu contraseña?
                 <br />
                 Hemos recibido una petición para restablecer la contraseña de tu

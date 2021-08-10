@@ -68,7 +68,12 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        return response()->json([
+            'id' => auth()->user()->id,
+            'email' => auth()->user()->email,
+            'name' => auth()->user()->name,
+            'last_name' => auth()->user()->last_name,
+        ]);
     }
 
     public function whoIm()

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminMiddleware
+class SuperAdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && (auth()->user()->rol_id == 1 || auth()->user()->rol_id == 3))
+        if (auth()->check() && auth()->user()->rol_id == 3)
             return $next($request);
 
         return response()->json(['status' => 'Access denied'], 401);

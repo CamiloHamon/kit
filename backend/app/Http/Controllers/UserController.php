@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\EmergencyCallReceived;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -31,13 +32,41 @@ class UserController extends Controller
 
     public function getUserExcludinAdministrator()
     {
-        $users = $this->userRepository->getUserExcludinAdministrator();
+        if (auth()->user()->rol_id == 3) {
+            $users = $this->userRepository->getUserExcludinSuperAdministrator();
+        } else {
+            $users = $this->userRepository->getUserExcludinAdministrator();
+        }
         return response()->json($users, 200);
     }
 
     public function update(Request $request)
     {
-        $user = $this->userRepository->updateUser($request);
+        $user = User::findOrFail($request->user_id);
+        $user->name = $request->name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        if ($request->rol_id) {
+            if (auth()->user()->rol_id == 3) {
+                $user->rol_id = $request->rol_id;
+            } else {
+                $user->rol_id = 2;
+            }
+        }
+        $user->save();
+        return response()->json(['update' => true]);
+    }
+
+    public function changeEmail(Request $request)
+    {
+        $user = User::findOrFail(auth()->user()->id);
+        $valUser = $this->userRepository->getUserByEmail($request->email);
+
+        if (count($valUser) != 0) {
+            return response()->json(['message' => 'El correo ' . $user->email . ' ya está en uso.', 'status' => false], 200);
+        }
+
+        $user->email = $request->email;
         $user->save();
         return response()->json(['update' => true]);
     }
@@ -57,13 +86,15 @@ class UserController extends Controller
 
         $user->password = bcrypt($password);
         $user->change_pass = 1;
-        $user->rol_id = request("rol_id");
+        if (auth()->user()->rol_id == 3) {
+            $user->rol_id = request("rol_id");
+        } else {
+            $user->rol_id = 2;
+        }
         $user->save();
 
         return response()->json(["data" => $user, "success" => true], 200);
     }
-
-
 
     public function delete($id)
     {
@@ -88,5 +119,16 @@ class UserController extends Controller
             0,
             12
         );
+    }
+
+    public function confirmUser(Request $request)
+    {
+        $password = request("password");
+        $usrPass = $this->userRepository->getPass();
+        $usrPass = $usrPass[0]->password;
+        if (Hash::check($password, $usrPass)) {
+            return response()->json(true);
+        }
+        return response()->json(false);
     }
 }
