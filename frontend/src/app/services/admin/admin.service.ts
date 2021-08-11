@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class AdminService {
 	private URL = environment.URL + '/admin/';
 	alert = new EventEmitter<any>();
+	alertError = new EventEmitter<any>();
 
 	constructor(private http: HttpClient, private router: Router) {}
 

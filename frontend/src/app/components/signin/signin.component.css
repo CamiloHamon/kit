@@ -74,6 +74,14 @@
 	height: 70vh !important;
 }
 
+input[type='text'] {
+	text-transform: lowercase;
+}
+
+input[type='text']::placeholder {
+	text-transform: capitalize;
+}
+
 .bg-login {
 	background-image: url('/assets/img/puntos.png'),
 		url('/assets/img/figure-blue.png'), url('/assets/img/figure-blue-small.png'),

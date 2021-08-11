@@ -14,7 +14,11 @@ const helper = new JwtHelperService();
 export class AuthService {
 	private URL = environment.URL;
 
-	constructor(private http: HttpClient, private router: Router) {}
+	constructor(private http: HttpClient, private router: Router) {
+		if (this.loggedIn()) {
+			if (helper.isTokenExpired(this.getToken()!, 120)) this.logout();
+		}
+	}
 
 	signIn(user: User) {
 		return this.http.post<any>(this.URL + '/auth/login', user);

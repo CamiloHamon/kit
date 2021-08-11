@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import { FormsService } from 'src/app/services/forms/forms.service';
 
 @Component({
 	selector: 'app-edit-user',
@@ -18,6 +19,7 @@ export class EditUserComponent implements OnInit {
 		private formBuilder: FormBuilder,
 		private adminService: AdminService,
 		private activateRoute: ActivatedRoute,
+		private formsService: FormsService,
 		private router: Router
 	) {
 		this.buildForm();
@@ -40,6 +42,8 @@ export class EditUserComponent implements OnInit {
 			},
 			(err) => this.router.navigate(['/admin'])
 		);
+		this.formsService.removeSpaces('name', this.form);
+		this.formsService.removeSpaces('last_name', this.form);
 	}
 
 	private buildForm() {
@@ -69,15 +73,21 @@ export class EditUserComponent implements OnInit {
 		event.preventDefault();
 		if (this.form.valid) {
 			const user = this.form.value;
-			user.name = user.name.toLowerCase();
-			user.last_name = user.last_name.toLowerCase();
-			user.email = this.user.email.toLowerCase();
+			user.name = user.name.toLowerCase().trim();
+			user.last_name = user.last_name.toLowerCase().trim();
+			user.email = this.user.email.toLowerCase().trim();
 			user.user_id = this.idUser;
 
-			this.adminService.updateUser(user).subscribe((res) => {
-				this.adminService.alert.emit(this.createAlert(user.email, 'editado'));
-				this.router.navigate(['/admin']);
-			});
+			this.adminService.updateUser(user).subscribe(
+				(res) => {
+					this.adminService.alert.emit(this.createAlert(user.email, 'editado'));
+					this.router.navigate(['/admin']);
+				},
+				(err) => {
+					this.adminService.alertError.emit(this.createAlert('', ''));
+					this.router.navigate(['/admin']);
+				}
+			);
 		}
 		this.form.markAllAsTouched();
 	}

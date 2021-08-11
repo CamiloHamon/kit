@@ -33,6 +33,37 @@
 	</div>
 </div>
 
+<div
+	*ngIf="alertsErrors.length > 0 && users.length > 0"
+	class="position-fixed bottom-0 end-0 p-3"
+	style="z-index: 11"
+>
+	<div
+		id="liveToast"
+		class="alert toast show fade bg-danger"
+		role="alert"
+		aria-live="assertive"
+		aria-atomic="true"
+		*ngFor="let alert of alertsErrors"
+		[class.opacity-0]="!alert.show"
+		[class.opacity-1]="alert.show"
+		[class.d-none]="!alert.display"
+	>
+		<div class="toast-header bg-danger">
+			<strong class="me-auto text-white">Ha ocurrido un error</strong>
+			<button
+				type="button"
+				class="btn-close btn-close-white"
+				data-bs-dismiss="alert"
+				aria-label="Close"
+			></button>
+		</div>
+		<div class="toast-body text-white">
+			No se ha realizado la operación. Intente más tarde
+		</div>
+	</div>
+</div>
+
 <div *ngIf="users.length > 0" class="row h-table mx-0 overflow">
 	<table class="table table-hover border-top table-responsive table-custom">
 		<thead>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MyValidations } from 'src/app/classes/my-validations';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { ChangePassService } from 'src/app/services/change-pass/change-pass.service';
+import { FormsService } from 'src/app/services/forms/forms.service';
 import { ModalsService } from 'src/app/services/modals/modals.service';
 import { UserService } from 'src/app/services/users/user.service';
 
@@ -30,6 +31,7 @@ export class MyInfoComponent implements OnInit {
 		private changePassService: ChangePassService,
 		public modalsService: ModalsService,
 		public authService: AuthService,
+		private formsService: FormsService,
 		private router: Router
 	) {
 		this.buildForm();
@@ -49,6 +51,9 @@ export class MyInfoComponent implements OnInit {
 				this.router.navigate(['/']);
 			}
 		);
+		this.formsService.removeSpaces('name', this.form);
+		this.formsService.removeSpaces('last_name', this.form);
+		this.formsService.removeSpacesEmail(this.formEmail);
 	}
 
 	private buildForm() {
@@ -158,6 +163,8 @@ export class MyInfoComponent implements OnInit {
 		event.preventDefault();
 		if (this.formEmail.valid && this.confirmUser) {
 			const email = { email: this.formEmail.get('email')?.value };
+			email.email = email.email.replace(/\s+/g, '');
+			this.formEmail.get('email')?.setValue(email.email, { emitEvent: false });
 			this.userServices.changeEmail(email).subscribe((res) => {
 				if (res.update) {
 					this.changeEmail = {};

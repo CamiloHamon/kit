@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import { FormsService } from 'src/app/services/forms/forms.service';
 
 @Component({
 	selector: 'app-create-user',
@@ -16,6 +17,7 @@ export class CreateUserComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private adminService: AdminService,
+		private formsService: FormsService,
 		private router: Router
 	) {
 		this.buildForm();
@@ -23,6 +25,9 @@ export class CreateUserComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.isSuperAdmin = this.adminService.isSuperAdmin();
+		this.formsService.removeSpaces('name', this.form);
+		this.formsService.removeSpaces('last_name', this.form);
+		this.formsService.removeSpacesEmail(this.form);
 	}
 
 	private buildForm() {
@@ -54,9 +59,9 @@ export class CreateUserComponent implements OnInit {
 		event.preventDefault();
 		if (this.form.valid) {
 			const user = this.form.value;
-			user.name = user.name.toLowerCase();
-			user.last_name = user.last_name.toLowerCase();
-			user.email = user.email.toLowerCase();
+			user.name = user.name.toLowerCase().trim();
+			user.last_name = user.last_name.toLowerCase().trim();
+			user.email = user.email.toLowerCase().trim();
 
 			user.rol_id !== '1' && user.rol_id !== '2'
 				? (user.rol_id = '2')
@@ -71,7 +76,10 @@ export class CreateUserComponent implements OnInit {
 						this.router.navigate(['/admin']);
 					} else this.exist = user.email;
 				},
-				(err) => console.log(err)
+				(err) => {
+					this.adminService.alertError.emit(this.createAlert('', ''));
+					this.router.navigate(['/admin']);
+				}
 			);
 		} else {
 			this.form.markAllAsTouched();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ForgotPassService } from 'src/app/services/forgot-pass/forgot-pass.service';
+import { FormsService } from 'src/app/services/forms/forms.service';
 
 @Component({
 	selector: 'app-forgot-pass',
@@ -15,12 +16,15 @@ export class ForgotPassComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private forgotPassService: ForgotPassService,
+		private formsService: FormsService,
 		private router: Router
 	) {
 		this.buildForm();
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.formsService.removeSpacesEmail(this.form);
+	}
 
 	private buildForm() {
 		const pattern = /\S+@\S+\.\S+/;
@@ -33,6 +37,7 @@ export class ForgotPassComponent implements OnInit {
 		event.preventDefault();
 		if (this.form.valid) {
 			const email = this.form.value;
+			email.email = email.email.toLowerCase().trim();
 			this.forgotPassService.sendEmail(email).subscribe(
 				(res) => {
 					this.alert = {

@@ -2,3 +2,7 @@ small {
 	color: #dc3545;
 	display: block;
 }
+
+input {
+	text-transform: lowercase;
+}

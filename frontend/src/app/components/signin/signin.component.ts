@@ -6,6 +6,7 @@ import { User } from 'src/app/classes/user.model';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { environment } from 'src/environments/environment';
+import { FormsService } from 'src/app/services/forms/forms.service';
 
 @Component({
 	selector: 'app-signin',
@@ -21,12 +22,15 @@ export class SigninComponent implements OnInit {
 	constructor(
 		private formBuilder: FormBuilder,
 		private authService: AuthService,
+		private formsService: FormsService,
 		private router: Router
 	) {
 		this.buildForm();
 	}
 
-	public ngOnInit() {}
+	public ngOnInit() {
+		this.formsService.removeSpacesEmail(this.form);
+	}
 
 	private buildForm() {
 		const pattern = /\S+@\S+\.\S+/;
@@ -55,7 +59,7 @@ export class SigninComponent implements OnInit {
 	public signIn(event: Event) {
 		event.preventDefault();
 		if (this.form.valid) {
-			this.email = this.form.get('email')?.value;
+			this.email = this.form.get('email')?.value.toLowerCase().trim();
 			this.password = this.form.get('password')?.value;
 			const user = new User(this.email, this.password);
 			this.authService.signIn(user).subscribe(

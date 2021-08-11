@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/services/admin/admin.service';
 import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 let auxAlerts: any;
+let auxAlertsError: any;
 
 @Component({
 	selector: 'app-dashboard',
@@ -13,10 +14,15 @@ export class DashboardComponent implements OnInit {
 	name: string;
 	users: any = [];
 	alerts: any = [];
+	alertsErrors: any = [];
 
 	constructor(private adminService: AdminService, private router: Router) {
 		this.adminService.alert.subscribe((alert) => (auxAlerts = alert));
+		this.adminService.alertError.subscribe(
+			(alertError) => (auxAlertsError = alertError)
+		);
 		if (auxAlerts) this.alerts.push(auxAlerts);
+		if (auxAlertsError) this.alertsErrors.push(auxAlertsError);
 	}
 
 	ngOnInit(): void {
