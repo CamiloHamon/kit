@@ -53,8 +53,11 @@ class UserController extends Controller
                 $user->rol_id = 2;
             }
         }
-        $user->save();
-        return response()->json(['update' => true]);
+        if ($user->save()) {
+            return response()->json(['update' => true]);
+        }
+
+        return response()->json([false], 403);
     }
 
     public function changeEmail(Request $request)
@@ -82,8 +85,6 @@ class UserController extends Controller
 
         $password = $this->createPassword();
 
-        Mail::to($user->email)->send(new EmergencyCallReceived($user->name, $user->last_name, $user->email, $password));
-
         $user->password = bcrypt($password);
         $user->change_pass = 1;
         if (auth()->user()->rol_id == 3) {
@@ -91,9 +92,13 @@ class UserController extends Controller
         } else {
             $user->rol_id = 2;
         }
-        $user->save();
 
-        return response()->json(["data" => $user, "success" => true], 200);
+        if ($user->save()) {
+            Mail::to($user->email)->send(new EmergencyCallReceived($user->name, $user->last_name, $user->email, $password));
+            return response()->json(["data" => $user, "success" => true], 200);
+        }
+
+        return response()->json([false], 400);
     }
 
     public function delete($id)
