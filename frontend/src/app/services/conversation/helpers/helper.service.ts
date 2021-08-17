@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { RecomendationsService } from '../../recomendations/recomendations.service';
 import { DistinctionsService } from '../distinctions/distinctions.service';
 import { EmotionsService } from '../emotions/emotions.service';
 import { EnvironmentsService } from '../environments/environments.service';
@@ -18,7 +19,8 @@ export class HelperService {
 		private emotionsService: EmotionsService,
 		private questionsService: QuestionsService,
 		private distinctionsService: DistinctionsService,
-		private resourcesService: ResourcesService
+		private resourcesService: ResourcesService,
+		private recomendatiosService: RecomendationsService
 	) {}
 
 	removeAllItems() {
@@ -42,6 +44,7 @@ export class HelperService {
 		this.questionsService.removeQuestion();
 		this.distinctionsService.removeDistinction();
 		this.resourcesService.removeResource();
+		this.recomendatiosService.removeRecomendations();
 	}
 
 	removeAllExceptEnvAndSit() {
@@ -50,6 +53,7 @@ export class HelperService {
 		this.questionsService.removeQuestion();
 		this.distinctionsService.removeDistinction();
 		this.resourcesService.removeResource();
+		this.recomendatiosService.removeRecomendations();
 	}
 
 	removeAllExceptEnvSitSensation() {
@@ -57,17 +61,20 @@ export class HelperService {
 		this.questionsService.removeQuestion();
 		this.distinctionsService.removeDistinction();
 		this.resourcesService.removeResource();
+		this.recomendatiosService.removeRecomendations();
 	}
 
 	removeAllExceptEnvSitSenEmotion() {
 		this.questionsService.removeQuestion();
 		this.distinctionsService.removeDistinction();
 		this.resourcesService.removeResource();
+		this.recomendatiosService.removeRecomendations();
 	}
 
 	removeAllExceptEnvSitSenEmotQuestion() {
 		this.distinctionsService.removeDistinction();
 		this.resourcesService.removeResource();
+		this.recomendatiosService.removeRecomendations();
 	}
 
 	validateEnvSit(): boolean {

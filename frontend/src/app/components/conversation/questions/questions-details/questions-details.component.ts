@@ -10,6 +10,7 @@ import { QuestionsService } from 'src/app/services/conversation/questions/questi
 })
 export class QuestionsDetailsComponent implements OnInit {
 	question: any = [];
+	isLarge: boolean = false;
 
 	constructor(
 		private questionsServices: QuestionsService,
@@ -20,6 +21,19 @@ export class QuestionsDetailsComponent implements OnInit {
 				this.question = this.questionsServices.getQuestion();
 				const split = this.question.description.split(' - ');
 				this.question.use = split[1];
+				if (this.question.argument.length > 600) {
+					this.isLarge = true;
+					const split = this.question.argument.lastIndexOf(
+						' ',
+						this.question.argument.length / 2
+					);
+
+					this.question.first = this.question.argument.slice(0, split);
+					this.question.last = this.question.argument.slice(
+						split,
+						this.question.argument.length
+					);
+				}
 			} catch (e) {
 				router.navigate(['/conversation/questions']);
 			}

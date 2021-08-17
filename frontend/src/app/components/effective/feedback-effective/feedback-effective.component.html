@@ -8,7 +8,7 @@
 					<h5 class="fst-italic fw-normal mb-3">EMOCIÓN</h5>
 					<img src="/assets/img/card-emotion.png" class="img-fluid" alt="" />
 					<div class="text-cards emotion">
-						{{ emotion }}
+						{{ emotion.name }}
 					</div>
 				</div>
 				<div class="col-auto text-center">
@@ -35,7 +35,7 @@
 						[class.large-question]="questionLength > 21"
 						[class.max]="questionLength > 56"
 					>
-						{{ question }}
+						{{ question.name }}
 					</div>
 				</div>
 				<div class="col-auto text-center">
@@ -49,7 +49,7 @@
 						alt=""
 					/>
 					<div class="text-cards distinction">
-						{{ distinction }}
+						{{ distinction.name }}
 					</div>
 				</div>
 				<div class="col-auto text-center">
@@ -59,7 +59,7 @@
 					<h5 class="fst-italic fw-normal mb-3">RECURSO</h5>
 					<img src="/assets/img/card-resource.png" class="img-fluid" alt="" />
 					<div class="text-cards resource">
-						{{ resource }}
+						{{ resource.name }}
 					</div>
 				</div>
 			</div>

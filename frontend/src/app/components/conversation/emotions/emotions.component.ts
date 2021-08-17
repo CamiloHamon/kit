@@ -53,7 +53,6 @@ export class EmotionsComponent implements OnInit {
 		sessionStorage.setItem('esse', `${idESSE}`);
 		this.emotionsService.show(idEmotion).subscribe(
 			(res) => {
-				console.log(res);
 				sessionStorage.setItem('emotion', `${JSON.stringify(res)}`);
 				this.router.navigate(['/conversation/emotions/details']);
 			},

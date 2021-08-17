@@ -9,12 +9,27 @@ import { ResourcesService } from 'src/app/services/conversation/resources/resour
 })
 export class ResourcesDetailsComponent implements OnInit {
 	resources: any = [];
+	isLarge: boolean = false;
+
 	constructor(
 		private resoursesService: ResourcesService,
 		private router: Router
 	) {
 		if (this.resoursesService.existResource()) {
 			this.resources = this.resoursesService.getResource();
+			if (this.resources.argument.length > 600) {
+				this.isLarge = true;
+				const split = this.resources.argument.lastIndexOf(
+					' ',
+					this.resources.argument.length / 2
+				);
+
+				this.resources.first = this.resources.argument.slice(0, split);
+				this.resources.last = this.resources.argument.slice(
+					split,
+					this.resources.argument.length
+				);
+			}
 		} else router.navigate(['/conversation/resources']);
 	}
 

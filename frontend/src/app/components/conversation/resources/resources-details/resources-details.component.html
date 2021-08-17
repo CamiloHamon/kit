@@ -37,6 +37,7 @@
 				rounded-custom
 				shadow
 			"
+			*ngIf="!isLarge; else twoCards"
 		>
 			<div
 				class="
@@ -62,14 +63,91 @@
 					"
 				>
 					<p class="white describe">
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error
-						voluptate libero architecto excepturi quibusdam exercitationem,
-						natus, soluta hic non illo optio minus aspernatur pariatur
-						distinctio. Laborum modi accusamus laboriosam sed.
+						{{ resources.argument }}
 					</p>
 				</div>
 			</div>
 		</div>
+		<ng-template #twoCards>
+			<div
+				class="
+					col-11 col-md-7 col-lg-4
+					my-xxl-0
+					mt-5 mt-lg-4
+					border
+					rounded-custom
+					shadow
+				"
+			>
+				<div
+					class="
+						row
+						mt-5
+						mb-3
+						rounded-custom
+						justify-content-center
+						align-content-center
+						pos-relative
+					"
+				>
+					<div class="img-brain">
+						<img src="/assets/img/brain-purple.png" alt="" class="img-fluid" />
+					</div>
+					<div
+						class="
+							col-11
+							p-lg-5
+							rounded-custom
+							text-center
+							bg-resources bg-describe
+						"
+					>
+						<p class="white describe">
+							{{ resources.first }}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div
+				class="
+					col-11 col-md-7 col-lg-4
+					my-xxl-0
+					mt-5 mt-lg-4
+					border
+					rounded-custom
+					shadow
+				"
+			>
+				<div
+					class="
+						row
+						mt-5
+						mb-3
+						rounded-custom
+						justify-content-center
+						align-content-center
+						pos-relative
+					"
+				>
+					<div class="img-brain">
+						<img src="/assets/img/brain-purple.png" alt="" class="img-fluid" />
+					</div>
+					<div
+						class="
+							col-11
+							p-lg-5
+							rounded-custom
+							text-center
+							bg-resources bg-describe
+						"
+					>
+						<p class="white describe">
+							{{ resources.last }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</ng-template>
 		<div
 			class="
 				row

@@ -69,3 +69,9 @@
 	width: 30%;
 	margin-left: 3%;
 }
+
+@media (max-width: 768px) {
+	.bg-questions {
+		height: auto;
+	}
+}

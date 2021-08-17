@@ -5,15 +5,10 @@
 		>
 			<img src="/assets/img/img-recomendatios.png" alt="" class="img-fluid" />
 		</div>
-		<div class="col-12 col-lg-5 d-text">
+		<div class="col-12 col-lg-5 d-text" *ngIf="connectors">
 			<h1>Para estructurar una buena conversación, ten en cuenta:</h1>
-			<p class="my-5">
-				La vida suele traer cambios, algunos de ellos son inesperados y cuando
-				esto sucede es normal sentir la angustia que nubla incluso antes que
-				sucedan las cosas. En este tipo de circunstancias es conveniente
-				centrarse en las acciones concretas y tener un plan de acción de este
-				modo podremos aprender a decidir entre la angustia y la acción y
-				permitirnos abrir la posibilidad de pensar en un futuro mejor.
+			<p class="mt-5">
+				{{ connectors }}
 			</p>
 			<p>
 				<b

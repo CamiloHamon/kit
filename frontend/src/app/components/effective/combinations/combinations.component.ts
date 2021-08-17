@@ -79,24 +79,28 @@ export class CombinationsComponent implements OnInit {
 			id: combination.id_emotion,
 			name: combination.emotion,
 			description: combination.emotion_description,
+			default_text: combination.emotion_default_text,
 		};
 
 		this.question = {
 			id: combination.id_question,
 			name: combination.question,
 			description: combination.question_description,
+			default_text: combination.question_default_text,
 		};
 
 		this.distinction = {
 			id: combination.id_distinction,
 			name: combination.distinction,
 			description: combination.distinction_description,
+			default_text: combination.distinction_default_text,
 		};
 
 		this.resource = {
 			id: combination.id_resource,
 			name: combination.resource,
 			description: combination.resource_description,
+			default_text: combination.resource_default_text,
 		};
 	}
 
@@ -187,10 +191,10 @@ export class CombinationsComponent implements OnInit {
 	}
 
 	continue() {
-		sessionStorage.setItem('emotion', this.emotion.name);
-		sessionStorage.setItem('question', this.question.name);
-		sessionStorage.setItem('distinction', this.distinction.name);
-		sessionStorage.setItem('resource', this.resource.name);
+		sessionStorage.setItem('emotion', JSON.stringify(this.emotion));
+		sessionStorage.setItem('question', JSON.stringify(this.question));
+		sessionStorage.setItem('distinction', JSON.stringify(this.distinction));
+		sessionStorage.setItem('resource', JSON.stringify(this.resource));
 		this.router.navigate(['/effective-combinations/feedback']);
 	}
 }

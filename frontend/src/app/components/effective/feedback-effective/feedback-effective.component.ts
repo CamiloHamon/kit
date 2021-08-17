@@ -15,10 +15,10 @@ export class FeedbackEffectiveComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {
-		this.emotion = sessionStorage.getItem('emotion');
-		this.question = sessionStorage.getItem('question');
-		this.distinction = sessionStorage.getItem('distinction');
-		this.resource = sessionStorage.getItem('resource');
-		this.questionLength = this.question.length;
+		this.emotion = JSON.parse(sessionStorage.getItem('emotion')!);
+		this.question = JSON.parse(sessionStorage.getItem('question')!);
+		this.distinction = JSON.parse(sessionStorage.getItem('distinction')!);
+		this.resource = JSON.parse(sessionStorage.getItem('resource')!);
+		this.questionLength = this.question.name.length;
 	}
 }

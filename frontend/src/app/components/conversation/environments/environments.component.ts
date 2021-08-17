@@ -38,7 +38,6 @@ export class EnvironmentsComponent implements OnInit {
 		this.idEnvironment = this.form.controls.cards.value;
 		this.environmentsServices.show(this.idEnvironment).subscribe(
 			(res) => {
-				console.log(res);
 				sessionStorage.setItem('environment', `${JSON.stringify(res)}`);
 			},
 			(err) => this.modalError.showModalError('', 'lg')
