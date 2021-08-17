@@ -73,6 +73,10 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     //EffectiveCombinations
     Route::get('effectiveCombitation/{idEmotion}', 'App\Http\Controllers\EffectiveCombinationsController@buildCombinationByEmotionId');
 
+    //Recomendatios
+    Route::get('recomendatios', 'App\Http\Controllers\RecomendationsController@getRecomendations');
+
+
     //User
     Route::put('update-info', 'App\Http\Controllers\UserController@update');
     Route::put('change', 'App\Http\Controllers\UserController@changePass');
