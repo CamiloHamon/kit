@@ -17,17 +17,23 @@ export class EmotionsDetailsComponent implements OnInit {
 		if (this.emotionsService.existEmotion()) {
 			try {
 				this.emotion = this.emotionsService.getEmotion();
-				const split = this.emotion.description.split('. ');
-				if (split.length > 0) {
-					let generate = split[0].split('? ');
-					generate = generate[1];
-					this.emotion.generate = generate;
-					if (split.length > 1) {
-						let comunication = split[1].split('? ');
-						comunication = comunication[1];
-						this.emotion.comunication = comunication;
-					}
+				const description = this.emotion.description;
+
+				let auxDescription = description
+					.slice(description.indexOf('?') + 1, description.length)
+					.trim();
+
+				const existComunication = auxDescription.indexOf('¿');
+
+				if (existComunication != -1) {
+					this.emotion.comunication = auxDescription
+						.slice(auxDescription.indexOf('?') + 1, auxDescription.length)
+						.trim();
+
+					auxDescription = auxDescription.slice(0, existComunication).trim();
 				}
+
+				this.emotion.generate = auxDescription;
 			} catch (e) {}
 		} else router.navigate(['/conversation/emotions']);
 	}

@@ -34,17 +34,23 @@ export class EmotionPracticeComponent implements OnInit {
 	}
 
 	splitEmotion() {
-		const split = this.emotionSelected.description.split('. ');
-		if (split.length > 0) {
-			let generate = split[0].split('? ');
-			generate = generate[1];
-			this.emotionSelected.generate = generate;
-			if (split.length > 1) {
-				let comunication = split[1].split('? ');
-				comunication = comunication[1];
-				this.emotionSelected.comunication = comunication;
-			}
+		const description = this.emotionSelected.description;
+
+		let auxDescription = description
+			.slice(description.indexOf('?') + 1, description.length)
+			.trim();
+
+		const existComunication = auxDescription.indexOf('¿');
+
+		if (existComunication != -1) {
+			this.emotionSelected.comunication = auxDescription
+				.slice(auxDescription.indexOf('?') + 1, auxDescription.length)
+				.trim();
+
+			auxDescription = auxDescription.slice(0, existComunication).trim();
 		}
+
+		this.emotionSelected.generate = auxDescription;
 	}
 
 	drop(event: CdkDragDrop<any>) {
