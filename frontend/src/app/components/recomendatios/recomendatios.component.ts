@@ -19,7 +19,7 @@ export class RecomendatiosComponent implements OnInit {
 					res.forEach((el: any) => {
 						let infoCard: any = sessionStorage.getItem(el.card);
 						infoCard = JSON.parse(infoCard).default_text;
-						this.connectors += `${el.text} ${infoCard}`;
+						this.connectors += `${el.text} ${infoCard}`.trim();
 					});
 					sessionStorage.setItem('recomendations', this.connectors);
 				},
