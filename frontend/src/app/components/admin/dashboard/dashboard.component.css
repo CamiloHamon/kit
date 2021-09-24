@@ -65,7 +65,7 @@ tr:last-child td {
 }
 
 td:last-child {
-	min-width: 155px;
+	min-width: 175px;
 }
 
 .overflow::-webkit-scrollbar {

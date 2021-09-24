@@ -11,6 +11,10 @@ button{
     text-transform: uppercase!important;
 }
 
+.btn{
+	text-transform: uppercase!important;
+}
+
 .currentLink {
 	color: #6caaff !important;
 }

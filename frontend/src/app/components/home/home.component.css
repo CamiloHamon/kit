@@ -51,6 +51,10 @@
   border-bottom: 5px solid #6caaff;
 }
 
+.drop-shadow{
+  filter: drop-shadow(2px 5px 3px #101320);
+}
+
 @media only screen and (max-height: 800px) {
   .h-content {
     height: auto;
