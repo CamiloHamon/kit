@@ -7,12 +7,11 @@
 				objetivo.</span
 			>
 		</div>
-		<div class="col-11 col-lg-5 border rounded-custom shadow">
+		<div class="col-11 col-lg-9 col-xl-6 border rounded-custom shadow">
 			<div
 				class="
 					row
-					mt-5
-					mb-4
+					my-4
 					rounded-custom
 					justify-content-center
 					align-content-center
@@ -23,7 +22,7 @@
 					<img src="/assets/img/brain-green.png" alt="" class="img-fluid" />
 				</div>
 				<div class="col-11 p-5 rounded-custom bg-distinctions">
-					<h5 class="title text-center">{{ distinction.name }}</h5>
+					<h5 class="title text-center mb-3">{{ distinction.name }}</h5>
 					<p class="white">{{ distinction.description }}</p>
 				</div>
 			</div>
@@ -39,14 +38,14 @@
 			id="row-btn"
 		>
 			<button
-				class="col-12 col-md-auto btn btn-outline-secondary mb-3 mb-md-0"
+				class="col-12 col-md-auto btn btn-outline-secondary mt-3 mt-md-0 order-2 order-md-1"
 				routerLink="/conversation/distinctions"
 				data-bs-dismiss="modal"
 			>
 				CAMBIAR DISTINCIÓN
 			</button>
 			<button
-				class="col-12 col-md-auto btn btn-primary ms-lg-5"
+				class="col-12 col-md-auto btn btn-primary ms-lg-5 order-1 order-md-2"
 				data-bs-toggle="modal"
 				data-bs-target="#resources"
 				data-bs-dismiss="modal"

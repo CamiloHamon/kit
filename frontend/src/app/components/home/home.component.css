@@ -1,185 +1,199 @@
 .vh-100 {
-	height: 90.4vh !important;
+  height: 90.4vh !important;
+}
+
+.h-container-fluid {
+  height: 100%;
 }
 
 .bg-home-1 {
-	background-image: url('/assets/img/banner-home-1.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: bottom;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	align-content: center;
-	height: 50vh;
+  background-image: url("/assets/img/banner-home-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 50vh;
 }
 
 .bg-home-3 {
-	background-image: url('/assets/img/banner-home-3.png');
-	background-repeat: no-repeat;
-	height: 50vh;
-	background-size: cover;
-	background-position: left;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	align-content: center;
+  background-image: url("/assets/img/banner-home-3.png");
+  background-repeat: no-repeat;
+  height: 50vh;
+  background-size: cover;
+  background-position: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .px-6 {
-	padding-right: 5rem !important;
-	padding-left: 5rem !important;
-	padding-top: 3rem !important;
-	padding-bottom: 3rem !important;
+  padding-right: 5rem !important;
+  padding-left: 5rem !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
 }
 
 .text-home {
-	font-size: 3.2rem;
-	color: #101320;
-	font-family: 'Pistilli';
+  font-size: 3.2rem;
+  color: #101320;
+  font-family: "Pistilli";
 }
 
 .h-content {
-	height: 39vh;
+  height: 39vh;
 }
 
 .border-text {
-	border-bottom: 5px solid #6caaff;
+  border-bottom: 5px solid #6caaff;
+}
+
+@media only screen and (max-height: 800px) {
+  .h-content {
+    height: auto;
+  }
+
+  .home-items {
+    height: 330px !important;
+  }
 }
 
 @media only screen and (max-width: 991px) {
-	.text-home {
-		font-size: 2rem;
-		color: #101320;
-		font-family: 'Pistilli';
-	}
+  .text-home {
+    font-size: 2rem;
+    color: #101320;
+    font-family: "Pistilli";
+  }
 
-	.px-6 {
-		padding-right: 2rem !important;
-		padding-left: 2rem !important;
-		padding-top: 3rem !important;
-		padding-bottom: 3rem !important;
-	}
+  .px-6 {
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
 
-	.bg-home-4 {
-		background-size: 80%;
-	}
+  .bg-home-4 {
+    background-size: 80%;
+  }
 
-	.bg-home-5 {
-		background-size: 80%;
-	}
+  .bg-home-5 {
+    background-size: 80%;
+  }
 
-	.bg-home-6 {
-		background-size: 80%;
-	}
+  .bg-home-6 {
+    background-size: 80%;
+  }
 
-	.h-content {
-		height: 33vh;
-	}
+  .h-content {
+    height: 33vh;
+  }
 
-	.h-corousel {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		height: 34vh;
-	}
-	.carousel-indicators [data-bs-target] {
-		box-sizing: content-box;
-		flex: 0 1 auto;
-		padding: 0;
-		margin-right: 3px;
-		margin-left: 3px;
-		text-indent: -999px;
-		cursor: pointer;
-		background-color: #6caaff;
-		background-clip: padding-box;
-		border: 0;
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid transparent;
-		opacity: 0.5;
-		transition: opacity 0.6s ease;
-		border-radius: 50%;
-		height: 0.7rem;
-		width: 0.7rem;
-	}
+  .h-corousel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 34vh;
+  }
+  .carousel-indicators [data-bs-target] {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #6caaff;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+    border-radius: 50%;
+    height: 0.7rem;
+    width: 0.7rem;
+  }
 
-	.carousel-indicators {
-		bottom: -40px;
-	}
+  .carousel-indicators {
+    bottom: -40px;
+  }
 
-	.carousel-indicators .active {
-		opacity: 1 !important;
-	}
+  .carousel-indicators .active {
+    opacity: 1 !important;
+  }
 
-	.carousel-custom-items {
-		height: 18rem !important;
-		width: 13rem !important;
-	}
+  .carousel-custom-items {
+    height: 18rem !important;
+    width: 13rem !important;
+  }
 
-	.d-flex-custom {
-		height: 13.5rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+  .d-flex-custom {
+    height: 13.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-	element.style {
-		color: black;
-	}
-	p {
-		margin-top: 0;
-		margin-bottom: 1rem;
-	}
-	*,
-	::after,
-	::before {
-		box-sizing: border-box;
-	}
-	user agent stylesheet p {
-		display: block;
-		margin-block-start: 1em;
-		margin-block-end: 1em;
-		margin-inline-start: 0px;
-		margin-inline-end: 0px;
-	}
-	.carousel-caption {
-		position: initial;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		padding-top: 0;
-		padding-bottom: 0;
-		color: black;
-		text-align: center;
-	}
+  element.style {
+    color: black;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+  user agent stylesheet p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  .carousel-caption {
+    position: initial;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: black;
+    text-align: center;
+  }
 
-	.bg-home-1 {
-		height: 33vh;
-	}
+  .bg-home-1 {
+    height: 33vh;
+  }
 
-	.bg-home-3 {
-		height: 33vh;
-	}
+  .bg-home-3 {
+    height: 33vh;
+  }
 }
 a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 @media (min-width: 992px) {
-	.bg-home-2 {
-		background-image: url('/assets/img/banner-home-2.png');
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: right;
-		height: 50vh;
-		display: flex !important;
-		align-items: center;
-		justify-content: center;
-		align-content: center;
-	}
+  .bg-home-2 {
+    background-image: url("/assets/img/banner-home-2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    height: 50vh;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
 
-	.home-items:hover {
-		background-color: #1013201e;
-	}
+  .home-items:hover {
+    background-color: #1013201e;
+  }
 }

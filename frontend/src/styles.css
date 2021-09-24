@@ -7,6 +7,9 @@
 	font-weight: bold;
 }
 
+button{
+    text-transform: uppercase!important;
+}
 
 .currentLink {
 	color: #6caaff !important;

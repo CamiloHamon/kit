@@ -1,124 +1,125 @@
 <div class="container h-complete">
-	<div class="row align-content-center h-complete">
-		<div id="content">
-			<div id="rhombus">
-				<div class="content">
-					<div class="text">2</div>
-				</div>
-			</div>
-			<h5 class="col-11 col-lg-6 m-lg-0 text-center mt-text pos-relative">
-				Ahora que definiste la situación que vas a abordar, selecciona el grupo
-				de cartas que quieres usar para ir armando la combinación.
-			</h5>
-		</div>
-		<form
-			[formGroup]="form"
-			(ngSubmit)="continue($event)"
-			class="row mx-0 align-content-center mt-5 mt-lg-2"
-		>
-			<div class="col-6 col-lg-3 text-center mb-3 mb-lg-0">
-				<input
-					type="radio"
-					formControlName="cards"
-					value="emotion"
-					id="emotion"
-					(change)="change()"
-				/>
-				<label for="emotion" id="label">
-					<img
-						src="/assets/img/kitcard-emotion.png"
-						alt=""
-						class="img-fluid-custom"
-					/>
-				</label>
-			</div>
-			<div class="col-6 col-lg-3 text-center mb-3 mb-lg-0">
-				<input
-					type="radio"
-					formControlName="cards"
-					value="question"
-					id="question"
-					(click)="change()"
-				/>
-				<label for="question" id="label">
-					<img
-						src="/assets/img/kitcard-question.png"
-						alt=""
-						class="img-fluid-custom"
-					/>
-				</label>
-			</div>
-			<div class="col-6 col-lg-3 text-center">
-				<input
-					type="radio"
-					formControlName="cards"
-					value="distinction"
-					id="distinction"
-					(change)="change()"
-				/>
-				<label for="distinction" id="label">
-					<img
-						src="/assets/img/kitcard-distinction.png"
-						alt=""
-						class="img-fluid-custom"
-					/>
-				</label>
-			</div>
-			<div class="col-6 col-lg-3 text-center">
-				<input
-					type="radio"
-					formControlName="cards"
-					value="resource"
-					id="resource"
-					(change)="change()"
-				/>
-				<label for="resource" id="label">
-					<img
-						src="/assets/img/kitcard-resource.png"
-						alt=""
-						class="img-fluid-custom"
-					/>
-				</label>
-			</div>
-			<div
-				class="
-					row
-					mx-0
-					justify-content-around justify-content-lg-center
-					text-center
-					mt-4
-					mb-5
-					mt-lg-5
-					mb-lg-0
-				"
-			>
-				<button
-					type="button"
-					class="col-auto col-md-auto btn btn-primary"
-					routerLink="/practice/situation"
-				>
-					CAMBIAR SITUACIÓN
-				</button>
-				<button
-					*ngIf="allCards; else elseBtn"
-					type="submit"
-					class="col-auto col-md-auto btn btn-outline-secondary ms-lg-5"
-					[disabled]="form.invalid"
-				>
-					CONTINUAR
-				</button>
-				<ng-template #elseBtn>
-					<button
-						type="submit"
-						class="col-auto col-md-auto btn btn-outline-secondary ms-lg-5"
-						routerLink="/practice/feedback"
-					>
-						FINALIZAR
-					</button>
-				</ng-template>
-			</div>
-		</form>
-		<b>AVANCE</b>
-		<app-advance-practice></app-advance-practice>
-	</div>
+  <div class="row align-content-center h-complete">
+    <div id="content">
+      <div id="rhombus">
+        <div class="content">
+          <div class="text">2</div>
+        </div>
+      </div>
+      <h5 class="col-11 col-lg-6 m-lg-0 text-center mt-text pos-relative">
+        Ahora que definiste la situación que vas a abordar, selecciona el grupo
+        de cartas que quieres usar para ir armando la combinación.
+      </h5>
+    </div>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="continue($event)"
+      class="row mx-0 align-content-center mt-5 mt-lg-2"
+    >
+      <div class="col-6 col-lg-3 text-center mb-3 mb-lg-0">
+        <input
+          type="radio"
+          formControlName="cards"
+          value="emotion"
+          id="emotion"
+          (change)="change()"
+        />
+        <label for="emotion" id="label">
+          <img
+            src="/assets/img/kitcard-emotion.png"
+            alt=""
+            class="img-fluid-custom"
+          />
+        </label>
+      </div>
+      <div class="col-6 col-lg-3 text-center mb-3 mb-lg-0">
+        <input
+          type="radio"
+          formControlName="cards"
+          value="question"
+          id="question"
+          (click)="change()"
+        />
+        <label for="question" id="label">
+          <img
+            src="/assets/img/kitcard-question.png"
+            alt=""
+            class="img-fluid-custom"
+          />
+        </label>
+      </div>
+      <div class="col-6 col-lg-3 text-center">
+        <input
+          type="radio"
+          formControlName="cards"
+          value="distinction"
+          id="distinction"
+          (change)="change()"
+        />
+        <label for="distinction" id="label">
+          <img
+            src="/assets/img/kitcard-distinction.png"
+            alt=""
+            class="img-fluid-custom"
+          />
+        </label>
+      </div>
+      <div class="col-6 col-lg-3 text-center">
+        <input
+          type="radio"
+          formControlName="cards"
+          value="resource"
+          id="resource"
+          (change)="change()"
+        />
+        <label for="resource" id="label">
+          <img
+            src="/assets/img/kitcard-resource.png"
+            alt=""
+            class="img-fluid-custom"
+          />
+        </label>
+      </div>
+      <div
+        class="
+          row
+          mx-0
+          justify-content-around justify-content-lg-center
+          text-center
+          mt-4
+          mb-5
+          mt-lg-5
+          mb-lg-0
+        "
+      >
+        <button
+          *ngIf="allCards; else elseBtn"
+          type="submit"
+          class="col-auto col-md-auto btn btn btn-primary me-lg-5"
+          [disabled]="form.invalid"
+        >
+          CONTINUAR
+        </button>
+        <button
+          type="button"
+          class="col-auto col-md-auto btn btn-outline-secondary"
+          routerLink="/practice/situation"
+        >
+          CAMBIAR SITUACIÓN
+        </button>
+
+        <ng-template #elseBtn>
+          <button
+            type="submit"
+            class="col-auto col-md-auto btn btn-outline-secondary ms-lg-5"
+            routerLink="/practice/feedback"
+          >
+            FINALIZAR
+          </button>
+        </ng-template>
+      </div>
+    </form>
+    <b>AVANCE</b>
+    <app-advance-practice></app-advance-practice>
+  </div>
 </div>

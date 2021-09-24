@@ -47,7 +47,7 @@ input {
 
 input:checked + label {
 	box-shadow: 0 0 20px rgb(161 170 166 / 50%);
-	border: 3px solid #a25260;
+	border: 3px solid #a25260!important;
 	border-radius: 0.7rem;
 	filter: brightness(0.8);
 	background-color: #d78056;
@@ -61,6 +61,7 @@ input:checked + label {
 	position: relative;
 	display: inline-block;
 	text-align: center;
+	border: 3px solid transparent;
 }
 
 .cards-content {
