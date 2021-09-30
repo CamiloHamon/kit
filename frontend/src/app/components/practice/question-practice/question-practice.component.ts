@@ -52,6 +52,13 @@ export class QuestionPracticeComponent implements OnInit {
 			this.idQuestionSelected = indexOf;
 			this.questions[indexOf] = {};
 			this.splitQuestion();
+			const interval = setInterval(() => {
+				const $divCard = document.getElementById('div-card');
+				if ($divCard) {
+				  $divCard?.click();
+				  clearInterval(interval);
+				}
+			}, 1);
 		}
 	}
 

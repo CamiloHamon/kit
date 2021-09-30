@@ -23,6 +23,7 @@ export class CardsSectionComponent implements OnInit {
 	resource: any = [];
 	stepNumber: number = 1;
 	rhombus: boolean = true;
+	currentLink: string = 'environment_';
 
 	constructor(
 		public environmentsServices: EnvironmentsService,
@@ -55,21 +56,27 @@ export class CardsSectionComponent implements OnInit {
 	getNumberStep() {
 		if (this.environmentsServices.existEnvironment()) {
 			this.stepNumber++;
+			this.currentLink = 'situation_';
 		}
 		if (this.situationsServices.existSituation()) {
 			this.stepNumber++;
+			this.currentLink = 'sensation_';
 		}
 		if (this.sensationsServices.existSensation()) {
 			this.stepNumber++;
+			this.currentLink = 'emotion_';
 		}
 		if (this.emotionsServices.existEmotion()) {
 			this.stepNumber++;
+			this.currentLink = 'question_';
 		}
 		if (this.questionsServices.existQuestion()) {
 			this.stepNumber++;
+			this.currentLink = 'distinction_';
 		}
 		if (this.distinctionsServices.existDistinction()) {
 			this.stepNumber++;
+			this.currentLink = 'resource_';
 		}
 		if (this.resourcesServices.existResource()) {
 			this.stepNumber++;

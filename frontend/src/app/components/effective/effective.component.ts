@@ -12,4 +12,11 @@ export class EffectiveComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onActivate(e: any) {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
 }

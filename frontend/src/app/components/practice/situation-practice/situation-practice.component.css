@@ -67,10 +67,26 @@
 	margin-top: 1vh;
 }
 
+.mt-text {
+	margin-top: 0;
+}
+
 @media (max-width: 991px) {
 	.form-floating > .form-control:focus ~ label,
 	.form-floating > .form-control:not(:placeholder-shown) ~ label,
 	.form-floating > .form-select ~ label {
 		transform: scale(0.85) translateY(-0.5rem) translateX(1.5rem);
+	}
+
+	.h-complete {
+		height: auto;
+	}
+
+	#content{
+		margin-top: calc(50px + 0.25rem);
+	}
+
+	.mt-text {
+		margin-top: 45px;
 	}
 }

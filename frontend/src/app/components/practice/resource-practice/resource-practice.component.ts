@@ -43,6 +43,13 @@ export class ResourcePracticeComponent implements OnInit {
 			this.resourceSelected = this.resources[indexOf];
 			this.idresourceSelected = indexOf;
 			this.resources[indexOf] = {};
+			const interval = setInterval(() => {
+				const $divCard = document.getElementById('div-card');
+				if ($divCard) {
+				  $divCard?.click();
+				  clearInterval(interval);
+				}
+			}, 1);
 		}
 	}
 

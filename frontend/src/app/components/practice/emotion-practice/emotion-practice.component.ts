@@ -63,6 +63,13 @@ export class EmotionPracticeComponent implements OnInit {
 			this.idEmotionSelected = indexOf;
 			this.emotions[indexOf] = {};
 			this.splitEmotion();
+			const interval = setInterval(() => {
+				const $divCard = document.getElementById('div-card');
+				if ($divCard) {
+				  $divCard?.click();
+				  clearInterval(interval);
+				}
+			}, 1);
 		}
 	}
 

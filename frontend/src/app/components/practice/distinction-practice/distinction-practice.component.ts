@@ -1,62 +1,76 @@
 import {
-	CdkDrag,
-	CdkDragDrop,
-	DragDropModule,
-	moveItemInArray,
-	transferArrayItem,
+  CdkDrag,
+  CdkDragDrop,
+  DragDropModule,
+  moveItemInArray,
+  transferArrayItem,
 } from '@angular/cdk/drag-drop';
 
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { DistinctionsService } from 'src/app/services/conversation/distinctions/distinctions.service';
 import { CombinationsService } from 'src/app/services/effective/combinations/combinations.service';
 
 @Component({
-	selector: 'app-distinction-practice',
-	templateUrl: './distinction-practice.component.html',
-	styleUrls: ['./distinction-practice.component.css'],
+  selector: 'app-distinction-practice',
+  templateUrl: './distinction-practice.component.html',
+  styleUrls: ['./distinction-practice.component.css'],
 })
 export class DistinctionPracticeComponent implements OnInit {
-	distinctions: any = [];
-	distinctionSelected: any = {};
-	idDistinctionSelected: number;
+  distinctions: any = [];
+  distinctionSelected: any = {};
+  idDistinctionSelected: number;
 
-	constructor(
-		private distinctionsService: DistinctionsService,
-		private effectiveCombinationService: CombinationsService,
-		private router: Router
-	) {}
+  constructor(
+    private distinctionsService: DistinctionsService,
+    private effectiveCombinationService: CombinationsService,
+    private router: Router,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
-	ngOnInit(): void {
-		this.distinctionsService.index().subscribe(
-			(res) => (this.distinctions = res),
-			(err) => console.log(err)
-		);
-	}
+  ngOnInit(): void {
+    this.distinctionsService.index().subscribe(
+      (res) => (this.distinctions = res),
+      (err) => console.log(err)
+    );
+  }
 
-	drop(event: CdkDragDrop<any>) {
-		const indexOf = event.previousIndex;
-		if (event.previousContainer !== event.container) {
-			if (this.idDistinctionSelected > -1) {
-				this.distinctions[this.idDistinctionSelected] =
-					this.distinctionSelected;
-			}
-			this.distinctionSelected = this.distinctions[indexOf];
-			this.idDistinctionSelected = indexOf;
-			this.distinctions[indexOf] = {};
-		}
-	}
+  drop(event: CdkDragDrop<any>) {
+    const indexOf = event.previousIndex;
+    if (event.previousContainer !== event.container) {
+      if (this.idDistinctionSelected > -1) {
+        this.distinctions[this.idDistinctionSelected] =
+          this.distinctionSelected;
+      }
+      this.distinctionSelected = this.distinctions[indexOf];
+      this.idDistinctionSelected = indexOf;
+      this.distinctions[indexOf] = {};
+      const interval = setInterval(() => {
+        const $divCard = document.getElementById('div-card');
+        if ($divCard) {
+          $divCard?.click();
+          clearInterval(interval);
+        }
+      }, 1);
+    }
+  }
 
-	sendCardEmitter(cardInfo: any) {
-		this.effectiveCombinationService.cards.emit(cardInfo);
-		this.effectiveCombinationService.practice.emit(true);
-	}
+  sendCardEmitter(cardInfo: any) {
+    this.effectiveCombinationService.cards.emit(cardInfo);
+    this.effectiveCombinationService.practice.emit(true);
+  }
 
-	continue() {
-		sessionStorage.setItem(
-			'distinction',
-			JSON.stringify(this.distinctionSelected)
-		);
-		this.router.navigate(['/practice/card-combination']);
-	}
+  continue() {
+    sessionStorage.setItem(
+      'distinction',
+      JSON.stringify(this.distinctionSelected)
+    );
+    this.router.navigate(['/practice/card-combination']);
+  }
 }
