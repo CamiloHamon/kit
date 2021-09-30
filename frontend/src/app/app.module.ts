@@ -75,6 +75,7 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 import { HowFeedbackComponent } from './components/modals/how-feedback/how-feedback.component';
 import { MyInfoComponent } from './components/my-info/my-info.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
 	exports: [RouterModule],
@@ -155,6 +156,7 @@ import { MyInfoComponent } from './components/my-info/my-info.component';
 		NgbModule,
 		RouterModule,
 		DragDropModule,
+		SwiperModule
 	],
 	providers: [
 		AuthGuard,
