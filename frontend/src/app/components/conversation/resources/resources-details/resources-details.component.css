@@ -58,3 +58,9 @@
 		background-position-x: left, calc(100% + 15px);
 	}
 }
+
+@media (max-width: 1400px) {
+	.bg-resources {
+		height: 100%;
+	}
+}

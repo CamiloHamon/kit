@@ -75,3 +75,14 @@
 		height: auto;
 	}
 }
+
+
+@media (max-width: 1400px) {
+	.bg-questions {
+		height: 100%;
+	}
+
+	.h-content-question{
+		height: calc(100% - 5rem);
+	}
+}

@@ -149,7 +149,7 @@ input:checked + label {
 	max-width: 160px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
 	.btn {
 		padding-left: 2rem;
 		padding-right: 2rem;
@@ -169,11 +169,12 @@ input:checked + label {
 	}
 
 	.text-cards {
-		width: 100%;
-		font-size: 13px;
+		width: calc(100% - 4px);
+		font-size: 11px;
 	}
 
 	.large-question {
 		font-size: 11px;
+		line-height: 12px;
 	}
 }

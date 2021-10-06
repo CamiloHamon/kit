@@ -74,6 +74,14 @@ body {
 	filter: blur(5px);
 }
 
+.c-modal{
+	min-height: 420px;
+}
+
+.h-custom-details{
+	height: 100%;
+}
+
 @media (max-width: 1200px) {
 	.navbar-spacing-right .navbar-nav .nav-link {
 		padding-right: 0.7rem;
@@ -91,3 +99,14 @@ body {
 		/* font-size: 1.125rem; */
 	}
 }
+
+@media (max-width: 1399px) {
+	.h-content-description-details{
+		height: calc(100% - 5rem);
+	}
+
+	.h-custom-details{
+		height: initial!important;
+	}
+}
+
